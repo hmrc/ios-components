@@ -1,0 +1,16 @@
+fastlane_require 'semantic'
+
+default_platform(:ios)
+
+platform :ios do
+
+  desc "Update dependencies."
+  lane :update_dependencies do
+    sh 'cd .. && carthage update --platform ios --use-ssh'
+  end
+
+  desc "Check for outdated carthage dependencies."
+  lane :check_dependencies do
+    sh 'cd .. && mkdir -p Artifacts && /usr/local/bin/carthage outdated --xcode-warnings --use-ssh > Artifacts/dependencies_report.txt'
+  end
+end
