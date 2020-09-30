@@ -599,7 +599,7 @@ view.setReader(trait: .menu)
 
 A string extension method which, ideally, takes a multiline string and returns a `UIStackView` containing a mixture of `UILabel` and `Components.Atoms.BulletLabelView`. 
 
-This is benificial for VoiceOver as each paragraph becomes read out individually instead of one large block.
+This is beneficial for VoiceOver as each paragraph is selected and read out individually instead of one large block.
 
 Default `UIStackView` properties:
 ```swift
