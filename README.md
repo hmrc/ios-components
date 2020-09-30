@@ -25,70 +25,116 @@ github "hmrc/ios-components"
 
 #### Primary
 
+  
+
 ```swift
-UIButton.styled(.primary(true), string: "Primary Button")
+UIButton.buildPrimaryButton(string: "Primary Button") {
+	// Set other button properties by accessing $0
+}
 ```
+
+  
 
 #### Disabled Primary
 
+  
+
 ```swift
-UIButton.styled(.primary(false), string: "Disabled Primary Button")
+UIButton.buildPrimaryButton(string: "Disabled Primary Button", enabled: false) {
+	// Set other button properties by accessing $0
+}
 ```
+
+  
 
 #### Secondary
 
+  
+
 ```swift
-UIButton.styled(.secondary, string: "Secondary Button")
+UIButton.buildSecondaryButton(string: "Secondary Button") {
+	// Set other button properties by accessing $0
+}
 ```
 
-### UILabel
+  
 
-#### H3
+### UILabel
+The label builder automatically set the following:
+```swift
+adjustsFontForContentSizeCategory = true
+numberOfLines = 0
+lineBreakMode = .byWordWrapping
+```
+They can be overridden within the closure of the label by accessing `$0`
+
+For `H3`, `H4` and `H5` the labels are created with `accessibilityTraits = .header`
+  
+
+#### H3 
 
 ```swift
-UILabel.styled(style: .H3, string: "H3 Text")
+UILabel.buildH3Label {
+	$0.text = "H3 Text"
+}
 ```
 
 #### H4
 
 ```swift
-UILabel.styled(style: .H4, string: "H4 Text")
+UILabel.buildH4Label {
+	$0.text = "H4 Text"
+}
 ```
+
+  
 
 #### H5
 
 ```swift
-UILabel.styled(style: .H5, string: "H5 Text")
+UILabel.buildH5Label {
+	$0.text = "H5 Text"
+}
 ```
 
 #### Bold
 
 ```swift
-UILabel.styled(style: .bold, string: "Bold Text")
+UILabel.buildBoldLabel {
+	$0.text = "Bold Text"
+}
 ```
 
 #### Body
 
 ```swift
-UILabel.styled(style: .body, string: "Body Text")
+UILabel.buildBodyLabel {
+	$0.text = "Body Text"
+}
 ```
 
 #### Info
 
 ```swift
-UILabel.styled(style: .info, string: "Info Text")
+UILabel.buildInfoLabel {
+	$0.text = "Info Text"
+}
 ```
 
 #### Link
 
 ```swift
-UILabel.styled(style: .link, string: "Link Text")
+UILabel.buildLinkLabel {
+	$0.text = "Link Text"
+}
 ```
 
 #### Error
 
 ```swift
-UILabel.styled(style: .error, string: "Error Text")
+UILabel.buildErrorLabel {
+	$0.text = "Error Text"
+}
 ```
 
 #### Bulleted
@@ -98,6 +144,7 @@ Components.Atoms.BulletLabelView(text: "bulleted text")
 ```
 
 ### NSMutableAttributedString
+- [ ] Convert to use the new builder pattern
 
 #### H3
 
@@ -236,7 +283,8 @@ This component can display a row with one, two or three equally distributed colu
 ```swift
 let view = Components.Molecules.MultiColumnRowView(
     labels: ["Text 1", "Text 2", "Text 3"],
-    style: .body)
+    style: .body
+)
 ```
 ```swift    
 let view = Components.Molecules.MultiColumnRowView(
@@ -245,17 +293,19 @@ let view = Components.Molecules.MultiColumnRowView(
         LabelColumn(style: .body, canCopy: false, huggingPriority: .required),
         LabelColumn(style: .bold, canCopy: true, huggingPriority: .defaultHigh)
     ]
+)
 ```
 
 ### Switch Row View
 
 ```swift
-let model = Components.Molecules.SwitchRowView.Model(
-            title: "Title",
-            body: "Body. Switch: off", // optional
-            isOn: false
-        )
-let view = Components.Molecules.SwitchRowView(model: model)
+let view = Components.Molecules.SwitchRowView(
+    model: .init(
+        title: "Title",
+        body: "Body. Switch: off", // optional
+        isOn: false
+    )
+)
 view.valueChanged = { isOn in
     print("Switch is: " + isOn ? "on" : "off")
 }
@@ -267,7 +317,8 @@ return view
 ```swift
 let view = Components.Molecules.IconButtonView(
     title: "Title",
-    icon: UIImage(named: "icon"))
+    icon: UIImage(named: "icon")
+)
 view.didTapButton = { _ in
     // do something
 }
@@ -276,21 +327,23 @@ view.didTapButton = { _ in
 ### Status View
 
 ```swift
-let model = Components.Molecules.StatusView.Model(
-    icon: UIImage(named: "icon"),
-    title: "Title",
-    body: "Body", // body can also be NSAttributedString
+let view = Components.Molecules.StatusView(
+    model: .init(
+        icon: UIImage(named: "icon"),
+        title: "Title",
+        body: "Body", // body can also be NSAttributedString
+    )
 )
-let view = Components.Molecules.StatusView(model: model)
 ```
 
 ### Warning View
 
 ```swift
-let model = Components.Molecules.WarningView.Model(
-    text: "Warning Text"
+let view = Components.Molecules.WarningView(
+    model: .init(
+        text: "Warning Text"
+    )
 )
-let view = Components.Molecules.WarningView(model: model)
 ```
 
 ### Tab Bar View
@@ -302,15 +355,15 @@ Uses default button accessibility traits with a label of "segment_title, positio
 
 #### Example Usage
 ```swift
-let model = Components.Molecules.TabBarView.Model(
-    segments: [
-        .init(title: "title 1", startsSelected: true) { },
-        .init(title: "title 2") { },
-    ],
-    theme: .dark / .light
+let tabBarView = Components.Molecules.TabBarView(
+    model: .init(
+        segments: [
+            .init(title: "title 1", startsSelected: true) { },
+            .init(title: "title 2") { },
+        ],
+        theme: .dark / .light
+    )
 )
-
-let tabBarView = Components.Molecules.TabBarView(model: model)
 ```
 
 ### Select Row View
@@ -321,25 +374,25 @@ Reads 'Selected / Not selected, body_text, radio button' for VO
 
 #### Example usage
 ```swift
-let model = Components.Molecules.SelectRowView.Model(
-    isSelected: true, (defaults to false)
-    body: "body text",
-    selectedImage: UIImage(), (defaults to nil, if nil will use tick)
-    deselectedImage: UIImage() (defaults to nil, if nil will use circle)
+let selectRowView = Components.Molecules.SelectRowView(
+    model: .init(
+        isSelected: true, (defaults to false)
+        body: "body text",
+        selectedImage: UIImage(), (defaults to nil, if nil will use tick)
+        deselectedImage: UIImage() (defaults to nil, if nil will use circle)
+    )
 )
-let selectRowView = Components.Molecules.SelectRowView(model: model)
 selectRowView.tapHandler = {  } // Not required
 ```
 
 ```swift
-let groupedModel = Components.Molecules.SelectRowView.Model(
-    rows: [
-        Components.Molecules.SelectRowView.Model.Row(isSelected: true, body: "Option 1"),
-        Components.Molecules.SelectRowView.Model.Row(body: "Option 2")
-    ]
-)
 let selectRowView = Components.Molecules.SelectRowView(
-    model: groupedModel
+    model: .init(
+        rows: [
+            .init(isSelected: true, body: "Option 1"),
+            .init(body: "Option 2")
+        ]
+    )
 )
 selectRowView.tapHandler = {  } // Not required            
 ```
@@ -376,12 +429,14 @@ selectRowGroupView2.set(validationError: "You must select yes or no")
 
 ### Headline Card View
 
-```swift
-let model = Components.Organisms.HeadlineCardView.Model(
-    title: "Title",
-    headline: "Headline",       // Can be String or NSAttributedString
-    views: []) // list of child views to display below headline
-let view = Components.Organisms.HeadlineCardView(model: model)
+```swift 
+let view = Components.Organisms.HeadlineCardView(
+    model: .init(
+        title: "Title",
+        headline: "Headline",       // Can be String or NSAttributedString
+        views: [] // list of child views to display below headline
+    )
+)
 ```
 
 Padding can be removed from child views using the `removePadding(onViews:)` method.
@@ -389,11 +444,12 @@ Padding can be removed from child views using the `removePadding(onViews:)` meth
 ### Primary Card View
 
 ```swift
-let model = Components.Organisms.PrimaryCardView.Model(
-    title: "Title",
-    views: []) // list of child views to display below headline
+let view = Components.Organisms.PrimaryCardView(
+    model: .init(
+        title: "Title",
+        views: [] // list of child views to display below headline
+    )
 )
-let view = Components.Organisms.PrimaryCardView(model: model)
 ```
 
 Padding can be removed from child views using the `removePadding(onViews:)` method.
@@ -401,30 +457,34 @@ Padding can be removed from child views using the `removePadding(onViews:)` meth
 ### Expanding Row View
 
 ```swift
-let model = Components.Organisms.ExpandingRowView.Model(
-    title: "Title",
-    subtitle: "Subtitle",
-    icon: UIImage(named: "icon"),
-    expandedView: expandedView,
-    shouldAnimateExpansion: true|false // Optional: default is true
+let component = Components.Organisms.ExpandingRowView(
+    model: .init(
+        title: "Title",
+        subtitle: "Subtitle",
+        icon: UIImage(named: "icon"),
+        expandedView: expandedView,
+        shouldAnimateExpansion: true|false // Optional: default is true
+    )
 )
-let component = Components.Organisms.ExpandingRowView(model: model)
 ```
 
 ### Status Card View
 
 ```swift
-let model = Components.StatusCardView.Model(
-    icon: UIImage(named: "icon"),
-    title: "Title",
-    body: "Body" // body can also be NSAttributedString,
-    buttonModel: .init(title: "Button Title", actionBlock: { _ in
+let view = Components.StatusCardView(
+    model: .init(
+        icon: UIImage(named: "icon"),
+        title: "Title",
+        body: "Body" // body can also be NSAttributedString,
+        buttonModel: .init(
+            title: "Button Title", 
+            actionBlock: { _ in
                 handler()
             }),
-    views: [UIView(), UIButton()],
-    journeyId: "121212-343434-565656-787878"
+        views: [UIView(), UIButton()],
+        journeyId: "121212-343434-565656-787878"
+    )
 )
-let view = Components.StatusCardView(model: model)
 ```
 
 ### Status Button Card View
@@ -436,13 +496,14 @@ let buttonDescriptor = ButtonDescriptor(
     title: "Button",
     alignment: .center
 )
-let model = Components.StatusButtonCardView.ButtonModel(
-    icon: UIImage(named: "icon"),
-    title: "Title",
-    body: "Body", // body can also be NSAttributedString
-    buttonDescriptor: buttonDescriptor
+let view = Components.StatusButtonCardView(
+    model: .init(
+        icon: UIImage(named: "icon"),
+        title: "Title",
+        body: "Body", // body can also be NSAttributedString
+        buttonDescriptor: buttonDescriptor
+    )
 )
-let view = Components.StatusButtonCardView(model: model)
 view.didTapButton = { _ in
     // do something
 }
@@ -451,11 +512,12 @@ view.didTapButton = { _ in
 ### Icon Button Card View
 
 ```swift
-let model = Components.Organisms.IconButtonCardView.Model(
-    title: "Title",
-    icon: UIImage(named: "icon")
+let view = Components.Organisms.IconButtonCardView(
+    model: .init(
+        title: "Title",
+        icon: UIImage(named: "icon")
+    )
 )
-let view = Components.Organisms.IconButtonCardView(model: model)
 view.didTapButton = { _ in
     // do something
 }
@@ -530,6 +592,19 @@ view.setReader(trait: .simple)
 //OR
 view.setReader(trait: .menu)
 
+```
+## Helper Methods
+
+### String.buildStackViewFromParagraphs() -> UIStackView
+
+A string extension method which, ideally, takes a multiline string and returns a `UIStackView` containing a mixture of `UILabel` and `Components.Atoms.BulletLabelView`. 
+
+This is benificial for VoiceOver as each paragraph becomes read out individually instead of one large block.
+
+Default `UIStackView` properties:
+```swift
+axis = .vertical
+spacing = .spacer8
 ```
 
 ## Helper Views
