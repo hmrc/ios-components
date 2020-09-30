@@ -17,6 +17,13 @@ Carthage is a decentralised dependency manager that builds your dependencies and
 github "hmrc/ios-components"
 ```
 
+# Using the Component Library
+
+The component library is created using molecular design. 
+
+You can read more about this, and see the individual atoms, molecules, and organisms in the [Wiki](https://github.com/hmrc/ios-components/wiki)
+
+
 # Contributing
 
 ## Getting Started
@@ -68,3 +75,6 @@ We use [SwiftLint](https://github.com/realm/SwiftLint) to enforce Swift style an
 We use [Carthage](https://github.com/Carthage/Carthage) for dependency management.
 
 - [ ] Add support for SPM
+
+### Using Android?
+We have an android version of this library available [here](https://github.com/hmrc/android-components/) 
