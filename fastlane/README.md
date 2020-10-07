@@ -16,6 +16,13 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
+### ios tag_release
+```
+fastlane ios tag_release
+```
+Create a new tagged release of the library.
+
+This will bump the Info.plist version, precompile the library, commit and tag the changes, then push up to master.
 ### ios update_dependencies
 ```
 fastlane ios update_dependencies
