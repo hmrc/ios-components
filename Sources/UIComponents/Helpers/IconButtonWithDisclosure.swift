@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import UIKit
+
 public class IconButtonWithDisclosure: Components.Helpers.ViewWithCustomDisclosure, Component {
     private var model: Model?
 

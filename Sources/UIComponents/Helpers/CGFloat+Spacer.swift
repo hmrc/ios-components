@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import Foundation
+import UIKit
 
 public extension CGFloat {
     static let spacer4: CGFloat = 4.0

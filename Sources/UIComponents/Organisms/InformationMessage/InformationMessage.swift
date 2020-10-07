@@ -14,7 +14,7 @@
 * limitations under the License.
 */
 
-import Foundation
+import UIKit
 
 extension Components.Organisms {
     open class InformationMessageCard: Components.Atoms.CardView {

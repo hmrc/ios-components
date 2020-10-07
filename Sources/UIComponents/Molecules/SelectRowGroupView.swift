@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+import UIKit
+
 extension Components.Molecules {
     public struct SelectableRowContent {
         let label: String
