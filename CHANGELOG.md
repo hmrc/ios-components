@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [5.0.0] - 2020-10-07
 Xcode 12 update
 
 ## [4.6.5] - 2020-08-26
