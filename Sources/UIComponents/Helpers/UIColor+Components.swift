@@ -17,7 +17,6 @@
 import UIKit
 
 public extension UIColor {
-
     struct Components {
         public struct Named {
             public static var black: UIColor {
@@ -111,7 +110,7 @@ public extension UIColor {
         case black, pink, teal, white, yellow
 
         public var raw: UIColor {
-            return UIColor(named: self.rawValue)!
+            return UIColor(named: self.rawValue, in: Bundle.module, compatibleWith: nil)!
         }
     }
 
@@ -147,7 +146,7 @@ public extension UIColor {
         switchTintSelected
 
         public var raw: UIColor {
-            return UIColor(named: self.rawValue)!
+            return UIColor(named: self.rawValue, in: Bundle.module, compatibleWith: nil)!
         }
     }
 }
