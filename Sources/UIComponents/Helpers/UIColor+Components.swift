@@ -17,13 +17,6 @@
 import UIKit
 
 public extension UIColor {
-    static var bundle: Bundle {
-        let bundleId = "uk.gov.hmrc.ngc.UIComponents"
-        guard let bundle = Bundle(identifier: bundleId) else {
-            fatalError("Could not fetch bundle for `\(bundleId)`")
-        }
-        return bundle
-    }
 
     struct Components {
         public struct Named {
@@ -118,7 +111,7 @@ public extension UIColor {
         case black, pink, teal, white, yellow
 
         public var raw: UIColor {
-            return UIColor(named: self.rawValue, in: bundle, compatibleWith: nil)!
+            return UIColor(named: self.rawValue, compatibleWith: nil)!
         }
     }
 
@@ -154,7 +147,7 @@ public extension UIColor {
         switchTintSelected
 
         public var raw: UIColor {
-            return UIColor(named: self.rawValue, in: bundle, compatibleWith: nil)!
+            return UIColor(named: self.rawValue, compatibleWith: nil)!
         }
     }
 }
