@@ -111,7 +111,7 @@ public extension UIColor {
         case black, pink, teal, white, yellow
 
         public var raw: UIColor {
-            return UIColor(named: self.rawValue, compatibleWith: nil)!
+            return UIColor(named: self.rawValue)!
         }
     }
 
@@ -147,7 +147,7 @@ public extension UIColor {
         switchTintSelected
 
         public var raw: UIColor {
-            return UIColor(named: self.rawValue, compatibleWith: nil)!
+            return UIColor(named: self.rawValue)!
         }
     }
 }
