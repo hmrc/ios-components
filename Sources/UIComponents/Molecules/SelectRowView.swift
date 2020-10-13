@@ -42,14 +42,14 @@ extension Components.Molecules {
                 if let selectedImage = selectedImage {
                     self.selectedImage = selectedImage
                 } else {
-                    self.selectedImage = UIImage(named: "FilledCircle", in: Bundle(for: SelectRowView.self), compatibleWith: nil)?
+                    self.selectedImage = UIImage(named: "FilledCircle", in: Bundle.module, compatibleWith: nil)?
                         .withRenderingMode(.alwaysTemplate)
                 }
 
                 if let deselectedImage = deselectedImage {
                     self.deselectedImage = deselectedImage
                 } else {
-                    self.deselectedImage = UIImage(named: "EmptyCircle", in: Bundle(for: SelectRowView.self), compatibleWith: nil)?
+                    self.deselectedImage = UIImage(named: "EmptyCircle", in: Bundle.module, compatibleWith: nil)?
                         .withRenderingMode(.alwaysTemplate)
                 }
 
