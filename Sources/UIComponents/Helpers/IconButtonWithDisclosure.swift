@@ -155,7 +155,7 @@ public class IconButtonWithDisclosure: Components.Helpers.ViewWithCustomDisclosu
         image: UIImage(
             named: "ChevronRight",
             in: Bundle(
-                for: IconButtonWithDisclosure.self
+                for: Bundle.module
             ),
             compatibleWith: nil
         )

@@ -208,9 +208,13 @@ extension Components.Organisms {
 
         // MARK: - Views
         // MARK: Used as disclosure view
-        public private(set)var disclosureImageView =
-            UIImageView(image: UIImage(named: "ChevronRight",
-                                       in: Bundle(for: SummaryRowView.self), compatibleWith: nil))
+        public private(set)var disclosureImageView = UIImageView(
+            image: UIImage(
+                named: "ChevronRight",
+                in: Bundle.module,
+                compatibleWith: nil
+            )
+        )
 
         public private(set)var button: UIButton = TransparentButton()
         public private(set)var contentViewStack = UIStackView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))

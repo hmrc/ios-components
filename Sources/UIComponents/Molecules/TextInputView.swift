@@ -170,7 +170,7 @@ extension Components.Molecules {
             $0.setContentHuggingPriority(.required, for: .horizontal)
             $0.setImage(UIImage(
                 named: "clear_icon",
-                in: Bundle(for: Components.Molecules.TextInputView.self),
+                in: Bundle.module,
                 compatibleWith: nil
             ), for: .normal)
             $0.tintColor = UIColor.Components.Named.grey2
