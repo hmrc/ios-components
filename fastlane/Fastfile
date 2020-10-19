@@ -50,13 +50,17 @@ platform :ios do
     #sh('cd .. && carthage build --archive')
     sh('cd .. && fastlane carthage_wrapper command:build no_skip_current:true platform:iOS && fastlane carthage_wrapper command:archive')
 
+    sh("git", "checkout", "-b", "tag/#{tag.to_string}")
+
     # commit changes
     git_commit(
       path: ["./CHANGELOG.md", "./UIComponents.framework.zip", "./UIComponents*/Info.plist"],
-      message: "Bump version to #{tag}"
+      message: "Bump version to #{tag} and tagging release"
     )
     push_to_git_remote
 
+    sh("gh", "pr", "create", "--title", "Release #{tag.to_string}", "--body", "")
+    
     # take tag and push to remote
     add_git_tag(tag: tag.to_string)
     push_git_tags
