@@ -154,9 +154,7 @@ public class IconButtonWithDisclosure: Components.Helpers.ViewWithCustomDisclosu
     public private(set)var disclosureImageView = UIImageView(
         image: UIImage(
             named: "ChevronRight",
-            in: Bundle(
-                for: Bundle.module
-            ),
+            in: Bundle.module,
             compatibleWith: nil
         )
     )

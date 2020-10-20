@@ -217,8 +217,8 @@
       "OBJ_131" = {
          isa = "PBXGroup";
          children = (
-            "UIComponents::UIComponents::Product",
             "SnapKit::SnapKit::Product",
+            "UIComponents::UIComponents::Product",
             "UIComponents::UIComponentsTests::Product"
          );
          name = "Products";
