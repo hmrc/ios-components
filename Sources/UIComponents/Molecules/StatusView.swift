@@ -24,7 +24,7 @@ extension Components.Molecules {
             static let itemSpacing: CGFloat = 24
         }
 
-        public class Model {
+        open class Model {
             public let icon: UIImage
             public let title: String
             public let body: NSAttributedString?

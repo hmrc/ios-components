@@ -119,7 +119,6 @@
 		OBJ_254 /* InformationMessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* InformationMessageModel.swift */; };
 		OBJ_255 /* PageHeaderCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_79 /* PageHeaderCardView.swift */; };
 		OBJ_256 /* PrimaryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* PrimaryCardView.swift */; };
-		OBJ_257 /* StatusButtonCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* StatusButtonCardView.swift */; };
 		OBJ_258 /* StatusCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* StatusCardView.swift */; };
 		OBJ_259 /* SummaryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* SummaryRowView.swift */; };
 		OBJ_261 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SnapKit::SnapKit::Product" /* SnapKit.framework */; };
@@ -281,7 +280,6 @@
 		OBJ_77 /* InformationMessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationMessageModel.swift; sourceTree = "<group>"; };
 		OBJ_79 /* PageHeaderCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageHeaderCardView.swift; sourceTree = "<group>"; };
 		OBJ_81 /* PrimaryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryCardView.swift; sourceTree = "<group>"; };
-		OBJ_83 /* StatusButtonCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusButtonCardView.swift; sourceTree = "<group>"; };
 		OBJ_84 /* StatusCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCardView.swift; sourceTree = "<group>"; };
 		OBJ_85 /* SummaryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryRowView.swift; sourceTree = "<group>"; };
 		OBJ_88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -610,7 +608,6 @@
 		OBJ_82 /* StatusCardView */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_83 /* StatusButtonCardView.swift */,
 				OBJ_84 /* StatusCardView.swift */,
 			);
 			path = StatusCardView;
@@ -917,7 +914,6 @@
 				OBJ_254 /* InformationMessageModel.swift in Sources */,
 				OBJ_255 /* PageHeaderCardView.swift in Sources */,
 				OBJ_256 /* PrimaryCardView.swift in Sources */,
-				OBJ_257 /* StatusButtonCardView.swift in Sources */,
 				6CAB37C0254C45CC00989DF0 /* Bundle+Resource.swift in Sources */,
 				OBJ_258 /* StatusCardView.swift in Sources */,
 				OBJ_259 /* SummaryRowView.swift in Sources */,
