@@ -35,7 +35,7 @@ extension Components.Molecules {
         public lazy var iconImageView: UIImageView = {
             let image = UIImage(
                 named: "warning",
-                in: Bundle.module,
+                in: Bundle.resource,
                 compatibleWith: nil
             )
             let imageView = UIImageView(image: image)

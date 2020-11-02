@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "83CB03B820EF615C00ED681A"
+               BlueprintIdentifier = "6C2710ED25432D65009F97EE"
                BuildableName = "UIComponents-App.app"
                BlueprintName = "UIComponents-App"
                ReferencedContainer = "container:UIComponents.xcodeproj">
@@ -27,26 +27,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "83CB03B820EF615C00ED681A"
-            BuildableName = "UIComponents-App.app"
-            BlueprintName = "UIComponents-App"
-            ReferencedContainer = "container:UIComponents.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "83CB03DA20EF61BC00ED681A"
-               BuildableName = "UIComponents-Tests.xctest"
-               BlueprintName = "UIComponents-Tests"
-               ReferencedContainer = "container:UIComponents.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -63,7 +44,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "83CB03B820EF615C00ED681A"
+            BlueprintIdentifier = "6C2710ED25432D65009F97EE"
             BuildableName = "UIComponents-App.app"
             BlueprintName = "UIComponents-App"
             ReferencedContainer = "container:UIComponents.xcodeproj">
@@ -71,7 +52,7 @@
       </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release-Prod"
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
@@ -80,7 +61,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "83CB03B820EF615C00ED681A"
+            BlueprintIdentifier = "6C2710ED25432D65009F97EE"
             BuildableName = "UIComponents-App.app"
             BlueprintName = "UIComponents-App"
             ReferencedContainer = "container:UIComponents.xcodeproj">
@@ -91,7 +72,7 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release-Prod"
+      buildConfiguration = "Release"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

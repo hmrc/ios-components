@@ -143,7 +143,7 @@ extension Components.Organisms {
             subtitleLabel.textAlignment = FontMetrics.scaler > 1 ? .left : .right
             chevronImageView.image = UIImage(
                 named: "chevron_down",
-                in: Bundle.module,
+                in: Bundle.resource,
                 compatibleWith: nil
             )
             chevronImageView.contentMode = .center
