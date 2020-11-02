@@ -19,7 +19,7 @@ import Foundation
 extension String {
     struct Accessibility {
         static func string(for key: String) -> String {
-            return NSLocalizedString(key, tableName: "Accessibility", bundle: Bundle.module, comment: "")
+            return NSLocalizedString(key, tableName: "Accessibility", bundle: Bundle.resource, comment: "")
         }
     }
 }

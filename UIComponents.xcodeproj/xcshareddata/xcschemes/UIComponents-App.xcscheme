@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6C17E3AB254329490050AE2A"
-               BuildableName = "ComponentsApp.app"
-               BlueprintName = "ComponentsApp"
+               BlueprintIdentifier = "6C2710ED25432D65009F97EE"
+               BuildableName = "UIComponents-App.app"
+               BlueprintName = "UIComponents-App"
                ReferencedContainer = "container:UIComponents.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,9 +44,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6C17E3AB254329490050AE2A"
-            BuildableName = "ComponentsApp.app"
-            BlueprintName = "ComponentsApp"
+            BlueprintIdentifier = "6C2710ED25432D65009F97EE"
+            BuildableName = "UIComponents-App.app"
+            BlueprintName = "UIComponents-App"
             ReferencedContainer = "container:UIComponents.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -61,9 +61,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6C17E3AB254329490050AE2A"
-            BuildableName = "ComponentsApp.app"
-            BlueprintName = "ComponentsApp"
+            BlueprintIdentifier = "6C2710ED25432D65009F97EE"
+            BuildableName = "UIComponents-App.app"
+            BlueprintName = "UIComponents-App"
             ReferencedContainer = "container:UIComponents.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
