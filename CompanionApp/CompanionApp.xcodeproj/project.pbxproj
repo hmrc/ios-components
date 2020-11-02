@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6C9878CF255021B900C5F3DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9878CE255021B900C5F3DF /* AppDelegate.swift */; };
 		6C9878D1255021B900C5F3DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9878D0255021B900C5F3DF /* SceneDelegate.swift */; };
-		6C9878D3255021B900C5F3DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9878D2255021B900C5F3DF /* ViewController.swift */; };
 		6C9878D6255021B900C5F3DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C9878D4255021B900C5F3DF /* Main.storyboard */; };
 		6C9878D8255021BA00C5F3DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C9878D7255021BA00C5F3DF /* Assets.xcassets */; };
 		6C9878DB255021BA00C5F3DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C9878D9255021BA00C5F3DF /* LaunchScreen.storyboard */; };
@@ -32,7 +31,6 @@
 		6C9878CB255021B900C5F3DF /* CompanionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompanionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C9878CE255021B900C5F3DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C9878D0255021B900C5F3DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6C9878D2255021B900C5F3DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6C9878D5255021B900C5F3DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6C9878D7255021BA00C5F3DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C9878DA255021BA00C5F3DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,7 +90,6 @@
 				6C9878EB255021E300C5F3DF /* Organisms */,
 				6C9878CE255021B900C5F3DF /* AppDelegate.swift */,
 				6C9878D0255021B900C5F3DF /* SceneDelegate.swift */,
-				6C9878D2255021B900C5F3DF /* ViewController.swift */,
 				6C9878D4255021B900C5F3DF /* Main.storyboard */,
 				6C9878D7255021BA00C5F3DF /* Assets.xcassets */,
 				6C9878D9255021BA00C5F3DF /* LaunchScreen.storyboard */,
@@ -229,7 +226,6 @@
 				6C9878FB255021E300C5F3DF /* ExampleImages.swift in Sources */,
 				6C9878FC255021E300C5F3DF /* ColoursViewController.swift in Sources */,
 				6C9878FD255021E300C5F3DF /* ColourView.swift in Sources */,
-				6C9878D3255021B900C5F3DF /* ViewController.swift in Sources */,
 				6C9878F7255021E300C5F3DF /* AtomsViewController.swift in Sources */,
 				6C9878CF255021B900C5F3DF /* AppDelegate.swift in Sources */,
 				6C9878F5255021E300C5F3DF /* ExamplableOrganisms.swift in Sources */,
@@ -389,7 +385,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = uk.gov.hmrc.ngc.CompanionApp;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.gov.hmrc.ngc.UIComponentsTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -408,7 +404,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = uk.gov.hmrc.ngc.CompanionApp;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.gov.hmrc.ngc.UIComponentsTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
