@@ -1,5 +1,8 @@
 .build
 
+
+fastlane/MatchFile
+
 ## Build generated
 build/
 DerivedData/

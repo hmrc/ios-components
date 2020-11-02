@@ -4,6 +4,30 @@ default_platform(:ios)
 
 platform :ios do
 
+  desc "This will sync adhoc certificates to allow the companion app to build on CI"
+  lane:sync_certificates do 
+    syncAdhocCerts()
+  end
+
+  def syncAdhocCerts(force_for_new_devices=false)
+    match(
+      app_identifier: ["uk.gov.hmrc.ngc.UIComponentsTestApp"],
+      type: "adhoc",
+      readonly: !force_for_new_devices,
+      force_for_new_devices: force_for_new_devices
+    )
+  end
+
+  desc "Register new devices"
+    lane :register_new_device do
+    device_name = prompt(text: "Enter the device name: ")
+    device_udid = prompt(text: "Enter the device UDID: ")
+    device_hash = {}
+    device_hash[device_name] = device_udid
+    register_devices(devices: device_hash)
+    syncAdhocCerts(true)
+  end
+
   desc "Create a new tagged release of the library."
   desc "This will bump the Info.plist version, precompile the library, commit and tag the changes, then push up to master."
   lane :tag_release do
