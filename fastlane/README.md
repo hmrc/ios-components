@@ -21,6 +21,11 @@ or alternatively using `brew install fastlane`
 fastlane ios sync_certificates
 ```
 This will sync adhoc certificates to allow the companion app to build on CI
+### ios build_adhoc_app
+```
+fastlane ios build_adhoc_app
+```
+Build adhoc app for testing
 ### ios register_new_device
 ```
 fastlane ios register_new_device

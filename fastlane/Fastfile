@@ -18,6 +18,17 @@ platform :ios do
     )
   end
 
+  desc "Build adhoc app for testing"
+  lane :build_adhoc_app do |options| 
+    syncAdhocCerts()
+    gym(
+      project: options[:project_path],
+      configuration: "Debug",
+      export_method: "ad-hoc",
+      output_directory: options[:output]
+    )
+  end
+
   desc "Register new devices"
     lane :register_new_device do
     device_name = prompt(text: "Enter the device name: ")
