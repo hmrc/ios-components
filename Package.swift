@@ -37,7 +37,7 @@ let package = Package(
             dependencies: ["SnapKit"],
             resources: [
                 .process("Assets"),
-                .process("NSS_Colors")
+                .process("Colors")
             ]
         ),
         .testTarget(
