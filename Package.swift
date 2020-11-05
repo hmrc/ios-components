@@ -12,10 +12,6 @@ let package = Package(
         .library(
             name: "UIComponents",
             targets: ["UIComponents"]
-        ),
-        .library(
-            name: "NSSComponents",
-            targets: ["NSSComponents"]
         )
     ],
     dependencies: [
