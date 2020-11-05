@@ -13,6 +13,10 @@ let package = Package(
             name: "UIComponents",
             targets: ["UIComponents"]
         ),
+        .library(
+            name: "NSSComponents",
+            targets: ["NSSComponents"]
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/SnapKit/SnapKit.git", .upToNextMajor(from: "5.0.1"))
