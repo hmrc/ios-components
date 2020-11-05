@@ -25,7 +25,7 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "Common",
+            name: "ComponentsCommon",
             dependencies: ["SnapKit"],
             path: "Sources/Shared",
             resources: [
@@ -34,14 +34,14 @@ let package = Package(
         ),
         .target(
             name: "UIComponents",
-            dependencies: ["SnapKit", "Common"],
+            dependencies: ["SnapKit", "ComponentsCommon"],
             resources: [
                 .process("Colors")
             ]
         ),
         .target(
             name: "NSSComponents",
-            dependencies: ["SnapKit", "Common"],
+            dependencies: ["SnapKit", "ComponentsCommon"],
             resources: [
                 .process("Colors")
             ]

@@ -22,7 +22,7 @@
         <BuildableReference
           BuildableIdentifier = "primary"
           BuildableName = "'lib$(TARGET_NAME)'"
-          BlueprintName = "Common"
+          BlueprintName = "ComponentsCommon"
           ReferencedContainer = "container:UIComponents.xcodeproj">
         </BuildableReference>
       </BuildActionEntry>

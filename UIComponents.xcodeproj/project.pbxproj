@@ -20,7 +20,7 @@
          productRefGroup = "OBJ_129";
          projectDirPath = ".";
          targets = (
-            "UIComponents::Common",
+            "UIComponents::ComponentsCommon",
             "UIComponents::NSSComponents",
             "SnapKit::SnapKit",
             "SnapKit::SwiftPMPackageDescription",
@@ -202,10 +202,10 @@
       "OBJ_129" = {
          isa = "PBXGroup";
          children = (
-            "UIComponents::UIComponents::Product",
             "UIComponents::NSSComponents::Product",
-            "UIComponents::Common::Product",
-            "SnapKit::SnapKit::Product"
+            "UIComponents::ComponentsCommon::Product",
+            "SnapKit::SnapKit::Product",
+            "UIComponents::UIComponents::Product"
          );
          name = "Products";
          path = "";
@@ -286,7 +286,7 @@
             HEADER_SEARCH_PATHS = (
                "$(inherited)"
             );
-            INFOPLIST_FILE = "UIComponents.xcodeproj/Common_Info.plist";
+            INFOPLIST_FILE = "UIComponents.xcodeproj/ComponentsCommon_Info.plist";
             IPHONEOS_DEPLOYMENT_TARGET = "11.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
@@ -302,7 +302,7 @@
             OTHER_SWIFT_FLAGS = (
                "$(inherited)"
             );
-            PRODUCT_BUNDLE_IDENTIFIER = "Common";
+            PRODUCT_BUNDLE_IDENTIFIER = "ComponentsCommon";
             PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
             PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
             SKIP_INSTALL = "YES";
@@ -310,7 +310,7 @@
                "$(inherited)"
             );
             SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Common";
+            TARGET_NAME = "ComponentsCommon";
             TVOS_DEPLOYMENT_TARGET = "9.0";
             WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
@@ -327,7 +327,7 @@
             HEADER_SEARCH_PATHS = (
                "$(inherited)"
             );
-            INFOPLIST_FILE = "UIComponents.xcodeproj/Common_Info.plist";
+            INFOPLIST_FILE = "UIComponents.xcodeproj/ComponentsCommon_Info.plist";
             IPHONEOS_DEPLOYMENT_TARGET = "11.0";
             LD_RUNPATH_SEARCH_PATHS = (
                "$(inherited)",
@@ -343,7 +343,7 @@
             OTHER_SWIFT_FLAGS = (
                "$(inherited)"
             );
-            PRODUCT_BUNDLE_IDENTIFIER = "Common";
+            PRODUCT_BUNDLE_IDENTIFIER = "ComponentsCommon";
             PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
             PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
             SKIP_INSTALL = "YES";
@@ -351,7 +351,7 @@
                "$(inherited)"
             );
             SWIFT_VERSION = "5.0";
-            TARGET_NAME = "Common";
+            TARGET_NAME = "ComponentsCommon";
             TVOS_DEPLOYMENT_TARGET = "9.0";
             WATCHOS_DEPLOYMENT_TARGET = "2.0";
          };
@@ -861,7 +861,7 @@
       };
       "OBJ_222" = {
          isa = "PBXBuildFile";
-         fileRef = "UIComponents::Common::Product";
+         fileRef = "UIComponents::ComponentsCommon::Product";
       };
       "OBJ_223" = {
          isa = "PBXBuildFile";
@@ -869,7 +869,7 @@
       };
       "OBJ_224" = {
          isa = "PBXTargetDependency";
-         target = "UIComponents::Common";
+         target = "UIComponents::ComponentsCommon";
       };
       "OBJ_225" = {
          isa = "PBXTargetDependency";
@@ -1341,7 +1341,7 @@
       };
       "OBJ_279" = {
          isa = "PBXBuildFile";
-         fileRef = "UIComponents::Common::Product";
+         fileRef = "UIComponents::ComponentsCommon::Product";
       };
       "OBJ_28" = {
          isa = "PBXGroup";
@@ -1361,7 +1361,7 @@
       };
       "OBJ_281" = {
          isa = "PBXTargetDependency";
-         target = "UIComponents::Common";
+         target = "UIComponents::ComponentsCommon";
       };
       "OBJ_282" = {
          isa = "PBXTargetDependency";
@@ -1874,7 +1874,7 @@
             "OBJ_53",
             "OBJ_69"
          );
-         name = "Common";
+         name = "ComponentsCommon";
          path = "Sources/Shared";
          sourceTree = "SOURCE_ROOT";
       };
@@ -2079,7 +2079,7 @@
          productName = "SnapKitPackageDescription";
          productType = "com.apple.product-type.framework";
       };
-      "UIComponents::Common" = {
+      "UIComponents::ComponentsCommon" = {
          isa = "PBXNativeTarget";
          buildConfigurationList = "OBJ_144";
          buildPhases = (
@@ -2089,14 +2089,14 @@
          dependencies = (
             "OBJ_214"
          );
-         name = "Common";
-         productName = "Common";
-         productReference = "UIComponents::Common::Product";
+         name = "ComponentsCommon";
+         productName = "ComponentsCommon";
+         productReference = "UIComponents::ComponentsCommon::Product";
          productType = "com.apple.product-type.framework";
       };
-      "UIComponents::Common::Product" = {
+      "UIComponents::ComponentsCommon::Product" = {
          isa = "PBXFileReference";
-         path = "Common.framework";
+         path = "ComponentsCommon.framework";
          sourceTree = "BUILT_PRODUCTS_DIR";
       };
       "UIComponents::NSSComponents" = {
