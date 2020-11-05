@@ -6,7 +6,7 @@
         <BuildableReference
           BuildableIdentifier = "primary"
           BuildableName = "'lib$(TARGET_NAME)'"
-          BlueprintName = "ComponentsCommon"
+          BlueprintName = "NSSComponents"
           ReferencedContainer = "container:UIComponents.xcodeproj">
         </BuildableReference>
       </BuildActionEntry>
@@ -14,7 +14,7 @@
         <BuildableReference
           BuildableIdentifier = "primary"
           BuildableName = "'lib$(TARGET_NAME)'"
-          BlueprintName = "NSSComponents"
+          BlueprintName = "ComponentsCommon"
           ReferencedContainer = "container:UIComponents.xcodeproj">
         </BuildableReference>
       </BuildActionEntry>
