@@ -20,8 +20,14 @@ private class ComponentsBundleFinder {}
 
 extension Foundation.Bundle {
     static var resource: Bundle = {
-        let moduleName = "UIComponents-App"
-        let bundleName = "\(moduleName)"
+        let appModuleName = "UIComponents-App"
+        let appBundleName = "\(appModuleName)"
+        
+        let uiModuleName = "UIComponents"
+        let uiBundleName = "\(uiModuleName)_\(uiModuleName)"
+        
+        let nssModuleName = "NSSComponents"
+        let nssBundleName = "\(uiModuleName)_\(nssModuleName)"
 
         let candidates = [
             // Bundle should be present here when the package is linked into an App.
@@ -35,12 +41,22 @@ extension Foundation.Bundle {
         ]
 
         for candidate in candidates {
-            let bundlePath = candidate?.appendingPathComponent(bundleName + ".bundle")
-            if let bundle = bundlePath.flatMap(Bundle.init(url:)) {
+            let appBundlePath = candidate?.appendingPathComponent(appBundleName + ".bundle")
+            if let bundle = appBundlePath.flatMap(Bundle.init(url:)) {
+                return bundle
+            }
+            
+            let uiBundlePath = candidate?.appendingPathComponent(uiBundleName + ".bundle")
+            if let bundle = uiBundlePath.flatMap(Bundle.init(url:)) {
+                return bundle
+            }
+            
+            let nssBundlePath = candidate?.appendingPathComponent(nssBundleName + ".bundle")
+            if let bundle = nssBundlePath.flatMap(Bundle.init(url:)) {
                 return bundle
             }
         }
 
-        fatalError("Unable to find bundle named \(bundleName)")
+        fatalError("Unable to find bundle named \(appBundleName), \(uiBundleName), \(nssBundleName)")
     }()
 }
