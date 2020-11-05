@@ -29,7 +29,8 @@ let package = Package(
             dependencies: ["SnapKit"],
             resources: [
                 .process("Assets"),
-                .process("Colors")
+                .process("Colors"),
+                .copy("../Shared")
             ]
         ),
         .target(
@@ -37,7 +38,8 @@ let package = Package(
             dependencies: ["SnapKit"],
             resources: [
                 .process("Assets"),
-                .process("Colors")
+                .process("Colors"),
+                .copy("../Shared")
             ]
         ),
         .testTarget(
