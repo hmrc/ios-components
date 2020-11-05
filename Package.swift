@@ -28,6 +28,14 @@ let package = Package(
                 .process("Colors")
             ]
         ),
+        .target(
+            name: "NSSComponents",
+            dependencies: ["SnapKit"],
+            resources: [
+                .process("Assets"),
+                .process("NSS_Colors")
+            ]
+        ),
         .testTarget(
             name: "UIComponentsTests",
             dependencies: ["UIComponents"]

@@ -160,26 +160,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		6C27111025432D9E009F97EE /* UIComponents-App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIComponents-App-Bridging-Header.h"; sourceTree = "<group>"; };
-		6C27111225432D9F009F97EE /* ExamplableMolecules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplableMolecules.swift; sourceTree = "<group>"; };
-		6C27111325432D9F009F97EE /* ExamplableOrganisms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExamplableOrganisms.swift; sourceTree = "<group>"; };
-		6C27111525432D9F009F97EE /* MoleculesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoleculesViewController.swift; sourceTree = "<group>"; };
-		6C27111625432D9F009F97EE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6C27111825432D9F009F97EE /* SingleComponentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleComponentViewController.swift; sourceTree = "<group>"; };
-		6C27111925432D9F009F97EE /* OrganismsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganismsViewController.swift; sourceTree = "<group>"; };
-		6C27111B25432D9F009F97EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6C27111C25432D9F009F97EE /* ExampleProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleProtocol.swift; sourceTree = "<group>"; };
-		6C27111D25432D9F009F97EE /* ExampleImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleImages.swift; sourceTree = "<group>"; };
-		6C27111F25432D9F009F97EE /* ColoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColoursViewController.swift; sourceTree = "<group>"; };
-		6C27112025432D9F009F97EE /* ColourView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourView.swift; sourceTree = "<group>"; };
-		6C27112225432D9F009F97EE /* AtomGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomGroupViewController.swift; sourceTree = "<group>"; };
-		6C27112325432D9F009F97EE /* AtomsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtomsViewController.swift; sourceTree = "<group>"; };
-		6C27112425432DA0009F97EE /* Components-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Components-Bridging-Header.h"; sourceTree = "<group>"; };
-		6C27112725432DA0009F97EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		6C27112925432DA0009F97EE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
-		6C27112A25432DA0009F97EE /* ExampleText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleText.swift; sourceTree = "<group>"; };
 		6C45044E254B0F0000A7249A /* Bundle+Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Resource.swift"; sourceTree = "<group>"; };
-		6CAB377F254B10E300989DF0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C5F18E6255420380005D38D /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		6C5F18E7255420380005D38D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6C5F18E8255420560005D38D /* NSS_Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = NSS_Colors.xcassets; sourceTree = "<group>"; };
 		OBJ_10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		OBJ_100 /* ConstraintDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintDescription.swift; sourceTree = "<group>"; };
 		OBJ_101 /* ConstraintDirectionalInsetTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintDirectionalInsetTarget.swift; sourceTree = "<group>"; };
@@ -325,80 +309,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6C2710EF25432D65009F97EE /* UIComponents-App */ = {
-			isa = PBXGroup;
-			children = (
-				6CAB377F254B10E300989DF0 /* Info.plist */,
-				6C27111625432D9F009F97EE /* AppDelegate.swift */,
-				6C27111B25432D9F009F97EE /* Assets.xcassets */,
-				6C27112125432D9F009F97EE /* Atoms */,
-				6C27112525432DA0009F97EE /* Base.lproj */,
-				6C27111E25432D9F009F97EE /* Colours */,
-				6C27112425432DA0009F97EE /* Components-Bridging-Header.h */,
-				6C27111D25432D9F009F97EE /* ExampleImages.swift */,
-				6C27111C25432D9F009F97EE /* ExampleProtocol.swift */,
-				6C27112A25432DA0009F97EE /* ExampleText.swift */,
-				6C27111125432D9F009F97EE /* Models */,
-				6C27111425432D9F009F97EE /* Molecules */,
-				6C27111725432D9F009F97EE /* Organisms */,
-				6C27111025432D9E009F97EE /* UIComponents-App-Bridging-Header.h */,
-			);
-			path = "UIComponents-App";
-			sourceTree = "<group>";
-		};
-		6C27111125432D9F009F97EE /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				6C27111225432D9F009F97EE /* ExamplableMolecules.swift */,
-				6C27111325432D9F009F97EE /* ExamplableOrganisms.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		6C27111425432D9F009F97EE /* Molecules */ = {
-			isa = PBXGroup;
-			children = (
-				6C27111525432D9F009F97EE /* MoleculesViewController.swift */,
-			);
-			path = Molecules;
-			sourceTree = "<group>";
-		};
-		6C27111725432D9F009F97EE /* Organisms */ = {
-			isa = PBXGroup;
-			children = (
-				6C27111825432D9F009F97EE /* SingleComponentViewController.swift */,
-				6C27111925432D9F009F97EE /* OrganismsViewController.swift */,
-			);
-			path = Organisms;
-			sourceTree = "<group>";
-		};
-		6C27111E25432D9F009F97EE /* Colours */ = {
-			isa = PBXGroup;
-			children = (
-				6C27111F25432D9F009F97EE /* ColoursViewController.swift */,
-				6C27112025432D9F009F97EE /* ColourView.swift */,
-			);
-			path = Colours;
-			sourceTree = "<group>";
-		};
-		6C27112125432D9F009F97EE /* Atoms */ = {
-			isa = PBXGroup;
-			children = (
-				6C27112225432D9F009F97EE /* AtomGroupViewController.swift */,
-				6C27112325432D9F009F97EE /* AtomsViewController.swift */,
-			);
-			path = Atoms;
-			sourceTree = "<group>";
-		};
-		6C27112525432DA0009F97EE /* Base.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				6C27112625432DA0009F97EE /* LaunchScreen.storyboard */,
-				6C27112825432DA0009F97EE /* Main.storyboard */,
-			);
-			path = Base.lproj;
-			sourceTree = "<group>";
-		};
 		6C27115125433017009F97EE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,7 +404,6 @@
 				OBJ_7 /* Sources */,
 				OBJ_86 /* Tests */,
 				OBJ_92 /* Dependencies */,
-				6C2710EF25432D65009F97EE /* UIComponents-App */,
 				OBJ_131 /* Products */,
 				OBJ_136 /* fastlane */,
 				OBJ_137 /* LICENSE */,
@@ -583,6 +492,8 @@
 		OBJ_8 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				6C5F18E7255420380005D38D /* Assets.xcassets */,
+				6C5F18E6255420380005D38D /* Colors.xcassets */,
 				OBJ_9 /* UIComponents.h */,
 				OBJ_10 /* Info.plist */,
 				OBJ_11 /* Atoms */,
@@ -594,6 +505,7 @@
 				OBJ_33 /* Helpers */,
 				OBJ_53 /* Molecules */,
 				OBJ_69 /* Organisms */,
+				6C5F18E8255420560005D38D /* NSS_Colors.xcassets */,
 			);
 			name = UIComponents;
 			path = Sources/UIComponents;
@@ -963,25 +875,6 @@
 			targetProxy = 6C17E39E254328E30050AE2A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		6C27112625432DA0009F97EE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6C27112725432DA0009F97EE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		6C27112825432DA0009F97EE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6C27112925432DA0009F97EE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		OBJ_146 /* Debug */ = {
