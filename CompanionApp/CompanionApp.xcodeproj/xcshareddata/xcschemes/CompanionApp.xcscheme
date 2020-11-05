@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6C2710ED25432D65009F97EE"
-               BuildableName = "UIComponents-App.app"
-               BlueprintName = "UIComponents-App"
-               ReferencedContainer = "container:UIComponents.xcodeproj">
+               BlueprintIdentifier = "6C9878CA255021B900C5F3DF"
+               BuildableName = "CompanionApp.app"
+               BlueprintName = "CompanionApp"
+               ReferencedContainer = "container:CompanionApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -44,10 +44,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6C2710ED25432D65009F97EE"
-            BuildableName = "UIComponents-App.app"
-            BlueprintName = "UIComponents-App"
-            ReferencedContainer = "container:UIComponents.xcodeproj">
+            BlueprintIdentifier = "6C9878CA255021B900C5F3DF"
+            BuildableName = "CompanionApp.app"
+            BlueprintName = "CompanionApp"
+            ReferencedContainer = "container:CompanionApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -61,10 +61,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6C2710ED25432D65009F97EE"
-            BuildableName = "UIComponents-App.app"
-            BlueprintName = "UIComponents-App"
-            ReferencedContainer = "container:UIComponents.xcodeproj">
+            BlueprintIdentifier = "6C9878CA255021B900C5F3DF"
+            BuildableName = "CompanionApp.app"
+            BlueprintName = "CompanionApp"
+            ReferencedContainer = "container:CompanionApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
