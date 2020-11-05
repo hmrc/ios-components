@@ -18,6 +18,14 @@
           ReferencedContainer = "container:UIComponents.xcodeproj">
         </BuildableReference>
       </BuildActionEntry>
+      <BuildActionEntry buildForTesting = "YES" buildForRunning = "YES" buildForProfiling = "YES" buildForArchiving = "YES" buildForAnalyzing = "YES">
+        <BuildableReference
+          BuildableIdentifier = "primary"
+          BuildableName = "'lib$(TARGET_NAME)'"
+          BlueprintName = "Common"
+          ReferencedContainer = "container:UIComponents.xcodeproj">
+        </BuildableReference>
+      </BuildActionEntry>
     </BuildActionEntries>
   </BuildAction>
   <TestAction
