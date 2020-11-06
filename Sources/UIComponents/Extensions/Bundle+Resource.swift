@@ -20,8 +20,6 @@ private class ComponentsBundleFinder {}
 
 extension Foundation.Bundle {
     
-    static var bundleToUse: Bundle?
-    
     static var resource: Bundle = {
         let appModuleName = "UIComponents-App"
         let appBundleName = "\(appModuleName)"
@@ -46,34 +44,26 @@ extension Foundation.Bundle {
             // For command-line tools.
             Bundle.main.bundleURL,
         ]
-        
-        if let bundle = bundleToUse {
-            return bundle
-        } else {
-            for candidate in candidates {
-                let appBundlePath = candidate?.appendingPathComponent(appBundleName + ".bundle")
-                if let bundle = appBundlePath.flatMap(Bundle.init(url:)) {
-                    bundleToUse = bundle
-                    return bundle
-                }
-                
-                let uiBundlePath = candidate?.appendingPathComponent(uiBundleName + ".bundle")
-                if let bundle = uiBundlePath.flatMap(Bundle.init(url:)) {
-                    bundleToUse = bundle
-                    return bundle
-                }
-                
-                let hmrcBundlePath = candidate?.appendingPathComponent(hmrcBundleName + ".bundle")
-                if let bundle = hmrcBundlePath.flatMap(Bundle.init(url:)) {
-                    bundleToUse = bundle
-                    return bundle
-                }
-                
-                let nssBundlePath = candidate?.appendingPathComponent(nssBundleName + ".bundle")
-                if let bundle = nssBundlePath.flatMap(Bundle.init(url:)) {
-                    bundleToUse = bundle
-                    return bundle
-                }
+    
+        for candidate in candidates {
+            let appBundlePath = candidate?.appendingPathComponent(appBundleName + ".bundle")
+            if let bundle = appBundlePath.flatMap(Bundle.init(url:)) {
+                return bundle
+            }
+            
+            let uiBundlePath = candidate?.appendingPathComponent(uiBundleName + ".bundle")
+            if let bundle = uiBundlePath.flatMap(Bundle.init(url:)) {
+                return bundle
+            }
+            
+            let hmrcBundlePath = candidate?.appendingPathComponent(hmrcBundleName + ".bundle")
+            if let bundle = hmrcBundlePath.flatMap(Bundle.init(url:)) {
+                return bundle
+            }
+            
+            let nssBundlePath = candidate?.appendingPathComponent(nssBundleName + ".bundle")
+            if let bundle = nssBundlePath.flatMap(Bundle.init(url:)) {
+                return bundle
             }
         }
 
