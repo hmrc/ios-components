@@ -9,7 +9,7 @@ let package = Package(
     platforms: [.iOS(.v11)],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
-        .library(name: "HMRCComponents", targets: ["HMRCComponents"]),
+        .library(name: "UIComponents", targets: ["UIComponents"]),
         .library(name: "NSSComponents", targets: ["NSSComponents"])
     ],
     dependencies: [
@@ -22,22 +22,18 @@ let package = Package(
             name: "UIComponents",
             dependencies: ["SnapKit"],
             resources: [
-                .process("Assets")
+                .process("Assets"),
+                .process("Colors")
              ]
         ),
-        .target(
-            name: "HMRCComponents",
-            dependencies: ["UIComponents"],
-            resources: [
-                .process("Colors")
-            ]
-        ),
+        
         .target(
             name: "NSSComponents",
-            dependencies: ["UIComponents"],
+            dependencies: ["SnapKit"],
             resources: [
+                .process("Assets"),
                 .process("Colors")
-            ]
+             ]
         )
     ]
 )

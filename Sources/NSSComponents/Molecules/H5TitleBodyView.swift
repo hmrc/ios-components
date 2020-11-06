@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 HM Revenue & Customs
+ * Copyright 2018 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,7 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import Foundation
 
-// This is required to make SPM build this library correctly
-class NeverUseForceLoad {}
+import UIKit
+
+extension Components.Molecules {
+    open class H5TitleBodyView: TitleBodyView {
+
+        override func createTitleLabel() -> UILabel {
+            return UILabel.styled(style: .H5)
+        }
+
+        override func createBodyLabel() -> UILabel {
+            return UILabel.styled(style: .body)
+        }
+
+        override open func commonInit() {
+            super.commonInit()
+            self.accessibilityIdentifier = "H5"
+        }
+    }
+}
