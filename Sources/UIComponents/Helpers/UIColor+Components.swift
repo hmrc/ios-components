@@ -110,7 +110,7 @@ public extension UIColor {
         case black, pink, teal, white, yellow
 
         public var raw: UIColor {
-            return UIColor(named: self.rawValue, in: Bundle.resource, compatibleWith: nil)!
+            return UIColor(named: self.rawValue, in: Bundle.colourResource, compatibleWith: nil)!
         }
     }
 
@@ -146,7 +146,7 @@ public extension UIColor {
         switchTintSelected
 
         public var raw: UIColor {
-            return UIColor(named: self.rawValue, in: Bundle.resource, compatibleWith: nil)!
+            return UIColor(named: self.rawValue, in: Bundle.colourResource, compatibleWith: nil)!
         }
     }
 }
