@@ -6,7 +6,7 @@
         <BuildableReference
           BuildableIdentifier = "primary"
           BuildableName = "'lib$(TARGET_NAME)'"
-          BlueprintName = "ComponentsCommon"
+          BlueprintName = "HMRCComponents"
           ReferencedContainer = "container:UIComponents.xcodeproj">
         </BuildableReference>
       </BuildActionEntry>
