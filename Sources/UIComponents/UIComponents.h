@@ -16,7 +16,7 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for UIComponents.
+//! Project version number for UIComponents./Users/markwebb/Documents/Repos/HMRCRepos/ios-components
 FOUNDATION_EXPORT double UIComponentsVersionNumber;
 
 //! Project version string for UIComponents.

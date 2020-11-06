@@ -20,44 +20,12 @@ private class ComponentsBundleFinder {}
 
 extension Foundation.Bundle {
     
-    static var colourResource: Bundle = {
-        let uiModuleName = "UIComponents"
-        
-        let hmrcBundleName = "\(uiModuleName)_HMRCComponents"
-        let nssBundleName = "\(uiModuleName)_NSSComponents"
-        
-        let candidates = [
-            // Bundle should be present here when the package is linked into an App.
-            Bundle.main.resourceURL,
-
-            // Bundle should be present here when the package is linked into a framework.
-            Bundle(for: NSClassFromString("NeverUseForceLoad")!).resourceURL,
-
-            // For command-line tools.
-            Bundle.main.bundleURL,
-        ]
-    
-        for candidate in candidates {
-            let hmrcBundlePath = candidate?.appendingPathComponent(hmrcBundleName + ".bundle")
-            if let bundle = hmrcBundlePath.flatMap(Bundle.init(url:)) {
-                return bundle
-            }
-            
-            let nssBundlePath = candidate?.appendingPathComponent(nssBundleName + ".bundle")
-            if let bundle = nssBundlePath.flatMap(Bundle.init(url:)) {
-                return bundle
-            }
-        }
-
-        fatalError("Unable to find bundle")
-    }()
-    
     static var resource: Bundle = {
         let appModuleName = "UIComponents-App"
         let appBundleName = "\(appModuleName)"
         
         let uiModuleName = "UIComponents"
-        let uiBundleName = "\(uiModuleName)_\(uiModuleName)"
+        let uiBundleName = "\(uiModuleName)_NSSComponents"
 
         let candidates = [
             // Bundle should be present here when the package is linked into an App.
