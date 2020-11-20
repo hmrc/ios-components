@@ -24,7 +24,7 @@
 		6C9878FD255021E300C5F3DF /* ColourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9878F1255021E300C5F3DF /* ColourView.swift */; };
 		6C9878FE255021E300C5F3DF /* ExampleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9878F2255021E300C5F3DF /* ExampleProtocol.swift */; };
 		6C9878FF255021E300C5F3DF /* ExampleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9878F3255021E300C5F3DF /* ExampleText.swift */; };
-		6C9879032550221900C5F3DF /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 6C9879022550221900C5F3DF /* UIComponents */; };
+		6CB8E11B25681C83001780A3 /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 6CB8E11A25681C83001780A3 /* UIComponents */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6C9879032550221900C5F3DF /* UIComponents in Frameworks */,
+				6CB8E11B25681C83001780A3 /* UIComponents in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,7 +159,7 @@
 			);
 			name = CompanionApp;
 			packageProductDependencies = (
-				6C9879022550221900C5F3DF /* UIComponents */,
+				6CB8E11A25681C83001780A3 /* UIComponents */,
 			);
 			productName = CompanionApp;
 			productReference = 6C9878CB255021B900C5F3DF /* CompanionApp.app */;
@@ -189,7 +189,7 @@
 			);
 			mainGroup = 6C9878C2255021B900C5F3DF;
 			packageReferences = (
-				6C9879012550221900C5F3DF /* XCRemoteSwiftPackageReference "." */,
+				6CB8E11925681C83001780A3 /* XCRemoteSwiftPackageReference "ios-components" */,
 			);
 			productRefGroup = 6C9878CC255021B900C5F3DF /* Products */;
 			projectDirPath = "";
@@ -439,20 +439,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6C9879012550221900C5F3DF /* XCRemoteSwiftPackageReference "." */ = {
+		6CB8E11925681C83001780A3 /* XCRemoteSwiftPackageReference "ios-components" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = ../;
+			repositoryURL = "https://github.com/hmrc/ios-components";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.1.5;
+				kind = exactVersion;
+				version = 5.2.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6C9879022550221900C5F3DF /* UIComponents */ = {
+		6CB8E11A25681C83001780A3 /* UIComponents */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6C9879012550221900C5F3DF /* XCRemoteSwiftPackageReference "." */;
+			package = 6CB8E11925681C83001780A3 /* XCRemoteSwiftPackageReference "ios-components" */;
 			productName = UIComponents;
 		};
 /* End XCSwiftPackageProductDependency section */
