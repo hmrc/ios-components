@@ -19,7 +19,7 @@ import UIKit
 extension Components {
     open class StatusCardView: Atoms.CardView, Component, UITextViewDelegate {
 
-        public class Model: Components.Molecules.StatusView.Model {
+        open class Model: Components.Molecules.StatusView.Model {
             let views: [UIView]
             let journeyId: String?
 

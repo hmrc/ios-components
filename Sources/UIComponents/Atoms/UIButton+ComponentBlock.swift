@@ -29,7 +29,7 @@ class ActionBlockBox: NSObject {
 }
 
 extension UIButton {
-    func componentAction(event: UIControl.Event = .touchUpInside, block: @escaping ActionBlock) {
+    public func componentAction(event: UIControl.Event = .touchUpInside, block: @escaping ActionBlock) {
         let policy = objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC
         objc_setAssociatedObject(self, &key, ActionBlockBox(block: block), policy)
         addTarget(self, action: #selector(handleComponentAction(sender:)), for: event)
