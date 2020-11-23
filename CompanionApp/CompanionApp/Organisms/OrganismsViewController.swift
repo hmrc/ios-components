@@ -32,7 +32,6 @@ class OrganismsViewController: UIViewController {
         (named: "Primary Card View", vc: SingleComponentViewController<Components.Organisms.PrimaryCardView>()),
         (named: "Expanding Row View", vc: SingleComponentViewController<Components.Organisms.ExpandingRowView>()),
         (named: "Status Card View", vc: SingleComponentViewController<Components.StatusCardView>()),
-        (named: "Status Button Card View", vc: SingleComponentViewController<Components.StatusButtonCardView>()),
         (named: "Icon Button Card View", vc: SingleComponentViewController<Components.Organisms.IconButtonCardView>()),
         (named: "Summary Row View", vc: SingleComponentViewController<Components.Organisms.SummaryRowView>()),
         (named: "Information Message Card", vc: SingleComponentViewController<Components.Organisms.InformationMessageCard>())
