@@ -156,6 +156,8 @@ extension Components.Molecules {
         public lazy var validationErrorLabel = UILabel.buildBodyLabel {
             $0.isAccessibilityElement = false
             $0.adjustsFontForContentSizeCategory = true
+            $0.setContentHuggingPriority(.required, for: .vertical)
+            $0.setContentCompressionResistancePriority(.required, for: .vertical)
         }
 
         public lazy var charCountLabel = UILabel.buildBodyLabel {
