@@ -20,6 +20,7 @@ import UIComponents
 typealias ExamplableView = (Examplable & UIView)
 
 protocol Examplable {
+    static var exampleBackgroundColor: UIColor { get }
     static func withPlaceholders() -> UIView
     static func examples() -> [UIView]
 }
