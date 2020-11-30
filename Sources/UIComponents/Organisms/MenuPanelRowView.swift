@@ -103,16 +103,17 @@ extension Components.Organisms {
 
             button.accessibilityIdentifier = model.accessibilityIdentifier
             button.accessibilityLabel = {
-                var label = model.title
                 switch model.notificationMode {
                 case .hidden:
-                    break
+                    return model.title
                 case .circle:
-                    label += "; new item"
-                case .number(let count, _, _):
-                    label += "; \(count) new item\(count > 1 ? "s" : "")"
+                    return model.title + "; new item"
+                case .number(let count, _, let hideWhenZero):
+                    if count == 0 && hideWhenZero {
+                        return model.title + "; new item"
+                    }
+                    return model.title + "; \(count) new item\(count > 1 ? "s" : "")"
                 }
-                return label
             }()
             button.accessibilityHint = model.body
             self.accessibilityElements = [button]
