@@ -42,14 +42,12 @@ extension Components.Molecules {
             }
         }
 
-        public lazy var countLabel: UILabel = {
-            let label = UILabel.styled(style: .bold)
-            label.textAlignment = .center
-            label.textColor = UIColor.Semantic.lightText.raw
-            label.numberOfLines = 0
-            label.translatesAutoresizingMaskIntoConstraints = false
-            return label
-        }()
+        public lazy var countLabel = UILabel.buildLabel(style: .bold) {
+            $0.textAlignment = .center
+            $0.textColor = UIColor.Semantic.lightText.raw
+            $0.numberOfLines = 0
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
 
         private var cnsWidth: NSLayoutConstraint?
 

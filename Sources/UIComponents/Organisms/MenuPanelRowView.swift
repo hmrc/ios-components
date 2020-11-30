@@ -28,21 +28,15 @@ extension Components.Organisms {
             public let body: String
             public let notificationMode: Components.Molecules.NotificationBubbleView.NotificationMode
             public let accessibilityIdentifier: String?
-            public let accessibilityLabel: String?
-            public let accessibilityHint: String?
 
             public init(title: String,
                         body: String,
                         notificationMode: Components.Molecules.NotificationBubbleView.NotificationMode,
-                        accessibilityIdentifier: String? = nil,
-                        accessibilityLabel: String? = nil,
-                        accessibilityHint: String? = nil) {
+                        accessibilityIdentifier: String? = nil) {
                 self.title = title
                 self.body = body
                 self.notificationMode = notificationMode
                 self.accessibilityIdentifier = accessibilityIdentifier
-                self.accessibilityLabel = accessibilityLabel
-                self.accessibilityHint = accessibilityHint
             }
         }
 
@@ -143,14 +137,12 @@ extension Components.Organisms {
         public private(set)var notificationBubble = Components.Molecules.NotificationBubbleView(model: .init(notificationMode: .hidden))
         public private(set)var bodyLabel = UILabel.styled(style: .body)
 
-        public lazy var titleLabel: UILabel = {
-            let label = UILabel.styled(style: .H5)
-            label.textColor = UIColor.Semantic.expandableButtonText.raw
-            label.setContentCompressionResistancePriority(.required, for: .vertical)
-            label.setContentCompressionResistancePriority(.required, for: .horizontal)
-            label.setContentHuggingPriority(.required, for: .horizontal)
-            return label
-        }()
+        public lazy var titleLabel = UILabel.buildLabel(style: .H5) {
+            $0.textColor = UIColor.Semantic.expandableButtonText.raw
+            $0.setContentCompressionResistancePriority(.required, for: .vertical)
+            $0.setContentCompressionResistancePriority(.required, for: .horizontal)
+            $0.setContentHuggingPriority(.required, for: .horizontal)
+        }
 
         private lazy var horizontalStackView: UIStackView = {
             let stackView = UIStackView()
