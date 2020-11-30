@@ -20,28 +20,27 @@ private class ComponentsBundleFinder {}
 
 extension Foundation.Bundle {
     static var resource: Bundle = {
-        let appModuleName = "UIComponents-App"
-        let appBundleName = "\(appModuleName)"
-        let uiModuleName = "UIComponents"
-        let uiBundleName = "\(uiModuleName)_\(uiModuleName)"
+        let moduleName = "UIComponents-App"
+        let bundleName = "\(moduleName)"
+
         let candidates = [
             // Bundle should be present here when the package is linked into an App.
             Bundle.main.resourceURL,
+
             // Bundle should be present here when the package is linked into a framework.
             Bundle(for: ComponentsBundleFinder.self).resourceURL,
+
             // For command-line tools.
             Bundle.main.bundleURL,
         ]
+
         for candidate in candidates {
-            let appBundlePath = candidate?.appendingPathComponent(appBundleName + ".bundle")
-            if let bundle = appBundlePath.flatMap(Bundle.init(url:)) {
-                return bundle
-            }
-            let uiBundlePath = candidate?.appendingPathComponent(uiBundleName + ".bundle")
-            if let bundle = uiBundlePath.flatMap(Bundle.init(url:)) {
+            let bundlePath = candidate?.appendingPathComponent(bundleName + ".bundle")
+            if let bundle = bundlePath.flatMap(Bundle.init(url:)) {
                 return bundle
             }
         }
-        fatalError("Unable to find bundle named \(appBundleName)")
+
+        fatalError("Unable to find bundle named \(bundleName)")
     }()
 }

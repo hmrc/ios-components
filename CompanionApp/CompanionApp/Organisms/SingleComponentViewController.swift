@@ -32,7 +32,7 @@ class SingleComponentViewController<T: ExamplableView>: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = T.exampleBackgroundColor
+        view.backgroundColor = UIColor.Semantic.pageBackground.raw
         setupViews()
     }
 

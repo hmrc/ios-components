@@ -143,9 +143,7 @@ public extension UIColor {
         primaryButtonHighlightedBaseline,
         secondaryButtonBackground,
         secondaryButtonHighlightedBackground,
-        switchTintSelected,
-        menuCardBackground,
-        menuPageBackground
+        switchTintSelected
 
         public var raw: UIColor {
             return UIColor(named: self.rawValue, in: Bundle.resource, compatibleWith: nil)!

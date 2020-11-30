@@ -18,10 +18,9 @@ import UIKit
 import UIComponents
 
 extension Components.Organisms.HeadlineCardView: Examplable {
+
     typealias Model = Components.Organisms.HeadlineCardView.Model
     typealias View = Components.Organisms.HeadlineCardView
-
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
 
     @objc class func withPlaceholders() -> UIView {
         let headlineModel = Model(
@@ -127,9 +126,8 @@ extension Components.Organisms.HeadlineCardView: Examplable {
 }
 
 extension Components.Organisms.PrimaryCardView: Examplable {
-    typealias Model = Components.Organisms.PrimaryCardView.Model
 
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    typealias Model = Components.Organisms.PrimaryCardView.Model
 
     @objc class func withPlaceholders() -> UIView {
         let model = Model(title: "Title",
@@ -189,7 +187,6 @@ extension Components.Organisms.PrimaryCardView: Examplable {
 }
 
 extension Components.Organisms.ExpandingRowView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
 
     static func withPlaceholders() -> UIView {
         let model = Model(
@@ -258,8 +255,6 @@ extension Components.Organisms.ExpandingRowView: Examplable {
 }
 
 extension Components.StatusCardView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
-
     @objc class func withPlaceholders() -> UIView {
         let model = Components.StatusCardView.Model(
             icon: ExampleImages.maintenance.image,
@@ -378,9 +373,8 @@ extension Components.StatusCardView: Examplable {
 }
 
 extension Components.Organisms.IconButtonCardView: Examplable {
-    typealias Model = Components.Organisms.IconButtonCardView.Model
 
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    typealias Model = Components.Organisms.IconButtonCardView.Model
 
     static func withPlaceholders() -> UIView {
         let iconButtonModel = Model(
@@ -413,8 +407,6 @@ extension Components.Organisms.IconButtonCardView: Examplable {
 }
 
 extension Components.Organisms.InformationMessageCard: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
-
     static func withPlaceholders() -> UIView {
         return Components.Organisms.InformationMessageCard(
             model: .init(
@@ -510,8 +502,6 @@ extension Components.Organisms.SummaryRowView: Examplable {
     typealias View = Components.Organisms.SummaryRowView
     typealias Model = Components.Organisms.SummaryRowView.Model
     typealias Row = Components.Molecules.MultiColumnRowView
-
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
 
     static let handler = {
         let controller = UIAlertController(title: "Tapped", message: "Row was tapped", preferredStyle: .alert)
@@ -635,72 +625,5 @@ extension Components.Organisms.SummaryRowView: Examplable {
         cardViews.forEach { $0.margins = [] }
 
         return cardViews
-    }
-}
-
-extension Components.Organisms.MenuPanelRowView: Examplable {
-    typealias View = Components.Organisms.MenuPanelRowView
-    typealias Model = Components.Organisms.MenuPanelRowView.Model
-
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.menuPageBackground.raw
-
-    static let handler = {
-        let controller = UIAlertController(title: "Tapped", message: "Row was tapped", preferredStyle: .alert)
-        controller.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-            controller.dismiss(animated: true, completion: nil)
-        }))
-        UIApplication.shared.keyWindow?.rootViewController?
-            .present(controller, animated: true, completion: nil)
-    }
-
-    static func withPlaceholders() -> UIView {
-        let rowModel = Model(
-            title: "Title",
-            body: "Body",
-            notificationMode: .number(count: 82)
-        )
-        let view = View(model: rowModel)
-        view.action = handler
-        return view
-    }
-
-    static func examples() -> [UIView] {
-        let paye = Model(
-            title: "Pay As You Earn (PAYE)",
-            body: "Check your tax codes and Income Tax from PAYE sources",
-            notificationMode: .hidden
-        )
-        let messages = Model(
-            title: "Messages",
-            body: "Messages and letters from HMRC",
-            notificationMode: .number(count: 2)
-        )
-        let manyMessages = Model(
-            title: "Messages",
-            body: "Messages and letters from HMRC",
-            notificationMode: .number(count: 1000, max: 99)
-        )
-        let noMessages = Model(
-            title: "Messages",
-            body: "Messages and letters from HMRC",
-            notificationMode: .number(count: 0, hideWhenZero: false)
-        )
-        let noMessagesHidden = Model(
-            title: "Messages",
-            body: "Messages and letters from HMRC",
-            notificationMode: .number(count: 0)
-        )
-        let hts = Model(
-            title: "Help to Save account",
-            body: "A savings account with bonuses designed to help you start saving",
-            notificationMode: .circle
-        )
-
-        let models = [paye, messages, manyMessages, noMessages, noMessagesHidden, hts]
-        return models.map { (model) -> UIView in
-            let view = Self.init(model: model)
-            view.action = handler
-            return view
-        }
     }
 }

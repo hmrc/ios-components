@@ -34,8 +34,7 @@ class OrganismsViewController: UIViewController {
         (named: "Status Card View", vc: SingleComponentViewController<Components.StatusCardView>()),
         (named: "Icon Button Card View", vc: SingleComponentViewController<Components.Organisms.IconButtonCardView>()),
         (named: "Summary Row View", vc: SingleComponentViewController<Components.Organisms.SummaryRowView>()),
-        (named: "Information Message Card", vc: SingleComponentViewController<Components.Organisms.InformationMessageCard>()),
-        (named: "Menu Panel Row View", vc: SingleComponentViewController<Components.Organisms.MenuPanelRowView>())
+        (named: "Information Message Card", vc: SingleComponentViewController<Components.Organisms.InformationMessageCard>())
     ]
 
     override func viewDidLoad() {
