@@ -676,8 +676,8 @@ extension Components.Organisms.MenuPanelRowView: Examplable {
             notificationMode: .number(count: 2)
         )
         let manyMessages = Model(
-            title: "Messages",
-            body: "Messages and letters from HMRC",
+            title: "An example with a very very long title that spans multiple lines",
+            body: "An example with a very very log body that spans multiple lines. This card has 1000 new notifications, but has a max display of 99.",
             notificationMode: .number(count: 1000, max: 99)
         )
         let noMessages = Model(
