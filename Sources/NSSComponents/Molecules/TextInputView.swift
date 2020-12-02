@@ -159,7 +159,7 @@ extension Components.Molecules {
         }
 
         public lazy var charCountLabel = UILabel.buildBodyLabel {
-            $0.isAccessibilityElement = false
+            $0.isAccessibilityElement = true
             $0.adjustsFontForContentSizeCategory = true
             $0.textAlignment = .right
             $0.setContentHuggingPriority(.required, for: .horizontal)
@@ -358,6 +358,7 @@ extension Components.Molecules {
                 charCountLabel.text = "\(count)\(separator)\(maxLength)"
                 let formatString = String.Accessibility.string(for: "TextInputView.characterCount")
                 textView.accessibilityHint = String(format: formatString, count, maxLength)
+                charCountLabel.accessibilityLabel = String(format: formatString, count, maxLength)
             }
         }
 
