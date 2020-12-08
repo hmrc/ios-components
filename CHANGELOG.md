@@ -5,8 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [5.3.2] - 2020-12-08
 ### Changed
 - Use theme specific accessibility label prefixes
+
+## [5.?.?] - ?
 - Adding `fastlane` release process
 
 ## [5.0.0] - 2020-10-07
