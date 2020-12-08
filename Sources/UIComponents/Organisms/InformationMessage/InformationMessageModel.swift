@@ -40,6 +40,19 @@ public extension Components.Organisms.InformationMessageCard {
             case warning
             case urgent
             case notice
+
+            public func accessibilityLabelPrefix() -> String {
+                switch self {
+                case .info:
+                    return NSLocalizedString("Info; ", comment: "Prefix for information message")
+                case .warning:
+                    return NSLocalizedString("Warning; ", comment: "Prefix for warning message")
+                case .urgent:
+                    return NSLocalizedString("Urgent; ", comment: "Prefix for urgent message")
+                case .notice:
+                    return NSLocalizedString("Notice; ", comment: "Prefix for notice message")
+                }
+            }
         }
 
         public init(
