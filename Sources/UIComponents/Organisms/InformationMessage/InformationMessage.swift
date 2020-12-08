@@ -57,6 +57,7 @@ extension Components.Organisms {
             )
 
             warningCard.iconImageView.image = viewModel.icon
+            warningCard.bodyLabel.accessibilityLabel = viewModel.theme.accessibilityLabelPrefix() + viewModel.headline.title
 
             let warningParentCard = Components.Atoms.CardView(components: [warningCard])
 
