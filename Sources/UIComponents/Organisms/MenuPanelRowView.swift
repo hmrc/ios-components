@@ -81,7 +81,7 @@ extension Components.Organisms {
                 }
             }
 
-            let margin = CGFloat.spacer16
+            let margin = CGFloat.spacer24
             self.layoutMargins = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
         }
 
@@ -104,7 +104,7 @@ extension Components.Organisms {
                     return model.title + "; new item"
                 case .number(let count, _, let hideWhenZero):
                     if count == 0 && hideWhenZero {
-                        return model.title + "; new item"
+                        return model.title
                     }
                     return model.title + "; \(count) new item\(count > 1 ? "s" : "")"
                 }
@@ -118,7 +118,7 @@ extension Components.Organisms {
             contentViewStack.addArrangedSubview(horizontalStackView)
             contentViewStack.addArrangedSubview(bodyLabel)
             contentViewStack.axis = .vertical
-            contentViewStack.spacing = .spacer8
+            contentViewStack.spacing = .spacer24
         }
 
         // MARK: - Views
