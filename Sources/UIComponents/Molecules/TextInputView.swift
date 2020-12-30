@@ -114,7 +114,8 @@ extension Components.Molecules {
 
         // MARK: - Public Vars
 
-        public var enforceMaxLength: Bool = true
+        public var enforceMaxLength = true
+        public var touched = false
 
         // MARK: - Handlers
 
@@ -373,6 +374,7 @@ extension Components.Molecules {
 
         open func textViewDidBeginEditing(_ textView: UITextView) {
             editing = true
+            touched = true
             updateCharCount()
         }
 
