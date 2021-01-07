@@ -31,9 +31,9 @@ public enum ButtonStyle: Style {
         switch self {
         case let .primary(enabled, _):
             return enabled ?
-                UIColor.Semantic.primaryButtonText.raw : UIColor.Semantic.primaryButtonDisabledText.raw
+                UIColor.Semantic.primaryButtonText : UIColor.Semantic.primaryButtonDisabledText
         case .secondary:
-            return UIColor.Semantic.secondaryButtonText.raw
+            return UIColor.Semantic.secondaryButtonText
         }
     }
 
@@ -41,34 +41,34 @@ public enum ButtonStyle: Style {
         if Components.Debug.showOverlay { return UIColor.Components.Debug.buttonBackground }
         switch self {
         case .primary:
-            return UIColor.Semantic.primaryButtonBackground.raw
+            return UIColor.Semantic.primaryButtonBackground
         case .secondary:
-            return UIColor.Semantic.secondaryButtonBackground.raw
+            return UIColor.Semantic.secondaryButtonBackground
         }
     }
 
     public var disabledBackgroundColor: UIColor {
         switch self {
         case .primary:
-            return UIColor.Semantic.primaryButtonDisabledBackground.raw
+            return UIColor.Semantic.primaryButtonDisabledBackground
         case .secondary:
-            return UIColor.Semantic.secondaryButtonBackground.raw
+            return UIColor.Semantic.secondaryButtonBackground
         }
     }
 
     public var highlightedBackgroundColor: UIColor {
         switch self {
         case .primary:
-            return UIColor.Semantic.primaryButtonHighlightedBackground.raw
+            return UIColor.Semantic.primaryButtonHighlightedBackground
         case .secondary:
-            return UIColor.Semantic.secondaryButtonHighlightedBackground.raw
+            return UIColor.Semantic.secondaryButtonHighlightedBackground
         }
     }
 
     public var baselineColor: UIColor {
         switch self {
         case let .primary(_, baseline):
-            return baseline ? UIColor.Semantic.primaryButtonBaseline.raw : UIColor.clear
+            return baseline ? UIColor.Semantic.primaryButtonBaseline : .clear
         default:
             return UIColor.clear
         }
@@ -77,7 +77,7 @@ public enum ButtonStyle: Style {
     public var highlightedBaselineColor: UIColor {
         switch self {
         case let .primary(_, baseline):
-            return baseline ? UIColor.Semantic.primaryButtonHighlightedBaseline.raw : UIColor.clear
+            return baseline ? UIColor.Semantic.primaryButtonHighlightedBaseline : .clear
         default:
             return UIColor.clear
         }

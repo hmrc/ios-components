@@ -139,7 +139,7 @@ public class IconButtonWithDisclosure: Components.Helpers.ViewWithCustomDisclosu
         accessibilityIdentifier = model.accessibilityIdentifier
         button.config = .init(
             normalColour: .clear,
-            highlightColour: model.customSelectedStateColor ?? UIColor.Semantic.secondaryButtonHighlightedBackground.raw,
+            highlightColour: model.customSelectedStateColor ?? UIColor.Semantic.secondaryButtonHighlightedBackground,
             disabledColour: .clear
         )
     }

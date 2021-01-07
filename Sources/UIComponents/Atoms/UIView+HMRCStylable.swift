@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ extension UIView {
         view.snp.makeConstraints { (make) in
             make.height.equalTo(1)
         }
-        view.backgroundColor = UIColor.Semantic.divider.raw
+        view.backgroundColor = UIColor.Semantic.divider
         return view
     }
 }

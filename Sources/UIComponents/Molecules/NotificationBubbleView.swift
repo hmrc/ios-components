@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,7 +44,7 @@ extension Components.Molecules {
 
         public lazy var countLabel = UILabel.buildLabel(style: .bold) {
             $0.textAlignment = .center
-            $0.textColor = UIColor.Semantic.lightText.raw
+            $0.textColor = UIColor.Semantic.lightText
             $0.numberOfLines = 0
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -75,7 +75,7 @@ extension Components.Molecules {
         }
 
         public func updateUI(for model: Model) {
-            backgroundColor = UIColor.Semantic.errorText.raw
+            backgroundColor = UIColor.Semantic.errorText
             layer.masksToBounds = true
             layer.cornerRadius = FontMetrics.scaledValue(for: Consts.defaultSize.height / 2)
 

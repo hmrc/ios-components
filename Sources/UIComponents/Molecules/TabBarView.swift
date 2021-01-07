@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -149,7 +149,7 @@ extension Components.Molecules {
                 $0.delegate = self
                 self.stackView.addArrangedSubview($0)
             }
-            scrollView.backgroundColor = model.theme == .dark ? UIColor.Components.Named.black : UIColor.Components.Named.white
+            scrollView.backgroundColor = model.theme == .dark ? UIColor.Named.black.raw : UIColor.Named.white.raw
         }
 
         public override init(frame: CGRect) {
@@ -236,16 +236,16 @@ extension Components.Molecules {
 
             switch theme {
             case .dark:
-                setTitleColor(UIColor.Components.Named.white, for: .selected)
-                setTitleColor(UIColor.Components.Named.grey2, for: .normal)
-                backgroundColor = UIColor.Components.Named.black
-                highlightView.backgroundColor = UIColor.Components.Named.white
+                setTitleColor(UIColor.Named.white.raw, for: .selected)
+                setTitleColor(UIColor.Named.grey2.raw, for: .normal)
+                backgroundColor = UIColor.Named.black.raw
+                highlightView.backgroundColor = UIColor.Named.white.raw
 
             case .light:
-                setTitleColor(UIColor.Components.Named.blue, for: .selected)
-                setTitleColor(UIColor.Components.Named.grey1, for: .normal)
-                backgroundColor = UIColor.Components.Named.white
-                highlightView.backgroundColor = UIColor.Components.Named.blue
+                setTitleColor(UIColor.Named.blue.raw, for: .selected)
+                setTitleColor(UIColor.Named.grey1.raw, for: .normal)
+                backgroundColor = UIColor.Named.white.raw
+                highlightView.backgroundColor = UIColor.Named.blue.raw
             }
         }
 

@@ -35,7 +35,7 @@ extension Components.Molecules {
                 showSeparators: Bool = false,
                 selectedImage: UIImage? = nil,
                 deselectedImage: UIImage? = nil,
-                imageTintColor: UIColor = UIColor.Semantic.darkText.raw,
+                imageTintColor: UIColor = UIColor.Semantic.darkText,
                 rows: [Row]
             ) {
                 self.showSeparators = showSeparators
@@ -130,7 +130,7 @@ extension Components.Molecules {
                 includeMiddle: false,
                 includeLast: false,
                 backgroundColor: .clear,
-                separatorColor: UIColor.Semantic.divider.raw,
+                separatorColor: UIColor.Semantic.divider,
                 dividerLineThickness: 1.0,
                 totalThickness: 1.0,
                 layoutMargins: .zero,

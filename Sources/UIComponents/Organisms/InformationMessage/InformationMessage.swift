@@ -63,21 +63,21 @@ extension Components.Organisms {
 
             switch viewModel.theme {
             case .urgent:
-                warningParentCard.backgroundColor = UIColor.Semantic.errorText.raw
-                warningCard.bodyLabel.textColor = UIColor.Semantic.lightText.raw
-                warningCard.iconImageView.tintColor = UIColor.Semantic.lightText.raw
+                warningParentCard.backgroundColor = UIColor.Semantic.errorText
+                warningCard.bodyLabel.textColor = UIColor.Semantic.lightText
+                warningCard.iconImageView.tintColor = UIColor.Semantic.lightText
             case .info:
-                warningParentCard.backgroundColor = UIColor.Semantic.linkText.raw
-                warningCard.bodyLabel.textColor = UIColor.Semantic.lightText.raw
-                warningCard.iconImageView.tintColor = UIColor.Semantic.lightText.raw
+                warningParentCard.backgroundColor = UIColor.Semantic.linkText
+                warningCard.bodyLabel.textColor = UIColor.Semantic.lightText
+                warningCard.iconImageView.tintColor = UIColor.Semantic.lightText
             case .warning:
                 warningParentCard.backgroundColor = UIColor.Named.yellow.raw
                 warningCard.bodyLabel.textColor = UIColor.Named.black.raw
                 warningCard.iconImageView.tintColor = UIColor.Named.black.raw
             case .notice:
-                warningParentCard.backgroundColor = UIColor.Semantic.darkText.raw
-                warningCard.bodyLabel.textColor = UIColor.Semantic.lightText.raw
-                warningCard.iconImageView.tintColor = UIColor.Semantic.lightText.raw
+                warningParentCard.backgroundColor = UIColor.Semantic.darkText
+                warningCard.bodyLabel.textColor = UIColor.Semantic.lightText
+                warningCard.iconImageView.tintColor = UIColor.Semantic.lightText
             }
 
             let buttons = viewModel.headline.ctas?.map { ctaModel -> UIButton in
@@ -87,14 +87,14 @@ extension Components.Organisms {
                 )
 
                 button.setBackgroundImage(
-                    UIImage.imageWithColor(color: UIColor.Semantic.whiteBackground.raw),
+                    UIImage.imageWithColor(color: UIColor.Semantic.whiteBackground),
                     for: .normal
                 )
                 button.setBackgroundImage(
-                    UIImage.imageWithColor(color: UIColor.Semantic.secondaryButtonHighlightedBackground.raw),
+                    UIImage.imageWithColor(color: UIColor.Semantic.secondaryButtonHighlightedBackground),
                     for: .highlighted
                 )
-                button.setTitleColor(UIColor.Semantic.secondaryButtonText.raw, for: .normal)
+                button.setTitleColor(UIColor.Semantic.secondaryButtonText, for: .normal)
 
                 if let accessibilityIdentifier = ctaModel.accessibilityHint,
                     ctaModel.linkType != .inApp && ctaModel.linkType != .newScreen {

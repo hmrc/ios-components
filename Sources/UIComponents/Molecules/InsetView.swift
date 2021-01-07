@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,7 +48,7 @@ extension Components.Molecules {
         open func commonInit() {
             isAccessibilityElement = true
             textView.backgroundColor = .clear
-            insetView.backgroundColor = UIColor.Semantic.insetBar.raw
+            insetView.backgroundColor = UIColor.Semantic.insetBar
             addViews()
             setupStyle()
             setContraints()
@@ -108,7 +108,7 @@ extension Components.Molecules {
             setupTextView()
             textView.attributedText = text
             setupAccessibilityLabelsForEachParagraph(usingText: text?.string)
-            textView.textColor = UIColor.Semantic.darkText.raw
+            textView.textColor = UIColor.Semantic.darkText
         }
 
         private func setupTextView() {

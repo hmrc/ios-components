@@ -43,7 +43,7 @@ extension Components.Molecules {
 
             super.init(components: [])
 
-            backgroundColor = UIColor.Semantic.cardBackground.raw
+            backgroundColor = UIColor.Semantic.cardBackground
             layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: .spacer16, right: 0)
 
             var components = [UIView]()
@@ -114,7 +114,7 @@ extension Components.Molecules {
         }
 
         private func updateColors() {
-            validationErrorLabel.textColor = UIColor.Semantic.errorText.raw
+            validationErrorLabel.textColor = UIColor.Semantic.errorText
         }
 
         public required init?(coder aDecoder: NSCoder) {

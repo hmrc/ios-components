@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,7 +39,7 @@ extension Components.Molecules {
                 compatibleWith: nil
             )
             let imageView = UIImageView(image: image)
-            imageView.tintColor = UIColor.Semantic.darkText.raw
+            imageView.tintColor = UIColor.Semantic.darkText
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.contentMode = .scaleAspectFit
             return imageView
@@ -48,7 +48,7 @@ extension Components.Molecules {
         public lazy var bodyLabel: UILabel = {
             let label = UILabel.styled(style: .bold)
             label.textAlignment = .left
-            label.textColor = UIColor.Semantic.darkText.raw
+            label.textColor = UIColor.Semantic.darkText
             label.numberOfLines = 0
             label.translatesAutoresizingMaskIntoConstraints = false
             return label

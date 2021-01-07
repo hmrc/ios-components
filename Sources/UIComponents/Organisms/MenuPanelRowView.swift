@@ -59,10 +59,10 @@ extension Components.Organisms {
         open override func commonInit() {
             self.addSubview(button)
             super.commonInit()
-            backgroundColor = UIColor.Semantic.menuCardBackground.raw
+            backgroundColor = UIColor.Semantic.menuCardBackground
             stackView.isUserInteractionEnabled = false
 
-            disclosureImageView.tintColor = UIColor.Semantic.darkText.raw
+            disclosureImageView.tintColor = UIColor.Semantic.darkText
             disclosureImageView.snp.makeConstraints { (make) in
                 make.height.equalTo(24)
                 make.width.equalTo(24)
@@ -76,7 +76,7 @@ extension Components.Organisms {
             if let button = button as? TransparentButton {
                 button.config = TransparentButton.StateConfig(
                     normalColour: .clear,
-                    highlightColour: UIColor.Semantic.transparentButtonHighlightedBackground.raw,
+                    highlightColour: UIColor.Semantic.transparentButtonHighlightedBackground,
                     disabledColour: .clear
                 )
                 button.action = { [weak self] in
@@ -148,7 +148,7 @@ extension Components.Organisms {
         public private(set)var bodyLabel = UILabel.styled(style: .body)
 
         public lazy var titleLabel = UILabel.buildLabel(style: .H5) {
-            $0.textColor = UIColor.Semantic.expandableButtonText.raw
+            $0.textColor = UIColor.Semantic.expandableButtonText
             $0.setContentCompressionResistancePriority(.required, for: .vertical)
             $0.setContentCompressionResistancePriority(.required, for: .horizontal)
             $0.setContentHuggingPriority(.required, for: .horizontal)

@@ -24,8 +24,7 @@ let package = Package(
             name: "UIComponents",
             dependencies: ["SnapKit"],
             resources: [
-                .process("Assets"),
-                .process("Colors")
+                .process("Assets")
             ]
         ),
         .testTarget(
