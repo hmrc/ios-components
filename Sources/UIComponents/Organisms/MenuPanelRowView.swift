@@ -95,8 +95,8 @@ extension Components.Organisms {
             self.bodyLabel.text = model.body
             self.notificationBubble.updateUI(for: .init(notificationMode: model.notificationMode))
 
-            button.accessibilityIdentifier = model.accessibilityIdentifier
-            button.accessibilityLabel = {
+            accessibilityIdentifier = model.accessibilityIdentifier
+            accessibilityLabel = {
                 switch model.notificationMode {
                 case .hidden:
                     return model.title
@@ -109,8 +109,9 @@ extension Components.Organisms {
                     return model.title + "; \(count) new item\(count > 1 ? "s" : "")"
                 }
             }()
-            button.accessibilityHint = model.body
-            self.accessibilityElements = [button]
+            accessibilityHint = model.body
+            isAccessibilityElement = true
+            accessibilityTraits = .button
 
             horizontalStackView.addArrangedSubview(titleLabel)
             horizontalStackView.addArrangedSubview(notificationBubble)
