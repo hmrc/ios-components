@@ -26,7 +26,7 @@ public extension Components.Organisms.InformationMessageCard {
         public let bodyContent: BodyContent?
 
         public struct Headline {
-            let title: String
+            public let title: String
             public let ctas: [CTA]?
 
             public init(title: String, ctas: [CTA]? = nil) {
