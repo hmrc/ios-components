@@ -20,7 +20,7 @@ extension Components.Organisms {
     open class InformationMessageCard: Components.Atoms.CardView {
 
         public var action: ((MessageModel, CTA) -> Void)?
-        private var model: MessageModel
+        public var model: MessageModel
 
         public func updateUI(for model: MessageModel) {
 
