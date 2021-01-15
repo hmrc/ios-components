@@ -70,11 +70,9 @@ Our fastlane [README](https://github.com/hmrc/ios-components/tree/master/fastlan
 
 We use [SwiftLint](https://github.com/realm/SwiftLint) to enforce Swift style and conventions. Our custom rules can be found in our [.swiftlint.yml](https://github.com/hmrc/ios-components/blob/master/.swiftlint.yml).
 
-### Carthage
+### Swift Package Manager
 
-We use [Carthage](https://github.com/Carthage/Carthage) for dependency management.
-
-- [ ] Add support for SPM
+We use SPM within this project and also as a way to distribute this library.
 
 ### Using Android?
 We have an android version of this library available [here](https://github.com/hmrc/android-components/) 

@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Added
+
+- A way to use a development version of the package within main projects
+
 ## [5.3.2] - 2020-12-08
 ### Changed
 - Use theme specific accessibility label prefixes
