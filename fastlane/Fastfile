@@ -28,7 +28,7 @@ platform :ios do
   end
 
   desc "Creates a development tag and updates projects using this swift package"
-  lane :update_dependant_projects do
+  lane :update_dependent_projects do
     local_url = Pathname(Dir.pwd).dirname.to_s
     local_url = "file://" + local_url
     package_resolved_path = ENV['LOCAL_PROJECT_PATH'] + "/project.pbxproj"
