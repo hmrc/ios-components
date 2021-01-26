@@ -49,7 +49,7 @@ platform :ios do
 
   end
 
-  desc "Reset dependant projects to remote URL"
+  desc "Reset dependent projects to remote URL"
   lane :reset_dependent_projects do 
     remote_url =  ENV['REMOTE_COMPONENTS_URL']
     local_url = Pathname(Dir.pwd).dirname.to_s
