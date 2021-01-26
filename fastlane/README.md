@@ -21,16 +21,16 @@ or alternatively using `brew install fastlane`
 fastlane ios sync_project_with_local_components
 ```
 Get project path and replace remote components with local
-### ios update_dependant_projects
+### ios update_dependent_projects
 ```
-fastlane ios update_dependant_projects
+fastlane ios update_dependent_projects
 ```
 Creates a development tag and updates projects using this swift package
 ### ios reset_dependent_projects
 ```
 fastlane ios reset_dependent_projects
 ```
-Reset dependant projects to remote URL
+Reset dependent projects to remote URL
 ### ios sync_certificates
 ```
 fastlane ios sync_certificates
