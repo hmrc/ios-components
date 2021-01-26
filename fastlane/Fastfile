@@ -1,9 +1,77 @@
 fastlane_require 'semantic'
 
+require 'pathname'
+
+
 default_platform(:ios)
 
 platform :ios do
+  # SWIFT PACKAGE MANAGEMENT LANES
+  ####################################################################################
+  desc "Get project path and replace remote components with local"
+  lane :sync_project_with_local_components do
+    # Updates xcode package url
+    remote_url =  ENV['REMOTE_COMPONENTS_URL']
+    local_url = Pathname(Dir.pwd).dirname.to_s
+    local_url = "file://" + local_url
+    package_resolved_path = ENV['LOCAL_PROJECT_PATH'] + "/project.pbxproj"
 
+    text = File.read(package_resolved_path)
+    replaced_text = text.gsub(remote_url, local_url)
+
+    File.open(package_resolved_path, "w") {|file| file.puts replaced_text }
+
+    # Adds current remote tag to tag file
+    tag_values_filename = ENV['TAG_FILE']
+    File.open(tag_values_filename, "w") {|f| f.puts last_git_tag }
+
+  end
+
+  desc "Creates a development tag and updates projects using this swift package"
+  lane :update_dependent_projects do
+    local_url = Pathname(Dir.pwd).dirname.to_s
+    local_url = "file://" + local_url
+    package_resolved_path = ENV['LOCAL_PROJECT_PATH'] + "/project.pbxproj"
+
+    last_local_tag = last_git_tag
+    dev_tag = Time.now.to_i.to_s + ".0.0" # .0.0 is required for Xcode to solve the versioning
+    sh("[[ -z $(git status -s) ]] || git commit -a -m 'development commit for " + dev_tag + "'")
+    sh("git tag " + dev_tag)
+
+    # Updates Swift Package Manifest
+    text = File.read(package_resolved_path)
+    replaced_text = text.gsub(last_local_tag, dev_tag)
+    File.open(package_resolved_path, "w") {|file| file.puts replaced_text }
+
+    # Stores tags in file for use later
+    tag_values_filename = ENV['TAG_FILE']
+    File.open(tag_values_filename, "a") {|f| f.write("\n" + dev_tag) }
+
+  end
+
+  desc "Reset dependent projects to remote URL"
+  lane :reset_dependent_projects do 
+    remote_url =  ENV['REMOTE_COMPONENTS_URL']
+    local_url = Pathname(Dir.pwd).dirname.to_s
+    local_url = "file://" + local_url
+    package_resolved_path = ENV['LOCAL_PROJECT_PATH'] + "/project.pbxproj"
+
+    tag_values_filename = ENV['TAG_FILE']
+    tag_values = File.readlines(tag_values_filename)
+
+    text = File.read(package_resolved_path)
+    replaced_text = text.gsub(local_url, remote_url)
+    replaced_text = replaced_text.gsub(tag_values.last, tag_values.first.gsub("\n", ""))
+
+    File.open(package_resolved_path, "w") {|file| file.puts replaced_text }
+
+    tag_values.drop(1).each { |x| sh("git tag -d " + x) }
+
+    sh("rm " + tag_values_filename)
+  end
+
+  # GENERAL DEVELOPMENT LANES
+  ####################################################################################
   desc "This will sync adhoc certificates to allow the companion app to build on CI"
   lane:sync_certificates do 
     syncAdhocCerts()

@@ -1,6 +1,9 @@
 .build
 
 
+.idea/*
+fastlane/.tag_values
+fastlane/.env
 fastlane/MatchFile
 
 ## Build generated
