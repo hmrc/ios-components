@@ -107,15 +107,8 @@ platform :ios do
     syncAdhocCerts(true)
   end
 
-  desc "Create a new tagged release of the library."
-  desc "This will bump the Info.plist version, precompile the library, commit and tag the changes, then push up to master."
-  lane :tag_release do
-
-    UI.user_error!("You need to provide a Github Personal token via a `GITHUB_TOKEN` environment variable - you can create a new token on Github https://github.com/settings/tokens/new") unless !ENV["GITHUB_TOKEN"].nil?
-
-    # ensure repo is clean and on master
-    ensure_git_status_clean
-    ensure_git_branch
+  desc "Updates the project version and creates a release PR to be approved"
+  lane :prepare_release do
 
     # pull latest changes and fetch tags
     git_pull
@@ -126,46 +119,61 @@ platform :ios do
 
     # prompt for bump type
     bump_type = UI.select(
-      "Current version is #{current_tag}. What would you like to bump?",
+      "Current version is #{current_tag}. What version would you like to create a PR for?",
       ["major", "minor", "patch"]
     )
 
     # increment version
     case bump_type
     when "major"
-      tag = version.increment!(:major)
+      version = version.increment!(:major)
     when "minor"
-      tag = version.increment!(:minor)
+      version = version.increment!(:minor)
     else
-      tag = version.increment!(:patch)
+      version = version.increment!(:patch)
     end
 
     increment_version_number(
-      version_number: tag.to_string
+      version_number: version.to_string
     )
 
     # update changelog
     stamp_changelog(
-      section_identifier: tag.to_string
+      section_identifier: version.to_string
     )
+    sh('swift package generate-xcodeproj')
 
-    # build for carthage
-    #sh('cd .. && carthage build --archive')
-    sh('cd .. && fastlane carthage_wrapper command:build no_skip_current:true platform:iOS && fastlane carthage_wrapper command:archive')
+    branch_name = "release/" + version.to_string
+    sh('git checkout -b ' + branch_name)
+    sh('git add .')
+    sh("[[ -z $(git status -s) ]] || git commit -a -m 'Swift package generate for " + version.to_string + "'")
+    sh('git push --set-upstream origin ' + branch_name)
+    sh('gh pr create --title "Release PR for ' + version.to_string + '" --base master')
+  end
 
-    sh("git", "checkout", "-b", "tag/#{tag.to_string}")
+  desc "Create a new tagged release of the library."
+  desc "This will bump the Info.plist version, precompile the library, commit and tag the changes, then push up to master."
+  lane :tag_release do
+
+    UI.user_error!("You need to provide a Github Personal token via a `GITHUB_TOKEN` environment variable - you can create a new token on Github https://github.com/settings/tokens/new") unless !ENV["GITHUB_TOKEN"].nil?
+
+    # ensure repo is clean
+    ensure_git_status_clean
+
+    project_version = get_version_number(xcodeproj: "UIComponents.xcodeproj")
+    ensure_git_branch(branch: "^release\/" + project_version.to_string)
+
+    sh("git", "checkout", "-b", "tag/#{project_version.to_string}")
 
     # commit changes
     git_commit(
       path: ["./CHANGELOG.md", "./UIComponents.framework.zip", "./UIComponents*/Info.plist"],
-      message: "Bump version to #{tag} and tagging release"
+      message: "Bump version to #{project_version} and tagging release"
     )
     push_to_git_remote
-
-    sh("gh", "pr", "create", "--title", "Release #{tag.to_string}", "--body", "")
     
     # take tag and push to remote
-    add_git_tag(tag: tag.to_string)
+    add_git_tag(tag: project_version.to_string)
     push_git_tags
 
     # update releases on Github
@@ -182,34 +190,4 @@ platform :ios do
     )
   end
 
-  desc "Update dependencies."
-  lane :update_dependencies do
-    # sh 'cd .. && carthage update --platform ios --use-ssh'
-    sh 'cd .. && fastlane carthage_wrapper command:update platform:iOS use_ssh:true'
-  end
-
-  desc "Check for outdated carthage dependencies."
-  lane :check_dependencies do
-    sh 'cd .. && mkdir -p Artifacts && /usr/local/bin/carthage outdated --xcode-warnings --use-ssh > Artifacts/dependencies_report.txt'
-  end
-
-  desc "Run carthage in a wrapper that works with Xcode 12"
-  lane :carthage_wrapper do |options|
-    require 'tempfile'
-    tmp = Tempfile.new('xcconfig')
-    oldXcconfig = ENV['XCODE_XCCONFIG_FILE']
-    ENV['XCODE_XCCONFIG_FILE'] = tmp.path
-    begin
-      tmp.write("EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64__XCODE_1200 = arm64 arm64e armv7 armv7s armv6 armv8\n")
-      tmp.write("EXCLUDED_ARCHS = $(inherited) $(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT)__XCODE_$(XCODE_VERSION_MAJOR))\n")
-      tmp.flush
-
-      carthage(options)
-    ensure
-      # Always delete the temp file
-      tmp.close
-      tmp.unlink
-      ENV['XCODE_XCCONFIG_FILE'] = oldXcconfig
-    end
-  end
 end
