@@ -46,11 +46,6 @@ Build adhoc app for testing
 fastlane ios register_new_device
 ```
 Register new devices
-### ios prepare_release
-```
-fastlane ios prepare_release
-```
-Updates the project version and creates a release PR to be approved
 ### ios tag_release
 ```
 fastlane ios tag_release
