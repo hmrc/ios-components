@@ -163,8 +163,6 @@ platform :ios do
     project_version = get_version_number(xcodeproj: "UIComponents.xcodeproj")
     ensure_git_branch(branch: "^release\/" + project_version.to_string)
 
-    sh("git", "checkout", "-b", "tag/#{project_version.to_string}")
-
     # commit changes
     git_commit(
       path: ["./CHANGELOG.md", "./UIComponents.framework.zip", "./UIComponents*/Info.plist"],
