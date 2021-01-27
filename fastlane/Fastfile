@@ -160,7 +160,7 @@ platform :ios do
     # ensure repo is clean
     ensure_git_status_clean
 
-    project_version = get_version_number(xcodeproj: "UIComponents.xcodeproj")
+    project_version = get_version_number(xcodeproj: "UIComponents.xcodeproj", target: "UIComponents")
     ensure_git_branch(branch: "^release\/" + project_version.to_string)
 
     # commit changes
