@@ -5,17 +5,13 @@ Build applications using components with the HMRC look and feel.
 # Requirements
 
 - iOS 11.0+
-- Swift 5.0
+- Swift 5.3
 
 # Installation
 
-## Carthage
+## Swift Package Manager
+This library is set up to be used via Swift Package Manager - you can develop locally by following the instructions within the [wiki](https://github.com/hmrc/ios-components/wiki/Developing-with-the-Component-Library)
 
-Carthage is a decentralised dependency manager that builds your dependencies and provides you with binary frameworks. To integrate the components library into your Xcode project using Carthage, specify it in your Cartfile:
-
-```
-github "hmrc/ios-components"
-```
 
 # Using the Component Library
 
@@ -70,9 +66,6 @@ Our fastlane [README](https://github.com/hmrc/ios-components/tree/master/fastlan
 
 We use [SwiftLint](https://github.com/realm/SwiftLint) to enforce Swift style and conventions. Our custom rules can be found in our [.swiftlint.yml](https://github.com/hmrc/ios-components/blob/master/.swiftlint.yml).
 
-### Swift Package Manager
-
-We use SPM within this project and also as a way to distribute this library.
 
 ### Using Android?
 We have an android version of this library available [here](https://github.com/hmrc/android-components/) 
