@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [5.4.0] - 2021-01-27
+
 ### Added
 
 - A way to use a development version of the package within main projects

@@ -46,6 +46,11 @@ Build adhoc app for testing
 fastlane ios register_new_device
 ```
 Register new devices
+### ios prepare_release
+```
+fastlane ios prepare_release
+```
+Updates the project version and creates a release PR to be approved
 ### ios tag_release
 ```
 fastlane ios tag_release
@@ -53,21 +58,6 @@ fastlane ios tag_release
 Create a new tagged release of the library.
 
 This will bump the Info.plist version, precompile the library, commit and tag the changes, then push up to master.
-### ios update_dependencies
-```
-fastlane ios update_dependencies
-```
-Update dependencies.
-### ios check_dependencies
-```
-fastlane ios check_dependencies
-```
-Check for outdated carthage dependencies.
-### ios carthage_wrapper
-```
-fastlane ios carthage_wrapper
-```
-Run carthage in a wrapper that works with Xcode 12
 
 ----
 
