@@ -107,8 +107,14 @@ platform :ios do
     syncAdhocCerts(true)
   end
 
-  desc "Updates the project version and creates a release PR to be approved"
-  lane :prepare_release do
+  desc "Create a new tagged release of the library."
+  desc "This will bump the Info.plist version, precompile the library, commit and tag the changes, then push up to master."
+  lane :tag_release do
+
+    UI.user_error!("You need to provide a Github Personal token via a `GITHUB_TOKEN` environment variable - you can create a new token on Github https://github.com/settings/tokens/new") unless !ENV["GITHUB_TOKEN"].nil?
+
+    # ensure repo is clean
+    ensure_git_status_clean
 
     # pull latest changes and fetch tags
     git_pull
@@ -119,7 +125,7 @@ platform :ios do
 
     # prompt for bump type
     bump_type = UI.select(
-      "Current version is #{current_tag}. What version would you like to create a PR for?",
+      "Current version is #{current_tag}. What version would you like to release?",
       ["major", "minor", "patch"]
     )
 
@@ -141,49 +147,43 @@ platform :ios do
     stamp_changelog(
       section_identifier: version.to_string
     )
-    sh('swift package generate-xcodeproj')
 
+    # Creates release branch
     branch_name = "release/" + version.to_string
     sh('git checkout -b ' + branch_name)
+
+    # Makes sure Swift Package is up to date
+    sh('swift package generate-xcodeproj')
+
+    # Commits swift auto-generated files 
     sh('git add .')
-    sh("[[ -z $(git status -s) ]] || git commit -a -m 'Swift package generate for " + version.to_string + "'")
+    sh("[[ -z $(git status -s) ]] || git commit -a -m 'Swift package generation for " + version.to_string + "'")
     sh('git push --set-upstream origin ' + branch_name)
+
+    # Creates PR for team to approve
     sh('gh pr create --title "Release PR for ' + version.to_string + '" --base master')
-  end
-
-  desc "Create a new tagged release of the library."
-  desc "This will bump the Info.plist version, precompile the library, commit and tag the changes, then push up to master."
-  lane :tag_release do
-
-    UI.user_error!("You need to provide a Github Personal token via a `GITHUB_TOKEN` environment variable - you can create a new token on Github https://github.com/settings/tokens/new") unless !ENV["GITHUB_TOKEN"].nil?
-
-    # ensure repo is clean
-    ensure_git_status_clean
-
-    project_version = get_version_number(xcodeproj: "UIComponents.xcodeproj", target: "UIComponents")
-    ensure_git_branch(branch: "^release\/" + project_version)
-
+    
     # commit changes
     git_commit(
-      path: ["./CHANGELOG.md", "./UIComponents.framework.zip", "./UIComponents*/Info.plist"],
-      message: "Bump version to #{project_version} and tagging release"
+      path: ["./CHANGELOG.md"],
+      message: "Bump version to #{version} and tagging release"
     )
     push_to_git_remote
     
     # take tag and push to remote
-    add_git_tag(tag: project_version.to_string)
+    add_git_tag(tag: version.to_string)
     push_git_tags
 
     # update releases on Github
     changelog = read_changelog(
-      section_identifier: "[#{tag}]",
+      section_identifier: "[#{version}]",
       excluded_markdown_elements: []
     )
     set_github_release(
       repository_name: "hmrc/ios-components",
       api_token: ENV["GITHUB_TOKEN"],
-      name: tag.to_string,
-      tag_name: tag.to_string,
+      name: version.to_string,
+      tag_name: version.to_string,
       description: changelog
     )
   end
