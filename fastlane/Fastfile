@@ -147,6 +147,7 @@ platform :ios do
     stamp_changelog(
       section_identifier: version.to_string
     )
+    sh("[[ -z $(git status -s) ]] || git commit -a -m 'Bump version to #{version} and tagging release'")
 
     # Creates release branch
     branch_name = "release/" + version.to_string
@@ -157,17 +158,14 @@ platform :ios do
 
     # Commits swift auto-generated files 
     sh('git add .')
-    sh("[[ -z $(git status -s) ]] || git commit -a -m 'Swift package generation for " + version.to_string + "'")
+    sh("[[ -z $(git status -s) ]] || git commit -a -m 'Swift package generation for #{version.to_string}'")
     sh('git push --set-upstream origin ' + branch_name)
 
     # Creates PR for team to approve
     sh('gh pr create --title "Release PR for ' + version.to_string + '" --base master')
     
     # commit changes
-    git_commit(
-      path: ["./CHANGELOG.md"],
-      message: "Bump version to #{version} and tagging release"
-    )
+    
     push_to_git_remote
     
     # take tag and push to remote
