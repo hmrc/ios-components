@@ -15,7 +15,6 @@
  */
 
 import UIKit
-import SnapKit
 
 extension Components.Organisms {
     open class SummaryRowView: Components.Helpers.ViewWithCustomDisclosure, Component {
@@ -39,12 +38,14 @@ extension Components.Organisms {
             public let accessibilityLabel: String?
             public let accessibilityHint: String?
 
-            public init(title: String,
-                        rowViews: [Components.Molecules.MultiColumnRowView],
-                        icon: UIImage? = nil,
-                        accessibilityIdentifier: String? = nil,
-                        accessibilityLabel: String? = nil,
-                        accessibilityHint: String? = nil) {
+            public init(
+                title: String,
+                rowViews: [Components.Molecules.MultiColumnRowView],
+                icon: UIImage? = nil,
+                accessibilityIdentifier: String? = nil,
+                accessibilityLabel: String? = nil,
+                accessibilityHint: String? = nil
+            ) {
                 self.title = title
                 self.rowViews = rowViews
                 self.icon = icon
@@ -146,15 +147,18 @@ extension Components.Organisms {
             rowContainerView.spacing = .spacer8
 
             disclosureImageView.tintColor = .clear
-            disclosureImageView.snp.makeConstraints { (make) in
-                make.height.equalTo(24)
-                make.width.equalTo(24)
-            }
+
+            NSLayoutConstraint.activate([
+                disclosureImageView.heightAnchor.constraint(equalToConstant: .spacer24),
+                disclosureImageView.widthAnchor.constraint(equalToConstant: .spacer24),
+
+                button.topAnchor.constraint(equalTo: topAnchor),
+                button.leadingAnchor.constraint(equalTo: leadingAnchor),
+                button.widthAnchor.constraint(equalTo: widthAnchor),
+                button.heightAnchor.constraint(equalTo: heightAnchor)
+            ])
 
             button.isEnabled = false
-            button.snp.makeConstraints { (make) in
-                make.edges.equalTo(self)
-            }
 
             if let button = button as? TransparentButton {
                 button.config = TransparentButton.StateConfig(

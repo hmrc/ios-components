@@ -15,7 +15,6 @@
  */
 
 import UIKit
-import SnapKit
 
 extension Components.Organisms {
 
@@ -63,16 +62,16 @@ extension Components.Organisms {
             removePadding()
 
             components.filter { !views.contains($0) }.forEach {
-                $0.snp.remakeConstraints { (make) in
-                    make.left.equalTo(snp.left).inset(CGFloat.spacer16)
-                    make.right.equalTo(snp.right).inset(CGFloat.spacer16)
-                }
+                NSLayoutConstraint.activate([
+                    $0.leftAnchor.constraint(equalTo: leftAnchor, constant: .spacer16),
+                    $0.rightAnchor.constraint(equalTo: rightAnchor, constant: .spacer16),
+                ])
             }
 
-            titleLabel.snp.remakeConstraints { (make) in
-                make.left.equalTo(snp.left).inset(CGFloat.spacer16)
-                make.right.equalTo(snp.right).inset(CGFloat.spacer16)
-            }
+            NSLayoutConstraint.activate([
+                titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: .spacer16),
+                titleLabel.rightAnchor.constraint(equalTo: rightAnchor, constant: .spacer16)
+            ])
 
             // Apply spacing above title without causing constraint conflicts
             stackView.layoutMargins.adjust([.top], margin: 16)

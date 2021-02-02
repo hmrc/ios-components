@@ -19,15 +19,18 @@ import SnapKit
 import UIComponents
 
 class ColourView: UIView {
-    let colourView = UIView()
-    let label = UILabel.styled(style: .H5)
+    let colourView = UIView.build {
+        $0 .layer.borderColor = UIColor.Semantic.darkText.raw.cgColor
+        $0 .layer.borderWidth = 1.0
+    }
+    let label = UILabel.buildH5Label()
 
     init(title: String, colour: UIColor) {
         super.init(frame: .zero)
+        translatesAutoresizingMaskIntoConstraints = false
+        
         addViews()
-        disableTranslatesAutoresizingMaskIntoConstraints()
         setupConstraints()
-        setupStyle()
         colourView.backgroundColor = colour
         label.text = "\(title) (#\(colour.hexRGB()))"
     }
@@ -37,33 +40,22 @@ class ColourView: UIView {
         addSubview(label)
     }
 
-    private func setupStyle() {
-        colourView.layer.borderColor = UIColor.Semantic.darkText.raw.cgColor
-        colourView.layer.borderWidth = 1.0
-    }
-
     private func setupConstraints() {
-        colourView.snp.makeConstraints { (make) in
-            make.left.equalTo(snp.leftMargin)
-            make.top.equalTo(snp.topMargin)
-            make.bottom.equalTo(snp.bottomMargin)
-            make.height.equalTo(40)
-            make.width.equalTo(40)
-        }
-        label.snp.makeConstraints { (make) in
-            make.left.equalTo(colourView.snp.right).offset(20)
-            make.right.equalTo(snp.rightMargin)
-            make.centerY.equalTo(colourView.snp.centerY)
-        }
-    }
+        
+        NSLayoutConstraint.activate([
+            colourView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor),
+            colourView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+            colourView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+            colourView.heightAnchor.constraint(equalToConstant: 40),
+            colourView.widthAnchor.constraint(equalToConstant: 40),
 
-    private func disableTranslatesAutoresizingMaskIntoConstraints() {
-        translatesAutoresizingMaskIntoConstraints = false
-        colourView.translatesAutoresizingMaskIntoConstraints = false
-        label.translatesAutoresizingMaskIntoConstraints = false
+            label.leftAnchor.constraint(equalTo: colourView.rightAnchor, constant: 20),
+            label.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor),
+            label.centerYAnchor.constraint(equalTo: colourView.centerYAnchor)
+        ])
     }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("Not Needed")
     }
-}
+} 

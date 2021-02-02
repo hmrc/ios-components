@@ -16,8 +16,6 @@
 
 import UIKit
 
-import SnapKit
-
 extension Components.Atoms {
 
     open class BulletLabelView: UIView {
@@ -70,18 +68,20 @@ extension Components.Atoms {
 
             bullet.setContentHuggingPriority(.required, for: .horizontal)
             bullet.setContentCompressionResistancePriority(.required, for: .horizontal)
+            
+            let bulletLabelRightConstraint = bulletLabel.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor)
+            bulletLabelRightConstraint.priority = UILayoutPriority(999)
 
-            bullet.snp.makeConstraints { (make) in
-                make.left.equalTo(snp.leftMargin)
-                make.lastBaseline.equalTo(bulletLabel.snp.firstBaseline)
-            }
+            NSLayoutConstraint.activate([
+                bullet.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor),
+                bullet.lastBaselineAnchor.constraint(equalTo: bulletLabel.firstBaselineAnchor),
+                
+                bulletLabel.leftAnchor.constraint(equalTo: bullet.rightAnchor, constant: .spacer16),
+                bulletLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+                bulletLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
+            ])
 
-            bulletLabel.snp.makeConstraints { (make) in
-                make.left.equalTo(bullet.snp.right).offset(CGFloat.spacer16)
-                make.top.equalTo(snp.topMargin)
-                make.bottom.equalTo(snp.bottomMargin)
-                make.right.equalTo(snp.rightMargin).priority(999)
-            }
+            bulletLabelRightConstraint.isActive = true
         }
     }
 }

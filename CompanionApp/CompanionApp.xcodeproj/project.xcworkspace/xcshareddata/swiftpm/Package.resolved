@@ -3,20 +3,11 @@
     "pins": [
       {
         "package": "UIComponents",
-        "repositoryURL": "https://github.com/hmrc/ios-components",
+        "repositoryURL": "/Users/markwebb/Documents/Repos/HMRCRepos/ios-components",
         "state": {
           "branch": null,
-          "revision": "2fa4d176670ea196ef9ef555a8101a5685b6fbff",
-          "version": "5.3.6"
-        }
-      },
-      {
-        "package": "SnapKit",
-        "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
-        "state": {
-          "branch": null,
-          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
-          "version": "5.0.1"
+          "revision": "5956d11e3ca1b914b78f668eb8baafb12f334982",
+          "version": "1613138087.0.0"
         }
       }
     ]

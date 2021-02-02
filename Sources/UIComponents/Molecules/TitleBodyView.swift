@@ -15,7 +15,6 @@
  */
 
 import UIKit
-import SnapKit
 
 extension Components.Molecules {
     open class TitleBodyView: DebugOverlayableView {
@@ -69,18 +68,21 @@ extension Components.Molecules {
             stackView.spacing = .spacer16
             stackView.distribution = .fill
             addViews()
-            setContraints()
             disableTranslatesAutoresizingMaskIntoConstraints()
         }
 
         private func addViews() {
             addSubview(stackView)
         }
-
-        private func setContraints() {
-            stackView.snp.makeConstraints { (make) in
-                make.edges.equalToSuperview()
-            }
+        
+        open override func didMoveToSuperview() {
+            guard let superview = superview else { return }
+            NSLayoutConstraint.activate([
+                stackView.topAnchor.constraint(equalTo: superview.topAnchor),
+                stackView.leftAnchor.constraint(equalTo: superview.leftAnchor),
+                stackView.rightAnchor.constraint(equalTo: superview.rightAnchor),
+                stackView.bottomAnchor.constraint(equalTo: superview.bottomAnchor)
+            ])
         }
 
         private func setContentPriority() {

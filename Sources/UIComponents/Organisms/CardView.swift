@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import SnapKit
 import UIKit
 
 extension UIEdgeInsets {
@@ -60,6 +59,7 @@ extension Components.Atoms {
         public var components = [UIView]()
         public let stackView = UIStackView()
         private let itemSpacing: CGFloat
+        private var stackViewBottomAnchor: NSLayoutConstraint?
 
         // MARK: - Initialisation
 
@@ -138,26 +138,33 @@ extension Components.Atoms {
         }
 
         open func setContraints() {
-            stackView.snp.makeConstraints { make in
-                make.edges.equalTo(self.snp.margins)
-            }
+            NSLayoutConstraint.activate([
+                stackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+                stackView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor),
+                stackView.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor),
+            ])
+            stackViewBottomAnchor = stackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
+            stackViewBottomAnchor?.isActive = true
         }
 
         private func disableTranslatesAutoresizingMaskIntoConstraints() {
             translatesAutoresizingMaskIntoConstraints = false
             stackView.translatesAutoresizingMaskIntoConstraints = false
         }
-
+        
         open func addComponents(_ components: [UIView]) {
+            stackViewBottomAnchor?.isActive = false
+            stackView.removeConstraints(stackView.constraints)
+            
             components.enumerated().forEach { index, component in
 
                 self.components.append(component)
                 stackView.addArrangedSubview(component)
 
-                component.snp.makeConstraints { make in
-                    make.left.equalTo(stackView.snp.left)
-                    make.right.equalTo(stackView.snp.right)
-                }
+                NSLayoutConstraint.activate([
+                    component.leftAnchor.constraint(equalTo: stackView.leftAnchor),
+                    component.rightAnchor.constraint(equalTo: stackView.rightAnchor)
+                ])
 
                 if let button = component as? HMRCButton,
                     let style = button.style,
@@ -173,23 +180,21 @@ extension Components.Atoms {
                     }
                 }
             }
-
+            
+            NSLayoutConstraint.activate([
+                stackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+                stackView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor),
+                stackView.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor),
+            ])
+            
             if let button = components.last as? HMRCButton,
                 case .secondary = button.style {
-                stackView.snp.remakeConstraints { make in
-                    make.top.equalTo(self.snp_topMargin)
-                    make.left.equalTo(self.snp_leftMargin)
-                    make.right.equalTo(self.snp_rightMargin)
-                    make.bottom.equalTo(self.snp.bottom)
-                }
+                    
+                stackViewBottomAnchor = stackView.bottomAnchor.constraint(equalTo: bottomAnchor)
             } else {
-                stackView.snp.remakeConstraints { make in
-                    make.top.equalTo(self.snp_topMargin)
-                    make.left.equalTo(self.snp_leftMargin)
-                    make.right.equalTo(self.snp_rightMargin)
-                    make.bottom.equalTo(self.snp_bottomMargin)
-                }
+                stackViewBottomAnchor = stackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
             }
+            stackViewBottomAnchor?.isActive = true
         }
 
         open func setComponents(_ components: [UIView]) {

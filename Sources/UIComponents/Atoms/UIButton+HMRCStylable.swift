@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-import SnapKit
 import UIKit
 
 // MARK: - HMRCStyle
@@ -228,7 +227,7 @@ extension UIButton: Stylable {
 // MARK: - Subclass
 
 internal class HMRCButton: FlexibleButton {
-    private var baselineView = UIView()
+    private var baselineView = UIView.build()
     private var baselineColors: [UInt: UIColor] = [:]
 
     var style: ButtonStyle?
@@ -262,17 +261,17 @@ internal class HMRCButton: FlexibleButton {
     }
 
     override func updateConstraints() {
-           super.updateConstraints()
+        super.updateConstraints()
 
-           DispatchQueue.main.async { [weak self] in
-               guard let self = self else { return }
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
 
-               self.baselineView.snp.remakeConstraints { make in
-                   make.left.equalTo(self.snp.left)
-                   make.right.equalTo(self.snp.right)
-                   make.bottom.equalTo(self.snp.bottom)
-                   make.height.equalTo(3)
-               }
-           }
-       }
+            NSLayoutConstraint.activate([
+                self.baselineView.leftAnchor.constraint(equalTo: self.leftAnchor),
+                self.baselineView.rightAnchor.constraint(equalTo: self.rightAnchor),
+                self.baselineView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+                self.baselineView.heightAnchor.constraint(equalToConstant: 3)
+            ])
+        }
+    }
 }
