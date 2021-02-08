@@ -9,12 +9,15 @@ platform :ios do
   # SWIFT PACKAGE MANAGEMENT LANES
   ####################################################################################
   desc "Get project path and replace remote components with local"
-  lane :sync_project_with_local_components do
+  lane :sync_project_with_local_components do |options|
     # Updates xcode package url
     remote_url =  ENV['REMOTE_COMPONENTS_URL']
     local_url = Pathname(Dir.pwd).dirname.to_s
-    local_url = "file://" + local_url
     package_resolved_path = ENV['LOCAL_PROJECT_PATH'] + "/project.pbxproj"
+    if options.has_key?(:update_companion)
+      package_resolved_path = "#{local_url}/CompanionApp/CompanionApp.xcodeproj/project.pbxproj"
+    end
+    local_url = "file://" + local_url
 
     text = File.read(package_resolved_path)
     replaced_text = text.gsub(remote_url, local_url)
@@ -28,13 +31,17 @@ platform :ios do
   end
 
   desc "Creates a development tag and updates projects using this swift package"
-  lane :update_dependent_projects do
+  lane :update_dependent_projects do |options|
     local_url = Pathname(Dir.pwd).dirname.to_s
-    local_url = "file://" + local_url
     package_resolved_path = ENV['LOCAL_PROJECT_PATH'] + "/project.pbxproj"
+    if options.has_key?(:update_companion)
+      package_resolved_path = "#{local_url}/CompanionApp/CompanionApp.xcodeproj/project.pbxproj"
+    end
+    local_url = "file://" + local_url
 
     last_local_tag = last_git_tag
     dev_tag = Time.now.to_i.to_s + ".0.0" # .0.0 is required for Xcode to solve the versioning
+    sh('swift package generate-xcodeproj') # Make sure changes to the manifest file are carried through to the dev package
     sh("[[ -z $(git status -s) ]] || git commit -a -m 'development commit for " + dev_tag + "'")
     sh("git tag " + dev_tag)
 
@@ -50,11 +57,14 @@ platform :ios do
   end
 
   desc "Reset dependent projects to remote URL"
-  lane :reset_dependent_projects do 
+  lane :reset_dependent_projects do |options|
     remote_url =  ENV['REMOTE_COMPONENTS_URL']
     local_url = Pathname(Dir.pwd).dirname.to_s
-    local_url = "file://" + local_url
     package_resolved_path = ENV['LOCAL_PROJECT_PATH'] + "/project.pbxproj"
+    if options.has_key?(:update_companion)
+      package_resolved_path = "#{local_url}/CompanionApp/CompanionApp.xcodeproj/project.pbxproj"
+    end
+    local_url = "file://" + local_url
 
     tag_values_filename = ENV['TAG_FILE']
     tag_values = File.readlines(tag_values_filename)
@@ -73,7 +83,7 @@ platform :ios do
   # GENERAL DEVELOPMENT LANES
   ####################################################################################
   desc "This will sync adhoc certificates to allow the companion app to build on CI"
-  lane:sync_certificates do 
+  lane:sync_certificates do
     syncAdhocCerts()
   end
 
@@ -87,7 +97,7 @@ platform :ios do
   end
 
   desc "Build adhoc app for testing"
-  lane :build_adhoc_app do |options| 
+  lane :build_adhoc_app do |options|
     syncAdhocCerts()
     gym(
       project: options[:project_path],
@@ -169,7 +179,7 @@ platform :ios do
       message: "Bump version to #{project_version} and tagging release"
     )
     push_to_git_remote
-    
+
     # take tag and push to remote
     add_git_tag(tag: project_version.to_string)
     push_git_tags

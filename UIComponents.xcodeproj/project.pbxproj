@@ -195,8 +195,8 @@
       "OBJ_128" = {
          isa = "PBXGroup";
          children = (
-            "SnapKit::SnapKit::Product",
-            "UIComponents::UIComponents::Product"
+            "UIComponents::UIComponents::Product",
+            "SnapKit::SnapKit::Product"
          );
          name = "Products";
          path = "";
@@ -209,7 +209,7 @@
       };
       "OBJ_131" = {
          isa = "PBXFileReference";
-         path = "output";
+         path = "Carthage";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_132" = {
@@ -587,7 +587,7 @@
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
                "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Applications/Xcode_12.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
                "-package-description-version",
                "5.0.0"
             );
@@ -605,7 +605,7 @@
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
                "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Applications/Xcode_12.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
                "-package-description-version",
                "5.0.0"
             );
@@ -1137,7 +1137,7 @@
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
                "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Applications/Xcode_12.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
                "-package-description-version",
                "5.3.0"
             );
@@ -1155,7 +1155,7 @@
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
                "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
+               "/Applications/Xcode_12.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
                "-package-description-version",
                "5.3.0"
             );
@@ -1768,7 +1768,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/markwebb/Documents/Repos/HMRCRepos/ios-components/.build/checkouts/SnapKit/Package.swift";
+         path = "/Users/paul/Dropbox/Work/HMRC/dev/ios-components/.build/checkouts/SnapKit/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_92" = {

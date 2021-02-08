@@ -22,7 +22,7 @@ extension Components.Helpers {
         // MARK: - Views & Outlets
 
         public private(set) lazy var stackView: TouchPassThroughStackView = .build()
-        public private(set) var disclosureView: UIView!
+//        public private(set) var disclosureView: UIView!
         public private(set) var contentView: UIView!
 
         // MARK: - Subclassing
@@ -52,7 +52,7 @@ extension Components.Helpers {
         }
 
         open func commonInit() {
-            disclosureView = createDisclosureView()
+//            disclosureView = createDisclosureView()
             contentView = createContentView()
 
             addViews()
@@ -67,7 +67,7 @@ extension Components.Helpers {
         private func addViews() {
             addSubview(stackView)
             stackView.addArrangedSubview(contentView)
-            stackView.addArrangedSubview(disclosureView)
+//            stackView.addArrangedSubview(disclosureView)
 
             stackView.axis = .horizontal
             stackView.alignment = .center
@@ -75,15 +75,15 @@ extension Components.Helpers {
         }
 
         private func setContentPriority() {
-            disclosureView.setContentHuggingPriority(.required, for: .horizontal)
-            disclosureView.setContentCompressionResistancePriority(.required, for: .horizontal)
+//            disclosureView.setContentHuggingPriority(.required, for: .horizontal)
+//            disclosureView.setContentCompressionResistancePriority(.required, for: .horizontal)
             contentView.setContentHuggingPriority(.defaultLow, for: .horizontal)
             contentView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         }
 
         private func disableTranslatesAutoresizingMaskIntoConstraints() {
             translatesAutoresizingMaskIntoConstraints = false
-            disclosureView.translatesAutoresizingMaskIntoConstraints = false
+//            disclosureView.translatesAutoresizingMaskIntoConstraints = false
             contentView.translatesAutoresizingMaskIntoConstraints = false
         }
 

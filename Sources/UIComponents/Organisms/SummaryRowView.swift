@@ -65,7 +65,7 @@ extension Components.Organisms {
 
         public var suppressDisclosureView: Bool = false {
             didSet {
-                self.disclosureView?.isHidden = suppressDisclosureView
+//                self.disclosureView?.isHidden = suppressDisclosureView
             }
         }
 

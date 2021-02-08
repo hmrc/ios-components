@@ -670,6 +670,12 @@ extension Components.Organisms.MenuPanelRowView: Examplable {
             body: "Check your tax codes and Income Tax from PAYE sources",
             notificationMode: .hidden
         )
+        let annualTaxSummary = Model(
+            title: "Annual Tax Summary",
+            body: "View your tax and National Insurance contributions and find out how the government spends your taxes.",
+            notificationMode: .hidden,
+            accessibilityHint: "Opens in a web browser."
+        )
         let messages = Model(
             title: "Messages",
             body: "Messages and letters from HMRC",
@@ -696,7 +702,7 @@ extension Components.Organisms.MenuPanelRowView: Examplable {
             notificationMode: .circle
         )
 
-        let models = [paye, messages, manyMessages, noMessages, noMessagesHidden, hts]
+        let models = [paye, annualTaxSummary, messages, manyMessages, noMessages, noMessagesHidden, hts]
         return models.map { (model) -> UIView in
             let view = Self.init(model: model)
             view.action = handler

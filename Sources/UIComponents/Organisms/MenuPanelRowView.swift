@@ -28,15 +28,18 @@ extension Components.Organisms {
             public let body: String
             public let notificationMode: Components.Molecules.NotificationBubbleView.NotificationMode
             public let accessibilityIdentifier: String?
+            public let accessibilityHint: String?
 
             public init(title: String,
                         body: String,
                         notificationMode: Components.Molecules.NotificationBubbleView.NotificationMode,
-                        accessibilityIdentifier: String? = nil) {
+                        accessibilityIdentifier: String? = nil,
+                        accessibilityHint: String? = nil) {
                 self.title = title
                 self.body = body
                 self.notificationMode = notificationMode
                 self.accessibilityIdentifier = accessibilityIdentifier
+                self.accessibilityHint = accessibilityHint
             }
         }
 
@@ -95,8 +98,9 @@ extension Components.Organisms {
             self.bodyLabel.text = model.body
             self.notificationBubble.updateUI(for: .init(notificationMode: model.notificationMode))
 
-            accessibilityIdentifier = model.accessibilityIdentifier
-            accessibilityLabel = {
+            self.accessibilityElements = [titleLabel, bodyLabel]
+
+            titleLabel.accessibilityLabel = {
                 switch model.notificationMode {
                 case .hidden:
                     return model.title
@@ -109,9 +113,14 @@ extension Components.Organisms {
                     return model.title + "; \(count) new item\(count > 1 ? "s" : "")"
                 }
             }()
-            accessibilityHint = model.body
-            isAccessibilityElement = true
-            accessibilityTraits = .button
+
+            bodyLabel.accessibilityTraits = .button
+            bodyLabel.accessibilityLabel = model.body
+            bodyLabel.accessibilityHint = model.accessibilityHint
+            bodyLabel.accessibilityIdentifier = model.accessibilityIdentifier
+
+            button.isAccessibilityElement = false
+            notificationBubble.isAccessibilityElement = false
 
             horizontalStackView.addArrangedSubview(titleLabel)
             horizontalStackView.addArrangedSubview(notificationBubble)
