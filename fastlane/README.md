@@ -46,18 +46,13 @@ Build adhoc app for testing
 fastlane ios register_new_device
 ```
 Register new devices
-### ios prepare_release
+### ios take_release
 ```
-fastlane ios prepare_release
-```
-Updates the project version and creates a release PR to be approved
-### ios tag_release
-```
-fastlane ios tag_release
+fastlane ios take_release
 ```
 Create a new tagged release of the library.
 
-This will bump the Info.plist version, precompile the library, commit and tag the changes, then push up to master.
+This will bump the release tag, precompile the library, commit and tag the changes, then push up to master.
 
 ----
 
