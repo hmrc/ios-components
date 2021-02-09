@@ -187,7 +187,7 @@ platform :ios do
 
     # Updates Swift Package Manifest
     text = File.read(companion_path)
-    replaced_text = text.gsub(current_tag, version)
+    replaced_text = text.gsub(current_tag, project_version)
     File.open(companion_path, "w") {|file| file.puts replaced_text }
 
     sh('gh pr create --title "Release PR for ' + project_version + '" --base master')
