@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "UIComponents",
-        "repositoryURL": "/Users/markwebb/Documents/Repos/HMRCRepos/ios-components",
+        "repositoryURL": "https://github.com/hmrc/ios-components.git",
         "state": {
           "branch": null,
-          "revision": "5956d11e3ca1b914b78f668eb8baafb12f334982",
-          "version": "1613138087.0.0"
+          "revision": "9123876f60b7122680c0d17ba82d74066d85df19",
+          "version": "1613138889.0.0"
         }
       }
     ]

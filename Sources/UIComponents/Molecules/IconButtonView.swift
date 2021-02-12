@@ -81,11 +81,11 @@ extension Components.Molecules {
         }
 
         private func setupViews() {
+            addSubview(actionButton)
             containerView.backgroundColor = .clear
             addSubview(containerView)
             containerView.addSubview(iconImageView)
             containerView.addSubview(titleLabel)
-            addSubview(actionButton)
             containerView.isUserInteractionEnabled = false
         }
 
@@ -109,14 +109,14 @@ extension Components.Molecules {
             let titleLabelContainerViewBottomConstraint = titleLabel.bottomAnchor.constraint(greaterThanOrEqualTo: iconImageView.bottomAnchor)
             titleLabelContainerViewBottomConstraint.priority = UILayoutPriority(250)
             
-            let containerHeightConstraint = containerView.heightAnchor.constraint(equalTo: titleLabel.heightAnchor)
+            let containerHeightConstraint = heightAnchor.constraint(equalTo: titleLabel.heightAnchor)
             containerHeightConstraint.priority = UILayoutPriority(1000)
 
             NSLayoutConstraint.activate([
                 actionButton.leftAnchor.constraint(equalTo: leftAnchor),
                 actionButton.rightAnchor.constraint(equalTo: rightAnchor),
                 actionButton.topAnchor.constraint(equalTo: topAnchor),
-                actionButton.heightAnchor.constraint(equalTo: titleLabel.heightAnchor),
+                actionButton.heightAnchor.constraint(equalTo: heightAnchor),
                 
                 iconImageView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
                 iconImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
@@ -132,6 +132,7 @@ extension Components.Molecules {
                 containerView.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor),
                 containerView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
                 containerView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor),
+                containerView.heightAnchor.constraint(equalTo: heightAnchor),
                 containerView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
             ])
         }
