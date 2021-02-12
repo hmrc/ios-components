@@ -133,6 +133,7 @@ extension Components.Organisms {
 
         public required init(model: Model?) {
             super.init(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
+            translatesAutoresizingMaskIntoConstraints = false
             if let model = model {
                 self.updateUI(for: model)
             }
@@ -143,11 +144,6 @@ extension Components.Organisms {
             super.commonInit()
 
             stackView.isUserInteractionEnabled = false
-
-            rowContainerView.spacing = .spacer8
-
-            disclosureImageView.tintColor = .clear
-
             NSLayoutConstraint.activate([
                 disclosureImageView.heightAnchor.constraint(equalToConstant: .spacer24),
                 disclosureImageView.widthAnchor.constraint(equalToConstant: .spacer24),
@@ -157,22 +153,11 @@ extension Components.Organisms {
                 button.widthAnchor.constraint(equalTo: widthAnchor),
                 button.heightAnchor.constraint(equalTo: heightAnchor)
             ])
-
-            button.isEnabled = false
-
-            if let button = button as? TransparentButton {
-                button.config = TransparentButton.StateConfig(
-                    normalColour: .clear,
-                    highlightColour: UIColor.Semantic.transparentButtonHighlightedBackground.raw,
-                    disabledColour: .clear
-                )
-                button.action = { [weak self] in
-                    self?.action?()
-                }
+            button.action = { [unowned self] in
+                self.action?()
             }
 
-            let margin = CGFloat.spacer16
-            self.layoutMargins = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
+            self.layoutMargins = UIEdgeInsets(padding: .spacer16)
         }
 
         public required init?(coder aDecoder: NSCoder) {
@@ -212,49 +197,53 @@ extension Components.Organisms {
 
         // MARK: - Views
         // MARK: Used as disclosure view
-        public private(set)var disclosureImageView = UIImageView(
-            image: UIImage(
+        public private(set)var disclosureImageView: UIImageView = .build {
+            $0.image = UIImage(
                 named: "ChevronRight",
                 in: Bundle.resource,
                 compatibleWith: nil
             )
-        )
+            $0.tintColor = .clear
+        }
 
-        public private(set)var button: UIButton = TransparentButton()
-        public private(set)var contentViewStack = UIStackView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-        public private(set)var titleLabel = UILabel.styled(style: .bold)
-        public private(set)var rowContainerView = Components.ContainerView(config: .noLines)
-
-        private lazy var imageContainerView: UIView = {
-            let view = UIView(frame: .zero)
+        public private(set)var button: TransparentButton = .build {
+            $0.isEnabled = false
+            $0.config = TransparentButton.StateConfig(
+                normalColour: .clear,
+                highlightColour: UIColor.Semantic.transparentButtonHighlightedBackground.raw,
+                disabledColour: .clear
+            )
+        }
+        public private(set)var contentViewStack: UIStackView = .build()
+        public private(set)var titleLabel = UILabel.buildBoldLabel()
+        public lazy var rowContainerView: Components.ContainerView = {
+            let view = Components.ContainerView(config: .noLines)
             view.translatesAutoresizingMaskIntoConstraints = false
-            view.widthAnchor.constraint(equalToConstant: 44).isActive = true
-            view.backgroundColor = .clear
-            view.setContentHuggingPriority(.defaultHigh, for: .vertical)
-            view.setContentHuggingPriority(.defaultHigh, for: .horizontal)
-            view.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
-            view.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+            view.spacing = .spacer8
             return view
         }()
 
-        private lazy var verticalStackView: UIStackView = {
-            let stackView = UIStackView()
-            stackView.axis = .vertical
-            stackView.spacing = .spacer8
-            stackView.setContentHuggingPriority(.defaultLow, for: .vertical)
-            stackView.setContentHuggingPriority(.defaultLow, for: .horizontal)
-            stackView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
-            stackView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-            return stackView
-        }()
+        private let imageContainerView: UIView = .build {
+            $0.widthAnchor.constraint(equalToConstant: 44).isActive = true
+            $0.backgroundColor = .clear
+            $0.setContentHuggingPriority(.defaultHigh, for: .vertical)
+            $0.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+            $0.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
+            $0.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        }
 
-        private lazy var iconImageView: UIImageView = {
-            let imageView = UIImageView(frame: .zero)
-            imageView.contentMode = .scaleAspectFit
-            imageView.tintColor = UIColor.Components.Named.blue
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            return imageView
-        }()
+        private let verticalStackView: UIStackView = .build {
+            $0.axis = .vertical
+            $0.spacing = .spacer8
+            $0.setContentHuggingPriority(.defaultLow, for: .vertical)
+            $0.setContentHuggingPriority(.defaultLow, for: .horizontal)
+            $0.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+            $0.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        }
+        private let iconImageView: UIImageView = .build {
+            $0.contentMode = .scaleAspectFit
+            $0.tintColor = UIColor.Components.Named.blue
+        }
 
         // MARK: - ViewWithCustomDisclosure Overrides
 

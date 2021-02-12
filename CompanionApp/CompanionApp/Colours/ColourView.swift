@@ -15,7 +15,6 @@
  */
 
 import UIKit
-import SnapKit
 import UIComponents
 
 class ColourView: UIView {
@@ -58,4 +57,4 @@ class ColourView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("Not Needed")
     }
-} 
+}

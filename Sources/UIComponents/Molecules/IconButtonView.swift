@@ -25,10 +25,12 @@ extension Components.Molecules {
             public static let itemSpacing: CGFloat = 12
         }
 
-        let containerView = UIView.build()
+        let containerView = UIView.build {
+            $0.backgroundColor = .clear
+        }
         public let titleLabel = UILabel.buildLinkLabel()
         public let iconImageView: UIImageView = .build()
-        public let actionButton: UIButton = TransparentButton.build()
+        public let actionButton: TransparentButton = .build()
 
         private var iconImageViewBottomConstraint: NSLayoutConstraint?
         private var iconImageViewWidthConstraint: NSLayoutConstraint?
@@ -82,7 +84,6 @@ extension Components.Molecules {
 
         private func setupViews() {
             addSubview(actionButton)
-            containerView.backgroundColor = .clear
             addSubview(containerView)
             containerView.addSubview(iconImageView)
             containerView.addSubview(titleLabel)
@@ -90,8 +91,7 @@ extension Components.Molecules {
         }
 
         private func setupTouchHandlers() {
-            (actionButton as? TransparentButton)?.action = {[weak self] in
-                guard let self = self else { return }
+            actionButton.action = {[unowned self] in
                 self.didTapButton?(self.actionButton)
             }
         }
@@ -104,19 +104,14 @@ extension Components.Molecules {
         private func setContraints() {
             iconImageViewWidthConstraint = iconImageView.widthAnchor.constraint(equalToConstant: .spacer24)
             iconImageViewBottomConstraint = iconImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+            iconImageViewBottomConstraint?.priority = UILayoutPriority(500)
             titleLabelLeftConstraint = titleLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: Constants.itemSpacing)
-            
-            let titleLabelContainerViewBottomConstraint = titleLabel.bottomAnchor.constraint(greaterThanOrEqualTo: iconImageView.bottomAnchor)
-            titleLabelContainerViewBottomConstraint.priority = UILayoutPriority(250)
-            
-            let containerHeightConstraint = heightAnchor.constraint(equalTo: titleLabel.heightAnchor)
-            containerHeightConstraint.priority = UILayoutPriority(1000)
 
             NSLayoutConstraint.activate([
                 actionButton.leftAnchor.constraint(equalTo: leftAnchor),
-                actionButton.rightAnchor.constraint(equalTo: rightAnchor),
+                actionButton.bottomAnchor.constraint(equalTo: bottomAnchor),
                 actionButton.topAnchor.constraint(equalTo: topAnchor),
-                actionButton.heightAnchor.constraint(equalTo: heightAnchor),
+                actionButton.rightAnchor.constraint(equalTo: rightAnchor),
                 
                 iconImageView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
                 iconImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
@@ -125,14 +120,12 @@ extension Components.Molecules {
                 
                 titleLabel.topAnchor.constraint(equalTo: iconImageView.topAnchor),
                 titleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
-                titleLabelContainerViewBottomConstraint,
+                titleLabel.heightAnchor.constraint(equalTo: containerView.heightAnchor),
                 titleLabelLeftConstraint!,
-                containerHeightConstraint,
                 
-                containerView.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor),
+                containerView.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor),
                 containerView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
                 containerView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor),
-                containerView.heightAnchor.constraint(equalTo: heightAnchor),
                 containerView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
             ])
         }
@@ -147,7 +140,7 @@ extension Components.Molecules {
             containerView.setContentHuggingPriority(.required, for: .vertical)
             containerView.setContentCompressionResistancePriority(.required, for: .vertical)
             titleLabel.setContentHuggingPriority(.required, for: .vertical)
-            titleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
+            titleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
             titleLabel.setContentHuggingPriority(.required, for: .horizontal)
             titleLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         }
@@ -174,8 +167,10 @@ extension Components.Molecules {
             self.accessibilityHint = accessibilityHint
             self.accessibilityIdentifier = accessibilityIdentifier
 
-            iconImageViewWidthConstraint?.isActive = false
-            titleLabelLeftConstraint?.isActive = false
+            NSLayoutConstraint.deactivate([
+                iconImageViewWidthConstraint!,
+                titleLabelLeftConstraint!
+            ])
 
             if let icon = icon {
                 iconImageView.image = icon.withRenderingMode(.alwaysTemplate)
