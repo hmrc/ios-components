@@ -138,13 +138,13 @@ extension Components.Atoms {
         }
 
         open func setContraints() {
+            stackViewBottomAnchor = stackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
             NSLayoutConstraint.activate([
                 stackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
                 stackView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor),
                 stackView.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor),
+                stackViewBottomAnchor!
             ])
-            stackViewBottomAnchor = stackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
-            stackViewBottomAnchor?.isActive = true
         }
 
         private func disableTranslatesAutoresizingMaskIntoConstraints() {
@@ -181,12 +181,6 @@ extension Components.Atoms {
                 }
             }
             
-            NSLayoutConstraint.activate([
-                stackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-                stackView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor),
-                stackView.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor),
-            ])
-            
             if let button = components.last as? HMRCButton,
                 case .secondary = button.style {
                     
@@ -194,7 +188,12 @@ extension Components.Atoms {
             } else {
                 stackViewBottomAnchor = stackView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
             }
-            stackViewBottomAnchor?.isActive = true
+            NSLayoutConstraint.activate([
+                stackView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+                stackView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor),
+                stackView.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor),
+                stackViewBottomAnchor!
+            ])
         }
 
         open func setComponents(_ components: [UIView]) {

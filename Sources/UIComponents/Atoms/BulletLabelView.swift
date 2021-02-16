@@ -78,10 +78,9 @@ extension Components.Atoms {
                 
                 bulletLabel.leftAnchor.constraint(equalTo: bullet.rightAnchor, constant: .spacer16),
                 bulletLabel.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
-                bulletLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
+                bulletLabel.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+                bulletLabelRightConstraint
             ])
-
-            bulletLabelRightConstraint.isActive = true
         }
     }
 }
