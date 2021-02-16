@@ -15,7 +15,6 @@
  */
 
 import UIKit
-import SnapKit
 
 extension Components.Organisms {
     open class MenuPanelRowView: Components.Helpers.ViewWithCustomDisclosure, Component {
@@ -30,11 +29,13 @@ extension Components.Organisms {
             public let accessibilityIdentifier: String?
             public let accessibilityHint: String?
 
-            public init(title: String,
-                        body: String,
-                        notificationMode: Components.Molecules.NotificationBubbleView.NotificationMode,
-                        accessibilityIdentifier: String? = nil,
-                        accessibilityHint: String? = nil) {
+            public init(
+                title: String,
+                body: String,
+                notificationMode: Components.Molecules.NotificationBubbleView.NotificationMode,
+                accessibilityIdentifier: String? = nil,
+                accessibilityHint: String? = nil
+            ) {
                 self.title = title
                 self.body = body
                 self.notificationMode = notificationMode
@@ -63,15 +64,19 @@ extension Components.Organisms {
             stackView.isUserInteractionEnabled = false
 
             disclosureImageView.tintColor = UIColor.Semantic.darkText.raw
-            disclosureImageView.snp.makeConstraints { (make) in
-                make.height.equalTo(24)
-                make.width.equalTo(24)
-            }
 
             button.isEnabled = false
-            button.snp.makeConstraints { (make) in
-                make.edges.equalTo(self)
-            }
+            button.translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                disclosureView.heightAnchor.constraint(equalToConstant: .spacer24),
+                disclosureView.widthAnchor.constraint(equalToConstant: .spacer24),
+                
+                button.topAnchor.constraint(equalTo: topAnchor),
+                button.heightAnchor.constraint(equalTo: heightAnchor),
+                button.leftAnchor.constraint(equalTo: leftAnchor),
+                button.widthAnchor.constraint(equalTo: widthAnchor)
+            ])
 
             if let button = button as? TransparentButton {
                 button.config = TransparentButton.StateConfig(

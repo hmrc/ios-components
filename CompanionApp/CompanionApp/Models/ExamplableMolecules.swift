@@ -234,10 +234,13 @@ extension Components.Molecules.H4TitleBodyView: Examplable {
     static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
 
     static func withPlaceholders() -> UIView {
-        return Components.Molecules.H4TitleBodyView(
+            let placeholder = Components.Molecules.H4TitleBodyView(
             title: "Title",
             body: "Body"
         )
+        let container = UIView()
+        container.addSubview(placeholder)
+        return container
     }
 
     static func examples() -> [UIView] {
@@ -262,10 +265,13 @@ extension Components.Molecules.H5TitleBodyView: Examplable {
     static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
 
     static func withPlaceholders() -> UIView {
-        return Components.Molecules.H5TitleBodyView(
+        let placeholder = Components.Molecules.H5TitleBodyView(
             title: "Title",
             body: "Body"
         )
+        let container = UIView()
+        container.addSubview(placeholder)
+        return container
     }
 
     static func examples() -> [UIView] {
@@ -290,10 +296,13 @@ extension Components.Molecules.BoldTitleBodyView: Examplable {
     static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
 
     static func withPlaceholders() -> UIView {
-        return Components.Molecules.BoldTitleBodyView(
+        let placeholder = Components.Molecules.BoldTitleBodyView(
             title: "Title",
             body: "Body"
         )
+        let container = UIView()
+        container.addSubview(placeholder)
+        return container
     }
 
     static func examples() -> [UIView] {

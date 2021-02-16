@@ -15,15 +15,12 @@
  */
 
 import UIKit
-import SnapKit
 
 extension UIView {
     public static func separator() -> UIView {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.snp.makeConstraints { (make) in
-            make.height.equalTo(1)
-        }
+        view.heightAnchor.constraint(equalToConstant: 1).isActive = true
         view.backgroundColor = UIColor.Semantic.divider.raw
         return view
     }

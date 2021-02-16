@@ -138,8 +138,10 @@ extension Components.Molecules {
                         view.bottomAnchor.constraint(equalTo: insetView.bottomAnchor, constant: -8).isActive = true
                     }
                 } else if index == views.count - 1 {
-                    view.topAnchor.constraint(equalTo: views[index - 1].bottomAnchor, constant: 8).isActive = true
-                    insetView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 8).isActive = true
+                    NSLayoutConstraint.activate([
+                        view.topAnchor.constraint(equalTo: views[index - 1].bottomAnchor, constant: 8),
+                        insetView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 8)
+                    ])
                 } else {
                     view.topAnchor.constraint(equalTo: views[index - 1].bottomAnchor, constant: 8).isActive = true
                 }

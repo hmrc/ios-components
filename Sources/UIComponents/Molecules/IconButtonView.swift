@@ -15,7 +15,6 @@
  */
 
 import UIKit
-import SnapKit
 
 extension Components.Molecules {
     open class IconButtonView: DebugOverlayableView {
@@ -26,24 +25,32 @@ extension Components.Molecules {
             public static let itemSpacing: CGFloat = 12
         }
 
-        let containerView = UIView()
-        public let titleLabel = UILabel.styled(style: .link)
-        public let iconImageView = UIImageView()
-        public let actionButton: UIButton = TransparentButton()
+        let containerView = UIView.build {
+            $0.backgroundColor = .clear
+        }
+        public let titleLabel = UILabel.buildLinkLabel()
+        public let iconImageView: UIImageView = .build()
+        public let actionButton: TransparentButton = .build()
 
-        private var bottomConstraint: Constraint?
+        private var iconImageViewBottomConstraint: NSLayoutConstraint?
+        private var iconImageViewWidthConstraint: NSLayoutConstraint?
+        private var titleLabelLeftConstraint: NSLayoutConstraint?
+
         private var boundsObservation: NSKeyValueObservation?
 
-        public convenience init(title: String,
-                                accessibilityHint: String? = nil,
-                                accessibilityIdentifier: String? = nil,
-                                icon: UIImage? = nil) {
+        public convenience init(
+            title: String,
+            accessibilityHint: String? = nil,
+            accessibilityIdentifier: String? = nil,
+            icon: UIImage? = nil
+        ) {
             self.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
             updateUI(
                 with: title,
                 accessibilityHint: accessibilityHint,
                 accessibilityIdentifier: accessibilityIdentifier,
-                icon: icon)
+                icon: icon
+            )
         }
 
         public override init(frame: CGRect) {
@@ -77,7 +84,6 @@ extension Components.Molecules {
 
         private func setupViews() {
             addSubview(actionButton)
-            containerView.backgroundColor = .clear
             addSubview(containerView)
             containerView.addSubview(iconImageView)
             containerView.addSubview(titleLabel)
@@ -85,8 +91,7 @@ extension Components.Molecules {
         }
 
         private func setupTouchHandlers() {
-            (actionButton as? TransparentButton)?.action = {[weak self] in
-                guard let self = self else { return }
+            actionButton.action = {[unowned self] in
                 self.didTapButton?(self.actionButton)
             }
         }
@@ -97,35 +102,36 @@ extension Components.Molecules {
         }
 
         private func setContraints() {
-            let container = self.containerView
-            actionButton.snp.makeConstraints { (make) in
-                make.edges.equalTo(self)
-            }
-            iconImageView.snp.makeConstraints { (make) in
-                make.left.equalTo(container.snp.left)
-                make.top.equalTo(container.snp.top)
-                bottomConstraint = make.bottom.equalTo(container.snp.bottom).constraint
-                make.height.equalTo(FontMetrics.scaledValue(for: 24))
-                make.width.equalTo(24)
-            }
-            titleLabel.snp.makeConstraints { (make) in
-                make.left.equalTo(iconImageView.snp.right).offset(Constants.itemSpacing)
-                make.top.equalTo(iconImageView.snp.top)
-                make.right.equalTo(container.snp.right)
-                make.bottom.greaterThanOrEqualTo(iconImageView.snp.bottom)
-                make.bottom.equalTo(container.snp.bottom)
-            }
-            containerView.snp.makeConstraints { (make) in
-                make.edges.equalTo(self.snp.margins)
-            }
+            iconImageViewWidthConstraint = iconImageView.widthAnchor.constraint(equalToConstant: .spacer24)
+            iconImageViewBottomConstraint = iconImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+            iconImageViewBottomConstraint?.priority = UILayoutPriority(500)
+            titleLabelLeftConstraint = titleLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: Constants.itemSpacing)
+
+            NSLayoutConstraint.activate([
+                actionButton.leftAnchor.constraint(equalTo: leftAnchor),
+                actionButton.bottomAnchor.constraint(equalTo: bottomAnchor),
+                actionButton.topAnchor.constraint(equalTo: topAnchor),
+                actionButton.rightAnchor.constraint(equalTo: rightAnchor),
+                
+                iconImageView.leftAnchor.constraint(equalTo: containerView.leftAnchor),
+                iconImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
+                iconImageView.heightAnchor.constraint(equalToConstant: FontMetrics.scaledValue(for: .spacer24)),
+                iconImageViewWidthConstraint!,
+                
+                titleLabel.topAnchor.constraint(equalTo: iconImageView.topAnchor),
+                titleLabel.rightAnchor.constraint(equalTo: containerView.rightAnchor),
+                titleLabel.heightAnchor.constraint(equalTo: containerView.heightAnchor),
+                titleLabelLeftConstraint!,
+                
+                containerView.widthAnchor.constraint(equalTo: layoutMarginsGuide.widthAnchor),
+                containerView.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor),
+                containerView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor),
+                containerView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor)
+            ])
         }
 
         private func disableTranslatesAutoresizingMaskIntoConstraints() {
             translatesAutoresizingMaskIntoConstraints = false
-            actionButton.translatesAutoresizingMaskIntoConstraints = false
-            containerView.translatesAutoresizingMaskIntoConstraints = false
-            titleLabel.translatesAutoresizingMaskIntoConstraints = false
-            iconImageView.translatesAutoresizingMaskIntoConstraints = false
         }
 
         private func setContentPriority() {
@@ -134,7 +140,7 @@ extension Components.Molecules {
             containerView.setContentHuggingPriority(.required, for: .vertical)
             containerView.setContentCompressionResistancePriority(.required, for: .vertical)
             titleLabel.setContentHuggingPriority(.required, for: .vertical)
-            titleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
+            titleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
             titleLabel.setContentHuggingPriority(.required, for: .horizontal)
             titleLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         }
@@ -142,46 +148,46 @@ extension Components.Molecules {
         private func setObserveLabelBoundsChange(_ observe: Bool) {
             if observe {
                 boundsObservation = titleLabel.observe(\.bounds) { [weak self] (label, _) in
-                    if label.numberOfVisibleLines > 1 {
-                        self?.bottomConstraint?.deactivate()
-                    } else {
-                        self?.bottomConstraint?.activate()
-                    }
+                    self?.iconImageViewBottomConstraint?.isActive = !(label.numberOfLines > 1)
                 }
             } else {
                 boundsObservation?.invalidate()
             }
         }
 
-        public func updateUI(with title: String,
-                             accessibilityHint: String? = nil,
-                             accessibilityIdentifier: String? = nil,
-                             icon: UIImage? = nil) {
+        public func updateUI(
+            with title: String,
+            accessibilityHint: String? = nil,
+            accessibilityIdentifier: String? = nil,
+            icon: UIImage? = nil
+        ) {
             titleLabel.text = title
 
             self.accessibilityLabel = title
             self.accessibilityHint = accessibilityHint
             self.accessibilityIdentifier = accessibilityIdentifier
 
+            NSLayoutConstraint.deactivate([
+                iconImageViewWidthConstraint!,
+                titleLabelLeftConstraint!
+            ])
+
             if let icon = icon {
                 iconImageView.image = icon.withRenderingMode(.alwaysTemplate)
                 iconImageView.isHidden = false
-                iconImageView.snp.updateConstraints { (make) in
-                    make.width.equalTo(24)
-                }
-                titleLabel.snp.updateConstraints { (make) in
-                    make.left.equalTo(iconImageView.snp.right).offset(Constants.itemSpacing)
-                }
+
+                iconImageViewWidthConstraint = iconImageView.widthAnchor.constraint(equalToConstant: .spacer24)
+                titleLabelLeftConstraint = titleLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor, constant: Constants.itemSpacing)
             } else {
                 iconImageView.isHidden = true
-                iconImageView.snp.updateConstraints { (make) in
-                    make.width.equalTo(0)
-                }
-                titleLabel.snp.updateConstraints { (make) in
-                    make.left.equalTo(iconImageView.snp.right)
-                }
-            }
 
+                iconImageViewWidthConstraint = iconImageView.widthAnchor.constraint(equalToConstant: .zero)
+                titleLabelLeftConstraint = titleLabel.leftAnchor.constraint(equalTo: iconImageView.rightAnchor)
+            }
+            NSLayoutConstraint.activate([
+                iconImageViewWidthConstraint!,
+                titleLabelLeftConstraint!
+            ])
             self.setNeedsUpdateConstraints()
         }
     }

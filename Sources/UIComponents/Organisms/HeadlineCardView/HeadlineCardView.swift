@@ -15,7 +15,6 @@
  */
 
 import UIKit
-import SnapKit
 
 extension Components.Organisms {
 
@@ -78,17 +77,16 @@ extension Components.Organisms {
             }
 
             func setContraints() {
-                titleLabel.snp.makeConstraints { (make) in
-                    make.left.equalTo(snp.left)
-                    make.right.equalTo(snp.right)
-                    make.top.equalTo(snp.top)
-                }
-                headlineLabel.snp.makeConstraints { (make) in
-                    make.left.equalTo(snp.left)
-                    make.right.equalTo(snp.right)
-                    make.top.equalTo(titleLabel.snp.bottom).offset(12)
-                    make.bottom.equalTo(snp.bottom)
-                }
+                NSLayoutConstraint.activate([
+                    titleLabel.leftAnchor.constraint(equalTo: leftAnchor),
+                    titleLabel.rightAnchor.constraint(equalTo: rightAnchor),
+                    titleLabel.topAnchor.constraint(equalTo: topAnchor),
+                    
+                    headlineLabel.rightAnchor.constraint(equalTo: rightAnchor),
+                    headlineLabel.leftAnchor.constraint(equalTo: leftAnchor),
+                    headlineLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: .spacer12),
+                    headlineLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+                ])
             }
 
             func setContentPriority() {
@@ -100,8 +98,6 @@ extension Components.Organisms {
 
             func disableTranslatesAutoresizingMaskIntoConstraints() {
                 translatesAutoresizingMaskIntoConstraints = false
-                titleLabel.translatesAutoresizingMaskIntoConstraints = false
-                headlineLabel.translatesAutoresizingMaskIntoConstraints = false
             }
 
             public func updateUI(for model: Model) {
@@ -156,19 +152,19 @@ extension Components.Organisms {
             removePadding()
 
             components.filter { !views.contains($0) }.forEach {
-                $0.snp.remakeConstraints { (make) in
-                    make.left.equalTo(snp.left).inset(CGFloat.spacer16)
-                    make.right.equalTo(snp.right).inset(CGFloat.spacer16)
-                }
+                NSLayoutConstraint.activate([
+                    $0.leftAnchor.constraint(equalTo: leftAnchor, constant: .spacer16),
+                    $0.rightAnchor.constraint(equalTo: rightAnchor, constant: .spacer16),
+                ])
             }
 
-            titleHeadlineComponent.snp.remakeConstraints { (make) in
-                make.left.equalTo(snp.left).inset(CGFloat.spacer16)
-                make.right.equalTo(snp.right).inset(CGFloat.spacer16)
-            }
+            NSLayoutConstraint.activate([
+                titleHeadlineComponent.leftAnchor.constraint(equalTo: leftAnchor, constant: .spacer16),
+                titleHeadlineComponent.rightAnchor.constraint(equalTo: rightAnchor, constant: .spacer16)
+            ])
 
             // Apply spacing above titleHeadlineComponent without causing constraint conflicts
-            stackView.layoutMargins.adjust([.top], margin: 16)
+            stackView.layoutMargins.adjust([.top], margin: .spacer16)
             stackView.isLayoutMarginsRelativeArrangement = true
 
             return self

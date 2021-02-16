@@ -19,7 +19,7 @@ import UIKit
 open class SeparatorView: UIView {
     open override class var requiresConstraintBasedLayout: Bool { return true }
 
-    let separatorView = UIView()
+    let separatorView = UIView.build()
     let separatorColor: UIColor
     let shouldCenterY: Bool
     let heightConstraintValue: CGFloat
@@ -60,24 +60,19 @@ open class SeparatorView: UIView {
     }
 
     func setupConstraints() {
-        if shouldCenterY {
-            separatorView.snp.makeConstraints { (make) in
-                make.centerY.equalTo(self)
-                make.height.equalTo(lineThickness)
-                make.left.equalTo(snp.leftMargin)
-                make.right.equalTo(snp.rightMargin)
-            }
-        } else {
-            separatorView.snp.makeConstraints { (make) in
-                make.top.equalTo(snp.top)
-                make.height.equalTo(lineThickness)
-                make.left.equalTo(snp.leftMargin)
-                make.right.equalTo(snp.rightMargin)
-            }
-        }
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            separatorView.leftAnchor.constraint(equalTo: layoutMarginsGuide.leftAnchor),
+            separatorView.rightAnchor.constraint(equalTo: layoutMarginsGuide.rightAnchor),
+            separatorView.heightAnchor.constraint(equalToConstant: lineThickness),
 
-        snp.makeConstraints { (make) in
-            make.height.equalTo(heightConstraintValue)
+            heightAnchor.constraint(equalToConstant: heightConstraintValue),
+        ])
+
+        if shouldCenterY {
+            separatorView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        } else {
+            separatorView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         }
     }
 }
@@ -101,15 +96,17 @@ public class SeparatorConfiguration {
     public var createSeparator: CreateSeparator?
 
     // Define public initialiser to allow usage outside the framework
-    public init(separatorFirst: Bool,
-                includeMiddle: Bool,
-                includeLast: Bool,
-                backgroundColor: UIColor,
-                separatorColor: UIColor,
-                dividerLineThickness: CGFloat,
-                totalThickness: CGFloat,
-                layoutMargins: UIEdgeInsets,
-                createSeparator: CreateSeparator?) {
+    public init(
+        separatorFirst: Bool,
+        includeMiddle: Bool,
+        includeLast: Bool,
+        backgroundColor: UIColor,
+        separatorColor: UIColor,
+        dividerLineThickness: CGFloat,
+        totalThickness: CGFloat,
+        layoutMargins: UIEdgeInsets,
+        createSeparator: CreateSeparator?
+    ) {
         self.separatorFirst = separatorFirst
         self.includeMiddle = includeMiddle
         self.includeLast = includeLast

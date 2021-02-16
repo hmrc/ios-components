@@ -15,7 +15,6 @@
  */
 
 import UIKit
-import SnapKit
 
 public struct LabelColumn {
     let style: LabelStyle
@@ -79,9 +78,12 @@ extension Components.Molecules {
         }
 
         private func setContraints() {
-            stackView.snp.makeConstraints { (make) in
-                make.edges.equalTo(self)
-            }
+            NSLayoutConstraint.activate([
+                stackView.leftAnchor.constraint(equalTo: leftAnchor),
+                stackView.topAnchor.constraint(equalTo: topAnchor),
+                stackView.widthAnchor.constraint(equalTo: widthAnchor),
+                stackView.heightAnchor.constraint(equalTo: heightAnchor)
+            ])
         }
 
         private func disableTranslatesAutoresizingMaskIntoConstraints() {

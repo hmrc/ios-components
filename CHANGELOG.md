@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Removed
+- Removed 'SnapKit' dependency
 
 ## [5.3.6] - 2021-02-09
 ### Changed

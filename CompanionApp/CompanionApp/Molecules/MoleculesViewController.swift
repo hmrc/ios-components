@@ -32,7 +32,7 @@ class MoleculesViewController: UIViewController {
         (named: "Currency Input View", vc: SingleComponentViewController<Components.Molecules.CurrencyInputView>()),
         (named: "H4 Title Body View", vc: SingleComponentViewController<Components.Molecules.H4TitleBodyView>()),
         (named: "H5 Title Body View", vc: SingleComponentViewController<Components.Molecules.H5TitleBodyView>()),
-        (named: "H6 Title Body View", vc: SingleComponentViewController<Components.Molecules.BoldTitleBodyView>()),
+        (named: "Bold Title Body View", vc: SingleComponentViewController<Components.Molecules.BoldTitleBodyView>()),
         (named: "Inset View", vc: SingleComponentViewController<Components.Molecules.InsetView>()),
         (named: "Multi Column Row View", vc: SingleComponentViewController<Components.Molecules.MultiColumnRowView>()),
         (named: "Switch Row View", vc: SingleComponentViewController<Components.Molecules.SwitchRowView>()),

@@ -15,7 +15,6 @@
  */
 
 import UIKit
-import SnapKit
 
 extension Components.Molecules {
 

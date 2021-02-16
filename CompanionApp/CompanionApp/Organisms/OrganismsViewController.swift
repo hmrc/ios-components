@@ -30,7 +30,6 @@ class OrganismsViewController: UIViewController {
     var organisms: [(named: String, vc: UIViewController)] = [
         (named: "Headline Card View", vc: SingleComponentViewController<Components.Organisms.HeadlineCardView>()),
         (named: "Primary Card View", vc: SingleComponentViewController<Components.Organisms.PrimaryCardView>()),
-        (named: "Expanding Row View", vc: SingleComponentViewController<Components.Organisms.ExpandingRowView>()),
         (named: "Status Card View", vc: SingleComponentViewController<Components.StatusCardView>()),
         (named: "Icon Button Card View", vc: SingleComponentViewController<Components.Organisms.IconButtonCardView>()),
         (named: "Summary Row View", vc: SingleComponentViewController<Components.Organisms.SummaryRowView>()),

@@ -19,8 +19,8 @@ import UIComponents
 
 class AtomGroupViewController: UIViewController {
 
-    let scrollView = UIScrollView()
-    let stackView = UIStackView()
+    let scrollView: UIScrollView = .build()
+    let stackView: UIStackView = .build()
 
     var atoms: [UIView]!
 
@@ -33,16 +33,16 @@ class AtomGroupViewController: UIViewController {
 
     private func setupViews() {
         view.addSubview(scrollView)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.snp.makeConstraints { (make) in
-            make.edges.equalTo(view.safeAreaLayoutGuide)
-        }
         scrollView.addSubview(stackView)
         stackView.spacing = 12
         stackView.axis = .vertical
-        stackView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
+            scrollView.rightAnchor.constraint(equalTo: view.safeRightAnchor),
+            scrollView.topAnchor.constraint(equalTo: view.safeTopAnchor),
+            scrollView.leftAnchor.constraint(equalTo: view.safeLeftAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeBottomAnchor),
+            
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
             stackView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
