@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [5.3.7] - 2021-03-12
 ### Fixed
 - Fix tint colour of TransparentButton when changing light/dark mode
 
