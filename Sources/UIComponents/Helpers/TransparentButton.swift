@@ -71,6 +71,15 @@ open class TransparentButton: UIButton {
         self.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
 
+    open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if #available(iOS 13.0, *) {
+            if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+                setStateColours()
+            }
+        }
+    }
+
     func setStateColours() {
         self.setBackgroundImage(
             UIImage.imageWithColor(color: config.normalColour),
