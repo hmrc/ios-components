@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Exposed `StatusView.iconContainerView` so it can be hidden if needed.
 
 ## [5.3.7] - 2021-03-12
 ### Fixed

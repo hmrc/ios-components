@@ -81,7 +81,7 @@ extension Components.Molecules {
 
         public let stackView = UIStackView()
 
-        let iconContainerView = UIView()
+        public let iconContainerView = UIView()
         public let iconImageView = UIImageView()
         public let titleLabel = UILabel.styled(style: .H5)
         public let bodyTextView = UILabel.styled(style: .body)
