@@ -190,7 +190,7 @@ platform :ios do
     replaced_text = text.gsub(current_tag, project_version)
     File.open(companion_path, "w") {|file| file.puts replaced_text }
     sh("[[ -z $(git status -s) ]] || git commit -a -m 'Updated companion app version to #{project_version}'")
-
+    sh('git push origin ' + branch_name)
     sh('gh pr create --title "Release PR for ' + project_version + '" --base master')
   end
 
