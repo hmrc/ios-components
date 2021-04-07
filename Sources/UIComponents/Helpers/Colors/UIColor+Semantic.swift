@@ -18,6 +18,17 @@ import UIKit
 
 extension UIColor {
     open class Semantic {
+        public static var allColors: [(String, UIColor)] {
+            var result: [(String, UIColor)] = []
+            let mirror = Mirror(reflecting: semanticColors)
+            for (property, value) in mirror.children {
+                guard let property = property, let value = value as? UIColor else {
+                    continue
+                }
+                result.append((property, value))
+            }
+            return result
+        }
         static var semanticColors = SemanticColors()
 
         public static var darkText = semanticColors.darkText

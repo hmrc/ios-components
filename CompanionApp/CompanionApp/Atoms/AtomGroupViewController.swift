@@ -26,7 +26,7 @@ class AtomGroupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.Semantic.pageBackground.raw
+        view.backgroundColor = UIColor.Semantic.pageBackground
         setupViews()
         setupAtoms()
     }

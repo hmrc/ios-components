@@ -33,7 +33,7 @@ protocol NamedColors {
 
 public extension UIColor {
     
-    enum Named {
+    enum Named: String, CaseIterable {
         case black,
              white,
              green1,
@@ -46,6 +46,10 @@ public extension UIColor {
              grey3,
              pink,
              yellow
+
+        public static var allColors: [(String, UIColor)] {
+            return allCases.map { ($0.rawValue, $0.raw) }
+        }
         
         public var raw: UIColor {
             let colorContainer: NamedColors

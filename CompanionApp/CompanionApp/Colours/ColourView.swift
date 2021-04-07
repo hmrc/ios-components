@@ -38,7 +38,7 @@ class ColourView: UIView {
     }
 
     private func setupStyle() {
-        colourView.layer.borderColor = UIColor.Semantic.darkText.raw.cgColor
+        colourView.layer.borderColor = UIColor.Semantic.darkText.cgColor
         colourView.layer.borderWidth = 1.0
     }
 
