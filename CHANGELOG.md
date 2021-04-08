@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [5.4.0] - 2021-04-08
 ### Changed
 - Improved how colours work & allowed the option to subclass them as needed in the main app.
 
