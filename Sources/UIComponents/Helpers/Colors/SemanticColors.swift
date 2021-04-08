@@ -26,7 +26,7 @@ open class SemanticColors {
     open var infoText = UIColor.Named.grey1.raw
     open var expandableButtonText = UIColor.Named.blue.raw
     open var cardBackground = UIColor.Named.white.raw
-    open var cardShadow = UIColor.useLightModeColors ? UIColor(hexString: "#EC") : .clear
+    open var cardShadow = UIColor.useLightModeColors ? UIColor(hexString: "#ECECEC") : .clear
     open var pageBackground = UIColor.Named.grey3.raw
     open var menuCardBackground = UIColor.Named.grey3.raw
     open var menuPageBackground: UIColor = UIColor.useLightModeColors ? UIColor.Named.white.raw : UIColor(hexString: "#262626")
