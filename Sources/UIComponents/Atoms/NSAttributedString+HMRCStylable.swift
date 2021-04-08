@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,13 +39,13 @@ public enum AttributedStringStyle: Style {
     public var textColor: UIColor {
         switch self {
         case .info:
-            return UIColor.Semantic.infoText.raw
+            return UIColor.Semantic.infoText
         case .link:
-            return UIColor.Semantic.linkText.raw
+            return UIColor.Semantic.linkText
         case .error:
-            return UIColor.Semantic.errorText.raw
+            return UIColor.Semantic.errorText
         default:
-            return UIColor.Semantic.darkText.raw
+            return UIColor.Semantic.darkText
         }
     }
 

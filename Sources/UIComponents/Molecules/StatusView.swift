@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -181,7 +181,7 @@ extension Components.Molecules {
             bodyTextView.isHidden = (model.body == nil)
             iconImageView.image = model.icon
 
-            iconImageView.tintColor = model.iconTintColor ?? UIColor.Semantic.statusCardIconDefaultTint.raw
+            iconImageView.tintColor = model.iconTintColor ?? UIColor.Semantic.statusCardIconDefaultTint
             if let button = self.button,
                 let buttonModel = model.buttonModel {
                 button.update(with: .init(

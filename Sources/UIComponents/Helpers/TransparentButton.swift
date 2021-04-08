@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,8 +32,9 @@ open class TransparentButton: UIButton {
 
     public let defaultConfig = StateConfig(
         normalColour: .clear,
-        highlightColour: UIColor.Semantic.transparentButtonHighlightedBackground.raw,
-        disabledColour: .darkGray)
+        highlightColour: UIColor.Semantic.transparentButtonHighlightedBackground,
+        disabledColour: .darkGray
+    )
 
     ///THIS MUST BE USED for button tap handling! NOT addTarget(....)
     ///takes into account and allows hit animations to show before firing the action

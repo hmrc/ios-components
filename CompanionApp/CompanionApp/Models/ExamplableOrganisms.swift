@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ extension Components.Organisms.HeadlineCardView: Examplable {
     typealias Model = Components.Organisms.HeadlineCardView.Model
     typealias View = Components.Organisms.HeadlineCardView
 
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     @objc class func withPlaceholders() -> UIView {
         let headlineModel = Model(
@@ -129,7 +129,7 @@ extension Components.Organisms.HeadlineCardView: Examplable {
 extension Components.Organisms.PrimaryCardView: Examplable {
     typealias Model = Components.Organisms.PrimaryCardView.Model
 
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     @objc class func withPlaceholders() -> UIView {
         let model = Model(title: "Title",
@@ -189,7 +189,7 @@ extension Components.Organisms.PrimaryCardView: Examplable {
 }
 
 extension Components.Organisms.ExpandingRowView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     static func withPlaceholders() -> UIView {
         let model = Model(
@@ -258,7 +258,7 @@ extension Components.Organisms.ExpandingRowView: Examplable {
 }
 
 extension Components.StatusCardView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     @objc class func withPlaceholders() -> UIView {
         let model = Components.StatusCardView.Model(
@@ -356,7 +356,7 @@ extension Components.StatusCardView: Examplable {
                 style: .body,
                 string: ExampleText.LoremIpsum.longest.rawValue
                 ).withAlignment(.center),
-            iconTintColor: UIColor.Components.Named.green1,
+            iconTintColor: UIColor.Named.green1.raw,
             views: [
                 button
             ]
@@ -380,7 +380,7 @@ extension Components.StatusCardView: Examplable {
 extension Components.Organisms.IconButtonCardView: Examplable {
     typealias Model = Components.Organisms.IconButtonCardView.Model
 
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     static func withPlaceholders() -> UIView {
         let iconButtonModel = Model(
@@ -413,7 +413,7 @@ extension Components.Organisms.IconButtonCardView: Examplable {
 }
 
 extension Components.Organisms.InformationMessageCard: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     static func withPlaceholders() -> UIView {
         return Components.Organisms.InformationMessageCard(
@@ -511,7 +511,7 @@ extension Components.Organisms.SummaryRowView: Examplable {
     typealias Model = Components.Organisms.SummaryRowView.Model
     typealias Row = Components.Molecules.MultiColumnRowView
 
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     static let handler = {
         let controller = UIAlertController(title: "Tapped", message: "Row was tapped", preferredStyle: .alert)
@@ -642,7 +642,7 @@ extension Components.Organisms.MenuPanelRowView: Examplable {
     typealias View = Components.Organisms.MenuPanelRowView
     typealias Model = Components.Organisms.MenuPanelRowView.Model
 
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.menuPageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.menuPageBackground
 
     static let handler = {
         let controller = UIAlertController(title: "Tapped", message: "Row was tapped", preferredStyle: .alert)

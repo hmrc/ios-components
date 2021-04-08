@@ -18,8 +18,8 @@ import UIComponents
 import UIKit
 
 class ColoursViewController: UIViewController {
-    var semanticColors: [(String, UIColor)] = UIColor.Semantic.allCases.map { ($0.rawValue, $0.raw) }
-    var namedColors: [(String, UIColor)] = UIColor.Named.allCases.map { ($0.rawValue, $0.raw) }
+    var semanticColors = UIColor.Semantic.allColors
+    var namedColors: [(String, UIColor)] = UIColor.Named.allColors
 
     private lazy var scrollView: UIScrollView = .build()
     private lazy var stackView: UIStackView = .build {
@@ -31,8 +31,7 @@ class ColoursViewController: UIViewController {
         super.viewDidLoad()
         setupStackView()
         setupColourViews()
-
-        view.backgroundColor = UIColor.Semantic.pageBackground.raw
+        view.backgroundColor = UIColor.Semantic.pageBackground
     }
 
     private func setupStackView() {

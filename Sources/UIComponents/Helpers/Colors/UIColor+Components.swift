@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-import Foundation
+import UIKit
 
-extension String {
+public extension UIColor {
+    
+    static var useLightModeColors: Bool {
+        if #available(iOS 13.0, *) {
+            if UITraitCollection.current.userInterfaceStyle == .dark {
+                return false
+            }
+        }
+        
+        return true
+    }
 
-    static let decimalFormatter: Foundation.NumberFormatter = {
-        let formatter = Foundation.NumberFormatter()
-        formatter.allowsFloats = true
-        formatter.locale = Locale.current
-        return formatter
-    }()
-
-    func isCurrencyValue() -> Bool {
-        guard String.decimalFormatter.number(from: self) != nil else { return false }
-
-        let currencyRegex = "^[0-9]*\\.?[0-9]?[0-9]?$"
-        let currencyTest = NSPredicate(format: "SELF MATCHES %@", currencyRegex)
-
-        return currencyTest.evaluate(with: self)
+    struct Components {
+        public static func configure(with semanticColors: SemanticColors) {
+            UIColor.Semantic.semanticColors = semanticColors
+        }
     }
 }

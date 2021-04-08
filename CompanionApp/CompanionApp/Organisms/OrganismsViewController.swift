@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ class OrganismsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.tabBar.tintColor = UIColor.Components.Named.blue
+        tabBarController?.tabBar.tintColor = UIColor.Named.blue.raw
         print(tabBarController ?? "Nope")
         navigationItem.title = "App: \(appVersion) - Lib: \(Components.Info.libraryVersion)"
     }

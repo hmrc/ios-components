@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ extension Components.Molecules.TextInputView: Examplable {
     typealias TextInputView = Components.Molecules.TextInputView
     typealias Model = TextInputView.Model
 
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     @objc class func withPlaceholders() -> UIView {
         let molecule = TextInputView(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
@@ -70,11 +70,11 @@ extension Components.Molecules.TextInputView: Examplable {
 }
 
 extension Components.Molecules.SelectRowView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     static func withPlaceholders() -> UIView {
         return self.init(
-            model: .init(imageTintColor: UIColor.Components.Named.black, rows: [
+            model: .init(imageTintColor: UIColor.Named.black.raw, rows: [
                 .init(body: "Option 1")
             ])
         )
@@ -95,7 +95,7 @@ extension Components.Molecules.SelectRowView: Examplable {
 }
 
 extension Components.Molecules.SelectRowGroupView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     static func withPlaceholders() -> UIView {
         return self.init(
@@ -136,7 +136,7 @@ extension Components.Molecules.SelectRowGroupView: Examplable {
 }
 
 extension Components.Molecules.WarningView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     static func withPlaceholders() -> UIView {
         return self.init(model: .init(text: "Body Text"))
@@ -182,7 +182,7 @@ extension Components.Molecules.CurrencyInputView {
 }
 
 extension Components.Molecules.TabBarView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     static func withPlaceholders() -> UIView {
         let segment1 = Model.Segment(title: "Title 1", startSelected: true) { }
@@ -231,7 +231,7 @@ extension Components.Molecules.TabBarView: Examplable {
 }
 
 extension Components.Molecules.H4TitleBodyView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     static func withPlaceholders() -> UIView {
         return Components.Molecules.H4TitleBodyView(
@@ -259,7 +259,7 @@ extension Components.Molecules.H4TitleBodyView: Examplable {
 }
 
 extension Components.Molecules.H5TitleBodyView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     static func withPlaceholders() -> UIView {
         return Components.Molecules.H5TitleBodyView(
@@ -287,7 +287,7 @@ extension Components.Molecules.H5TitleBodyView: Examplable {
 }
 
 extension Components.Molecules.BoldTitleBodyView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     static func withPlaceholders() -> UIView {
         return Components.Molecules.BoldTitleBodyView(
@@ -315,7 +315,7 @@ extension Components.Molecules.BoldTitleBodyView: Examplable {
 }
 
 extension Components.Molecules.InsetView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     static func withPlaceholders() -> UIView {
         return Components.Molecules.InsetView(
@@ -371,7 +371,7 @@ extension Components.Molecules.InsetView: Examplable {
 }
 
 extension Components.Molecules.MultiColumnRowView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     static func withPlaceholders() -> UIView {
         return Components.Molecules.MultiColumnRowView(
@@ -441,7 +441,7 @@ extension Components.Molecules.MultiColumnRowView: Examplable {
 }
 
 extension Components.Molecules.IconButtonView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     static func withPlaceholders() -> UIView {
         let view = Components.Molecules.IconButtonView(
@@ -471,7 +471,7 @@ extension Components.Molecules.IconButtonView: Examplable {
 }
 
 extension Components.Molecules.StatusView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
     static func withPlaceholders() -> UIView {
         let model = Components.Molecules.StatusView.Model(
@@ -502,7 +502,7 @@ extension Components.Molecules.StatusView: Examplable {
                 style: .body,
                 string: ExampleText.LoremIpsum.longest.rawValue
             ).withAlignment(.left),
-            iconTintColor: UIColor.Components.Named.green1
+            iconTintColor: UIColor.Named.green1.raw
         )
 
         return [model, modelWithoutBody, longModel].map {
@@ -514,7 +514,7 @@ extension Components.Molecules.StatusView: Examplable {
 }
 
 extension Components.Molecules.SwitchRowView: Examplable {
-    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground.raw
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
     
     static func withPlaceholders() -> UIView {
         let model = Components.Molecules.SwitchRowView.Model(

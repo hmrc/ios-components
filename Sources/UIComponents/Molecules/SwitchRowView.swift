@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -69,7 +69,7 @@ extension Components.Molecules {
         override open func commonInit() {
             super.commonInit()
             titleAndBodyView.bodyLabel.setAppearance(for: .info)
-            switchView.onTintColor = UIColor.Semantic.switchTint.raw
+            switchView.onTintColor = UIColor.Semantic.switchTint
             switchView.addTarget(self, action: #selector(switchChanged(switchView:)), for: .valueChanged)
             self.accessibilityElements = [titleAndBodyView.titleLabel!, titleAndBodyView.bodyLabel!, switchView]
         }

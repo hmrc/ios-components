@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 HM Revenue & Customs
+ * Copyright 2021 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -57,7 +57,7 @@ extension Components.Organisms {
         public var action: VoidHandler? {
             didSet {
                 button.isEnabled = action != nil
-                disclosureImageView.tintColor = action != nil ? UIColor.Semantic.darkText.raw : .clear
+                disclosureImageView.tintColor = action != nil ? UIColor.Semantic.darkText : .clear
 
                 updateForReaderTrait()
             }
@@ -159,7 +159,7 @@ extension Components.Organisms {
             if let button = button as? TransparentButton {
                 button.config = TransparentButton.StateConfig(
                     normalColour: .clear,
-                    highlightColour: UIColor.Semantic.transparentButtonHighlightedBackground.raw,
+                    highlightColour: UIColor.Semantic.transparentButtonHighlightedBackground,
                     disabledColour: .clear
                 )
                 button.action = { [weak self] in
@@ -183,7 +183,7 @@ extension Components.Organisms {
 
             if let icon = model.icon {
                 iconImageView.image = icon
-                iconImageView.tintColor = UIColor.Semantic.linkText.raw
+                iconImageView.tintColor = UIColor.Semantic.linkText
                 imageContainerView.addSubview(iconImageView)
                 NSLayoutConstraint.activate([
                     iconImageView.widthAnchor.constraint(equalToConstant: 28),
@@ -247,7 +247,7 @@ extension Components.Organisms {
         private lazy var iconImageView: UIImageView = {
             let imageView = UIImageView(frame: .zero)
             imageView.contentMode = .scaleAspectFit
-            imageView.tintColor = UIColor.Components.Named.blue
+            imageView.tintColor = UIColor.Named.blue.raw
             imageView.translatesAutoresizingMaskIntoConstraints = false
             return imageView
         }()

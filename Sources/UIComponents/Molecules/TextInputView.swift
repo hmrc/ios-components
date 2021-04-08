@@ -24,7 +24,7 @@ extension Components.Molecules {
             lazy var label = UILabel.buildLabel(style: .body) {
                 $0.text = ""
                 $0.isAccessibilityElement = false
-                $0.textColor = UIColor.Semantic.textInputLeftViewTint.raw
+                $0.textColor = UIColor.Semantic.textInputLeftViewTint
                 $0.setContentHuggingPriority(.required, for: .vertical)
                 $0.setContentCompressionResistancePriority(.required, for: .vertical)
                 $0.setContentHuggingPriority(.required, for: .horizontal)
@@ -114,7 +114,8 @@ extension Components.Molecules {
 
         // MARK: - Public Vars
 
-        public var enforceMaxLength: Bool = true
+        public var enforceMaxLength = true
+        public var touched = false
 
         // MARK: - Handlers
 
@@ -156,10 +157,12 @@ extension Components.Molecules {
         public lazy var validationErrorLabel = UILabel.buildBodyLabel {
             $0.isAccessibilityElement = false
             $0.adjustsFontForContentSizeCategory = true
+            $0.setContentHuggingPriority(.required, for: .vertical)
+            $0.setContentCompressionResistancePriority(.required, for: .vertical)
         }
 
         public lazy var charCountLabel = UILabel.buildBodyLabel {
-            $0.isAccessibilityElement = false
+            $0.isAccessibilityElement = true
             $0.adjustsFontForContentSizeCategory = true
             $0.textAlignment = .right
             $0.setContentHuggingPriority(.required, for: .horizontal)
@@ -173,7 +176,7 @@ extension Components.Molecules {
                 in: Bundle.resource,
                 compatibleWith: nil
             ), for: .normal)
-            $0.tintColor = UIColor.Components.Named.grey2
+            $0.tintColor = UIColor.Named.grey2.raw
         }
 
         public let validationErrorAndCharCountStackView: UIStackView = .build {
@@ -215,25 +218,25 @@ extension Components.Molecules {
         }
 
         private func updateColours() {
-            var titleColour = UIColor.Semantic.darkText.raw
-            var borderColour = UIColor.Semantic.textInputBorder.raw.cgColor
+            var titleColour = UIColor.Semantic.darkText
+            var borderColour = UIColor.Semantic.textInputBorder.cgColor
 
             if let validationError = validationErrorLabel.text, !validationError.isEmpty {
-                titleColour = UIColor.Semantic.errorText.raw
-                borderColour = UIColor.Semantic.errorText.raw.cgColor
+                titleColour = UIColor.Semantic.errorText
+                borderColour = UIColor.Semantic.errorText.cgColor
             }
 
             borderView.layer.borderWidth = 1.0
             borderView.layer.cornerRadius = 4.0
 
-            textView.textColor = UIColor.Semantic.darkText.raw
+            textView.textColor = UIColor.Semantic.darkText
             textView.backgroundColor = .clear
 
             titleLabel.textColor = titleColour
 
             borderView.layer.borderColor = borderColour
 
-            validationErrorLabel.textColor = UIColor.Semantic.errorText.raw
+            validationErrorLabel.textColor = UIColor.Semantic.errorText
         }
 
         @objc public func clearTextView() {
@@ -358,6 +361,7 @@ extension Components.Molecules {
                 charCountLabel.text = "\(count)\(separator)\(maxLength)"
                 let formatString = String.Accessibility.string(for: "TextInputView.characterCount")
                 textView.accessibilityHint = String(format: formatString, count, maxLength)
+                charCountLabel.accessibilityLabel = String(format: formatString, count, maxLength)
             }
         }
 
@@ -371,6 +375,7 @@ extension Components.Molecules {
 
         open func textViewDidBeginEditing(_ textView: UITextView) {
             editing = true
+            touched = true
             updateCharCount()
         }
 

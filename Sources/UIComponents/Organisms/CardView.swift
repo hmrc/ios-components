@@ -89,7 +89,7 @@ extension Components.Atoms {
         }
 
         open func commonInit() {
-            backgroundColor = UIColor.Semantic.cardBackground.raw
+            backgroundColor = UIColor.Semantic.cardBackground
             addViews()
             setupStackView()
             setContraints()
