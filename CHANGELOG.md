@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Fixed incorrect hex code for `Semantic.cardShadow`
 
 ## [5.4.0] - 2021-04-08
 ### Changed
