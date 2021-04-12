@@ -27,10 +27,12 @@ public extension Components.Organisms.InformationMessageCard {
 
         public struct Headline {
             let title: String
+            let body: String?
             public let ctas: [CTA]?
 
-            public init(title: String, ctas: [CTA]? = nil) {
+            public init(title: String, body: String? = nil, ctas: [CTA]? = nil) {
                 self.title = title
+                self.body = body
                 self.ctas = ctas
             }
         }
