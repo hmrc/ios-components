@@ -80,6 +80,14 @@ extension Components.Organisms {
                 warningCard.iconImageView.tintColor = UIColor.Semantic.lightText
             }
 
+            if let bodyText = viewModel.headline.body {
+                let bodyLabel = UILabel.buildLabel(style: .body) {
+                    $0.text = bodyText
+                    $0.textColor = UIColor.Semantic.lightText
+                }
+                warningParentCard.addComponents([bodyLabel])
+            }
+
             let buttons = viewModel.headline.ctas?.map { ctaModel -> UIButton in
                 let button = UIButton.styled(
                     style: .primary(true, baseline: false),

@@ -17,6 +17,7 @@ platform :ios do
     if options.has_key?(:update_companion)
       package_resolved_path = "#{local_url}/CompanionApp/CompanionApp.xcodeproj/project.pbxproj"
     end
+    puts "package_resolved_path: #{package_resolved_path}"
     local_url = "file://" + local_url
 
     text = File.read(package_resolved_path)
@@ -147,7 +148,7 @@ platform :ios do
     sh('swift package generate-xcodeproj')
     branch_name = "release/" + project_version
     sh('git checkout -b ' + branch_name)
-    
+
     # update changelog
     stamp_changelog(
       section_identifier: project_version

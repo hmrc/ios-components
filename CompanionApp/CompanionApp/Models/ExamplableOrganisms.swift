@@ -444,26 +444,15 @@ extension Components.Organisms.InformationMessageCard: Examplable {
                     icon: UIImage(named: "warning")!,
                     headline: .init(
                         title: "Info message",
-                        ctas: nil
+                        body: "This is where we can have a short bit of copy about this thing.",
+                        ctas: [ .init(
+                            message: "Do something",
+                            link: "",
+                            linkType: .normal,
+                            displayType: .primary
+                        )]
                     ),
-                    bodyContent: .init(
-                        title: "Notice this must be followed",
-                        body: "Some content here regarding the information which the above message is referring too",
-                        ctas: [
-                            .init(
-                                message: "A primary action",
-                                link: "",
-                                linkType: .inApp,
-                                displayType: .primary
-                            ),
-                            .init(
-                                message: "A secondary action",
-                                link: "",
-                                linkType: .inApp,
-                                displayType: .secondary
-                            )
-                        ]
-                    )
+                    bodyContent: nil
             )
         )
 
