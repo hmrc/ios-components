@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [5.5.0] - 2021-04-13Z
 ### Changed
 - Added optional body text to `InformationMessage`
 
