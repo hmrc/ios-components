@@ -48,14 +48,14 @@ public extension UIColor {
         let darkener = UIColor(white: 0, alpha: alpha)
         return self.add(overlay: darkener)
     }
-    
+
     static var useLightModeColors: Bool {
         if #available(iOS 13.0, *) {
             if UITraitCollection.current.userInterfaceStyle == .dark {
                 return false
             }
         }
-        
+
         return true
     }
 
