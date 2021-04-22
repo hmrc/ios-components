@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Fixed incorrect hex codes for button highlights in 5.4.1
 
 ## [5.5.0] - 2021-04-13Z
 ### Changed

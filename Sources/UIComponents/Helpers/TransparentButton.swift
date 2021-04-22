@@ -32,7 +32,7 @@ open class TransparentButton: UIButton {
 
     public let defaultConfig = StateConfig(
         normalColour: .clear,
-        highlightColour: UIColor.Semantic.transparentButtonHighlightedBackground,
+        highlightColour: UIColor.Semantic.secondaryButtonHighlightedBackground,
         disabledColour: .darkGray
     )
 

@@ -17,6 +17,37 @@
 import UIKit
 
 public extension UIColor {
+
+    func add(overlay: UIColor) -> UIColor {
+        var bgR: CGFloat = 0
+        var bgG: CGFloat = 0
+        var bgB: CGFloat = 0
+        var bgA: CGFloat = 0
+
+        var fgR: CGFloat = 0
+        var fgG: CGFloat = 0
+        var fgB: CGFloat = 0
+        var fgA: CGFloat = 0
+
+        self.getRed(&bgR, green: &bgG, blue: &bgB, alpha: &bgA)
+        overlay.getRed(&fgR, green: &fgG, blue: &fgB, alpha: &fgA)
+
+        let r = fgA * fgR + (1 - fgA) * bgR
+        let g = fgA * fgG + (1 - fgA) * bgG
+        let b = fgA * fgB + (1 - fgA) * bgB
+
+        return UIColor(red: r, green: g, blue: b, alpha: 1.0)
+    }
+
+    func lighten(_ alpha: CGFloat) -> UIColor {
+        let lightener = UIColor(white: 1, alpha: alpha)
+        return self.add(overlay: lightener)
+    }
+
+    func darken(_ alpha: CGFloat) -> UIColor {
+        let darkener = UIColor(white: 0, alpha: alpha)
+        return self.add(overlay: darkener)
+    }
     
     static var useLightModeColors: Bool {
         if #available(iOS 13.0, *) {

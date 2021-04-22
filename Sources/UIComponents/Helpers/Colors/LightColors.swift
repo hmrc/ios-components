@@ -20,15 +20,15 @@ public extension UIColor {
     struct LightColors: NamedColors {
         var black = UIColor(hexString: "#0B0C0C")
         var white = UIColor(hexString: "#FFFFFF")
-        var green1 = UIColor(hexString: "#006F3B")
-        var green2 = UIColor(hexString: "#529D79")
-        var blue = UIColor(hexString: "#2C6FB8")
-        var teal = UIColor(hexString: "#3AA096")
+        var green1 = UIColor(hexString: "#00703C")
+        var green2 = UIColor(hexString: "#85994B")
+        var blue = UIColor(hexString: "#1D70B8")
+        var teal = UIColor(hexString: "#28A197")
         var red = UIColor(hexString: "#D4351C")
-        var grey1 = UIColor(hexString: "#6F777B")
-        var grey2 = UIColor(hexString: "#B0B4B6")
+        var grey1 = UIColor(hexString: "#505A5F")
+        var grey2 = UIColor(hexString: "#B1B4B6")
         var grey3 = UIColor(hexString: "#F3F2F1")
-        var pink = UIColor(hexString: "#C92B75")
-        var yellow = UIColor(hexString: "#F9DD00")
+        var pink = UIColor(hexString: "#D53880")
+        var yellow = UIColor(hexString: "#FFBF47")
     }
 }

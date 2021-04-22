@@ -76,7 +76,7 @@ extension Components.Organisms {
             if let button = button as? TransparentButton {
                 button.config = TransparentButton.StateConfig(
                     normalColour: .clear,
-                    highlightColour: UIColor.Semantic.transparentButtonHighlightedBackground,
+                    highlightColour: UIColor.Semantic.secondaryButtonHighlightedBackground,
                     disabledColour: .clear
                 )
                 button.action = { [weak self] in
