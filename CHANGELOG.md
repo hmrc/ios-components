@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Added outline to switch control in `SwitchRowView` to fix contrast issue
+
 ### Fixed
 - Fixed incorrect hex codes for button highlights in 5.4.1
 
