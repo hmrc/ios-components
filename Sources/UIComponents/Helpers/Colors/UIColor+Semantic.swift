@@ -56,7 +56,6 @@ extension UIColor {
         public static var switchTintSelected = semanticColors.switchTintSelected
         public static var textInputBorder = semanticColors.textInputBorder
         public static var textInputLeftViewTint = semanticColors.textInputLeftViewTint
-        public static var transparentButtonHighlightedBackground = semanticColors.transparentButtonHighlightedBackground
         public static var secondaryButtonText = semanticColors.secondaryButtonText
         public static var secondaryButtonBackground = semanticColors.secondaryButtonBackground
         public static var secondaryButtonHighlightedBackground = semanticColors.secondaryButtonHighlightedBackground

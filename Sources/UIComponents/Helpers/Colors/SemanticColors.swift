@@ -29,24 +29,27 @@ open class SemanticColors {
     open var cardShadow = UIColor.useLightModeColors ? UIColor(hexString: "#ECECEC") : .clear
     open var pageBackground = UIColor.Named.grey3.raw
     open var menuCardBackground = UIColor.Named.grey3.raw
-    open var menuPageBackground: UIColor = UIColor.useLightModeColors ? UIColor.Named.white.raw : UIColor(hexString: "#262626")
+    open var menuPageBackground: UIColor = UIColor.Named.white.raw
     open var divider = UIColor.Named.grey2.raw
     open var insetBar = UIColor.Named.grey2.raw
     open var primaryButtonBackground = UIColor.Named.green1.raw
     open var primaryButtonDisabledBackground = UIColor.Named.grey1.raw
     open var primaryButtonDisabledText = UIColor.Named.white.raw
-    open var primaryButtonHighlightedBackground = UIColor.Named.green2.raw
+    open var primaryButtonHighlightedBackground = UIColor.Named.green1.raw.lighten(0.16)
     open var primaryButtonText = UIColor.Named.white.raw
-    open var primaryButtonHighlightedBaseline = UIColor.useLightModeColors ? UIColor(hexString: "#52856C") : .clear
-    open var primaryButtonBaseline = UIColor.useLightModeColors ? UIColor(hexString: "#004C29") : .clear
+    open var primaryButtonHighlightedBaseline = UIColor.Named.green1.raw.darken(0.24)
+    open var primaryButtonBaseline = UIColor.Named.green1.raw.darken(0.4)
     open var statusCardIconDefaultTint = UIColor.Named.grey1.raw
     open var switchTint = UIColor.Named.blue.raw
-    open var switchTintSelected = UIColor.useLightModeColors ? UIColor(hexString: "#1862A2") : UIColor(hexString: "#6DD4D6")
+    open var switchTintSelected = UIColor.Named.blue.raw.lighten(0.16)
     open var textInputBorder = UIColor.Named.grey1.raw
     open var textInputLeftViewTint = UIColor.Named.grey1.raw
-    open var transparentButtonHighlightedBackground = UIColor.useLightModeColors ? UIColor(hexString: "#004C29") : .clear
     open var secondaryButtonText = UIColor.Named.blue.raw
     open var secondaryButtonBackground = UIColor.clear
-    open var secondaryButtonHighlightedBackground = UIColor.clear
-    open var whiteBackground = UIColor.useLightModeColors ? UIColor.Named.white.raw : UIColor(hexString: "#0A0B0B")
+    open var secondaryButtonHighlightedBackground = UIColor.useLightModeColors
+        ? UIColor.Named.blue.raw.lighten(0.84)
+        : UIColor.Named.blue.raw.darken(0.84)
+    open var whiteBackground = UIColor.useLightModeColors
+        ? UIColor.Named.white.raw
+        : UIColor.Named.grey3.raw
 }
