@@ -121,6 +121,13 @@ platform :ios do
   desc "Create a new tagged release of the library."
   desc "This will bump the release tag, precompile the library, commit and tag the changes, then push up to master."
   lane :take_release do
+    begin
+      sh("gh --version")
+    rescue => exception
+      UI.error exception
+      UI.user_error!("Github CLI must be installed. See https://github.com/cli/cli")
+    end
+    
     UI.user_error!("You need to provide a Github Personal token via a `GITHUB_TOKEN` environment variable - you can create a new token on Github https://github.com/settings/tokens/new") unless !ENV["GITHUB_TOKEN"].nil?
     UI.user_error!("You need to provide the Bitrise token via a `BITRISE_TOKEN` environment variable") unless !ENV["BITRISE_TOKEN"].nil?
     UI.user_error!("You need to provide the Bitrise app slug for this repo via a `IOS_COMPONENTS_APP_SLUG` environment variable") unless !ENV["IOS_COMPONENTS_APP_SLUG"].nil?
