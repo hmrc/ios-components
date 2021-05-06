@@ -114,7 +114,7 @@ extension Components.Molecules {
 
         // MARK: - Public Vars
 
-        public var enforceMaxLength = true
+        public var enforceMaxLength = false
         public var touched = false
 
         // MARK: - Handlers
@@ -233,6 +233,8 @@ extension Components.Molecules {
             textView.backgroundColor = .clear
 
             titleLabel.textColor = titleColour
+
+            charCountLabel.textColor = titleColour
 
             borderView.layer.borderColor = borderColour
 
@@ -367,8 +369,22 @@ extension Components.Molecules {
 
         // MARK: - DisplaysValidationError
 
-        public func focusValidationError() {
-            textView.becomeFirstResponder()
+        public func focusValidationError(within scrollView: UIScrollView? = nil) {
+            if UIAccessibility.isVoiceOverRunning {
+                UIAccessibility.post(
+                    notification: .layoutChanged,
+                    argument: textView
+                )
+                if !textView.isFirstResponder {
+                    textView.becomeFirstResponder()
+                }
+
+            } else {
+                scrollView?.scrollRectToVisible(
+                    validationErrorLabel.frame,
+                    animated: true
+                )
+            }
         }
 
         // MARK: - TextViewDelegate

@@ -14,6 +14,15 @@
  * limitations under the License.
  */
 
+import UIKit
+
 public protocol DisplaysValidationError {
     func focusValidationError()
+    func focusValidationError(within scrollView: UIScrollView?)
+}
+
+extension DisplaysValidationError {
+    public func focusValidationError() {
+        focusValidationError(within: nil)
+    }
 }
