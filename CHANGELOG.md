@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [5.6.0] - 2021-05-11Z
 ### Changed
 - Improved validation handling within `TextInputView`
 
