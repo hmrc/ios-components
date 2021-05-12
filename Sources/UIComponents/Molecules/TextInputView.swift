@@ -371,11 +371,17 @@ extension Components.Molecules {
 
         public func focusValidationError(within scrollView: UIScrollView? = nil) {
             if UIAccessibility.isVoiceOverRunning {
-                UIAccessibility.post(
-                    notification: .layoutChanged,
-                    argument: textView
-                )
-                if !textView.isFirstResponder {
+                if textView.isFirstResponder {
+                    guard let error = validationErrorLabel.text else { return }
+                    UIAccessibility.post(
+                        notification: UIAccessibility.Notification.announcement,
+                        argument: "Error: \(error)"
+                    )
+                } else {
+                    UIAccessibility.post(
+                        notification: .layoutChanged,
+                        argument: textView
+                    )
                     textView.becomeFirstResponder()
                 }
 
