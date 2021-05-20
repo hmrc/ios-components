@@ -235,8 +235,8 @@
       "OBJ_135" = {
          isa = "PBXGroup";
          children = (
-            "UIComponents::UIComponents::Product",
-            "SnapKit::SnapKit::Product"
+            "SnapKit::SnapKit::Product",
+            "UIComponents::UIComponents::Product"
          );
          name = "Products";
          path = "";
