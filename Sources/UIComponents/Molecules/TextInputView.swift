@@ -397,13 +397,13 @@ extension Components.Molecules {
                     argument: textView
                 )
                 textView.becomeFirstResponder()
-                if textView.isFirstResponder {
-                    guard let error = validationErrorLabel.text else { return }
-                    UIAccessibility.post(
-                        notification: UIAccessibility.Notification.announcement,
-                        argument: "Error: \(error)"
-                    )
-                }
+//                if textView.isFirstResponder {
+//                    guard let error = validationErrorLabel.text else { return }
+//                    UIAccessibility.post(
+//                        notification: UIAccessibility.Notification.announcement,
+//                        argument: "Error: \(error)"
+//                    )
+//                }
 
             } else {
                 scrollView?.scrollRectToVisible(
