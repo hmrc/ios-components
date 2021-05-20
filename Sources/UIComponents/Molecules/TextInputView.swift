@@ -337,6 +337,14 @@ extension Components.Molecules {
         }
 
         public func updateUI(for model: Model = Model()) {
+            /*
+             self.title = title
+             self.leftViewText = leftViewText
+             self.initialText = initialText
+             self.maxLength = maxLength
+             self.multiLine = multiLine
+             self.keyboardType = keyboardType
+             */
             self.model = model
             leftView.set(text: model.leftViewText)
             textView.text = model.initialText
@@ -371,18 +379,30 @@ extension Components.Molecules {
 
         public func focusValidationError(within scrollView: UIScrollView? = nil) {
             if UIAccessibility.isVoiceOverRunning {
+//                if textView.isFirstResponder {
+//                    guard let error = validationErrorLabel.text else { return }
+//                    UIAccessibility.post(
+//                        notification: UIAccessibility.Notification.announcement,
+//                        argument: "Error: \(error)"
+//                    )
+//                } else {
+//                    UIAccessibility.post(
+//                        notification: .layoutChanged,
+//                        argument: textView
+//                    )
+//                    textView.becomeFirstResponder()
+//                }
+                UIAccessibility.post(
+                    notification: .layoutChanged,
+                    argument: textView
+                )
+                textView.becomeFirstResponder()
                 if textView.isFirstResponder {
                     guard let error = validationErrorLabel.text else { return }
                     UIAccessibility.post(
                         notification: UIAccessibility.Notification.announcement,
                         argument: "Error: \(error)"
                     )
-                } else {
-                    UIAccessibility.post(
-                        notification: .layoutChanged,
-                        argument: textView
-                    )
-                    textView.becomeFirstResponder()
                 }
 
             } else {
