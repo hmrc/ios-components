@@ -379,26 +379,26 @@ extension Components.Molecules {
 
         public func focusValidationError(within scrollView: UIScrollView? = nil) {
             if UIAccessibility.isVoiceOverRunning {
-                if textView.isFirstResponder {
-                    guard let error = validationErrorLabel.text else { return }
-                    UIAccessibility.post(
-                        notification: UIAccessibility.Notification.announcement,
-                        argument: "Error: \(error)"
-                    )
-                } else {
-                    UIAccessibility.post(
-                        notification: .layoutChanged,
-                        argument: textView
-                    )
-                    textView.becomeFirstResponder()
-                }
-/*
+//                if textView.isFirstResponder {
+//                    guard let error = validationErrorLabel.text else { return }
+//                    UIAccessibility.post(
+//                        notification: UIAccessibility.Notification.announcement,
+//                        argument: "Error: \(error)"
+//                    )
+//                } else {
+//                    UIAccessibility.post(
+//                        notification: .layoutChanged,
+//                        argument: textView
+//                    )
+//                    textView.becomeFirstResponder()
+//                }
+
                 UIAccessibility.post(
                     notification: .layoutChanged,
                     argument: textView
                 )
                 textView.becomeFirstResponder()
-*/
+
             } else {
                 scrollView?.scrollRectToVisible(
                     validationErrorLabel.frame,
