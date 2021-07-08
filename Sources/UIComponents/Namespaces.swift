@@ -25,8 +25,8 @@ public class Components {
     public struct Helpers {}
 }
 
-extension Components {
-    public struct Injection {
+public extension Components {
+    struct Injection {
         public static var injectors = [String: ResettableInjector]()
         ///Fired after injectors are initialised and reset. Useful for configuring injected instances
         public static var initialised: (() -> Void)!
