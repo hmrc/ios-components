@@ -18,7 +18,7 @@ import UIKit
 
 extension Components.Helpers {
     public struct ColorConfig {
-        static let shared = ColorConfig()
+        public static let shared = ColorConfig()
         
         private init() {}
         
