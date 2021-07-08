@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        Components.Helpers.ColorConfig.shared.semanticLightColors = MySemanticColors()
+//        Components.Helpers.ColorConfig.shared.semanticLightColors = MySemanticColors()
         return true
     }
 
@@ -48,34 +48,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 struct MySemanticColors: SemanticColors {
-    public var darkText = UIColor.SemanticLightColors().darkText
-    public var lightText = UIColor.SemanticLightColors().lightText
-    public var linkText = UIColor.SemanticLightColors().linkText
-    public var errorText = UIColor.SemanticLightColors().errorText
-    public var infoText = UIColor.SemanticLightColors().infoText
-    public var expandableButtonText = UIColor.SemanticLightColors().expandableButtonText
-    public var cardBackground = UIColor.SemanticLightColors().cardBackground
-    public var cardShadow = UIColor.SemanticLightColors().cardShadow
-    public var pageBackground = UIColor.SemanticLightColors().pageBackground
-    public var menuCardBackground = UIColor.SemanticLightColors().menuCardBackground
-    public var menuPageBackground = UIColor.SemanticLightColors().menuPageBackground
-    public var divider = UIColor.SemanticLightColors().divider
-    public var insetBar = UIColor.SemanticLightColors().insetBar
-    public var primaryButtonBackground = UIColor.SemanticLightColors().primaryButtonBackground
-    public var primaryButtonDisabledBackground = UIColor.SemanticLightColors().primaryButtonDisabledBackground
-    public var primaryButtonDisabledText = UIColor.SemanticLightColors().primaryButtonDisabledText
-    public var primaryButtonHighlightedBackground = UIColor.SemanticLightColors().primaryButtonHighlightedBackground
-    public var primaryButtonText = UIColor.SemanticLightColors().primaryButtonText
-    public var primaryButtonHighlightedBaseline = UIColor.SemanticLightColors().primaryButtonHighlightedBaseline
-    public var primaryButtonBaseline = UIColor.SemanticLightColors().primaryButtonBaseline
-    public var statusCardIconDefaultTint = UIColor.SemanticLightColors().statusCardIconDefaultTint
-    public var switchTint = UIColor.SemanticLightColors().switchTint
-    public var switchTintSelected = UIColor.SemanticLightColors().switchTintSelected
-    public var textInputBorder = UIColor.SemanticLightColors().textInputBorder
-    public var textInputLeftViewTint = UIColor.SemanticLightColors().textInputLeftViewTint
-    public var secondaryButtonText = UIColor.SemanticLightColors().secondaryButtonText
-    public var secondaryButtonBackground = UIColor.SemanticLightColors().secondaryButtonBackground
-    public var secondaryButtonHighlightedBackground = UIColor.SemanticLightColors().secondaryButtonHighlightedBackground
-    public var whiteBackground = UIColor.SemanticLightColors().whiteBackground
+    
+    private static let defaultColors = UIColor.SemanticLightColors()
+    
+    public var darkText = defaultColors.darkText
+    public var lightText = defaultColors.lightText
+    public var linkText = defaultColors.linkText
+    public var errorText = defaultColors.errorText
+    public var infoText = defaultColors.infoText
+    public var expandableButtonText = defaultColors.expandableButtonText
+    public var cardBackground = defaultColors.cardBackground
+    public var cardShadow = defaultColors.cardShadow
+    public var pageBackground = defaultColors.pageBackground
+    public var menuCardBackground = defaultColors.menuCardBackground
+    public var menuPageBackground = defaultColors.menuPageBackground
+    public var divider = defaultColors.divider
+    public var insetBar = defaultColors.insetBar
+    public var primaryButtonBackground = defaultColors.primaryButtonBackground
+    public var primaryButtonDisabledBackground = defaultColors.primaryButtonDisabledBackground
+    public var primaryButtonDisabledText = defaultColors.primaryButtonDisabledText
+    public var primaryButtonHighlightedBackground = defaultColors.primaryButtonHighlightedBackground
+    public var primaryButtonText = defaultColors.primaryButtonText
+    public var primaryButtonHighlightedBaseline = defaultColors.primaryButtonHighlightedBaseline
+    public var primaryButtonBaseline = defaultColors.primaryButtonBaseline
+    public var statusCardIconDefaultTint = defaultColors.statusCardIconDefaultTint
+    public var switchTint = defaultColors.switchTint
+    public var switchTintSelected = defaultColors.switchTintSelected
+    public var textInputBorder = defaultColors.textInputBorder
+    public var textInputLeftViewTint = defaultColors.textInputLeftViewTint
+    public var secondaryButtonText = defaultColors.secondaryButtonText
+    public var secondaryButtonBackground = defaultColors.secondaryButtonBackground
+    public var secondaryButtonHighlightedBackground = defaultColors.secondaryButtonHighlightedBackground
+    public var whiteBackground = defaultColors.whiteBackground
     
 }
