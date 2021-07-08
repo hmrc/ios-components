@@ -18,6 +18,9 @@ import UIKit
 
 public extension UIColor {
     struct DarkColors: NamedColors {
+        
+        public init() {}
+        
         public var black = UIColor(hexString: "#FFFFFF")
         public var white = UIColor(hexString: "#262626")
         public var green1 = UIColor(hexString: "#69B134")

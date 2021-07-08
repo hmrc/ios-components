@@ -50,6 +50,9 @@ public protocol SemanticColors {
 
 public extension UIColor {
     struct SemanticLightColors: SemanticColors {
+        
+        public init() {}
+        
         public var darkText = UIColor.Named.black.raw
         public var lightText = UIColor.Named.white.raw
         public var linkText = UIColor.Named.blue.raw
@@ -60,7 +63,7 @@ public extension UIColor {
         public var cardShadow = UIColor.Named.grey3.raw.darken(0.08)
         public var pageBackground = UIColor.Named.grey3.raw
         public var menuCardBackground = UIColor.Named.grey3.raw
-        public var menuPageBackground: UIColor = UIColor.Named.white.raw
+        public var menuPageBackground = UIColor.Named.white.raw
         public var divider = UIColor.Named.grey2.raw
         public var insetBar = UIColor.Named.grey2.raw
         public var primaryButtonBackground = UIColor.Named.green1.raw
@@ -82,6 +85,9 @@ public extension UIColor {
     }
     
     struct SemanticDarkColors: SemanticColors {
+        
+        public init() {}
+        
         public var darkText = UIColor.Named.black.raw
         public var lightText = UIColor.Named.white.raw
         public var linkText = UIColor.Named.blue.raw
@@ -92,7 +98,7 @@ public extension UIColor {
         public var cardShadow = UIColor.clear
         public var pageBackground = UIColor.Named.grey3.raw
         public var menuCardBackground = UIColor.Named.grey3.raw
-        public var menuPageBackground: UIColor = UIColor.Named.white.raw
+        public var menuPageBackground = UIColor.Named.white.raw
         public var divider = UIColor.Named.grey2.raw
         public var insetBar = UIColor.Named.grey2.raw
         public var primaryButtonBackground = UIColor.Named.green1.raw
