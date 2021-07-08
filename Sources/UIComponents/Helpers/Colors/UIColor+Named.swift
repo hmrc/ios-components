@@ -32,9 +32,8 @@ public protocol NamedColors {
 }
 
 public extension UIColor {
-    internal typealias ColorConfig = UIComponents.Components.Helpers.ColorConfig
     
-    enum Named: String, CaseIterable {
+    enum Named: String, CaseIterable, ColorServiceInjected {
         case black,
              white,
              green1,
@@ -55,9 +54,9 @@ public extension UIColor {
         public var raw: UIColor {
             let colorContainer: NamedColors
             if UIColor.useLightModeColors {
-                colorContainer = ColorConfig.shared.lightColors
+                colorContainer = colorService.lightColors
             } else {
-                colorContainer = ColorConfig.shared.darkColors
+                colorContainer = colorService.darkColors
             }
 
             switch self {

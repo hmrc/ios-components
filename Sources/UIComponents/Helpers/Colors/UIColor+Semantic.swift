@@ -31,13 +31,14 @@ extension UIColor {
         }
         
         static var semanticColors: SemanticColors {
-            let colorContainer: SemanticColors
-            if UIColor.useLightModeColors {
-                colorContainer = ColorConfig.shared.semanticLightColors
-            } else {
-                colorContainer = ColorConfig.shared.semanticDarkColors
-            }
-            return colorContainer
+//            let colorContainer: SemanticColors
+//            if UIColor.useLightModeColors {
+//                colorContainer = ColorConfig.shared.semanticLightColors
+//            } else {
+//                colorContainer = ColorConfig.shared.semanticDarkColors
+//            }
+//            return colorContainer
+            return SemanticLightColors()
         }
         
         public static var darkText = semanticColors.darkText

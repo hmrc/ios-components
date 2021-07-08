@@ -16,34 +16,47 @@
 
 import UIKit
 
-extension Components.Helpers {
-    public struct ColorConfig {
-        public static var shared = ColorConfig()
+public protocol ColorService {
+    var lightColors: NamedColors { get }
+    var darkColors: NamedColors { get }
+    var semanticLightColors: SemanticColors { get }
+    var semanticDarkColors: SemanticColors { get }
+}
+
+extension Components.Colors {
+    public class Service: ColorService {
+        
         private var _lightColors: NamedColors?
         private var _darkColors: NamedColors?
         private var _semanticLightColors: SemanticColors?
         private var _semanticDarkColors: SemanticColors?
-  
-        private init() {}
+        
+        public init(
+            lightColors: NamedColors? = nil,
+            darkColors: NamedColors? = nil,
+            semanticLightColors: SemanticColors? = nil,
+            semanticDarkColors: SemanticColors? = nil
+        ) {
+            self._lightColors = lightColors
+            self._darkColors = darkColors
+            self._semanticLightColors = semanticLightColors
+            self._semanticDarkColors = semanticDarkColors
+        }
         
         public var lightColors: NamedColors {
-            get { return _lightColors ?? UIColor.LightColors() }
-            set { _lightColors = newValue }
+            return _lightColors ?? UIColor.LightColors()
         }
         
         public var darkColors: NamedColors {
-            get { return _darkColors ?? UIColor.DarkColors() }
-            set { _darkColors = newValue }
+            return _darkColors ?? UIColor.DarkColors()
         }
         
         public var semanticLightColors: SemanticColors {
-            get { return _semanticLightColors ?? UIColor.SemanticLightColors() }
-            set { _semanticLightColors = newValue }
+            return _semanticLightColors ?? UIColor.SemanticLightColors()
         }
         
         public var semanticDarkColors: SemanticColors {
-            get { return _semanticDarkColors ?? UIColor.SemanticDarkColors() }
-            set { _semanticDarkColors = newValue }
+            return _semanticDarkColors ?? UIColor.SemanticDarkColors()
         }
     }
 }

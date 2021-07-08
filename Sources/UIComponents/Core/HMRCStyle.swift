@@ -16,14 +16,6 @@
 
 import UIKit
 
-public class Components {
-    public struct Atoms {}
-    public struct Molecules {}
-    public struct Organisms {}
-    public struct Containers {}
-    public struct Helpers {}
-}
-
 public protocol Paddable {
     associatedtype ModelType: Any
     init(model: ModelType?)
