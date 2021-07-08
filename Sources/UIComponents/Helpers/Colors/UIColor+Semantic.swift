@@ -29,7 +29,7 @@ extension UIColor {
             }
             return result
         }
-        static var semanticColors = SemanticColors()
+        static var semanticColors = ColorConfig.shared.semanticColors
 
         public static var darkText = semanticColors.darkText
         public static var lightText = semanticColors.lightText

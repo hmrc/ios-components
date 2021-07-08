@@ -21,8 +21,7 @@ public class Components {
     public struct Molecules {}
     public struct Organisms {}
     public struct Containers {}
-    public struct Helpers {
-    }
+    public struct Helpers {}
 }
 
 public protocol Paddable {

@@ -16,7 +16,7 @@
 
 import UIKit
 
-protocol NamedColors {
+public protocol NamedColors {
     var black: UIColor { get }
     var white: UIColor { get }
     var green1: UIColor { get }
@@ -32,6 +32,7 @@ protocol NamedColors {
 }
 
 public extension UIColor {
+    internal typealias ColorConfig = UIComponents.Components.Helpers.ColorConfig
     
     enum Named: String, CaseIterable {
         case black,
@@ -52,11 +53,12 @@ public extension UIColor {
         }
         
         public var raw: UIColor {
+            
             let colorContainer: NamedColors
             if UIColor.useLightModeColors {
-               colorContainer = LightColors()
+                colorContainer = ColorConfig.shared.lightColors
             } else {
-               colorContainer = DarkColors()
+                colorContainer = ColorConfig.shared.darkColors
             }
 
             switch self {
