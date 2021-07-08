@@ -29,8 +29,17 @@ extension UIColor {
             }
             return result
         }
-        static var semanticColors = ColorConfig.shared.semanticColors
-
+        
+        static var semanticColors: SemanticColors {
+            let colorContainer: SemanticColors
+            if UIColor.useLightModeColors {
+                colorContainer = ColorConfig.shared.semanticLightColors
+            } else {
+                colorContainer = ColorConfig.shared.semanticDarkColors
+            }
+            return colorContainer
+        }
+        
         public static var darkText = semanticColors.darkText
         public static var lightText = semanticColors.lightText
         public static var linkText = semanticColors.linkText

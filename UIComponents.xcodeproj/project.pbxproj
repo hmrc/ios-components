@@ -1381,7 +1381,7 @@
       };
       "OBJ_37" = {
          isa = "PBXFileReference";
-         path = "ColorContainer.swift";
+         path = "ColorConfig.swift";
          sourceTree = "<group>";
       };
       "OBJ_38" = {

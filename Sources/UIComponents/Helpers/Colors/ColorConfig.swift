@@ -24,7 +24,8 @@ extension Components.Helpers {
         
         private var _lightColors: NamedColors?
         private var _darkColors: NamedColors?
-        private var _semanticColors: SemanticColors?
+        private var _semanticLightColors: SemanticColors?
+        private var _semanticDarkColors: SemanticColors?
         
         public var lightColors: NamedColors {
             get { return _lightColors ?? UIColor.LightColors() }
@@ -36,9 +37,14 @@ extension Components.Helpers {
             set { _darkColors = newValue }
         }
         
-        public var semanticColors: SemanticColors {
-            get { return _semanticColors ?? SemanticColors() }
-            set { _semanticColors = newValue }
+        public var semanticLightColors: SemanticColors {
+            get { return _semanticLightColors ?? UIColor.SemanticLightColors() }
+            set { _semanticLightColors = newValue }
+        }
+        
+        public var semanticDarkColors: SemanticColors {
+            get { return _semanticDarkColors ?? UIColor.SemanticDarkColors() }
+            set { _semanticDarkColors = newValue }
         }
     }
 }

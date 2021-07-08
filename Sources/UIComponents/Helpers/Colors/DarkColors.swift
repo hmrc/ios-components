@@ -16,19 +16,19 @@
 
 import UIKit
 
-extension UIColor {
-    open class DarkColors: NamedColors {
-        open var black = UIColor(hexString: "#FFFFFF")
-        open var white = UIColor(hexString: "#262626")
-        open var green1 = UIColor(hexString: "#69B134")
-        open var green2 = UIColor(hexString: "#85994B")
-        open var blue = UIColor(hexString: "#5BC0C6")
-        open var teal = UIColor(hexString: "#28A197")
-        open var red = UIColor(hexString: "#EB66CA")
-        open var grey1 = UIColor(hexString: "#B1B4B6")
-        open var grey2 = UIColor(hexString: "#B1B4B6")
-        open var grey3 = UIColor(hexString: "#0B0C0C")
-        open var pink = UIColor(hexString: "#BB94FF")
-        open var yellow = UIColor(hexString: "#FEFF4F")
+public extension UIColor {
+    struct DarkColors: NamedColors {
+        public var black = UIColor(hexString: "#FFFFFF")
+        public var white = UIColor(hexString: "#262626")
+        public var green1 = UIColor(hexString: "#69B134")
+        public var green2 = UIColor(hexString: "#85994B")
+        public var blue = UIColor(hexString: "#5BC0C6")
+        public var teal = UIColor(hexString: "#28A197")
+        public var red = UIColor(hexString: "#EB66CA")
+        public var grey1 = UIColor(hexString: "#B1B4B6")
+        public var grey2 = UIColor(hexString: "#B1B4B6")
+        public var grey3 = UIColor(hexString: "#0B0C0C")
+        public var pink = UIColor(hexString: "#BB94FF")
+        public var yellow = UIColor(hexString: "#FEFF4F")
     }
 }
