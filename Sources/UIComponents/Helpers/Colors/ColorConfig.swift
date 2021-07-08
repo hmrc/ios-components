@@ -19,24 +19,12 @@ import UIKit
 extension Components.Helpers {
     public struct ColorConfig {
         public static var shared = ColorConfig()
-        
-        private init() {}
         private var _lightColors: NamedColors?
         private var _darkColors: NamedColors?
         private var _semanticLightColors: SemanticColors?
         private var _semanticDarkColors: SemanticColors?
-        
-        public mutating func setup(
-            lightColors: NamedColors? = nil,
-            darkColors: NamedColors? = nil,
-            semanticLightColors: SemanticColors? = nil,
-            semanticDarkColors: SemanticColors? = nil
-        ) {
-            self._lightColors = lightColors
-            self._darkColors = darkColors
-            self._semanticLightColors = semanticLightColors
-            self._semanticDarkColors = semanticDarkColors
-        }
+  
+        private init() {}
         
         public var lightColors: NamedColors {
             get { return _lightColors ?? UIColor.LightColors() }

@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "UIComponents",
+        "repositoryURL": "https://github.com/hmrc/ios-components.git",
+        "state": {
+          "branch": null,
+          "revision": "516292d8775702304c05b14cfd4fc7e684c6f2a7",
+          "version": "5.6.1"
+        }
+      },
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
+        "state": {
+          "branch": null,
+          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
+          "version": "5.0.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

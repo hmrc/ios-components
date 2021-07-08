@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-//        Components.Helpers.ColorConfig.shared.semanticLightColors = MySemanticColors()
+
+        UIComponents.Components.Helpers.ColorConfig.shared.semanticLightColors = MySemanticColors()
         return true
     }
 
@@ -64,7 +65,7 @@ struct MySemanticColors: SemanticColors {
     public var menuPageBackground = defaultColors.menuPageBackground
     public var divider = defaultColors.divider
     public var insetBar = defaultColors.insetBar
-    public var primaryButtonBackground = defaultColors.primaryButtonBackground
+    public var primaryButtonBackground = UIColor.red
     public var primaryButtonDisabledBackground = defaultColors.primaryButtonDisabledBackground
     public var primaryButtonDisabledText = defaultColors.primaryButtonDisabledText
     public var primaryButtonHighlightedBackground = defaultColors.primaryButtonHighlightedBackground

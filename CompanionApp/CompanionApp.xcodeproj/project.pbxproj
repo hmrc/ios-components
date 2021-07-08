@@ -441,10 +441,10 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		6CB8E11925681C83001780A3 /* XCRemoteSwiftPackageReference "ios-components" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "file:///Users/chrisobrien/workspace/hmrc/ios/ios-components";
+			repositoryURL = "https://github.com/hmrc/ios-components.git";
 			requirement = {
 				kind = exactVersion;
-				version = 1625752576.0.0;
+				version = 5.6.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
