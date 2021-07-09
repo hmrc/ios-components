@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- Added configurable text alignment in paragraphed stack view.
 
 ## [5.7.0] - 2021-07-09
 - Added mechanism to configure colours.

@@ -18,7 +18,7 @@ import UIKit
 
 extension String {
 
-    public func buildStackViewFromParagraphs() -> UIStackView {
+    public func buildStackViewFromParagraphs(textAlignment: NSTextAlignment = .natural) -> UIStackView {
         let container: UIStackView = UIStackView.build {
             $0.axis = .vertical
             $0.spacing = .spacer8
@@ -29,7 +29,10 @@ extension String {
                 let bulletText = String(paragraph.dropFirst(1)).trimmingCharacters(in: .whitespaces)
                 return Components.Atoms.BulletLabelView(text: bulletText)
             } else {
-                return UILabel.buildBodyLabel { $0.text = paragraph }
+                return UILabel.buildBodyLabel {
+                    $0.text = paragraph
+                    $0.textAlignment = textAlignment
+                }
             }
         }
 
