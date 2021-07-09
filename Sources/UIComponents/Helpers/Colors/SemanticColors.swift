@@ -48,8 +48,8 @@ public protocol SemanticColors {
     var whiteBackground: UIColor { get }
 }
 
-public extension UIColor {
-    class SemanticLightColors: SemanticColors {
+extension UIColor {
+    open class SemanticLightColors: SemanticColors {
         
         public init() {}
         
@@ -84,7 +84,7 @@ public extension UIColor {
         public var whiteBackground = UIColor.Named.white.raw
     }
     
-    class SemanticDarkColors: SemanticColors {
+    open class SemanticDarkColors: SemanticColors {
         
         public init() {}
         
