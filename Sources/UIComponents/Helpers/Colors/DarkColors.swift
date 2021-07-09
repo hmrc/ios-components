@@ -17,7 +17,7 @@
 import UIKit
 
 public extension UIColor {
-    struct DarkColors: NamedColors {
+    class DarkColors: NamedColors {
         
         public init() {}
         

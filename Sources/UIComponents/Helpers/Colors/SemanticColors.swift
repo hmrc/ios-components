@@ -49,7 +49,7 @@ public protocol SemanticColors {
 }
 
 public extension UIColor {
-    struct SemanticLightColors: SemanticColors {
+    class SemanticLightColors: SemanticColors {
         
         public init() {}
         
@@ -84,7 +84,7 @@ public extension UIColor {
         public var whiteBackground = UIColor.Named.white.raw
     }
     
-    struct SemanticDarkColors: SemanticColors {
+    class SemanticDarkColors: SemanticColors {
         
         public init() {}
         

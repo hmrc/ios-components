@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-struct MySemanticColors: SemanticColors {
+class MySemanticColors: SemanticColors {
     
     public var darkText = UIColor.Named.black.raw
     public var lightText = UIColor.Named.white.raw
@@ -83,7 +83,7 @@ struct MySemanticColors: SemanticColors {
     
 }
 
-struct MyLightColors: NamedColors {
+class MyLightColors: NamedColors {
     
     public init() {}
     
