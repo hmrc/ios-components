@@ -23,7 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let colors = MySemanticColors()
+        Components.Injection.initialised = {
+            Components.Injection.Service.colorService.inject(Components.Colors.Service(lightColors: MyLightColors(), semanticLightColors: colors))
+        }
         return true
     }
 
@@ -48,36 +51,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 struct MySemanticColors: SemanticColors {
     
-    private static let defaultColors = UIColor.SemanticLightColors()
-    
-    public var darkText = defaultColors.darkText
-    public var lightText = defaultColors.lightText
-    public var linkText = defaultColors.linkText
-    public var errorText = defaultColors.errorText
-    public var infoText = defaultColors.infoText
-    public var expandableButtonText = defaultColors.expandableButtonText
-    public var cardBackground = defaultColors.cardBackground
-    public var cardShadow = defaultColors.cardShadow
-    public var pageBackground = defaultColors.pageBackground
-    public var menuCardBackground = defaultColors.menuCardBackground
-    public var menuPageBackground = defaultColors.menuPageBackground
-    public var divider = defaultColors.divider
-    public var insetBar = defaultColors.insetBar
+    public var darkText = UIColor.Named.black.raw
+    public var lightText = UIColor.Named.white.raw
+    public var linkText = UIColor.Named.blue.raw
+    public var errorText = UIColor.Named.red.raw
+    public var infoText = UIColor.Named.grey1.raw
+    public var expandableButtonText = UIColor.Named.blue.raw
+    public var cardBackground = UIColor.Named.white.raw
+    public var cardShadow = UIColor.Named.grey3.raw.darken(0.08)
+    public var pageBackground = UIColor.Named.grey3.raw
+    public var menuCardBackground = UIColor.Named.grey3.raw
+    public var menuPageBackground = UIColor.Named.white.raw
+    public var divider = UIColor.Named.grey2.raw
+    public var insetBar = UIColor.Named.grey2.raw
     public var primaryButtonBackground = UIColor.red
-    public var primaryButtonDisabledBackground = defaultColors.primaryButtonDisabledBackground
-    public var primaryButtonDisabledText = defaultColors.primaryButtonDisabledText
-    public var primaryButtonHighlightedBackground = defaultColors.primaryButtonHighlightedBackground
-    public var primaryButtonText = defaultColors.primaryButtonText
-    public var primaryButtonHighlightedBaseline = defaultColors.primaryButtonHighlightedBaseline
-    public var primaryButtonBaseline = defaultColors.primaryButtonBaseline
-    public var statusCardIconDefaultTint = defaultColors.statusCardIconDefaultTint
-    public var switchTint = defaultColors.switchTint
-    public var switchTintSelected = defaultColors.switchTintSelected
-    public var textInputBorder = defaultColors.textInputBorder
-    public var textInputLeftViewTint = defaultColors.textInputLeftViewTint
-    public var secondaryButtonText = defaultColors.secondaryButtonText
-    public var secondaryButtonBackground = defaultColors.secondaryButtonBackground
-    public var secondaryButtonHighlightedBackground = defaultColors.secondaryButtonHighlightedBackground
-    public var whiteBackground = defaultColors.whiteBackground
+    public var primaryButtonDisabledBackground = UIColor.Named.grey1.raw
+    public var primaryButtonDisabledText = UIColor.Named.white.raw
+    public var primaryButtonHighlightedBackground = UIColor.Named.green1.raw.lighten(0.16)
+    public var primaryButtonText = UIColor.Named.white.raw
+    public var primaryButtonHighlightedBaseline = UIColor.Named.green1.raw.darken(0.24)
+    public var primaryButtonBaseline = UIColor.Named.green1.raw.darken(0.4)
+    public var statusCardIconDefaultTint = UIColor.Named.grey1.raw
+    public var switchTint = UIColor.Named.blue.raw
+    public var switchTintSelected = UIColor.Named.blue.raw.lighten(0.16)
+    public var textInputBorder = UIColor.Named.grey1.raw
+    public var textInputLeftViewTint = UIColor.Named.grey1.raw
+    public var secondaryButtonText = UIColor.Named.blue.raw
+    public var secondaryButtonBackground = UIColor.clear
+    public var secondaryButtonHighlightedBackground = UIColor.Named.blue.raw.lighten(0.84)
+    public var whiteBackground = UIColor.Named.white.raw
     
+}
+
+struct MyLightColors: NamedColors {
+    
+    public init() {}
+    
+    public var black = UIColor.systemPink
+    public var white = UIColor.systemPink
+    public var green1 = UIColor.systemPink
+    public var green2 = UIColor.systemPink
+    public var blue = UIColor.systemPink
+    public var teal = UIColor.systemPink
+    public var red = UIColor.systemPink
+    public var grey1 = UIColor.systemPink
+    public var grey2 = UIColor.systemPink
+    public var grey3 = UIColor.systemPink
+    public var pink = UIColor.systemPink
+    public var yellow = UIColor.systemPink
 }
