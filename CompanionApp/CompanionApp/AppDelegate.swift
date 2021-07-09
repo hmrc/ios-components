@@ -51,52 +51,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 class MySemanticColors: UIColor.SemanticLightColors {
     
-    public var darkText = UIColor.Named.black.raw
-    public var lightText = UIColor.Named.white.raw
-    public var linkText = UIColor.Named.blue.raw
-    public var errorText = UIColor.Named.red.raw
-    public var infoText = UIColor.Named.grey1.raw
-    public var expandableButtonText = UIColor.Named.blue.raw
-    public var cardBackground = UIColor.Named.white.raw
-    public var cardShadow = UIColor.Named.grey3.raw.darken(0.08)
-    public var pageBackground = UIColor.Named.grey3.raw
-    public var menuCardBackground = UIColor.Named.grey3.raw
-    public var menuPageBackground = UIColor.Named.white.raw
-    public var divider = UIColor.Named.grey2.raw
-    public var insetBar = UIColor.Named.grey2.raw
-    public var primaryButtonBackground = UIColor.purple
-    public var primaryButtonDisabledBackground = UIColor.Named.grey1.raw
-    public var primaryButtonDisabledText = UIColor.Named.white.raw
-    public var primaryButtonHighlightedBackground = UIColor.Named.green1.raw.lighten(0.16)
-    public var primaryButtonText = UIColor.Named.white.raw
-    public var primaryButtonHighlightedBaseline = UIColor.Named.green1.raw.darken(0.24)
-    public var primaryButtonBaseline = UIColor.Named.green1.raw.darken(0.4)
-    public var statusCardIconDefaultTint = UIColor.Named.grey1.raw
-    public var switchTint = UIColor.Named.blue.raw
-    public var switchTintSelected = UIColor.Named.blue.raw.lighten(0.16)
-    public var textInputBorder = UIColor.Named.grey1.raw
-    public var textInputLeftViewTint = UIColor.Named.grey1.raw
-    public var secondaryButtonText = UIColor.Named.blue.raw
-    public var secondaryButtonBackground = UIColor.clear
-    public var secondaryButtonHighlightedBackground = UIColor.Named.blue.raw.lighten(0.84)
-    public var whiteBackground = UIColor.Named.white.raw
+    override var primaryButtonBackground: UIColor {
+        return .red
+    }
     
-}
-
-class MyLightColors: NamedColors {
-    
-    public init() {}
-    
-    public var black = UIColor.systemPink
-    public var white = UIColor.systemPink
-    public var green1 = UIColor.systemPink
-    public var green2 = UIColor.systemPink
-    public var blue = UIColor.systemPink
-    public var teal = UIColor.systemPink
-    public var red = UIColor.systemPink
-    public var grey1 = UIColor.systemPink
-    public var grey2 = UIColor.systemPink
-    public var grey3 = UIColor.systemPink
-    public var pink = UIColor.systemPink
-    public var yellow = UIColor.systemPink
 }
