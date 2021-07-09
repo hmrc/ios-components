@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let colors = MySemanticColors()
-        let service = Components.Colors.Service(lightColors: MyLightColors(), semanticLightColors: colors)
+        let service = Components.Colors.Service(semanticLightColors: colors)
         Components.Injection.initialise()
         Components.Injection.Service.colorService.inject(service)
         return true
@@ -50,8 +50,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 class MySemanticColors: UIColor.SemanticLightColors {
-    
-    override var primaryButtonBackground: UIColor {
+    override open var primaryButtonBackground: UIColor {
+        get {
+            .purple
+        }
+        set {}
     }
-    
 }
