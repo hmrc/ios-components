@@ -16,24 +16,9 @@
 
 import UIKit
 
-protocol NamedColors {
-    var black: UIColor { get }
-    var white: UIColor { get }
-    var green1: UIColor { get }
-    var green2: UIColor { get }
-    var blue: UIColor { get }
-    var teal: UIColor { get }
-    var red: UIColor { get }
-    var grey1: UIColor { get }
-    var grey2: UIColor { get }
-    var grey3: UIColor { get }
-    var pink: UIColor { get }
-    var yellow: UIColor { get }
-}
-
 public extension UIColor {
     
-    enum Named: String, CaseIterable {
+    enum Named: String, CaseIterable, ColorServiceInjected {
         case black,
              white,
              green1,
@@ -54,9 +39,9 @@ public extension UIColor {
         public var raw: UIColor {
             let colorContainer: NamedColors
             if UIColor.useLightModeColors {
-               colorContainer = LightColors()
+                colorContainer = colorService.lightColors
             } else {
-               colorContainer = DarkColors()
+                colorContainer = colorService.darkColors
             }
 
             switch self {

@@ -59,9 +59,5 @@ public extension UIColor {
         return true
     }
 
-    struct Components {
-        public static func configure(with semanticColors: SemanticColors) {
-            UIColor.Semantic.semanticColors = semanticColors
-        }
-    }
+    struct Components {}
 }

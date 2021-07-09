@@ -29,8 +29,19 @@ extension UIColor {
             }
             return result
         }
-        static var semanticColors = SemanticColors()
-
+        
+        private static var semanticColors: SemanticColors {
+            let colorService: ColorService = UIComponents.Components.Injection.Service.colorService.injectedObject
+            
+            let colorContainer: SemanticColors
+            if UIColor.useLightModeColors {
+                colorContainer = colorService.semanticLightColors
+            } else {
+                colorContainer = colorService.semanticDarkColors
+            }
+            return colorContainer
+        }
+        
         public static var darkText = semanticColors.darkText
         public static var lightText = semanticColors.lightText
         public static var linkText = semanticColors.linkText
