@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- Added mechanism to configure colours.
 
 ## [5.6.1] - 2021-05-14Z
 ### Changed
