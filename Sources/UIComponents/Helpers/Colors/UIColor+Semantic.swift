@@ -31,7 +31,7 @@ extension UIColor {
         }
         
         private static var semanticColors: SemanticColors {
-            let colorService: ColorService = UIComponents.Components.Injection.Service.colorService.injectedObject()
+            let colorService: ColorService = UIComponents.Components.Injection.Service.colorService.injectedObject
             
             let colorContainer: SemanticColors
             if UIColor.useLightModeColors {
