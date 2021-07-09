@@ -18,11 +18,11 @@ import Foundation
 
 public protocol ColorServiceInjected {}
 extension ColorServiceInjected {
-    public var colorService: ColorService { return Components.Injection.Service.colorService.injectedObject() }
+    public var colorService: ColorService { return Components.Injection.Service.colorService.injectedObject }
 }
 
 extension Components.Injection {
     public struct Service {
-        public static let colorService = Injector("ColorService") { return Components.Colors.Service() }
+        public static let colorService = Injector<ColorService> { Components.Colors.Service() }
     }
 }
