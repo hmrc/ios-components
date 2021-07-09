@@ -17,18 +17,18 @@
 import UIKit
 
 public protocol NamedColors {
-    var black: UIColor { get }
-    var white: UIColor { get }
-    var green1: UIColor { get }
-    var green2: UIColor { get }
-    var blue: UIColor { get }
-    var teal: UIColor { get }
-    var red: UIColor { get }
-    var grey1: UIColor { get }
-    var grey2: UIColor { get }
-    var grey3: UIColor { get }
-    var pink: UIColor { get }
-    var yellow: UIColor { get }
+    var black: UIColor { get set }
+    var white: UIColor { get set }
+    var green1: UIColor { get set }
+    var green2: UIColor { get set }
+    var blue: UIColor { get set }
+    var teal: UIColor { get set }
+    var red: UIColor { get set }
+    var grey1: UIColor { get set }
+    var grey2: UIColor { get set }
+    var grey3: UIColor { get set }
+    var pink: UIColor { get set }
+    var yellow: UIColor { get set }
 }
 
 extension UIColor {

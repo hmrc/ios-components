@@ -444,7 +444,7 @@
 			repositoryURL = "file:///Users/chrisobrien/workspace/hmrc/ios/ios-components";
 			requirement = {
 				kind = exactVersion;
-				version = 1625824101.0.0;
+				version = 1625824391.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -52,7 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 class MySemanticColors: UIColor.SemanticLightColors {
     
     override var primaryButtonBackground: UIColor {
-        return .red
     }
     
 }

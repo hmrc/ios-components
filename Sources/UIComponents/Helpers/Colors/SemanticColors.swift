@@ -17,35 +17,35 @@
 import UIKit
 
 public protocol SemanticColors {
-    var darkText: UIColor { get }
-    var lightText: UIColor { get }
-    var linkText: UIColor { get }
-    var errorText: UIColor { get }
-    var infoText: UIColor { get }
-    var expandableButtonText: UIColor { get }
-    var cardBackground: UIColor { get }
-    var cardShadow: UIColor { get }
-    var pageBackground: UIColor { get }
-    var menuCardBackground: UIColor { get }
-    var menuPageBackground: UIColor { get }
-    var divider: UIColor { get }
-    var insetBar: UIColor { get }
-    var primaryButtonBackground: UIColor { get }
-    var primaryButtonDisabledBackground: UIColor { get }
-    var primaryButtonDisabledText: UIColor { get }
-    var primaryButtonHighlightedBackground: UIColor { get }
-    var primaryButtonText: UIColor { get }
-    var primaryButtonHighlightedBaseline: UIColor { get }
-    var primaryButtonBaseline: UIColor { get }
-    var statusCardIconDefaultTint: UIColor { get }
-    var switchTint: UIColor { get }
-    var switchTintSelected: UIColor { get }
-    var textInputBorder: UIColor { get }
-    var textInputLeftViewTint: UIColor { get }
-    var secondaryButtonText: UIColor { get }
-    var secondaryButtonBackground: UIColor { get }
-    var secondaryButtonHighlightedBackground: UIColor { get }
-    var whiteBackground: UIColor { get }
+    var darkText: UIColor { get set }
+    var lightText: UIColor { get set }
+    var linkText: UIColor { get set }
+    var errorText: UIColor { get set }
+    var infoText: UIColor { get set }
+    var expandableButtonText: UIColor { get set }
+    var cardBackground: UIColor { get set }
+    var cardShadow: UIColor { get set }
+    var pageBackground: UIColor { get set }
+    var menuCardBackground: UIColor { get set }
+    var menuPageBackground: UIColor { get set }
+    var divider: UIColor { get set }
+    var insetBar: UIColor { get set }
+    var primaryButtonBackground: UIColor { get set }
+    var primaryButtonDisabledBackground: UIColor { get set }
+    var primaryButtonDisabledText: UIColor { get set }
+    var primaryButtonHighlightedBackground: UIColor { get set }
+    var primaryButtonText: UIColor { get set }
+    var primaryButtonHighlightedBaseline: UIColor { get set }
+    var primaryButtonBaseline: UIColor { get set }
+    var statusCardIconDefaultTint: UIColor { get set }
+    var switchTint: UIColor { get set }
+    var switchTintSelected: UIColor { get set }
+    var textInputBorder: UIColor { get set }
+    var textInputLeftViewTint: UIColor { get set }
+    var secondaryButtonText: UIColor { get set }
+    var secondaryButtonBackground: UIColor { get set }
+    var secondaryButtonHighlightedBackground: UIColor { get set }
+    var whiteBackground: UIColor { get set }
 }
 
 extension UIColor {
