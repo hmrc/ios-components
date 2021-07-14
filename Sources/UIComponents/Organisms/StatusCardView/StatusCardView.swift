@@ -59,16 +59,19 @@ extension Components {
         }
         // MARK: - Views
 
-        public let statusView = Components.Molecules.StatusView()
+        public let statusView: Components.Molecules.StatusView
 
         // MARK: - Initialisation
 
         public required init(model: Model?) {
-            super.init(components: [statusView])
-
-            if let model = model {
-                updateUI(for: model)
+            guard let model = model else {
+                statusView = .init()
+                super.init(components: [statusView])
+                return
             }
+            statusView = .init(model: model)
+            super.init(components: [statusView])
+            updateUI(for: model)
         }
 
         public required init?(coder aDecoder: NSCoder) {
