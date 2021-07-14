@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [5.7.2] - 2021-07-14
 ### Fixed
 - Fixed bug where StatusCardView doesn't display it button
 
