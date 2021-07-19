@@ -78,6 +78,10 @@ extension Components.Organisms {
                 warningParentCard.backgroundColor = UIColor.Semantic.darkText
                 warningCard.bodyLabel.textColor = UIColor.Semantic.lightText
                 warningCard.iconImageView.tintColor = UIColor.Semantic.lightText
+            case let .custom(backgroundColor, bodyTextColor, iconTintColor):
+                warningParentCard.backgroundColor = backgroundColor
+                warningCard.bodyLabel.textColor = bodyTextColor
+                warningCard.iconImageView.tintColor = iconTintColor
             }
 
             if let bodyText = viewModel.headline.body {

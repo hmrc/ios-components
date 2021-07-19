@@ -42,6 +42,7 @@ public extension Components.Organisms.InformationMessageCard {
             case warning
             case urgent
             case notice
+            case custom(backgroundColor: UIColor, bodyTextColor: UIColor, iconTintColor: UIColor)
 
             public func accessibilityLabelPrefix() -> String {
                 switch self {
@@ -53,6 +54,8 @@ public extension Components.Organisms.InformationMessageCard {
                     return NSLocalizedString("Urgent; ", comment: "Prefix for urgent message")
                 case .notice:
                     return NSLocalizedString("Notice; ", comment: "Prefix for notice message")
+                case .custom:
+                    return NSLocalizedString("Custom; ", comment: "Prefix for notice message")
                 }
             }
         }
