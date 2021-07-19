@@ -121,8 +121,6 @@ extension Components.Molecules {
             if let model = model,
                 model.buttonModel != nil {
                 button = UIButton.styled(style: .secondary)
-                button!.translatesAutoresizingMaskIntoConstraints = false
-                button!.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: .spacer12, right: 0)
                 components.append(button!)
             }
             addSubview(stackView)
@@ -192,6 +190,7 @@ extension Components.Molecules {
                     accessibilityIdentifier: buttonModel.accessibilityIdentifier)
                 )
                 button.componentAction(block: buttonModel.actionBlock)
+                button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: .spacer12, right: 0)
             }
         }
     }
