@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [5.8.0] - 2021-07-19
 - Added configurable theme to the `InformationMessageCard`
 ## [5.7.2] - 2021-07-14
 ### Fixed
