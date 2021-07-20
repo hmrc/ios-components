@@ -89,7 +89,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/chrisobrien/workspace/hmrc/ios/ios-components/.build/checkouts/SnapKit/Package.swift";
+         path = "/Users/tendaimoffatt/Documents/HMRC/ios-components/.build/checkouts/SnapKit/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_103" = {
@@ -315,17 +315,17 @@
       };
       "OBJ_142" = {
          isa = "PBXFileReference";
-         path = "CompanionApp";
+         path = "Carthage";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_143" = {
          isa = "PBXFileReference";
-         path = "fastlane";
+         path = "CompanionApp";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_144" = {
          isa = "PBXFileReference";
-         path = "build";
+         path = "fastlane";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_145" = {
