@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [5.8.1] - 2021-07-20
 ### Fixed
 - Set `StatusView` Button Padding after updating button
 
