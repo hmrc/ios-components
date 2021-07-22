@@ -17,6 +17,12 @@
 import UIKit
 
 public extension UIColor {
+
+    enum ColorMode {
+        case userSpecified
+        case light
+        case dark
+    }
     
     enum Named: String, CaseIterable, ColorServiceInjected {
         case black,
@@ -37,12 +43,32 @@ public extension UIColor {
         }
         
         public var raw: UIColor {
-            let colorContainer: NamedColors
-            if UIColor.useLightModeColors {
-                colorContainer = colorService.lightColors
-            } else {
-                colorContainer = colorService.darkColors
-            }
+            rawColor(colorMode: .userSpecified)
+        }
+
+        public var rawInLightMode: UIColor {
+            rawColor(colorMode: .light)
+        }
+
+        public var rawInDarkMode: UIColor {
+            rawColor(colorMode: .dark)
+        }
+
+        private func rawColor(colorMode: ColorMode = .userSpecified) -> UIColor {
+            let colorContainer: NamedColors = {
+                switch colorMode {
+                case .userSpecified:
+                    if UIColor.useLightModeColors {
+                        return colorService.lightColors
+                    } else {
+                        return colorService.darkColors
+                    }
+                case .light:
+                    return colorService.lightColors
+                case .dark:
+                    return colorService.darkColors
+                }
+            }()
 
             switch self {
             case .black:

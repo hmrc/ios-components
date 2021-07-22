@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Fixed bug with Warning info message text which should always be black
 
 ## [5.8.1] - 2021-07-20
 ### Fixed
