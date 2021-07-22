@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [1626959689.0.3] - 2021-07-22Z
+## [5.8.2] - 2021-07-22Z
 ### Fixed
 - Fixed bug with Warning info message text which should always be black
 
