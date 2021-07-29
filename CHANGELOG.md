@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Added the ability to add an action to `HeadlineCardView`. When `HeadlineCardView` has an action, the whole card is tappable, a chevron is displayed, and the action is called when the user taps the card.
 
 ## [5.8.2] - 2021-07-22Z
 ### Fixed

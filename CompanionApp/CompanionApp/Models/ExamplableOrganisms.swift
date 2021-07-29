@@ -36,7 +36,8 @@ extension Components.Organisms.HeadlineCardView: Examplable {
         let modelWithBody = Model(
             title: "Your PAYE income tax estimate",
             headline: "£12,345",
-            views: [UILabel.styled(style: .body, string: "This is the income tax we think you will have paid by the end of this tax year.")])
+            views: [UILabel.styled(style: .body, string: "This is the income tax we think you will have paid by the end of this tax year.")]
+        )
 
         let modelWithLongBody = Model(
             title: ExampleText.LoremIpsum.longer.rawValue,
@@ -114,9 +115,18 @@ extension Components.Organisms.HeadlineCardView: Examplable {
                 UIButton.styled(style: .primary(true), string: "Claim your refund")
             ]
         )
+        let viewWithAction = View(model: modelWithBody)
+        viewWithAction.action = {
+            let controller = UIAlertController(title: "Tapped", message: "Button was tapped", preferredStyle: .alert)
+            controller.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                controller.dismiss(animated: true, completion: nil)
+            }))
+            UIApplication.shared.delegate?.window??.rootViewController?
+                .present(controller, animated: true, completion: nil)
+        }
         return [
             View(model: modelP800),
-            View(model: modelWithBody),
+            viewWithAction,
             View(model: modelWithLongBody),
             View(model: modelWithBodyAndPrimaryButton),
             View(model: modelWithBodyAndSecondaryButton),
