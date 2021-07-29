@@ -112,14 +112,20 @@ extension Components.Organisms {
 
         open class Model: TitleHeadlineView.Model {
             public let views: [UIView]
+            public let buttonAccessibilityLabel: String?
+            public let buttonAccessibilityHint: String?
 
-            public init(title: String, headline: String, views: [UIView] = []) {
+            public init(title: String, headline: String, views: [UIView] = [], buttonAccessibilityLabel: String? = nil, buttonAccessibilityHint: String? = nil) {
                 self.views = views
+                self.buttonAccessibilityLabel = buttonAccessibilityLabel
+                self.buttonAccessibilityHint = buttonAccessibilityHint
                 super.init(title: title, headline: headline)
             }
 
-            public init(title: String, headline: NSAttributedString, views: [UIView] = []) {
+            public init(title: String, headline: NSAttributedString, views: [UIView] = [], buttonAccessibilityLabel: String? = nil, buttonAccessibilityHint: String? = nil) {
                 self.views = views
+                self.buttonAccessibilityLabel = buttonAccessibilityLabel
+                self.buttonAccessibilityHint = buttonAccessibilityHint
                 super.init(title: title, headline: headline)
             }
         }
@@ -127,6 +133,27 @@ extension Components.Organisms {
         // MARK: - Views & Outlets
 
         public let titleHeadlineComponent = TitleHeadlineView()
+        public private(set)var button: UIButton = TransparentButton()
+        public private(set)var disclosureImageView = UIImageView(
+            image: UIImage(
+                named: "ChevronRight",
+                in: Bundle.resource,
+                compatibleWith: nil
+            )
+        )
+        public var action: VoidHandler? {
+            didSet {
+                button.isEnabled = action != nil
+                disclosureImageView.tintColor = action != nil ? UIColor.Semantic.darkText : .clear
+                let chevronWidth: CGFloat = action != nil ? .spacer24 : 0
+                disclosureImageView.snp.updateConstraints { make in
+                    make.width.equalTo(chevronWidth)
+                }
+                adjust([.right], margin: .spacer16 + chevronWidth)
+                stackView.isLayoutMarginsRelativeArrangement = true
+                updateAccessibility()
+            }
+        }
 
         // MARK: - Initialisation
 
@@ -145,11 +172,47 @@ extension Components.Organisms {
         override open func commonInit() {
             super.commonInit()
             self.accessibilityIdentifier = "HeadlineCardView"
+            addSubview(button)
+            addSubview(disclosureImageView)
+            button.snp.makeConstraints { make in
+                make.edges.equalTo(snp.edges)
+            }
+            disclosureImageView.snp.makeConstraints { (make) in
+                make.height.equalTo(CGFloat.spacer24)
+                make.width.equalTo(CGFloat.spacer24)
+                make.right.equalTo(snp.right).inset(CGFloat.spacer16)
+                make.centerY.equalTo(snp.centerY)
+            }
+            if let button = button as? TransparentButton {
+                button.config = TransparentButton.StateConfig(
+                    normalColour: .clear,
+                    highlightColour: UIColor.Semantic.secondaryButtonHighlightedBackground,
+                    disabledColour: .clear
+                )
+                button.action = { [weak self] in
+                    self?.action?()
+                }
+            }
+            action = nil
         }
 
         public func updateUI(for model: Model) {
             titleHeadlineComponent.updateUI(for: model)
             setComponents([titleHeadlineComponent] + model.views)
+            button.accessibilityLabel = model.buttonAccessibilityLabel
+            button.accessibilityHint = model.buttonAccessibilityHint
+            updateAccessibility()
+        }
+
+        public func updateAccessibility() {
+            if action != nil {
+                accessibilityElements = [
+                    components,
+                    button
+                ]
+            } else {
+                accessibilityElements = components
+            }
         }
 
         @discardableResult public func removePadding(onViews views: [UIView]) -> Self {
