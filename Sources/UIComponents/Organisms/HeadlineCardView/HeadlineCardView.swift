@@ -184,7 +184,7 @@ extension Components.Organisms {
                 make.centerY.equalTo(snp.centerY)
             }
             if let button = button as? TransparentButton {
-                button.config = TransparentButton.StateConfig(
+                button.config = .init(
                     normalColour: .clear,
                     highlightColour: UIColor.Semantic.secondaryButtonHighlightedBackground,
                     disabledColour: .clear
