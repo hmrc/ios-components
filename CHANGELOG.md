@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Moved the disclosure logic from `HeadlineCardView` 5.9.0 release to `CardView`
 
 ## [5.9.0] - 2021-07-29
 ### Added
