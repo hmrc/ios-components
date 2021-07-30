@@ -58,28 +58,7 @@ extension Components.Atoms {
         // MARK: - Views & Outlets
 
         public var components = [UIView]()
-        public let stackView = TouchPassThroughStackView()
-        public private(set)var disclosureButton: UIButton = TransparentButton()
-        public private(set)var disclosureImageView = UIImageView(
-            image: UIImage(
-                named: "ChevronRight",
-                in: Bundle.resource,
-                compatibleWith: nil
-            )
-        )
-        public var disclosureAction: VoidHandler? {
-            didSet {
-                disclosureButton.isEnabled = disclosureAction != nil
-                disclosureImageView.tintColor = disclosureAction != nil ? UIColor.Semantic.darkText : .clear
-                let chevronWidth: CGFloat = disclosureAction != nil ? .spacer24 : 0
-                disclosureImageView.snp.updateConstraints { make in
-                    make.width.equalTo(chevronWidth)
-                }
-                adjust([.right], margin: .spacer16 + chevronWidth)
-                stackView.isLayoutMarginsRelativeArrangement = true
-                updateAccessibility()
-            }
-        }
+        public let stackView = UIStackView()
         private let itemSpacing: CGFloat
 
         // MARK: - Initialisation
@@ -114,7 +93,6 @@ extension Components.Atoms {
             addViews()
             setupStackView()
             setContraints()
-            setupButton()
             disableTranslatesAutoresizingMaskIntoConstraints()
         }
 
@@ -149,9 +127,7 @@ extension Components.Atoms {
         // MARK: - Add and setup views
 
         private func addViews() {
-            addSubview(disclosureButton)
             addSubview(stackView)
-            addSubview(disclosureImageView)
         }
 
         private func setupStackView() {
@@ -161,32 +137,9 @@ extension Components.Atoms {
             stackView.alignment = .center
         }
 
-        private func setupButton() {
-            if let button = disclosureButton as? TransparentButton {
-                button.config = .init(
-                    normalColour: .clear,
-                    highlightColour: UIColor.Semantic.secondaryButtonHighlightedBackground,
-                    disabledColour: .clear
-                )
-                button.action = { [weak self] in
-                    self?.disclosureAction?()
-                }
-            }
-            disclosureAction = nil
-        }
-
         open func setContraints() {
             stackView.snp.makeConstraints { make in
                 make.edges.equalTo(self.snp.margins)
-            }
-            disclosureButton.snp.makeConstraints { make in
-                make.edges.equalTo(snp.edges)
-            }
-            disclosureImageView.snp.makeConstraints { (make) in
-                make.height.equalTo(CGFloat.spacer24)
-                make.width.equalTo(CGFloat.spacer24)
-                make.right.equalTo(snp.right).inset(CGFloat.spacer16)
-                make.centerY.equalTo(snp.centerY)
             }
         }
 
@@ -237,24 +190,12 @@ extension Components.Atoms {
                     make.bottom.equalTo(self.snp_bottomMargin)
                 }
             }
-            updateAccessibility()
         }
 
         open func setComponents(_ components: [UIView]) {
             self.components.forEach { $0.removeFromSuperview() }
             self.components = []
             addComponents(components)
-        }
-
-        public func updateAccessibility() {
-            if disclosureAction != nil {
-                accessibilityElements = [
-                    components,
-                    disclosureButton
-                ]
-            } else {
-                accessibilityElements = components
-            }
         }
     }
 }
