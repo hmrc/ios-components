@@ -58,7 +58,7 @@ extension Components.Atoms {
         // MARK: - Views & Outlets
 
         public var components = [UIView]()
-        public let stackView = TouchPassThroughStackView()
+        public let stackView = UIStackView()
         public private(set)var disclosureButton: UIButton = TransparentButton()
         public private(set)var disclosureImageView = UIImageView(
             image: UIImage(
@@ -69,6 +69,7 @@ extension Components.Atoms {
         )
         public var disclosureAction: VoidHandler? {
             didSet {
+                stackView.isUserInteractionEnabled = disclosureAction == nil
                 disclosureButton.isEnabled = disclosureAction != nil
                 disclosureImageView.tintColor = disclosureAction != nil ? UIColor.Semantic.darkText : .clear
                 let chevronWidth: CGFloat = disclosureAction != nil ? .spacer24 : 0
@@ -253,7 +254,7 @@ extension Components.Atoms {
                     disclosureButton
                 ]
             } else {
-                accessibilityElements = components
+                accessibilityElements = [stackView]
             }
         }
     }
