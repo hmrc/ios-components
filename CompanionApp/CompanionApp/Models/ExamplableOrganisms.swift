@@ -116,7 +116,7 @@ extension Components.Organisms.HeadlineCardView: Examplable {
             ]
         )
         let viewWithAction = View(model: modelWithBody)
-        viewWithAction.disclosureAction = {
+        viewWithAction.action = {
             let controller = UIAlertController(title: "Tapped", message: "Button was tapped", preferredStyle: .alert)
             controller.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
                 controller.dismiss(animated: true, completion: nil)

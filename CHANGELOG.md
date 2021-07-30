@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [5.9.1] - 2021-07-30
+## [REMOVED][5.9.1] - 2021-07-30
 ### Changed
 - Moved the disclosure logic from `HeadlineCardView` 5.9.0 release to `CardView`
 
