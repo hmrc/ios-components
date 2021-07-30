@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [5.9.1] - 2021-07-30
+### Changed
+- Moved the disclosure logic from `HeadlineCardView` 5.9.0 release to `CardView`
+
 ## [5.9.0] - 2021-07-29
 ### Added
 - Added the ability to add an action to `HeadlineCardView`. When `HeadlineCardView` has an action, the whole card is tappable, a chevron is displayed, and the action is called when the user taps the card.
