@@ -172,7 +172,9 @@ extension Components.Organisms {
         override open func commonInit() {
             super.commonInit()
             self.accessibilityIdentifier = "HeadlineCardView"
+            self.stackView.isUserInteractionEnabled = false
             addSubview(button)
+            sendSubviewToBack(button)
             addSubview(disclosureImageView)
             button.snp.makeConstraints { make in
                 make.edges.equalTo(snp.edges)
