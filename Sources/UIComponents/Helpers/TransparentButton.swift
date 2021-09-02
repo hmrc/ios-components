@@ -94,6 +94,19 @@ open class TransparentButton: UIButton {
         )
     }
 
+    open override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        disableAccessibilityForAllImageViews()
+    }
+
+    private func disableAccessibilityForAllImageViews() {
+        DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
+            self?.subviews
+                .filter { $0 is UIImageView}
+                .forEach { $0.accessibilityTraits = .none }
+        }
+    }
+
     // MARK: - Button handler
     @objc private func buttonTapped() {
         let fadeIn = 0.2
