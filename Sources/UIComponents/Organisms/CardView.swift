@@ -69,9 +69,10 @@ extension Components.Atoms {
         )
         public var disclosureAction: VoidHandler? {
             didSet {
-                stackView.isUserInteractionEnabled = disclosureAction == nil
-                disclosureButton.isEnabled = disclosureAction != nil
-                disclosureImageView.tintColor = disclosureAction != nil ? UIColor.Semantic.darkText : .clear
+                let hasDisclosure = disclosureAction != nil
+                stackView.isUserInteractionEnabled = !hasDisclosure
+                disclosureButton.isHidden = !hasDisclosure
+                disclosureImageView.isHidden = !hasDisclosure
                 let chevronWidth: CGFloat = disclosureAction != nil ? .spacer24 : 0
                 disclosureImageView.snp.updateConstraints { make in
                     make.width.equalTo(chevronWidth)
@@ -115,7 +116,7 @@ extension Components.Atoms {
             addViews()
             setupStackView()
             setContraints()
-            setupButton()
+            setupDisclosure()
             disableTranslatesAutoresizingMaskIntoConstraints()
         }
 
@@ -162,7 +163,8 @@ extension Components.Atoms {
             stackView.alignment = .center
         }
 
-        private func setupButton() {
+        private func setupDisclosure() {
+            disclosureImageView.tintColor = UIColor.Semantic.darkText
             if let button = disclosureButton as? TransparentButton {
                 button.config = .init(
                     normalColour: .clear,

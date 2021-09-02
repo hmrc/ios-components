@@ -5,10 +5,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [5.9.2] - 2021-07-30
 ### Fixed
 - Fixed `CardView` disclosureButton tapability
 
-## [5.9.1] - 2021-07-30
+## [BROKEN][5.9.1] - 2021-07-30
 ### Changed
 - Moved the disclosure logic from `HeadlineCardView` 5.9.0 release to `CardView`
 
