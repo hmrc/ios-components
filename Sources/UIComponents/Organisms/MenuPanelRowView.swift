@@ -98,9 +98,9 @@ extension Components.Organisms {
             self.bodyLabel.text = model.body
             self.notificationBubble.updateUI(for: .init(notificationMode: model.notificationMode))
 
-            self.accessibilityElements = [titleLabel, bodyLabel]
-
-            titleLabel.accessibilityLabel = {
+            isAccessibilityElement = true
+            accessibilityTraits = .button
+            accessibilityLabel = {
                 switch model.notificationMode {
                 case .hidden:
                     return model.title
@@ -113,14 +113,14 @@ extension Components.Organisms {
                     return model.title + "; \(count) new item\(count > 1 ? "s" : "")"
                 }
             }()
-
-            bodyLabel.accessibilityTraits = .button
-            bodyLabel.accessibilityLabel = model.body
-            bodyLabel.accessibilityHint = model.accessibilityHint
-            bodyLabel.accessibilityIdentifier = model.accessibilityIdentifier
-
-            button.isAccessibilityElement = false
-            notificationBubble.isAccessibilityElement = false
+            accessibilityHint = {
+                if let hint = model.accessibilityHint, !hint.isEmpty {
+                    return model.body + "; " + hint
+                } else {
+                    return model.body
+                }
+            }()
+            accessibilityIdentifier = model.accessibilityIdentifier
 
             horizontalStackView.addArrangedSubview(titleLabel)
             horizontalStackView.addArrangedSubview(notificationBubble)
@@ -170,6 +170,7 @@ extension Components.Organisms {
         }
 
         open override func createDisclosureView() -> UIView {
+            disclosureImageView.accessibilityTraits = .none
             return disclosureImageView
         }
     }
