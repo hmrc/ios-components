@@ -24,16 +24,9 @@ extension Components.Molecules {
         // MARK: - Views
         public private(set)var switchView: UISwitch = .build {
             $0.onTintColor = UIColor.Semantic.switchTint
-
             $0.layer.borderWidth = 1.0
             $0.layer.cornerRadius = 16.0
             $0.layer.borderColor = UIColor.Named.grey2.raw.cgColor
-
-            $0.addTarget(
-                self,
-                action: #selector(switchChanged(switchView:)),
-                for: .valueChanged
-            )
         }
         public private(set)var titleAndBodyView = BoldTitleBodyView(title: "Some Text", body: "Some Body")
 
@@ -80,6 +73,11 @@ extension Components.Molecules {
 
         override open func commonInit() {
             super.commonInit()
+            switchView.addTarget(
+                self,
+                action: #selector(switchChanged(switchView:)),
+                for: .valueChanged
+            )
             titleAndBodyView.bodyLabel.setAppearance(for: .info)
             self.accessibilityElements = [titleAndBodyView.titleLabel!, titleAndBodyView.bodyLabel!, switchView]
         }
