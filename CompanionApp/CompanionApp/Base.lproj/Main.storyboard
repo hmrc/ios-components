@@ -13,7 +13,7 @@
         <!--Atoms-->
         <scene sceneID="rlp-NE-qWX">
             <objects>
-                <viewController id="Qqz-JN-Mji" customClass="AtomsViewController" customModule="UIComponents_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AtomsViewController" id="Qqz-JN-Mji" customClass="AtomsViewController" customModule="UIComponents_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Juq-BW-dgB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
