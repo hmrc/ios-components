@@ -18,22 +18,21 @@ import UIKit
 
 extension UIScrollView {
     func fullContentSizeImage(backgroundColor: UIColor? = nil) -> UIImage? {
-        guard let contentView = subViewsExcludingScrollBars().first else {
-            return nil
-        }
+        let contentViews = subViewsExcludingScrollBars()
+        if contentViews.isEmpty { return nil }
 
-        let captureFrame = CGRect(
-            x: 0,
-            y: 0,
-            width: max(contentSize.width, contentView.frame.width),
-            height: max(contentSize.height, contentView.frame.height)
-        )
+        let maxContentWidth = contentViews.reduce(contentSize.width) { max($0, $1.frame.width)}
+        let maxContentHeight = contentViews.reduce(contentSize.height) { max($0, $1.frame.height)}
+
+        let captureFrame = CGRect(x: 0, y: 0, width: maxContentWidth, height: maxContentHeight)
+
+        let format = UIGraphicsImageRendererFormat()
+        format.preferredRange = .standard
+        format.scale = 1
 
         let renderer = UIGraphicsImageRenderer(
-            size: CGSize(
-                width: max(contentSize.width, contentView.frame.width),
-                height: max(contentSize.height, contentView.frame.height)
-            )
+            size: CGSize(width: maxContentWidth, height: maxContentHeight),
+            format: format
         )
 
         let image = renderer.image { context in
@@ -41,7 +40,21 @@ extension UIScrollView {
                 color.setFill()
                 context.fill(captureFrame)
             }
-            contentView.drawHierarchy(in: captureFrame, afterScreenUpdates: true)
+
+            contentViews.forEach {
+                print($0.frame.debugDescription)
+                if  $0.frame.height < 2048 {
+                    $0.drawHierarchy(in: $0.frame, afterScreenUpdates: true)
+                } else {
+                    if let cgImage = $0.asImage().cgImage {
+                        context.cgContext.translateBy(x: 0, y: maxContentHeight)
+                        context.cgContext.scaleBy(x: 1.0, y: -1.0)
+                        context.cgContext.draw(cgImage, in: $0.frame)
+                        context.cgContext.scaleBy(x: 1.0, y: -1.0)
+                        context.cgContext.translateBy(x: 0, y: -maxContentHeight)
+                    }
+                }
+            }
         }
 
         return image

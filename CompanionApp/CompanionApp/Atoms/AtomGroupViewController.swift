@@ -41,7 +41,7 @@ class AtomGroupViewController: UIViewController {
         stackView.spacing = 12
         stackView.axis = .vertical
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 0, right: 20)
+        stackView.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
         stackView.isLayoutMarginsRelativeArrangement = true
 
         NSLayoutConstraint.activate([

@@ -17,7 +17,7 @@
 import UIKit
 
 class ScreenCapture {
-    func captureScreen(filename: String) {
+    func captureScreen(filename: String, completion: (() -> Void)? = nil) {
         guard let viewController = self.findScrollViewController(),
               let scrollView = primaryScrollViewIn(viewController: viewController) else { return }
 
@@ -29,7 +29,9 @@ class ScreenCapture {
                     backgroundColor: viewController.view.backgroundColor
                 )
 
-                if let scrollViewImage = scrollViewImage, scrollViewImage.size.height > UIScreen.main.bounds.height {
+                let keyWindow = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+                let minHeight = keyWindow?.safeAreaLayoutGuide.layoutFrame.height ?? UIScreen.main.bounds.height
+                if let scrollViewImage = scrollViewImage, scrollViewImage.size.height > minHeight {
                     return scrollViewImage
                 }
 
@@ -37,7 +39,9 @@ class ScreenCapture {
             }()
 
             guard let pngData = capturedImage?.pngData() else { return }
-            try? pngData.write(to: filePath)
+            try? pngData.write(to: filePath, options: .atomic)
+
+            completion?()
         }
     }
 }
@@ -111,5 +115,3 @@ extension UIView {
          subviews.filter { !String(describing: $0.self).contains("_UILayoutGuide") }
      }
  }
-
-// class PrimaryScrollView: UIScrollView {}

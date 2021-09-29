@@ -30,5 +30,4 @@ class ViewControllerTestCase: XCTestCase {
         rootWindow.makeKeyAndVisible()
         RunLoop.main.run(until: Date(timeIntervalSinceNow: 0.1))
     }
-
 }

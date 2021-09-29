@@ -22,6 +22,8 @@ class SingleComponentViewController<T: ExamplableView>: UIViewController {
     lazy var stackView: UIStackView = .build {
         $0.axis = .vertical
         $0.spacing = 20
+        $0.layoutMargins = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        $0.isLayoutMarginsRelativeArrangement = true
     }
     lazy var previewBackgroundView: UIView = .build {
         $0.backgroundColor = UIColor(patternImage: ExampleImages.previewBackground.image)
@@ -47,10 +49,11 @@ class SingleComponentViewController<T: ExamplableView>: UIViewController {
             scrollView.leadingAnchor.constraint(equalTo: view.safeLeadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.safeTrailingAnchor),
 
-            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20),
-            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -20),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+            scrollView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            scrollView.topAnchor.constraint(equalTo: stackView.topAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
         let placeholderLabel = UILabel.styled(style: .bold, string: "Placeholders:")
         stackView.addArrangedSubview(placeholderLabel)

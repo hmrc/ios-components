@@ -17,10 +17,10 @@
 import XCTest
 @testable import CompanionApp
 
-class AtomScreenshots: ViewControllerTestCase {
+class ColourScreenshots: ViewControllerTestCase {
 
-    lazy var menuVC: AtomsViewController = {
-        UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "AtomsViewController") as! AtomsViewController
+    lazy var menuVC: ColoursViewController = {
+        UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "ColoursViewController") as! ColoursViewController
     }()
 
     override func setUp() {
@@ -28,23 +28,9 @@ class AtomScreenshots: ViewControllerTestCase {
         load(viewController: menuVC)
     }
 
-    func test_screenshot_text() {
-        grabScreenshot(menuItem: "Text", filename: "Text.png")
-    }
-
-    func test_screenshot_buttons() {
-        grabScreenshot(menuItem: "Buttons", filename: "Buttons.png")
-    }
-}
-
-// MARK: - Helpers
-
-extension AtomScreenshots {
-    func grabScreenshot(menuItem: String, filename: String) {
-        menuVC.tableView.selectRow(text: menuItem)
-
+    func test_screenshot_colours() {
         let expectation = expectation(description: "screenshot grabbed")
-        ScreenCapture().captureScreen(filename: "Atom_\(filename)") {
+        ScreenCapture().captureScreen(filename: "Colours.png") {
             expectation.fulfill()
         }
 
