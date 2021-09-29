@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 import UIKit
 
 extension UIView {
@@ -54,5 +53,12 @@ extension UIView {
             }
         }
         return nil
+    }
+
+    func asImage() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(bounds: safeAreaLayoutGuide.layoutFrame)
+        return renderer.image { context in
+            layer.render(in: context.cgContext)
+        }
     }
 }
