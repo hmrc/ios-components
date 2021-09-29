@@ -27,9 +27,11 @@
 		6CB8E11B25681C83001780A3 /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 6CB8E11A25681C83001780A3 /* UIComponents */; };
 		DA539D1E2703672A00D0A45E /* AtomScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA539D1D2703672A00D0A45E /* AtomScreenshots.swift */; };
 		DA539D26270367EF00D0A45E /* ViewControllerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA539D25270367EF00D0A45E /* ViewControllerTestCase.swift */; };
-		DA539D282703683700D0A45E /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA539D272703683700D0A45E /* XCTestCase+Extensions.swift */; };
+		DA539D282703683700D0A45E /* XCTestCase+Automation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA539D272703683700D0A45E /* XCTestCase+Automation.swift */; };
 		DA99A77327045609000690D8 /* UITableView+Automation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99A77227045609000690D8 /* UITableView+Automation.swift */; };
 		DA99A776270456AC000690D8 /* UIView+Automation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99A775270456AC000690D8 /* UIView+Automation.swift */; };
+		DA99A77827045B8B000690D8 /* ScreenCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99A77727045B8B000690D8 /* ScreenCapture.swift */; };
+		DA99A77A27045FA3000690D8 /* UIScrollView+Automation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99A77927045FA3000690D8 /* UIScrollView+Automation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,9 +68,11 @@
 		DA539D1D2703672A00D0A45E /* AtomScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomScreenshots.swift; sourceTree = "<group>"; };
 		DA539D1F2703672A00D0A45E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA539D25270367EF00D0A45E /* ViewControllerTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTestCase.swift; sourceTree = "<group>"; };
-		DA539D272703683700D0A45E /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
+		DA539D272703683700D0A45E /* XCTestCase+Automation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Automation.swift"; sourceTree = "<group>"; };
 		DA99A77227045609000690D8 /* UITableView+Automation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Automation.swift"; sourceTree = "<group>"; };
 		DA99A775270456AC000690D8 /* UIView+Automation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Automation.swift"; sourceTree = "<group>"; };
+		DA99A77727045B8B000690D8 /* ScreenCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenCapture.swift; sourceTree = "<group>"; };
+		DA99A77927045FA3000690D8 /* UIScrollView+Automation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Automation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,9 +191,11 @@
 			isa = PBXGroup;
 			children = (
 				DA539D25270367EF00D0A45E /* ViewControllerTestCase.swift */,
-				DA539D272703683700D0A45E /* XCTestCase+Extensions.swift */,
+				DA539D272703683700D0A45E /* XCTestCase+Automation.swift */,
 				DA99A77227045609000690D8 /* UITableView+Automation.swift */,
 				DA99A775270456AC000690D8 /* UIView+Automation.swift */,
+				DA99A77927045FA3000690D8 /* UIScrollView+Automation.swift */,
+				DA99A77727045B8B000690D8 /* ScreenCapture.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -322,9 +328,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA99A77327045609000690D8 /* UITableView+Automation.swift in Sources */,
+				DA99A77A27045FA3000690D8 /* UIScrollView+Automation.swift in Sources */,
 				DA539D26270367EF00D0A45E /* ViewControllerTestCase.swift in Sources */,
-				DA539D282703683700D0A45E /* XCTestCase+Extensions.swift in Sources */,
+				DA539D282703683700D0A45E /* XCTestCase+Automation.swift in Sources */,
 				DA539D1E2703672A00D0A45E /* AtomScreenshots.swift in Sources */,
+				DA99A77827045B8B000690D8 /* ScreenCapture.swift in Sources */,
 				DA99A776270456AC000690D8 /* UIView+Automation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

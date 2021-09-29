@@ -30,6 +30,8 @@ class AtomScreenshots: ViewControllerTestCase {
 
     func test_screenshot_buttons() {
         menuVC.tableView.selectRow(text: "Buttons")
-        RunLoop.main.run(until: Date(timeIntervalSinceNow: 999999))
+        RunLoop.main.run(until: Date(timeIntervalSinceNow: 1))
+        ScreenCapture().captureScreen(filename: "screenshotTest")
+        RunLoop.main.run(until: Date(timeIntervalSinceNow: 9999))
     }
 }
