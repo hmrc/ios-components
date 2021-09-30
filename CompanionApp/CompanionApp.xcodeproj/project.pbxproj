@@ -33,6 +33,9 @@
 		DA5F64FF2704C5F20032AE1C /* MoleculeScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5F64FE2704C5F20032AE1C /* MoleculeScreenshots.swift */; };
 		DA5F65012705B1520032AE1C /* OrganismScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5F65002705B1520032AE1C /* OrganismScreenshots.swift */; };
 		DA5F65032705F0E40032AE1C /* ColourScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5F65022705F0E40032AE1C /* ColourScreenshots.swift */; };
+		DA5F65062705F9830032AE1C /* HTMLGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5F65052705F9830032AE1C /* HTMLGenerator.swift */; };
+		DA5F65082705F9D80032AE1C /* Capture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5F65072705F9D80032AE1C /* Capture.swift */; };
+		DA5F650B270604400032AE1C /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5F650A270604400032AE1C /* Files.swift */; };
 		DA99A77327045609000690D8 /* UITableView+Automation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99A77227045609000690D8 /* UITableView+Automation.swift */; };
 		DA99A776270456AC000690D8 /* UIView+Automation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99A775270456AC000690D8 /* UIView+Automation.swift */; };
 /* End PBXBuildFile section */
@@ -77,6 +80,9 @@
 		DA5F64FE2704C5F20032AE1C /* MoleculeScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoleculeScreenshots.swift; sourceTree = "<group>"; };
 		DA5F65002705B1520032AE1C /* OrganismScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganismScreenshots.swift; sourceTree = "<group>"; };
 		DA5F65022705F0E40032AE1C /* ColourScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourScreenshots.swift; sourceTree = "<group>"; };
+		DA5F65052705F9830032AE1C /* HTMLGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLGenerator.swift; sourceTree = "<group>"; };
+		DA5F65072705F9D80032AE1C /* Capture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capture.swift; sourceTree = "<group>"; };
+		DA5F650A270604400032AE1C /* Files.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
 		DA99A77227045609000690D8 /* UITableView+Automation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Automation.swift"; sourceTree = "<group>"; };
 		DA99A775270456AC000690D8 /* UIView+Automation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Automation.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -191,9 +197,28 @@
 				DA539D1D2703672A00D0A45E /* AtomScreenshots.swift */,
 				DA5F65022705F0E40032AE1C /* ColourScreenshots.swift */,
 				DA99A77427045610000690D8 /* Common */,
+				DA5F65042705F94E0032AE1C /* HTML */,
+				DA5F6509270604260032AE1C /* Vendor */,
 				DA539D1F2703672A00D0A45E /* Info.plist */,
 			);
 			path = Screenshots;
+			sourceTree = "<group>";
+		};
+		DA5F65042705F94E0032AE1C /* HTML */ = {
+			isa = PBXGroup;
+			children = (
+				DA5F65072705F9D80032AE1C /* Capture.swift */,
+				DA5F65052705F9830032AE1C /* HTMLGenerator.swift */,
+			);
+			path = HTML;
+			sourceTree = "<group>";
+		};
+		DA5F6509270604260032AE1C /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				DA5F650A270604400032AE1C /* Files.swift */,
+			);
+			path = Vendor;
 			sourceTree = "<group>";
 		};
 		DA99A77427045610000690D8 /* Common */ = {
@@ -336,14 +361,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5F65082705F9D80032AE1C /* Capture.swift in Sources */,
 				DA99A77327045609000690D8 /* UITableView+Automation.swift in Sources */,
 				DA539D26270367EF00D0A45E /* ViewControllerTestCase.swift in Sources */,
 				DA539D282703683700D0A45E /* XCTestCase+Automation.swift in Sources */,
 				DA5F65012705B1520032AE1C /* OrganismScreenshots.swift in Sources */,
+				DA5F65062705F9830032AE1C /* HTMLGenerator.swift in Sources */,
 				DA5F64FF2704C5F20032AE1C /* MoleculeScreenshots.swift in Sources */,
 				DA539D1E2703672A00D0A45E /* AtomScreenshots.swift in Sources */,
 				DA5F64FB2704ADFD0032AE1C /* ScreenCapture.swift in Sources */,
 				DA5F65032705F0E40032AE1C /* ColourScreenshots.swift in Sources */,
+				DA5F650B270604400032AE1C /* Files.swift in Sources */,
 				DA99A776270456AC000690D8 /* UIView+Automation.swift in Sources */,
 				DA5F64FD2704B1F70032AE1C /* UIScrollView+Automation.swift in Sources */,
 			);

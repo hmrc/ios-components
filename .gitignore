@@ -39,3 +39,5 @@ Carthage
 /UIComponents-App.xcodeproj/project.xcworkspace/xcuserdata/
 
 fastlane/report.xml
+
+CompanionApp/Artifacts/capture/*

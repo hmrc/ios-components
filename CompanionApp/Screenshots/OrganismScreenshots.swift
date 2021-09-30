@@ -29,42 +29,43 @@ class OrganismScreenshots: ViewControllerTestCase {
     }
 
     func test_screenshot_HeadlineCardView() {
-        grabScreenshot(menuItem: "Headline Card View", filename: "HeadlineCardView.png")
+        //grabScreenshot(menuItem: "Headline Card View", filename: "HeadlineCardView.png")
+        grabScreenshot(menuItem: "Headline Card View", screen: .headlineCardView)
     }
 
     func test_screenshot_PrimaryCardView() {
-        grabScreenshot(menuItem: "Primary Card View", filename: "PrimaryCardView.png")
+        grabScreenshot(menuItem: "Primary Card View", screen: .primaryCardView)
     }
 
     func test_ExpandingRowView() {
-        grabScreenshot(menuItem: "Expanding Row View", filename: "ExpandingRowView.png")
+        grabScreenshot(menuItem: "Expanding Row View", screen: .expandingRowView)
     }
 
     func test_StatusCardView() {
-        grabScreenshot(menuItem: "Status Card View", filename: "StatusCardView.png", delayBeforeCapture: 5)
+        grabScreenshot(menuItem: "Status Card View", screen: .statusCardView, delayBeforeCapture: 5)
     }
 
     func test_IconButtonCardView() {
-        grabScreenshot(menuItem: "Icon Button Card View", filename: "IconButtonCardView.png")
+        grabScreenshot(menuItem: "Icon Button Card View", screen: .iconButtonCardView)
     }
 
     func test_SummaryRowView() {
-        grabScreenshot(menuItem: "Summary Row View", filename: "SummaryRowView.png")
+        grabScreenshot(menuItem: "Summary Row View", screen: .summaryRowView)
     }
 
     func test_InformationMessageCard() {
-        grabScreenshot(menuItem: "Information Message Card", filename: "InformationMessageCard.png")
+        grabScreenshot(menuItem: "Information Message Card", screen: .informationMessageCard)
     }
 
     func test_MenuPanelRowView() {
-        grabScreenshot(menuItem: "Menu Panel Row View", filename: "MenuPanelRowView.png")
+        grabScreenshot(menuItem: "Menu Panel Row View", screen: .menuPanelRowView)
     }
 }
 
 // MARK: - Helpers
 
-extension OrganismsScreenshots {
-    func grabScreenshot(menuItem: String, filename: String, delayBeforeCapture: TimeInterval? = nil) {
+extension OrganismScreenshots {
+    func grabScreenshot(menuItem: String, screen: Capture.Screen, delayBeforeCapture: TimeInterval? = nil) {
         menuVC.tableView.selectRow(text: menuItem)
 
         if let delayBeforeCapture = delayBeforeCapture {
@@ -73,7 +74,7 @@ extension OrganismsScreenshots {
         }
 
         let expectation = expectation(description: "screenshot grabbed")
-        ScreenCapture().captureScreen(filename: "Organism_\(filename)") {
+        ScreenCapture().captureScreen(filename: screen.rawValue + ".png") {
             expectation.fulfill()
         }
 

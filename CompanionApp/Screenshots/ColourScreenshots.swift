@@ -30,7 +30,7 @@ class ColourScreenshots: ViewControllerTestCase {
 
     func test_screenshot_colours() {
         let expectation = expectation(description: "screenshot grabbed")
-        ScreenCapture().captureScreen(filename: "Colours.png") {
+        ScreenCapture().captureScreen(filename: Capture.Screen.colours.rawValue + ".png") {
             expectation.fulfill()
         }
 

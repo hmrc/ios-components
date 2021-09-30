@@ -29,22 +29,22 @@ class AtomScreenshots: ViewControllerTestCase {
     }
 
     func test_screenshot_text() {
-        grabScreenshot(menuItem: "Text", filename: "Text.png")
+        grabScreenshot(menuItem: "Text", screen: .text)
     }
 
     func test_screenshot_buttons() {
-        grabScreenshot(menuItem: "Buttons", filename: "Buttons.png")
+        grabScreenshot(menuItem: "Buttons", screen: .buttons)
     }
 }
 
 // MARK: - Helpers
 
 extension AtomScreenshots {
-    func grabScreenshot(menuItem: String, filename: String) {
+    func grabScreenshot(menuItem: String, screen: Capture.Screen) {
         menuVC.tableView.selectRow(text: menuItem)
 
         let expectation = expectation(description: "screenshot grabbed")
-        ScreenCapture().captureScreen(filename: "Atom_\(filename)") {
+        ScreenCapture().captureScreen(filename: screen.rawValue + ".png") {
             expectation.fulfill()
         }
 

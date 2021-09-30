@@ -30,4 +30,10 @@ class ViewControllerTestCase: XCTestCase {
         rootWindow.makeKeyAndVisible()
         RunLoop.main.run(until: Date(timeIntervalSinceNow: 0.1))
     }
+
+    // NOTE: class method which is called after all test methods complete
+    override class func tearDown() {
+        super.tearDown()
+        Capture.HTMLGenerator().generate()
+    }
 }

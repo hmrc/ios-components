@@ -29,70 +29,70 @@ class MoleculeScreenshots: ViewControllerTestCase {
     }
 
     func test_screenshot_TextInputView() {
-        grabScreenshot(menuItem: "Text Input View", filename: "TextInputView.png")
+        grabScreenshot(menuItem: "Text Input View", screen: .textInputView)
     }
 
     func test_screenshot_CurrencyInputView() {
-        grabScreenshot(menuItem: "Currency Input View", filename: "CurrencyInputView.png")
+        grabScreenshot(menuItem: "Currency Input View", screen: .currencyInputView)
     }
 
     func test_screenshot_H4TitleBodyView() {
-        grabScreenshot(menuItem: "H4 Title Body View", filename: "H4TitleBodyView.png")
+        grabScreenshot(menuItem: "H4 Title Body View", screen: .h4TitleBodyView)
     }
 
     func test_screenshot_H5TitleBodyView() {
-        grabScreenshot(menuItem: "H5 Title Body View", filename: "H5TitleBodyView.png")
+        grabScreenshot(menuItem: "H5 Title Body View", screen: .h5TitleBodyView)
     }
 
     func test_screenshot_BoldTitleBodyView() {
-        grabScreenshot(menuItem: "H6 Title Body View", filename: "BoldTitleBodyView.png")
+        grabScreenshot(menuItem: "H6 Title Body View", screen: .boldTitleBodyView)
     }
 
     func test_screenshot_InsetView() {
-        grabScreenshot(menuItem: "Inset View", filename: "InsetView.png")
+        grabScreenshot(menuItem: "Inset View", screen: .insetView)
     }
 
     func test_screenshot_MultiColumnRowView() {
-        grabScreenshot(menuItem: "Multi Column Row View", filename: "MultiColumnRowView.png")
+        grabScreenshot(menuItem: "Multi Column Row View", screen: .multiColumnRowView)
     }
 
     func test_screenshot_SwitchRowView() {
-        grabScreenshot(menuItem: "Switch Row View", filename: "SwitchRowView.png")
+        grabScreenshot(menuItem: "Switch Row View", screen: .switchRowView)
     }
 
     func test_screenshot_IconButtonView() {
-        grabScreenshot(menuItem: "Icon Button View", filename: "IconButtonView.png")
+        grabScreenshot(menuItem: "Icon Button View", screen: .iconButtonView)
     }
 
     func test_screenshot_StatusView() {
-        grabScreenshot(menuItem: "Status View", filename: "StatusView.png")
+        grabScreenshot(menuItem: "Status View", screen: .statusView)
     }
 
     func test_screenshot_WarningView() {
-        grabScreenshot(menuItem: "Warning View", filename: "WarningView.png")
+        grabScreenshot(menuItem: "Warning View", screen: .warningView)
     }
 
     func test_screenshot_TabBarView() {
-        grabScreenshot(menuItem: "Tab Bar View", filename: "TabBarView.png")
+        grabScreenshot(menuItem: "Tab Bar View", screen: .tabBarView)
     }
 
     func test_screenshot_SelectRowView() {
-        grabScreenshot(menuItem: "Select Row View", filename: "SelectRowView.png")
+        grabScreenshot(menuItem: "Select Row View", screen: .selectRowView)
     }
 
     func test_screenshot_SelectRowGroupView() {
-        grabScreenshot(menuItem: "Select Row Group View", filename: "SelectRowGroupView.png")
+        grabScreenshot(menuItem: "Select Row Group View", screen: .selectRowGroupView)
     }
 }
 
 // MARK: - Helpers
 
 extension MoleculeScreenshots {
-    func grabScreenshot(menuItem: String, filename: String) {
+    func grabScreenshot(menuItem: String, screen: Capture.Screen) {
         menuVC.tableView.selectRow(text: menuItem)
 
         let expectation = expectation(description: "screenshot grabbed")
-        ScreenCapture().captureScreen(filename: "Molecule_\(filename)") {
+        ScreenCapture().captureScreen(filename: screen.rawValue + ".png") {
             expectation.fulfill()
         }
 

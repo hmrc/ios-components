@@ -41,12 +41,40 @@ class ScreenCapture {
             guard let pngData = capturedImage?.pngData() else { return }
             try? pngData.write(to: filePath, options: .atomic)
 
+            self.copyCapturedImageToArtifacts(filename)
+
             completion?()
         }
     }
 }
 
 private extension ScreenCapture {
+    func copyCapturedImageToArtifacts(_ filename: String) {
+        let filepath = filePathFor(filename).path
+
+        guard
+            let srcroot = ProcessInfo.processInfo.environment["SRCROOT"],
+            let srcrootFolder = try? Folder(path: "\(srcroot)"),
+            let artifactsFolder = try? srcrootFolder.createSubfolderIfNeeded(withName: "Artifacts"),
+            let captureFolder = try? artifactsFolder.createSubfolderIfNeeded(withName: "capture"),
+            let screensFolder = try? captureFolder.createSubfolderIfNeeded(withName: "screens"),
+            let sourceFile = try? File(path: filepath) else { return }
+
+        if let file = try? screensFolder.file(named: URL(fileURLWithPath: filepath).lastPathComponent) {
+            do {
+                try file.delete()
+            } catch {
+                return
+            }
+        }
+
+        do {
+            try sourceFile.move(to: screensFolder)
+        } catch {
+            return
+        }
+    }
+
     func filePathFor(_ filename: String) -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentsDirectory = paths[0]
