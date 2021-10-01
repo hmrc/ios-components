@@ -40,4 +40,4 @@ Carthage
 
 fastlane/report.xml
 
-CompanionApp/Artifacts/capture/*
+CompanionApp/Artifacts/*

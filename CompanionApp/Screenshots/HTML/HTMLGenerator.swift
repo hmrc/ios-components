@@ -15,6 +15,7 @@
  */
 
 import Foundation
+import UIKit
 
 extension Capture {
 
@@ -82,7 +83,7 @@ extension Capture {
                 let srcroot = ProcessInfo.processInfo.environment["SRCROOT"],
                 let srcrootFolder = try? Folder(path: "\(srcroot)"),
                 let artifactsFolder = try? srcrootFolder.createSubfolderIfNeeded(withName: "Artifacts"),
-                let captureFolder = try? artifactsFolder.createSubfolderIfNeeded(withName: "capture") else {
+                let captureFolder = try? artifactsFolder.createSubfolderIfNeeded(withName: ScreenCapture.captureFolderName) else {
                 return
             }
 
@@ -138,8 +139,50 @@ extension Capture {
         func outputHTMLFile(folder: Folder, table: String) {
             let template = htmlTemplate()
 
+            let fontColor: String = {
+                if #available(iOS 13.0, *) {
+                    if UITraitCollection.current.userInterfaceStyle == .dark {
+                        return "white"
+                    }
+                    else {
+                        return "#0B0C0C"
+                    }
+                } else {
+                    return "#0B0C0C"
+                }
+            }()
+
+            let backgroundColor: String = {
+                if #available(iOS 13.0, *) {
+                    if UITraitCollection.current.userInterfaceStyle == .dark {
+                        return "#262626"
+                    }
+                    else {
+                        return "white"
+                    }
+                } else {
+                    return "white"
+                }
+            }()
+
+            let borderColor: String = {
+                if #available(iOS 13.0, *) {
+                    if UITraitCollection.current.userInterfaceStyle == .dark {
+                        return "#111"
+                    }
+                    else {
+                        return "#EEE"
+                    }
+                } else {
+                    return "#EEE"
+                }
+            }()
+
             let substitutions = [
-                "$$_TABLE_PLACEHOLDER_$$": table
+                "$$_TABLE_PLACEHOLDER_$$": table,
+                "$$_FONT_COLOR_$$": fontColor,
+                "$$_BACKGROUND_COLOR_$$": backgroundColor,
+                "$$_BORDER_COLOR_$$": borderColor
             ]
 
             let html = substitutions
@@ -164,6 +207,10 @@ extension Capture {
 * {
 font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 font-weight: 300;
+color: $$_FONT_COLOR_$$;
+}
+body {
+background-color: $$_BACKGROUND_COLOR_$$;
 }
 .appSection {
 display: block;
@@ -173,14 +220,14 @@ padding-top: 45px;
 }
 .screenshot {
 cursor: pointer;
-border: 1px #EEE solid;
+border: 1px $$_BORDER_COLOR_$$ solid;
 z-index: 0;
 }
 .screenshotTitle {
 display: block;
 font-size: 10px;
 padding: 0;
-margin: 0;
+margin: 4px;
 }
 th {
 text-align: left;

@@ -42,7 +42,6 @@ extension UIScrollView {
             }
 
             contentViews.forEach {
-                print($0.frame.debugDescription)
                 if  $0.frame.height < 2048 {
                     $0.drawHierarchy(in: $0.frame, afterScreenUpdates: true)
                 } else {

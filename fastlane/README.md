@@ -53,6 +53,49 @@ fastlane ios take_release
 Create a new tagged release of the library.
 
 This will bump the release tag, precompile the library, commit and tag the changes, then push up to master.
+### ios generate_screenshots
+```
+fastlane ios generate_screenshots
+```
+Generate component screenshots using companion app
+
+Using xcodebuild over scan because it does not allow us to specify the exact simulator to use as it overrides the `-destination` flag we need to set
+
+Example:
+
+ `fastlane generate_screenshots device:'iPhone XS Max' version:'latest'`
+
+Options:
+
+ - device: (Required) Simulator to run the tests on
+
+ - version: (Optional) iOS version of the Simulator
+
+ - force_dark_mode: (Optional)
+### ios open_booted_sim
+```
+fastlane ios open_booted_sim
+```
+Open and boot named simulator
+
+Example:
+
+`fastlane open_booted_sim device:'iPhone 11 Pro Max' version:'latest'`
+
+Options:
+
+ - device: (Required) Simulator to run the tests on
+
+ - version: (Optional) iOS version of the Simulator
+### ios remove_artifacts_directory
+```
+fastlane ios remove_artifacts_directory
+```
+Remove artifacts directory
+
+Example:
+
+ `fastlane remove_artifacts_directory
 
 ----
 

@@ -17,6 +17,19 @@
 import UIKit
 
 class ScreenCapture {
+    static var captureFolderName: String {
+        if #available(iOS 13.0, *) {
+            if UITraitCollection.current.userInterfaceStyle == .dark {
+                return "capture_dark_mode"
+            }
+            else {
+                return "capture_light_mode"
+            }
+        } else {
+            return "capture"
+        }
+    }
+
     func captureScreen(filename: String, completion: (() -> Void)? = nil) {
         guard let viewController = self.findScrollViewController(),
               let scrollView = primaryScrollViewIn(viewController: viewController) else { return }
@@ -56,7 +69,7 @@ private extension ScreenCapture {
             let srcroot = ProcessInfo.processInfo.environment["SRCROOT"],
             let srcrootFolder = try? Folder(path: "\(srcroot)"),
             let artifactsFolder = try? srcrootFolder.createSubfolderIfNeeded(withName: "Artifacts"),
-            let captureFolder = try? artifactsFolder.createSubfolderIfNeeded(withName: "capture"),
+            let captureFolder = try? artifactsFolder.createSubfolderIfNeeded(withName: ScreenCapture.captureFolderName),
             let screensFolder = try? captureFolder.createSubfolderIfNeeded(withName: "screens"),
             let sourceFile = try? File(path: filepath) else { return }
 
@@ -110,7 +123,7 @@ private extension ScreenCapture {
         return nil
     }
 
-    private func topViewController(
+    func topViewController(
         _ base: UIViewController? = nil
     ) -> UIViewController? {
         let baseVC: UIViewController? = base ?? UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController
