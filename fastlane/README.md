@@ -87,15 +87,19 @@ Options:
  - device: (Required) Simulator to run the tests on
 
  - version: (Optional) iOS version of the Simulator
-### ios remove_artifacts_directory
+### ios screenshot_diff
 ```
-fastlane ios remove_artifacts_directory
+fastlane ios screenshot_diff
 ```
-Remove artifacts directory
+Find differences between baseline screenshots and locally generated screenshots.
+
+Make sure you completely run the IntegrationTests target against iPhone 11 Max to generate a complete set of screenshots.
+
+Once you have a full set of screenshots, you can rerun individual tests to update individual screenshots.
 
 Example:
 
- `fastlane remove_artifacts_directory
+ `fastlane screenshot_diff`
 
 ----
 

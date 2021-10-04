@@ -39,5 +39,9 @@ Carthage
 /UIComponents-App.xcodeproj/project.xcworkspace/xcuserdata/
 
 fastlane/report.xml
+fastlane/screenshot_diff/images
+fastlane/screenshot_diff/package-lock.json
+fastlane/screenshot_diff/node_modules
+fastlane/screenshot_diff/mismatches
 
 CompanionApp/Artifacts/*
