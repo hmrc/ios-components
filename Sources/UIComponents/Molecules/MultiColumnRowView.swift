@@ -33,7 +33,7 @@ extension Components.Molecules {
     open class MultiColumnRowView: DebugOverlayableView {
 
         private struct Constants {
-            static let itemSpacing: CGFloat = 12
+            static let itemSpacing: CGFloat = 13
         }
 
         let stackView = UIStackView()
