@@ -64,12 +64,14 @@ extension Components.Molecules {
         }
 
         open func commonInit() {
+            print("]]]] MCRV: commonInit")
             setupStackView()
             setContraints()
             disableTranslatesAutoresizingMaskIntoConstraints()
         }
 
         private func setupStackView() {
+            print("]]]] MCRV: setupStackView")
             addSubview(stackView)
             stackView.spacing = Constants.itemSpacing
             stackView.axis = (FontMetrics.scaler > 1) ? .vertical : .horizontal
@@ -79,18 +81,21 @@ extension Components.Molecules {
         }
 
         private func setContraints() {
+            print("]]]] MCRV: setContraints")
             stackView.snp.makeConstraints { (make) in
                 make.edges.equalTo(self)
             }
         }
 
         private func disableTranslatesAutoresizingMaskIntoConstraints() {
+            print("]]]] MCRV: disableTranslatesAutoresizingMaskIntoConstraints")
             translatesAutoresizingMaskIntoConstraints = false
             stackView.translatesAutoresizingMaskIntoConstraints = false
             setContentHuggingPriority(.required, for: .vertical)
         }
 
         public func updateUI(with labels: [String]?, style: LabelStyle = .body) {
+            print("]]]] MCRV: updateUI 1")
             self.labels.forEach { $0.removeFromSuperview() }
             guard let labels = labels else { return }
 
@@ -104,6 +109,7 @@ extension Components.Molecules {
         }
 
         public func updateUI(with labels: [String]?, attributes: [LabelColumn]) {
+            print("]]]] MCRV: updateUI 2")
             self.labels.forEach { $0.removeFromSuperview() }
             guard let labels = labels, labels.count == attributes.count else { return }
 
@@ -119,6 +125,7 @@ extension Components.Molecules {
         }
 
         public func updateUI(with labels: [NSAttributedString]?, attributes: [LabelColumn]) {
+            print("]]]] MCRV: updateUI 3")
             self.labels.forEach { $0.removeFromSuperview() }
             guard let labels = labels, labels.count == attributes.count else { return }
 
@@ -134,6 +141,7 @@ extension Components.Molecules {
         }
 
         private func update(label: UILabel, column: LabelColumn, index: Int) -> UILabel {
+            print("]]]] MCRV: update")
             label.copyable = column.canCopy
 
             let priority = (stackView.axis == .horizontal) ? column.huggingPriority : .required
