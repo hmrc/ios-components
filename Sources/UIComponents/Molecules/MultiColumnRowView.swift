@@ -79,7 +79,7 @@ extension Components.Molecules {
             stackView.axis = .horizontal
             stackView.alignment = .top
             stackView.distribution = .fillProportionally
-            stackView.setContentHuggingPriority(.required, for: .vertical)
+//            stackView.setContentHuggingPriority(.required, for: .vertical)
         }
 
         private func setContraints() {
@@ -93,7 +93,7 @@ extension Components.Molecules {
             print("]]]] MCRV: disableTranslatesAutoresizingMaskIntoConstraints")
             translatesAutoresizingMaskIntoConstraints = false
             stackView.translatesAutoresizingMaskIntoConstraints = false
-            setContentHuggingPriority(.required, for: .vertical)
+//            setContentHuggingPriority(.required, for: .vertical)
         }
 
         public func updateUI(with labels: [String]?, style: LabelStyle = .body) {
@@ -147,10 +147,10 @@ extension Components.Molecules {
             label.copyable = column.canCopy
 
             let priority = (stackView.axis == .horizontal) ? column.huggingPriority : .required
-            label.setContentCompressionResistancePriority(.required, for: .horizontal)
-            label.setContentHuggingPriority(priority, for: .horizontal)
-            label.setContentCompressionResistancePriority(.required, for: .vertical)
-            label.setContentHuggingPriority(.required, for: .vertical)
+//            label.setContentCompressionResistancePriority(.required, for: .horizontal)
+//            label.setContentHuggingPriority(priority, for: .horizontal)
+//            label.setContentCompressionResistancePriority(.required, for: .vertical)
+//            label.setContentHuggingPriority(.required, for: .vertical)
 
             if stackView.axis == .vertical {
                 label.textAlignment = .left
