@@ -76,8 +76,8 @@ extension Components.Molecules {
             stackView.spacing = Constants.itemSpacing
 //            stackView.axis = (FontMetrics.scaler > 1) ? .vertical : .horizontal
 //            stackView.alignment = (FontMetrics.scaler > 1) ? .leading : .top
-            stackView.axis = .vertical
-            stackView.alignment = .leading
+            stackView.axis = .horizontal
+            stackView.alignment = .top
             stackView.distribution = .fillProportionally
             stackView.setContentHuggingPriority(.required, for: .vertical)
         }
