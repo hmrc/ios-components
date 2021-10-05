@@ -127,7 +127,7 @@ platform :ios do
       UI.error exception
       UI.user_error!("Github CLI must be installed. See https://github.com/cli/cli")
     end
-    
+
     UI.user_error!("You need to provide a Github Personal token via a `GITHUB_TOKEN` environment variable - you can create a new token on Github https://github.com/settings/tokens/new") unless !ENV["GITHUB_TOKEN"].nil?
     UI.user_error!("You need to provide the Bitrise token via a `BITRISE_TOKEN` environment variable") unless !ENV["BITRISE_TOKEN"].nil?
     UI.user_error!("You need to provide the Bitrise app slug for this repo via a `IOS_COMPONENTS_APP_SLUG` environment variable") unless !ENV["IOS_COMPONENTS_APP_SLUG"].nil?
@@ -206,7 +206,121 @@ platform :ios do
     sh("[[ -z $(git status -s) ]] || git commit -a -m 'Updated companion app version to #{project_version}'")
     sh('git push origin ' + branch_name)
     sh('gh pr create --title "Release PR for ' + project_version + '" --base master')
-    
   end
 
+  desc "Generate component screenshots using companion app"
+  desc "Using xcodebuild over scan because it does not allow us to specify the exact simulator to use as it overrides the `-destination` flag we need to set"
+  desc "Example:"
+  desc " `fastlane generate_screenshots device:'iPhone XS Max' version:'latest'`"
+  desc "Options:"
+  desc " - device: (Required) Simulator to run the tests on"
+  desc " - version: (Optional) iOS version of the Simulator"
+  desc " - force_dark_mode: (Optional)"
+  lane :generate_screenshots do |options|
+    DEFAULT = {
+      force_dark_mode: false
+    }
+    options = DEFAULT.merge(options)
+
+    local_url = Pathname(Dir.pwd).dirname.to_s
+    companion_project_path = "#{local_url}/CompanionApp/CompanionApp.xcodeproj"
+
+    begin
+      open_booted_sim options
+      sim = simulator(options)
+      sh "xcodebuild \
+      -project '#{companion_project_path}' \
+      -scheme 'CompanionApp' \
+      -destination 'platform=iOS Simulator,id=#{sim.udid}' \
+      clean test"
+    rescue FastlaneCore::Interface::FastlaneBuildFailure => e
+      UI.user_error!(e)
+    rescue FastlaneCore::Interface::FastlaneTestFailure => e
+      UI.user_error!(e)
+    rescue => e
+      UI.user_error!("Unhandled error:\n#{e}")
+    end
+  end
+
+  def simulator(options)
+    device_string = options[:device] || UI.user_error!("Missing required parameter `device`")
+    version = options[:version] || 'latest'
+    if version != 'latest'
+      device_string += " (#{version})"
+    end
+
+    available_sims = FastlaneCore::Simulator.all
+    if version != 'latest'
+      sim = available_sims.detect { |d| device_string == "#{d.name} (#{d.os_version})" }
+    else
+      sim = available_sims.detect { |d| device_string == "#{d.name}" }
+    end
+    UI.message("Selected Simulator:")
+    UI.message("#{sim.name} (#{sim.os_version}) #{sim.udid}")
+    return sim
+  end
+
+  desc "Open and boot named simulator"
+  desc "Example:"
+  desc "`fastlane open_booted_sim device:'iPhone 11 Pro Max' version:'latest'`"
+  desc "Options:"
+  desc " - device: (Required) Simulator to run the tests on"
+  desc " - version: (Optional) iOS version of the Simulator"
+  lane :open_booted_sim do |options|
+    sim = simulator(options)
+
+    if sim.nil?
+      UI.error "Device not found: #{device_string}"
+        next
+    end
+
+    UI.important("Booting #{sim.name}")
+    `xcrun simctl boot #{sim.udid} > /dev/null 2>&1`
+    if options[:force_dark_mode]
+      UI.important("Setting dark mode")
+      `xcrun simctl ui #{sim.udid} appearance dark`
+    else
+      UI.important("Setting light mode")
+      `xcrun simctl ui #{sim.udid} appearance light`
+    end
+    `open $(xcode-select -p)/Applications/Simulator.app`
+  end
+
+  desc "Find differences between baseline screenshots and locally generated screenshots."
+  desc "Make sure you completely run the IntegrationTests target against iPhone 11 Max to generate a complete set of screenshots."
+  desc "Once you have a full set of screenshots, you can rerun individual tests to update individual screenshots."
+  desc "Example:"
+  desc " `fastlane screenshot_diff`"
+  lane :screenshot_diff do |options|
+    DEFAULT = {
+      mode: "light"
+    }
+    options = DEFAULT.merge(options)
+
+    mode = "#{options[:mode]}"
+    captureFolder = "capture_#{mode}_mode"
+    mismatchFolder = "screenshot_diff/mismatches/#{mode}"
+    imagesFolder = "screenshot_diff/images/#{mode}"
+    baseline = "screenshot_diff/baseline_screenshots/#{options[:mode]}"
+    sh 'mkdir -p ' + imagesFolder
+    sh "cp -R ../CompanionApp/Artifacts/#{captureFolder}/screens/ #{imagesFolder}"
+    if Dir.entries(imagesFolder).size > Dir.entries(baseline).size
+      UI.error("""
+        /********************************************************
+         * Baseline does not contain every generated screenshot.*
+         ********************************************************/
+        """)
+    end
+    sh 'cd screenshot_diff && npm install'
+    sh 'rm -R ' + mismatchFolder + ' || true'
+    sh 'mkdir -p ' + mismatchFolder
+    sh "cd screenshot_diff && npm start --baseline=#{mode}"
+    if Dir.entries(mismatchFolder).size > 2
+      sh 'cp -R ' + mismatchFolder + ' ../CompanionApp/Artifacts/'
+      UI.test_failure!("Screenshots did not match")
+    else
+      sh "mkdir -p ../CompanionApp/Artifacts/mismatches"
+      sh 'echo "All Screenshots matched" > ../CompanionApp/Artifacts/mismatches/report' + "_#{mode}" + '.txt'
+    end
+  end
 end

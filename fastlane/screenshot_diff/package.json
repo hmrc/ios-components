@@ -1,0 +1,15 @@
+{
+  "name": "screenshot_diff",
+  "version": "1.0.0",
+  "description": "Find differences between baseline screenshots and locally generated screenshots",
+  "main": "diff.js",
+  "scripts": {
+    "start": "node diff.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mz": "^2.7.0",
+    "resemblejs": "^3.0.0"
+  }
+}

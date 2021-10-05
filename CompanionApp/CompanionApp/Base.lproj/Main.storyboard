@@ -13,7 +13,7 @@
         <!--Atoms-->
         <scene sceneID="rlp-NE-qWX">
             <objects>
-                <viewController id="Qqz-JN-Mji" customClass="AtomsViewController" customModule="UIComponents_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AtomsViewController" id="Qqz-JN-Mji" customClass="AtomsViewController" customModule="UIComponents_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Juq-BW-dgB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -96,7 +96,7 @@
         <!--Organisms View Controller-->
         <scene sceneID="ZFm-5O-5gN">
             <objects>
-                <viewController id="hqJ-hX-B9h" customClass="OrganismsViewController" customModule="UIComponents_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrganismsViewController" id="hqJ-hX-B9h" customClass="OrganismsViewController" customModule="UIComponents_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="esz-UY-X6S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,7 +127,7 @@
         <!--Molecules-->
         <scene sceneID="SFE-5Z-H04">
             <objects>
-                <viewController id="Ctn-N7-swD" customClass="MoleculesViewController" customModule="UIComponents_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MoleculesViewController" id="Ctn-N7-swD" customClass="MoleculesViewController" customModule="UIComponents_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rjU-Ga-J0S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -179,7 +179,7 @@
         <!--Colours View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ColoursViewController" customModule="UIComponents_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ColoursViewController" id="BYZ-38-t0r" customClass="ColoursViewController" customModule="UIComponents_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
