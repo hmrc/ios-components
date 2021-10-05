@@ -68,6 +68,9 @@ extension Components.Molecules {
             setupStackView()
             setContraints()
             disableTranslatesAutoresizingMaskIntoConstraints()
+            // TEST
+            setNeedsUpdateConstraints()
+            updateConstraintsIfNeeded()
         }
 
         private func setupStackView() {
