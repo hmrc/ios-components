@@ -74,8 +74,10 @@ extension Components.Molecules {
             print("]]]] MCRV: setupStackView")
             addSubview(stackView)
             stackView.spacing = Constants.itemSpacing
-            stackView.axis = (FontMetrics.scaler > 1) ? .vertical : .horizontal
-            stackView.alignment = (FontMetrics.scaler > 1) ? .leading : .top
+//            stackView.axis = (FontMetrics.scaler > 1) ? .vertical : .horizontal
+//            stackView.alignment = (FontMetrics.scaler > 1) ? .leading : .top
+            stackView.axis = .vertical
+            stackView.alignment = .leading
             stackView.distribution = .fillProportionally
             stackView.setContentHuggingPriority(.required, for: .vertical)
         }
