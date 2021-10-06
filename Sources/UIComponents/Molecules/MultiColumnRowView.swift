@@ -150,7 +150,7 @@ extension Components.Molecules {
             label.copyable = column.canCopy
 
             let priority = (stackView.axis == .horizontal) ? column.huggingPriority : .defaultHigh
-            label.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+            label.setContentCompressionResistancePriority(.required, for: .horizontal)
             label.setContentHuggingPriority(priority, for: .horizontal)
             label.setContentCompressionResistancePriority(.required, for: .vertical)
             label.setContentHuggingPriority(.required, for: .vertical)
