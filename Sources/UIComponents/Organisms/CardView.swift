@@ -198,22 +198,6 @@ extension Components.Atoms {
             stackView.translatesAutoresizingMaskIntoConstraints = false
         }
 
-        /*
-        override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-            super.viewWillTransition(to: size, with: coordinator)
-
-//            coordinator.animate(alongsideTransition: { context in
-//                // This is called during the animation
-//            }, completion: { context in
-//                // This is called after the rotation is finished. Equal to deprecated `didRotate`
-//            })
-
-            components.forEach {
-                $0.snp.removeConstraints()
-            }
-        }
- */
-
         override var bounds: CGRect {
             willSet {
                 components.forEach {
