@@ -198,7 +198,7 @@ extension Components.Atoms {
             stackView.translatesAutoresizingMaskIntoConstraints = false
         }
 
-        override var bounds: CGRect {
+        open override var bounds: CGRect {
             willSet {
                 components.forEach {
                     $0.snp.removeConstraints()
