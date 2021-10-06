@@ -129,6 +129,7 @@ extension Components.Atoms {
             rightComponentConstraints.forEach {
                 $0.isActive = false
             }
+            setNeedsUpdateConstraints()
         }
 
         @objc private func transitionDidEnd() {
@@ -139,6 +140,7 @@ extension Components.Atoms {
             rightComponentConstraints.forEach {
                 $0.isActive = true
             }
+            setNeedsUpdateConstraints()
         }
 
         public required init?(coder aDecoder: NSCoder) {
