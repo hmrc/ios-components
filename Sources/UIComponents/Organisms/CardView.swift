@@ -105,6 +105,28 @@ extension Components.Atoms {
             addComponents(components)
             self.accessibilityIdentifier = accessibilityIdentifier
             self.layoutMargins = layoutMargins
+
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(transitionWillStart),
+                name: Notification.Name("StackViewControllerTransitionWillStart"),
+                object: nil
+            )
+
+            NotificationCenter.default.addObserver(
+                self,
+                selector: #selector(transitionDidEnd),
+                name: Notification.Name("StackViewControllerTransitionDidEnd"),
+                object: nil
+            )
+        }
+
+        @objc private func transitionWillStart() {
+            print("]]]] transitionWillStart")
+        }
+
+        @objc private func transitionDidEnd() {
+            print("]]]] transitionDidEnd")
         }
 
         public required init?(coder aDecoder: NSCoder) {
