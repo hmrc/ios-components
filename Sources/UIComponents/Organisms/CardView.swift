@@ -198,18 +198,35 @@ extension Components.Atoms {
             stackView.translatesAutoresizingMaskIntoConstraints = false
         }
 
+//        open override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+//            super.viewWillTransition(to: size, with: coordinator)
+////            applyLayoutTraits(traitCollection: traitCollection)
+//        }
+
+        /*
+        open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+            super.traitCollectionDidChange(previousTraitCollection)
+//            if #available(iOS 13.0, *) {
+//                if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+//                    setStateColours()
+//                }
+//            }
+        }
+ */
+/*
         open override var bounds: CGRect {
             willSet {
 //                components.forEach {
 //                    $0.snp.removeConstraints()
 //                }
-                print("set isActive to false")
+//                print("set isActive to false")
                 leftComponentConstraints.forEach {
                     $0.isActive = false
                 }
                 rightComponentConstraints.forEach {
                     $0.isActive = false
                 }
+                setNeedsUpdateConstraints()
             }
             didSet {
 //                components.forEach {
@@ -218,16 +235,17 @@ extension Components.Atoms {
 //                        make.trailing.equalTo(stackView.snp.trailing)
 //                    }
 //                }
-                print("set isActive to true")
+//                print("set isActive to true")
                 leftComponentConstraints.forEach {
                     $0.isActive = true
                 }
                 rightComponentConstraints.forEach {
                     $0.isActive = true
                 }
+                setNeedsUpdateConstraints()
             }
         }
-
+*/
         var leftComponentConstraints: [Constraint] = []
         var rightComponentConstraints: [Constraint] = []
 
