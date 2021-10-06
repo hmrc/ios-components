@@ -163,17 +163,17 @@ extension Components.Organisms {
         @discardableResult public func removePadding(onViews views: [UIView]) -> Self {
             removePadding()
 
-//            components.filter { !views.contains($0) }.forEach {
-//                $0.snp.remakeConstraints { (make) in
-//                    make.left.equalTo(snp.left).inset(CGFloat.spacer16)
-//                    make.right.equalTo(snp.right).inset(CGFloat.spacer16)
-//                }
-//            }
-//
-//            titleHeadlineComponent.snp.remakeConstraints { (make) in
-//                make.left.equalTo(snp.left).inset(CGFloat.spacer16)
-//                make.right.equalTo(snp.right).inset(CGFloat.spacer16)
-//            }
+            components.filter { !views.contains($0) }.forEach {
+                $0.snp.remakeConstraints { (make) in
+                    make.left.equalTo(snp.left).inset(CGFloat.spacer16).labeled("componentLeftConstraint")
+                    make.right.equalTo(snp.right).inset(CGFloat.spacer16).labeled("componentRightConstraint")
+                }
+            }
+
+            titleHeadlineComponent.snp.remakeConstraints { (make) in
+                make.left.equalTo(snp.left).inset(CGFloat.spacer16)
+                make.right.equalTo(snp.right).inset(CGFloat.spacer16)
+            }
 
             // Apply spacing above titleHeadlineComponent without causing constraint conflicts
             stackView.layoutMargins.adjust([.top], margin: 16)

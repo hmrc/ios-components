@@ -200,19 +200,34 @@ extension Components.Atoms {
 
         open override var bounds: CGRect {
             willSet {
-                components.forEach {
-                    $0.snp.removeConstraints()
+//                components.forEach {
+//                    $0.snp.removeConstraints()
+//                }
+                leftComponentConstraints.forEach {
+                    $0.deactivate()
+                }
+                rightComponentConstraints.forEach {
+                    $0.deactivate()
                 }
             }
             didSet {
-                components.forEach {
-                    $0.snp.makeConstraints { make in
-                        make.leading.equalTo(stackView.snp.leading)
-                        make.trailing.equalTo(stackView.snp.trailing)
-                    }
+//                components.forEach {
+//                    $0.snp.makeConstraints { make in
+//                        make.leading.equalTo(stackView.snp.leading)
+//                        make.trailing.equalTo(stackView.snp.trailing)
+//                    }
+//                }
+                leftComponentConstraints.forEach {
+                    $0.activate()
+                }
+                rightComponentConstraints.forEach {
+                    $0.activate()
                 }
             }
         }
+
+        var leftComponentConstraints: [Constraint] = []
+        var rightComponentConstraints: [Constraint] = []
 
         open func addComponents(_ components: [UIView]) {
             components.enumerated().forEach { index, component in
@@ -221,8 +236,10 @@ extension Components.Atoms {
                 stackView.addArrangedSubview(component)
 
                 component.snp.makeConstraints { make in
-                    make.leading.equalTo(stackView.snp.leading)
-                    make.trailing.equalTo(stackView.snp.trailing)
+                    let leftConstraint = make.left.equalTo(stackView.snp.left).labeled("componentLeftConstraint").constraint
+                    leftComponentConstraints.append(leftConstraint)
+                    let rightConstraint = make.right.equalTo(stackView.snp.right).labeled("componentRightConstraint").constraint
+                    rightComponentConstraints.append(rightConstraint)
                 }
 
                 if let button = component as? HMRCButton,
