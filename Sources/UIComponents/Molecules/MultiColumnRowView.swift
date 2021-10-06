@@ -22,7 +22,7 @@ public struct LabelColumn {
     let canCopy: Bool
     let huggingPriority: UILayoutPriority
 
-    public init(style: LabelStyle, canCopy: Bool = false, huggingPriority: UILayoutPriority = .required) {
+    public init(style: LabelStyle, canCopy: Bool = false, huggingPriority: UILayoutPriority = .defaultHigh) {
         self.style = style
         self.canCopy = canCopy
         self.huggingPriority = huggingPriority
@@ -82,7 +82,7 @@ extension Components.Molecules {
             stackView.axis = .horizontal
             stackView.alignment = .top
             stackView.distribution = .fillProportionally
-//            stackView.setContentHuggingPriority(.required, for: .vertical)
+            stackView.setContentHuggingPriority(.required, for: .vertical)
         }
 
         private func setContraints() {
@@ -96,7 +96,7 @@ extension Components.Molecules {
             print("]]]] MCRV: disableTranslatesAutoresizingMaskIntoConstraints")
             translatesAutoresizingMaskIntoConstraints = false
             stackView.translatesAutoresizingMaskIntoConstraints = false
-//            setContentHuggingPriority(.required, for: .vertical)
+            setContentHuggingPriority(.required, for: .vertical)
         }
 
         public func updateUI(with labels: [String]?, style: LabelStyle = .body) {
