@@ -122,11 +122,23 @@ extension Components.Atoms {
         }
 
         @objc private func transitionWillStart() {
-            print("]]]] transitionWillStart")
+//            print("]]]] transitionWillStart")
+            leftComponentConstraints.forEach {
+                $0.isActive = false
+            }
+            rightComponentConstraints.forEach {
+                $0.isActive = false
+            }
         }
 
         @objc private func transitionDidEnd() {
-            print("]]]] transitionDidEnd")
+//            print("]]]] transitionDidEnd")
+            leftComponentConstraints.forEach {
+                $0.isActive = true
+            }
+            rightComponentConstraints.forEach {
+                $0.isActive = true
+            }
         }
 
         public required init?(coder aDecoder: NSCoder) {
