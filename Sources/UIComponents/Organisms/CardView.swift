@@ -208,6 +208,10 @@ extension Components.Atoms {
 //                    make.left.equalTo(stackView.snp.left)
 //                    make.right.equalTo(stackView.snp.right)
 //                }
+                component.snp.makeConstraints { make in
+                    make.leading.equalTo(stackView.snp.leading)
+                    make.trailing.equalTo(stackView.snp.trailing)
+                }
 
                 if let button = component as? HMRCButton,
                     let style = button.style,
