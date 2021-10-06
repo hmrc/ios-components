@@ -198,6 +198,7 @@ extension Components.Atoms {
             stackView.translatesAutoresizingMaskIntoConstraints = false
         }
 
+        /*
         override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
             super.viewWillTransition(to: size, with: coordinator)
 
@@ -209,6 +210,23 @@ extension Components.Atoms {
 
             components.forEach {
                 $0.snp.removeConstraints()
+            }
+        }
+ */
+
+        override var bounds: CGRect {
+            willSet {
+                components.forEach {
+                    $0.snp.removeConstraints()
+                }
+            }
+            didSet {
+                components.forEach {
+                    $0.snp.makeConstraints { make in
+                        make.leading.equalTo(stackView.snp.leading)
+                        make.trailing.equalTo(stackView.snp.trailing)
+                    }
+                }
             }
         }
 
