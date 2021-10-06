@@ -203,11 +203,12 @@ extension Components.Atoms {
 //                components.forEach {
 //                    $0.snp.removeConstraints()
 //                }
+                print("set isActive to false")
                 leftComponentConstraints.forEach {
-                    $0.deactivate()
+                    $0.isActive = false
                 }
                 rightComponentConstraints.forEach {
-                    $0.deactivate()
+                    $0.isActive = false
                 }
             }
             didSet {
@@ -217,11 +218,12 @@ extension Components.Atoms {
 //                        make.trailing.equalTo(stackView.snp.trailing)
 //                    }
 //                }
+                print("set isActive to true")
                 leftComponentConstraints.forEach {
-                    $0.activate()
+                    $0.isActive = true
                 }
                 rightComponentConstraints.forEach {
-                    $0.activate()
+                    $0.isActive = true
                 }
             }
         }
