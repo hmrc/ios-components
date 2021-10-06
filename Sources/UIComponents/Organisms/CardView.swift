@@ -204,10 +204,10 @@ extension Components.Atoms {
                 self.components.append(component)
                 stackView.addArrangedSubview(component)
 
-                component.snp.makeConstraints { make in
-                    make.left.equalTo(stackView.snp.left)
-                    make.right.equalTo(stackView.snp.right)
-                }
+//                component.snp.makeConstraints { make in
+//                    make.left.equalTo(stackView.snp.left)
+//                    make.right.equalTo(stackView.snp.right)
+//                }
 
                 if let button = component as? HMRCButton,
                     let style = button.style,
