@@ -22,7 +22,7 @@ public struct LabelColumn {
     let canCopy: Bool
     let huggingPriority: UILayoutPriority
 
-    public init(style: LabelStyle, canCopy: Bool = false, huggingPriority: UILayoutPriority = .defaultHigh) {
+    public init(style: LabelStyle, canCopy: Bool = false, huggingPriority: UILayoutPriority = .required) {
         self.style = style
         self.canCopy = canCopy
         self.huggingPriority = huggingPriority
@@ -149,7 +149,7 @@ extension Components.Molecules {
             print("]]]] MCRV: update")
             label.copyable = column.canCopy
 
-            let priority = (stackView.axis == .horizontal) ? column.huggingPriority : .defaultHigh
+            let priority = (stackView.axis == .horizontal) ? column.huggingPriority : .required
             label.setContentCompressionResistancePriority(.required, for: .horizontal)
             label.setContentHuggingPriority(priority, for: .horizontal)
             label.setContentCompressionResistancePriority(.required, for: .vertical)
