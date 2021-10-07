@@ -89,7 +89,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/paul/Dropbox/Work/HMRC/dev/ios-components/.build/checkouts/SnapKit/Package.swift";
+         path = "/Users/tendaimoffatt/Documents/HMRC/ios-components/.build/checkouts/SnapKit/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_103" = {
@@ -315,7 +315,7 @@
       };
       "OBJ_142" = {
          isa = "PBXFileReference";
-         path = "Artifacts";
+         path = "Carthage";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_143" = {
@@ -695,7 +695,7 @@
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
                "-sdk",
-               "/Applications/Xcode_12.5.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk",
                "-package-description-version",
                "5.0.0"
             );
@@ -713,7 +713,7 @@
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
                "-sdk",
-               "/Applications/Xcode_12.5.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk",
                "-package-description-version",
                "5.0.0"
             );
@@ -1297,7 +1297,7 @@
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
                "-sdk",
-               "/Applications/Xcode_12.5.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk",
                "-package-description-version",
                "5.3.0"
             );
@@ -1315,7 +1315,7 @@
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
                "-sdk",
-               "/Applications/Xcode_12.5.1.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.3.sdk",
                "-package-description-version",
                "5.3.0"
             );
