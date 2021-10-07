@@ -15,79 +15,67 @@
  */
 
 import UIKit
-import SnapKit
 
 public struct LabelColumn {
     let style: LabelStyle
     let canCopy: Bool
     let huggingPriority: UILayoutPriority
+    let proportionalWidth: CGFloat?
 
-    public init(style: LabelStyle, canCopy: Bool = false, huggingPriority: UILayoutPriority = .required) {
+    public init(style: LabelStyle = .body,
+                canCopy: Bool = false,
+                huggingPriority: UILayoutPriority = .required,
+                proportionalWidth: CGFloat? = nil
+    ) {
         self.style = style
         self.canCopy = canCopy
         self.huggingPriority = huggingPriority
+        self.proportionalWidth = proportionalWidth
     }
 }
 
 extension Components.Molecules {
     open class MultiColumnRowView: DebugOverlayableView {
 
+        public enum Axis {
+            case horizontal
+            case vertical
+        }
+        public var axis: Axis = .horizontal
+
         private struct Constants {
             static let itemSpacing: CGFloat = 12
         }
 
-        let stackView = UIStackView()
         public var labels = [UILabel]()
+        public var spacers = [UIView]()
+
+        public var horizontalConstraints: [NSLayoutConstraint]!
+        public var verticalConstraints: [NSLayoutConstraint]!
+
+        public required init() {
+            super.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            axis = (FontMetrics.scaler > 1.36) ? .vertical : .horizontal
+        }
 
         public convenience init(labels: [String]?=nil, style: LabelStyle = .body) {
-            self.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            self.init()
             updateUI(with: labels, style: style)
         }
 
         public convenience init(labels: [String]?=nil, attributes: [LabelColumn]) {
-            self.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            self.init()
             updateUI(with: labels, attributes: attributes)
         }
 
         public convenience init(labels: [NSAttributedString]?=nil, attributes: [LabelColumn]) {
-            self.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            self.init()
             updateUI(with: labels, attributes: attributes)
         }
 
-        public override init(frame: CGRect) {
-            super.init(frame: frame)
-            commonInit()
-        }
-
-        public required init?(coder aDecoder: NSCoder) {
-            fatalError("Dont call this.")
-        }
-
-        open func commonInit() {
-            setupStackView()
-            setContraints()
-            disableTranslatesAutoresizingMaskIntoConstraints()
-        }
-
-        private func setupStackView() {
-            addSubview(stackView)
-            stackView.spacing = Constants.itemSpacing
-            stackView.axis = (FontMetrics.scaler > 1) ? .vertical : .horizontal
-            stackView.alignment = (FontMetrics.scaler > 1) ? .leading : .top
-            stackView.distribution = .fillProportionally
-            stackView.setContentHuggingPriority(.required, for: .vertical)
-        }
-
-        private func setContraints() {
-            stackView.snp.makeConstraints { (make) in
-                make.edges.equalTo(self)
-            }
-        }
-
-        private func disableTranslatesAutoresizingMaskIntoConstraints() {
-            translatesAutoresizingMaskIntoConstraints = false
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            setContentHuggingPriority(.required, for: .vertical)
+        @available(*, unavailable)
+        required public init?(coder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
         }
 
         public func updateUI(with labels: [String]?, style: LabelStyle = .body) {
@@ -115,7 +103,7 @@ extension Components.Molecules {
                 )
                 return self.update(label: label, column: column, index: index)
             })
-            self.labels.forEach({ stackView.addArrangedSubview($0) })
+            setupLabelsAndConstraints(attributes: attributes)
         }
 
         public func updateUI(with labels: [NSAttributedString]?, attributes: [LabelColumn]) {
@@ -130,19 +118,19 @@ extension Components.Molecules {
                 )
                 return self.update(label: label, column: column, index: index)
             })
-            self.labels.forEach({ stackView.addArrangedSubview($0) })
+            setupLabelsAndConstraints(attributes: attributes)
         }
 
         private func update(label: UILabel, column: LabelColumn, index: Int) -> UILabel {
             label.copyable = column.canCopy
 
-            let priority = (stackView.axis == .horizontal) ? column.huggingPriority : .required
+            let priority = (axis == .horizontal) ? column.huggingPriority : .required
             label.setContentCompressionResistancePriority(.required, for: .horizontal)
             label.setContentHuggingPriority(priority, for: .horizontal)
             label.setContentCompressionResistancePriority(.required, for: .vertical)
             label.setContentHuggingPriority(.required, for: .vertical)
 
-            if stackView.axis == .vertical {
+            if axis == .vertical {
                 label.textAlignment = .left
             } else {
                 label.textAlignment = index == 0 ? .left : .right
@@ -150,5 +138,127 @@ extension Components.Molecules {
             label.invalidateIntrinsicContentSize()
             return label
         }
+
+        private func setupLabelsAndConstraints(attributes: [LabelColumn]) {
+            guard !labels.isEmpty else { return }
+
+            let equalProportionalWidth: CGFloat = 1.0 / CGFloat(labels.count)
+            var previousLabel: UILabel?
+
+            horizontalConstraints = []
+            verticalConstraints = []
+
+            zip(labels, attributes).enumerated().forEach { index, zipped in
+                let (label, column) = zipped
+
+                let proportionalWidth: CGFloat? =
+                    shouldUseProportionalWidths(attributes: attributes) ?
+                    (column.proportionalWidth ?? equalProportionalWidth) : nil
+
+                addSubview(label)
+
+                addHorizontalConstraintsFor(
+                    label: label,
+                    index: index,
+                    previousLabel: previousLabel,
+                    proportionalWidth: proportionalWidth
+                )
+
+                addVerticalConstraintsFor(
+                    label: label,
+                    index: index,
+                    previousLabel: previousLabel
+                )
+
+                previousLabel = label
+            }
+
+            if axis == .horizontal {
+                NSLayoutConstraint.deactivate(verticalConstraints)
+                NSLayoutConstraint.activate(horizontalConstraints)
+
+            } else {
+                NSLayoutConstraint.deactivate(horizontalConstraints)
+                NSLayoutConstraint.activate((verticalConstraints))
+            }
+
+            setNeedsUpdateConstraints()
+        }
+
+        func shouldUseProportionalWidths(attributes: [LabelColumn]) -> Bool {
+            attributes.reduce(true) { result, column in
+                result && column.huggingPriority == .required
+            }
+        }
+
+        func addHorizontalConstraintsFor(
+            label: UILabel,
+            index: Int,
+            previousLabel: UILabel?,
+            proportionalWidth: CGFloat?
+        ) {
+            horizontalConstraints.append(
+                contentsOf: [
+                    label.topAnchor.constraint(equalTo: topAnchor),
+                    heightAnchor.constraint(greaterThanOrEqualTo: label.heightAnchor)
+                ]
+            )
+
+            if let proportionalWidth = proportionalWidth {
+                horizontalConstraints.append(
+                    label.widthAnchor.constraint(
+                        greaterThanOrEqualTo: widthAnchor,
+                        multiplier: proportionalWidth,
+                        constant: 0 - (Constants.itemSpacing / 2)
+                    )
+                )
+            }
+
+            if let previousLabel = previousLabel {
+                horizontalConstraints.append(
+                    label.leftAnchor.constraint(
+                        equalTo: previousLabel.rightAnchor, constant: Constants.itemSpacing
+                    )
+                )
+            } else {
+                horizontalConstraints.append(label.leftAnchor.constraint(equalTo: leftAnchor))
+            }
+
+            if index == (labels.count - 1) {
+                horizontalConstraints.append(label.rightAnchor.constraint(equalTo: rightAnchor))
+            }
+        }
+
+        func addVerticalConstraintsFor(
+            label: UILabel,
+            index: Int,
+            previousLabel: UILabel?
+        ) {
+            verticalConstraints.append(
+                contentsOf: [
+                    label.leftAnchor.constraint(equalTo: leftAnchor),
+                    label.rightAnchor.constraint(equalTo: rightAnchor),
+                ]
+            )
+
+            if let previousLabel = previousLabel {
+                verticalConstraints.append(
+                    label.topAnchor.constraint(
+                        equalTo: previousLabel.bottomAnchor, constant: Constants.itemSpacing
+                    )
+                )
+            } else {
+                verticalConstraints.append(
+                    label.topAnchor.constraint(equalTo: topAnchor)
+                )
+            }
+
+            if index == (labels.count - 1) {
+                verticalConstraints.append(
+                    label.bottomAnchor.constraint(equalTo: bottomAnchor)
+                )
+            }
+        }
     }
 }
+

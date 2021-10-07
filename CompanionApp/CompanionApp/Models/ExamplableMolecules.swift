@@ -388,7 +388,11 @@ extension Components.Molecules.MultiColumnRowView: Examplable {
             style: .error
         )
         let twoLabelExample = Components.Molecules.MultiColumnRowView(
-            labels: ["Estimated annual income", "£24,000"]
+            labels: ["Estimated annual income", "£24,000"],
+            attributes: [
+                LabelColumn(proportionalWidth: 0.6),
+                LabelColumn(proportionalWidth: 0.4)
+            ]
         )
         let twoLabelBoldExample = Components.Molecules.MultiColumnRowView(
             labels: [ExampleText.LoremIpsum.longer.rawValue,
