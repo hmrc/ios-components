@@ -644,8 +644,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmrc/ios-components.git";
 			requirement = {
-				kind = exactVersion;
-				version = 5.9.4;
+				branch = "bugfix/HMA-5011-rotation-glitch-V2";
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
