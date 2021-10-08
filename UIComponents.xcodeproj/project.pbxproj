@@ -89,7 +89,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/paul/Dropbox/Work/HMRC/dev/ios-components/.build/checkouts/SnapKit/Package.swift";
+         path = "/Users/tendaimoffatt/Documents/HMRC/ios-components/.build/checkouts/SnapKit/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_103" = {
