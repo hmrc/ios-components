@@ -537,7 +537,11 @@ extension Components.Organisms.SummaryRowView: Examplable {
             rowViews: [
                 Row(labels: ["Payroll", "96245SLJK88"], style: .info),
                 Row(labels: ["Taxcode", "1185L"], style: .info),
-                Row(labels: ["Estimated taxable income", "£5,690"], style: .info)
+                Row(labels: ["Estimated taxable income", "£5,690"],
+                    attributes: [
+                        LabelColumn(style: .info, huggingPriority: .defaultHigh),
+                        LabelColumn(style: .info, huggingPriority: .required)]
+                )
             ],
             accessibilityLabel: "Read about your income from Sainsbury's PLC",
             accessibilityHint: "opens in a web browser"
@@ -547,7 +551,11 @@ extension Components.Organisms.SummaryRowView: Examplable {
             title: "Eastwood Charter School (7601)",
             rowViews: [
                 Row(labels: ["Taxcode", "BR"], style: .info),
-                Row(labels: ["Estimated taxable income", "£4,143"], style: .info)
+                Row(labels: ["Estimated taxable income", "£4,143"],
+                    attributes: [
+                        LabelColumn(style: .info, huggingPriority: .defaultHigh),
+                        LabelColumn(style: .info, huggingPriority: .required)]
+                )
             ],
             accessibilityLabel: "Read about your income from Eastwood Charter School (7601)",
             accessibilityHint: "opens in a web browser"

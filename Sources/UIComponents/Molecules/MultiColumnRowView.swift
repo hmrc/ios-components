@@ -55,6 +55,7 @@ extension Components.Molecules {
 
         public required init() {
             super.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+            translatesAutoresizingMaskIntoConstraints = false
             axis = (FontMetrics.scaler > 1.36) ? .vertical : .horizontal
         }
 

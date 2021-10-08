@@ -6,7 +6,7 @@
         "repositoryURL": "https://github.com/hmrc/ios-components.git",
         "state": {
           "branch": "bugfix/HMA-5011-rotation-glitch-V2",
-          "revision": "053eed44bb18b7f8cce25ec22b1ae6d4ee653ec7",
+          "revision": "6f0749a8408182df32d383826297ddd5278187aa",
           "version": null
         }
       },
