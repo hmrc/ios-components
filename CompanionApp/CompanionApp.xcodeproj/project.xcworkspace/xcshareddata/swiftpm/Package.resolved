@@ -5,9 +5,9 @@
         "package": "UIComponents",
         "repositoryURL": "https://github.com/hmrc/ios-components.git",
         "state": {
-          "branch": null,
-          "revision": "30ed0f56a8976b15b786e865e46663b4992e04ad",
-          "version": "5.9.4"
+          "branch": "bugfix/HMA-5011-rotation-glitch-V2",
+          "revision": "52e471b5f6729907ebb590ddbd86b3bcd0641ae7",
+          "version": null
         }
       },
       {
