@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [5.10.0] - 2021-10-08Z
 ### Changed
 - Refactored MultiColumnRowView to simplify layout
 

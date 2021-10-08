@@ -315,7 +315,7 @@
       };
       "OBJ_142" = {
          isa = "PBXFileReference";
-         path = "Carthage";
+         path = "Artifacts";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_143" = {
