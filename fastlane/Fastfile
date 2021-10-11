@@ -301,7 +301,7 @@ platform :ios do
     captureFolder = "capture_#{mode}_mode"
     mismatchFolder = "screenshot_diff/mismatches/#{mode}"
     imagesFolder = "screenshot_diff/images/#{mode}"
-    baseline = "screenshot_diff/baseline_screenshots/#{options[:mode]}"
+    baseline = "screenshot_diff/baseline_screenshots/#{mode}"
     sh 'mkdir -p ' + imagesFolder
     sh "cp -R ../CompanionApp/Artifacts/#{captureFolder}/screens/ #{imagesFolder}"
     if Dir.entries(imagesFolder).size > Dir.entries(baseline).size
@@ -316,11 +316,14 @@ platform :ios do
     sh 'mkdir -p ' + mismatchFolder
     sh "cd screenshot_diff && npm start --baseline=#{mode}"
     if Dir.entries(mismatchFolder).size > 2
-      sh 'cp -R ' + mismatchFolder + ' ../CompanionApp/Artifacts/'
+      sh 'cp -R ' + mismatchFolder + ' ../CompanionApp/Artifacts/mismatches/'
+      fileNames = Dir.entries(mismatchFolder).select { |f| File.file? File.join(mismatchFolder, f) }
+      File.write("../CompanionApp/Artifacts/diff_report_#{mode}.txt", fileNames.join("\n"))
       UI.test_failure!("Screenshots did not match")
     else
       sh "mkdir -p ../CompanionApp/Artifacts/mismatches"
-      sh 'echo "All Screenshots matched" > ../CompanionApp/Artifacts/mismatches/report' + "_#{mode}" + '.txt'
+      sh 'echo "No mismatches - need this file to stop Bitrise zip/deploy step failing when folder is empty!" > ../CompanionApp/Artifacts/mismatches/no_mismatches.txt' 
+      sh 'echo "All Screenshots matched" > ../CompanionApp/Artifacts/diff_report' + "_#{mode}" + '.txt'
     end
   end
 end
