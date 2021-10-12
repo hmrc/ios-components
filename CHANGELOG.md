@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Fixed MultiColumnRowView proportional layout when more than two colums
+- Improved screen diff reporting
 
 ## [5.10.0] - 2021-10-08Z
 ### Changed
