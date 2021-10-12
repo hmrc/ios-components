@@ -162,7 +162,8 @@ extension Components.Molecules {
                     label: label,
                     index: index,
                     previousLabel: previousLabel,
-                    proportionalWidth: proportionalWidth
+                    proportionalWidth: proportionalWidth,
+                    numColumns: labels.count
                 )
 
                 addVerticalConstraintsFor(
@@ -196,7 +197,8 @@ extension Components.Molecules {
             label: UILabel,
             index: Int,
             previousLabel: UILabel?,
-            proportionalWidth: CGFloat?
+            proportionalWidth: CGFloat?,
+            numColumns: Int
         ) {
             horizontalConstraints.append(
                 contentsOf: [
@@ -206,11 +208,12 @@ extension Components.Molecules {
             )
 
             if let proportionalWidth = proportionalWidth {
+                let widthAdjustment = 0 - ((CGFloat(numColumns) - 1) * CGFloat(Constants.itemSpacing)) / CGFloat(numColumns)
                 horizontalConstraints.append(
                     label.widthAnchor.constraint(
                         greaterThanOrEqualTo: widthAnchor,
                         multiplier: proportionalWidth,
-                        constant: 0 - (Constants.itemSpacing / 2)
+                        constant: widthAdjustment
                     )
                 )
             }
