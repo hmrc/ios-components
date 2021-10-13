@@ -644,8 +644,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmrc/ios-components.git";
 			requirement = {
-				branch = "chore/HMA-5024-improve-screen-diffing";
-				kind = branch;
+				kind = exactVersion;
+				version = 5.10.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
