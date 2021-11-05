@@ -26,17 +26,20 @@ extension Components.Molecules {
 
         open class Model {
             public let icon: UIImage
+            public let iconSize: CGSize
             public let title: String
             public let body: NSAttributedString?
             public let buttonModel: ButtonModel?
             public let iconTintColor: UIColor?
 
             public init(icon: UIImage!,
+                        iconSize: CGSize = .init(width: 100, height: 100),
                         title: String,
                         body: NSAttributedString? = nil,
                         buttonModel: ButtonModel? = nil,
                         iconTintColor: UIColor? = nil) {
                 self.icon = icon
+                self.iconSize = iconSize
                 self.title = title
                 self.body = body
                 self.buttonModel = buttonModel
@@ -44,11 +47,13 @@ extension Components.Molecules {
             }
 
             public init(icon: UIImage!,
+                        iconSize: CGSize = .init(width: 100, height: 100),
                         title: String,
                         body: String?,
                         buttonModel: ButtonModel? = nil,
                         iconTintColor: UIColor? = nil) {
                 self.icon = icon
+                self.iconSize = iconSize
                 self.title = title
                 if let body = body {
                     self.body = NSMutableAttributedString.styled(
@@ -109,7 +114,7 @@ extension Components.Molecules {
             setupStyle()
             addViews(model: model)
             disableTranslatesAutoresizingMaskIntoConstraints()
-            setupConstraints()
+            setupConstraints(model: model)
         }
 
         func addViews(model: Model? = nil) {
@@ -152,7 +157,7 @@ extension Components.Molecules {
             bodyTextView.backgroundColor = UIColor.clear
         }
 
-        private func setupConstraints() {
+        private func setupConstraints(model: Model? = nil) {
             stackView.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate([
                 stackView.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -166,8 +171,8 @@ extension Components.Molecules {
                 iconImageView.topAnchor.constraint(equalTo: iconContainerView.topAnchor),
                 iconImageView.bottomAnchor.constraint(equalTo: iconContainerView.bottomAnchor),
                 iconImageView.centerXAnchor.constraint(equalTo: iconContainerView.centerXAnchor),
-                iconImageView.heightAnchor.constraint(equalToConstant: 100),
-                iconImageView.widthAnchor.constraint(equalToConstant: 100)
+                iconImageView.heightAnchor.constraint(equalToConstant: model?.iconSize.height ?? 100),
+                iconImageView.widthAnchor.constraint(equalToConstant: model?.iconSize.width ?? 100)
             ])
         }
 

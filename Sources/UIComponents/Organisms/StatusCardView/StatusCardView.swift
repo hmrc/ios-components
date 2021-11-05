@@ -24,6 +24,7 @@ extension Components {
             let journeyId: String?
 
             public init(icon: UIImage!,
+                        iconSize: CGSize = .init(width: 100, height: 100),
                         title: String,
                         body: NSAttributedString?,
                         buttonModel: ButtonModel? = nil,
@@ -33,6 +34,7 @@ extension Components {
                 self.views = views
                 self.journeyId = journeyId
                 super.init(icon: icon,
+                           iconSize: iconSize,
                            title: title,
                            body: body,
                            buttonModel: buttonModel,
@@ -41,6 +43,7 @@ extension Components {
             }
 
             public init(icon: UIImage!,
+                        iconSize: CGSize = .init(width: 100, height: 100),
                         title: String,
                         body: String? = nil,
                         buttonModel: ButtonModel? = nil,
@@ -50,6 +53,7 @@ extension Components {
                 self.views = views
                 self.journeyId = journeyId
                 super.init(icon: icon,
+                           iconSize: iconSize,
                            title: title,
                            body: body,
                            buttonModel: buttonModel,
