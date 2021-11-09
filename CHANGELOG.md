@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [5.10.2] - 2021-11-09
 ### Changed
 - You can now pass a custom icon size to `StatusView` & `StatusCardView` for icons that are not 100 x 100 
 
