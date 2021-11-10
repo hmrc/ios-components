@@ -21,7 +21,7 @@ private protocol SelectRowDelegate: class {
 }
 
 extension Components.Molecules {
-    public class SelectRowView: Components.Atoms.CardView, SelectRowDelegate {
+    open class SelectRowView: Components.Atoms.CardView, SelectRowDelegate {
 
         public struct Model {
             let showSeparators: Bool
@@ -151,9 +151,9 @@ extension Components.Molecules {
         }
     }
 
-    public class SelectRow: UIView {
+    open class SelectRow: UIView {
 
-        struct Model {
+        public struct Model {
             let isSelected: Bool
             let selectedImage: UIImage?
             let deselectedImage: UIImage?
@@ -169,11 +169,11 @@ extension Components.Molecules {
             }
         }
 
-        private struct Constants {
-            static let touchMargin: CGFloat = 10
+        public struct Constants {
+            public static let touchMargin: CGFloat = 10
         }
 
-        private lazy var imageView: UIImageView = {
+        public lazy var imageView: UIImageView = {
             let imageView = UIImageView()
             imageView.translatesAutoresizingMaskIntoConstraints = false
             return imageView
@@ -206,7 +206,7 @@ extension Components.Molecules {
             }
         }
 
-        required init(model: Model) {
+        required public init(model: Model) {
             self.model = model
             super.init(frame: .zero)
 
@@ -216,7 +216,7 @@ extension Components.Molecules {
             configure(model: model)
         }
 
-        required init?(coder aDecoder: NSCoder) {
+        required public init?(coder aDecoder: NSCoder) {
             fatalError("Not implemented")
         }
 
