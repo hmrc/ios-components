@@ -140,40 +140,28 @@ extension Capture {
             let template = htmlTemplate()
 
             let fontColor: String = {
-                if #available(iOS 13.0, *) {
-                    if UITraitCollection.current.userInterfaceStyle == .dark {
-                        return "white"
-                    }
-                    else {
-                        return "#0B0C0C"
-                    }
-                } else {
+                if UITraitCollection.current.userInterfaceStyle == .dark {
+                    return "white"
+                }
+                else {
                     return "#0B0C0C"
                 }
             }()
 
             let backgroundColor: String = {
-                if #available(iOS 13.0, *) {
-                    if UITraitCollection.current.userInterfaceStyle == .dark {
-                        return "#262626"
-                    }
-                    else {
-                        return "white"
-                    }
-                } else {
+                if UITraitCollection.current.userInterfaceStyle == .dark {
+                    return "#262626"
+                }
+                else {
                     return "white"
                 }
             }()
 
             let borderColor: String = {
-                if #available(iOS 13.0, *) {
-                    if UITraitCollection.current.userInterfaceStyle == .dark {
-                        return "#111"
-                    }
-                    else {
-                        return "#EEE"
-                    }
-                } else {
+                if UITraitCollection.current.userInterfaceStyle == .dark {
+                    return "#111"
+                }
+                else {
                     return "#EEE"
                 }
             }()
