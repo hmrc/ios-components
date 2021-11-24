@@ -219,11 +219,11 @@ extension Components.Molecules {
             }
 
             if let previousLabel = previousLabel {
-                let spacingConstraint = label.leftAnchor.constraint(
-                    equalTo: previousLabel.rightAnchor, constant: Constants.itemSpacing
+                horizontalConstraints.append(
+                    label.leftAnchor.constraint(
+                        equalTo: previousLabel.rightAnchor, constant: Constants.itemSpacing
+                    )
                 )
-                spacingConstraint.priority = .defaultLow
-                horizontalConstraints.append(spacingConstraint)
             } else {
                 horizontalConstraints.append(label.leftAnchor.constraint(equalTo: leftAnchor))
             }
