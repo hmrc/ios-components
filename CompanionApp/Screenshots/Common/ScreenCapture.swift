@@ -18,15 +18,10 @@ import UIKit
 
 class ScreenCapture {
     static var captureFolderName: String {
-        if #available(iOS 13.0, *) {
-            if UITraitCollection.current.userInterfaceStyle == .dark {
-                return "capture_dark_mode"
-            }
-            else {
-                return "capture_light_mode"
-            }
+        if UITraitCollection.current.userInterfaceStyle == .dark {
+            return "capture_dark_mode"
         } else {
-            return "capture"
+            return "capture_light_mode"
         }
     }
 

@@ -4,7 +4,7 @@ Build applications using components with the HMRC look and feel.
 
 # Requirements
 
-- iOS 11.0+
+- iOS 13.0+
 - Swift 5.3
 
 # Installation

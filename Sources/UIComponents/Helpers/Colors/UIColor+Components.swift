@@ -50,12 +50,9 @@ public extension UIColor {
     }
     
     static var useLightModeColors: Bool {
-        if #available(iOS 13.0, *) {
-            if UITraitCollection.current.userInterfaceStyle == .dark {
-                return false
-            }
+        if UITraitCollection.current.userInterfaceStyle == .dark {
+            return false
         }
-        
         return true
     }
 
