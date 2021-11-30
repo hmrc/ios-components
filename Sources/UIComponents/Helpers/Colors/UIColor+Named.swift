@@ -39,36 +39,12 @@ public extension UIColor {
              yellow
 
         public static var allColors: [(String, UIColor)] {
-            return allCases.map { ($0.rawValue, $0.raw) }
+            return allCases.map { ($0.rawValue, $0.colour) }
         }
         
-        public var raw: UIColor {
-            rawColor(colorMode: .userSpecified)
-        }
-
-        public var rawInLightMode: UIColor {
-            rawColor(colorMode: .light)
-        }
-
-        public var rawInDarkMode: UIColor {
-            rawColor(colorMode: .dark)
-        }
-
-        private func rawColor(colorMode: ColorMode = .userSpecified) -> UIColor {
-            let colorContainer: NamedColors = {
-                switch colorMode {
-                case .userSpecified:
-                    if UIColor.useLightModeColors {
-                        return colorService.lightColors
-                    } else {
-                        return colorService.darkColors
-                    }
-                case .light:
-                    return colorService.lightColors
-                case .dark:
-                    return colorService.darkColors
-                }
-            }()
+     
+        public var colour: UIColor {
+            let colorContainer: NamedColors = colorService.colors
 
             switch self {
             case .black:

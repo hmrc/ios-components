@@ -74,7 +74,7 @@ extension Components.Molecules.SelectRowView: Examplable {
 
     static func withPlaceholders() -> UIView {
         return self.init(
-            model: .init(imageTintColor: UIColor.Named.black.raw, rows: [
+            model: .init(imageTintColor: UIColor.Named.black.colour, rows: [
                 .init(body: "Option 1")
             ])
         )
@@ -506,7 +506,7 @@ extension Components.Molecules.StatusView: Examplable {
                 style: .body,
                 string: ExampleText.LoremIpsum.longest.rawValue
             ).withAlignment(.left),
-            iconTintColor: UIColor.Named.green1.raw
+            iconTintColor: UIColor.Named.green1.colour
         )
 
         return [model, modelWithoutBody, longModel].map {

@@ -26,7 +26,7 @@ extension Components.Molecules {
             $0.onTintColor = UIColor.Semantic.switchTint
             $0.layer.borderWidth = 1.0
             $0.layer.cornerRadius = 16.0
-            $0.layer.borderColor = UIColor.Named.grey2.raw.cgColor
+            $0.layer.borderColor = UIColor.Named.grey2.colour.cgColor
         }
         public private(set)var titleAndBodyView = BoldTitleBodyView(title: "Some Text", body: "Some Body")
 

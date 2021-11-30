@@ -71,9 +71,9 @@ extension Components.Organisms {
                 warningCard.bodyLabel.textColor = UIColor.Semantic.lightText
                 warningCard.iconImageView.tintColor = UIColor.Semantic.lightText
             case .warning:
-                warningParentCard.backgroundColor = UIColor.Named.yellow.raw
-                warningCard.bodyLabel.textColor = UIColor.Named.black.rawInLightMode
-                warningCard.iconImageView.tintColor = UIColor.Named.black.rawInLightMode
+                warningParentCard.backgroundColor = UIColor.Named.yellow.colour
+                warningCard.bodyLabel.textColor = UIColor.Named.black.colour
+                warningCard.iconImageView.tintColor = UIColor.Named.black.colour
             case .notice:
                 warningParentCard.backgroundColor = UIColor.Semantic.darkText
                 warningCard.bodyLabel.textColor = UIColor.Semantic.lightText

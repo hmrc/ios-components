@@ -146,18 +146,26 @@ extension UIButton: Stylable {
     public func setAppearance(for style: ButtonStyle) {
         titleLabel?.font = style.font
         setTitleColor(style.textColor, for: .normal)
-        setBackgroundImage(
-            UIImage.imageWithColor(color: style.backgroundColor),
-            for: .normal
-        )
-        setBackgroundImage(
-            UIImage.imageWithColor(color: style.disabledBackgroundColor),
-            for: .disabled
-        )
-        setBackgroundImage(
-            UIImage.imageWithColor(color: style.highlightedBackgroundColor),
-            for: .highlighted
-        )
+
+        if let hmrcButton = self as? HMRCButton {
+            hmrcButton.setBackgroundColor(style.backgroundColor, for: .normal)
+            hmrcButton.setBackgroundColor(style.disabledBackgroundColor, for: .disabled)
+            hmrcButton.setBackgroundColor(style.highlightedBackgroundColor, for: .highlighted)
+        } else {
+            print("Whoops*** Not a HMRC button, cant setup dynamic background :( Falling back to old way")
+            setBackgroundImage(
+                UIImage.imageWithColor(color: style.backgroundColor),
+                for: .normal
+            )
+            setBackgroundImage(
+                UIImage.imageWithColor(color: style.disabledBackgroundColor),
+                for: .disabled
+            )
+            setBackgroundImage(
+                UIImage.imageWithColor(color: style.highlightedBackgroundColor),
+                for: .highlighted
+            )
+        }
 
         switch style {
         case let .primary(enabled, _):
@@ -230,18 +238,21 @@ extension UIButton: Stylable {
 internal class HMRCButton: FlexibleButton {
     private var baselineView = UIView()
     private var baselineColors: [UInt: UIColor] = [:]
+    private var backgroundColours: [UInt: UIColor] = [:]
 
     var style: ButtonStyle?
 
     override var isEnabled: Bool {
         didSet {
             updateBaselineColor()
+            updateBackgroundColor()
         }
     }
 
     override var isHighlighted: Bool {
         didSet {
             updateBaselineColor()
+            updateBackgroundColor()
         }
     }
 
@@ -256,9 +267,15 @@ internal class HMRCButton: FlexibleButton {
         baselineColors[state.rawValue] = color
         updateBaselineColor()
     }
-
+    func setBackgroundColor(_ color: UIColor, for state: UIControl.State) {
+        backgroundColours[state.rawValue] = color
+        updateBackgroundColor()
+    }
     private func updateBaselineColor() {
         baselineView.backgroundColor = baselineColors[state.rawValue] ?? baselineColors[UIControl.State.normal.rawValue]
+    }
+    private func updateBackgroundColor() {
+        backgroundColor = backgroundColours[state.rawValue] ?? backgroundColours[UIControl.State.normal.rawValue]
     }
 
     override func updateConstraints() {
