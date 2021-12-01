@@ -258,7 +258,6 @@ internal class HMRCButton: FlexibleButton {
 
     override open func commonInit() {
         super.commonInit()
-        layer.cornerRadius = 4.0
         contentEdgeInsets = padding
         addSubview(baselineView)
     }
