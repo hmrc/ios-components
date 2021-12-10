@@ -85,9 +85,9 @@ extension Components.Molecules {
             get {
                 return segmentButtons.firstIndex(where: { $0.isSelected }) ?? 0
             }
-            didSet (oldValue, newValue) {
-                if oldValue != newValue {
-                    segmentButtons[oldValue].update(isSelected: false)
+            set (newValue) {
+                if currentlySelectedIndex != newValue {
+                    segmentButtons[currentlySelectedIndex].update(isSelected: false)
                     segmentButtons[newValue].update(isSelected: true)
                 }
             }
