@@ -87,7 +87,7 @@ extension Components.Molecules {
             }
             set (newValue) {
                 deselectSegmentButtons()
-                segmentButtons[safe: newValue].update(isSelected: true)
+                segmentButtons[newValue].update(isSelected: true)
             }
         }
 
