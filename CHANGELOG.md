@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Add text option to menu panel row (and notification bubble)
 
 ## [6.0.1] - 2021-11-24Z
 ### Changed

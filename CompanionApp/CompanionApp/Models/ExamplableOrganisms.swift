@@ -702,13 +702,18 @@ extension Components.Organisms.MenuPanelRowView: Examplable {
             body: "Messages and letters from HMRC",
             notificationMode: .number(count: 0)
         )
+        let selfAssessmentNew = Model(
+            title: "Self Assessment",
+            body: "View and manage your Self Assessment and make payments for what you owe",
+            notificationMode: .text("New")
+        )
         let hts = Model(
             title: "Help to Save account",
             body: "A savings account with bonuses designed to help you start saving",
             notificationMode: .circle
         )
 
-        let models = [paye, annualTaxSummary, messages, manyMessages, noMessages, noMessagesHidden, hts]
+        let models = [paye, annualTaxSummary, messages, manyMessages, noMessages, noMessagesHidden, selfAssessmentNew, hts]
         return models.map { (model) -> UIView in
             let view = Self.init(model: model)
             view.action = handler

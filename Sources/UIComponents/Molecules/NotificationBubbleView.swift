@@ -29,6 +29,9 @@ extension Components.Molecules {
 
             /// Specifies that the notification will display the notification bubble alone
             case circle
+            
+            /// Specifies that the notification will display the notification bubble with the text provided
+            case text(_ text: String)
 
             /// Specifies that the notification bubble will be hidden
             case hidden
@@ -99,6 +102,10 @@ extension Components.Molecules {
                 countLabel.text = ""
                 countLabel.accessibilityLabel = "New item"
                 cnsWidth?.constant = FontMetrics.scaledValue(for: Consts.defaultSize.height)
+            case .text(let text):
+                countLabel.text = text
+                countLabel.accessibilityLabel = text
+                cnsWidth?.constant = FontMetrics.scaledValue(for: Consts.defaultSize.width)
             case .hidden:
                 isHidden = true
                 return
