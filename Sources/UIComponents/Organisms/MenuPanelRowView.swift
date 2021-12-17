@@ -106,6 +106,8 @@ extension Components.Organisms {
                     return model.title
                 case .circle:
                     return model.title + "; new item"
+                case .text(let text):
+                    return model.title + "; " + text
                 case .number(let count, _, let hideWhenZero):
                     if count == 0 && hideWhenZero {
                         return model.title
