@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Allow programatic selection of `TabBarView` selected tab
 
 ## [6.0.2] - 2021-12-17Z
 ### Changed

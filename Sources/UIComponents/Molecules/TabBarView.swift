@@ -82,7 +82,15 @@ extension Components.Molecules {
         private var segmentButtons = [SegmentButton]()
 
         public var currentlySelectedIndex: Int {
-            return segmentButtons.firstIndex(where: { $0.isSelected }) ?? 0
+            get {
+                return segmentButtons.firstIndex(where: { $0.isSelected }) ?? 0
+            }
+            set (newValue) {
+                if currentlySelectedIndex != newValue {
+                    segmentButtons[currentlySelectedIndex].update(isSelected: false)
+                    segmentButtons[newValue].update(isSelected: true)
+                }
+            }
         }
 
         public required convenience init(model: Model) {
