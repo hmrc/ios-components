@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [6.0.4] - 2022-01-07Z
 ### Changed
 - Update styling of secondary CTAs on `InformationMessageCard`
 
