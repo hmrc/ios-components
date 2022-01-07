@@ -49,73 +49,44 @@ public protocol SemanticColors {
 }
 
 extension UIColor {
-    open class SemanticLightColors: SemanticColors {
+    open class SemanticColors: UIComponents.SemanticColors {
         
         public init() {}
         
-        open var darkText = UIColor.Named.black.raw
-        open var lightText = UIColor.Named.white.raw
-        open var linkText = UIColor.Named.blue.raw
-        open var errorText = UIColor.Named.red.raw
-        open var infoText = UIColor.Named.grey1.raw
-        open var expandableButtonText = UIColor.Named.blue.raw
-        open var cardBackground = UIColor.Named.white.raw
-        open var cardShadow = UIColor.Named.grey3.raw.darken(0.08)
-        open var pageBackground = UIColor.Named.grey3.raw
-        open var menuCardBackground = UIColor.Named.grey3.raw
-        open var menuPageBackground = UIColor.Named.white.raw
-        open var divider = UIColor.Named.grey2.raw
-        open var insetBar = UIColor.Named.grey2.raw
-        open var primaryButtonBackground = UIColor.Named.green1.raw
-        open var primaryButtonDisabledBackground = UIColor.Named.grey1.raw
-        open var primaryButtonDisabledText = UIColor.Named.white.raw
-        open var primaryButtonHighlightedBackground = UIColor.Named.green1.raw.lighten(0.16)
-        open var primaryButtonText = UIColor.Named.white.raw
-        open var primaryButtonHighlightedBaseline = UIColor.Named.green1.raw.darken(0.24)
-        open var primaryButtonBaseline = UIColor.Named.green1.raw.darken(0.4)
-        open var statusCardIconDefaultTint = UIColor.Named.grey1.raw
-        open var switchTint = UIColor.Named.blue.raw
-        open var switchTintSelected = UIColor.Named.blue.raw.lighten(0.16)
-        open var textInputBorder = UIColor.Named.grey1.raw
-        open var textInputLeftViewTint = UIColor.Named.grey1.raw
-        open var secondaryButtonText = UIColor.Named.blue.raw
-        open var secondaryButtonBackground = UIColor.clear
-        open var secondaryButtonHighlightedBackground = UIColor.Named.blue.raw.lighten(0.84)
-        open var whiteBackground = UIColor.Named.white.raw
-    }
-    
-    open class SemanticDarkColors: SemanticColors {
+        open var darkText = UIColor(darkColour: UIColor.Named.black.colour, lightColour: UIColor.Named.black.colour)
+        open var lightText = UIColor(darkColour: UIColor.Named.white.colour, lightColour: UIColor.Named.white.colour)
+        open var linkText = UIColor(darkColour: UIColor.Named.blue.colour, lightColour: UIColor.Named.blue.colour)
+        open var errorText = UIColor(darkColour: UIColor.Named.red.colour, lightColour: UIColor.Named.red.colour)
+        open var infoText = UIColor(darkColour:  UIColor.Named.grey1.colour, lightColour: UIColor.Named.grey1.colour)
+        open var expandableButtonText = UIColor(darkColour: UIColor.Named.blue.colour, lightColour: UIColor.Named.blue.colour)
+        open var cardBackground = UIColor(darkColour: UIColor.Named.white.colour, lightColour: UIColor.Named.white.colour)
+        open var cardShadow = UIColor(darkColour: UIColor.clear, lightColour: UIColor.Named.grey3.colour.darken(0.08))
+        open var pageBackground = UIColor(darkColour: UIColor.Named.grey3.colour, lightColour: UIColor.Named.grey3.colour)
         
-        public init() {}
         
-        open var darkText = UIColor.Named.black.raw
-        open var lightText = UIColor.Named.white.raw
-        open var linkText = UIColor.Named.blue.raw
-        open var errorText = UIColor.Named.red.raw
-        open var infoText = UIColor.Named.grey1.raw
-        open var expandableButtonText = UIColor.Named.blue.raw
-        open var cardBackground = UIColor.Named.white.raw
-        open var cardShadow = UIColor.clear
-        open var pageBackground = UIColor.Named.grey3.raw
-        open var menuCardBackground = UIColor.Named.grey3.raw
-        open var menuPageBackground = UIColor.Named.white.raw
-        open var divider = UIColor.Named.grey2.raw
-        open var insetBar = UIColor.Named.grey2.raw
-        open var primaryButtonBackground = UIColor.Named.green1.raw
-        open var primaryButtonDisabledBackground = UIColor.Named.grey1.raw
-        open var primaryButtonDisabledText = UIColor.Named.white.raw
-        open var primaryButtonHighlightedBackground = UIColor.Named.green1.raw.lighten(0.16)
-        open var primaryButtonText = UIColor.Named.white.raw
-        open var primaryButtonHighlightedBaseline = UIColor.Named.green1.raw.darken(0.24)
-        open var primaryButtonBaseline = UIColor.Named.green1.raw.darken(0.4)
-        open var statusCardIconDefaultTint = UIColor.Named.grey1.raw
-        open var switchTint = UIColor.Named.blue.raw
-        open var switchTintSelected = UIColor.Named.blue.raw.lighten(0.16)
-        open var textInputBorder = UIColor.Named.grey1.raw
-        open var textInputLeftViewTint = UIColor.Named.grey1.raw
-        open var secondaryButtonText = UIColor.Named.blue.raw
-        open var secondaryButtonBackground = UIColor.clear
-        open var secondaryButtonHighlightedBackground = UIColor.Named.blue.raw.darken(0.84)
-        open var whiteBackground = UIColor.Named.grey3.raw
+        open var menuCardBackground = UIColor(darkColour: UIColor.Named.grey3.colour, lightColour: UIColor.Named.grey3.colour)
+        open var menuPageBackground = UIColor(darkColour: UIColor.Named.white.colour, lightColour: UIColor.Named.white.colour)
+        open var divider = UIColor(darkColour: UIColor.Named.grey2.colour, lightColour: UIColor.Named.grey2.colour)
+        open var insetBar = UIColor(darkColour: UIColor.Named.grey2.colour, lightColour: UIColor.Named.grey2.colour)
+        open var primaryButtonBackground = UIColor(darkColour: UIColor.Named.green1.colour, lightColour: UIColor.Named.green1.colour)
+        open var primaryButtonDisabledBackground = UIColor(darkColour: UIColor.Named.grey1.colour, lightColour: UIColor.Named.grey1.colour)
+        
+        open var primaryButtonDisabledText = UIColor(darkColour: UIColor.Named.white.colour, lightColour: UIColor.Named.white.colour)
+        open var primaryButtonHighlightedBackground = UIColor(darkColour: UIColor.Named.green1.colour.lighten(0.16), lightColour: UIColor.Named.green1.colour.lighten(0.16))
+        open var primaryButtonText = UIColor(darkColour: UIColor.Named.white.colour, lightColour: UIColor.Named.white.colour)
+        
+        open var primaryButtonHighlightedBaseline = UIColor(darkColour: UIColor.Named.green1.colour.darken(0.24), lightColour: UIColor.Named.green1.colour.darken(0.24))
+        open var primaryButtonBaseline = UIColor(darkColour: UIColor.Named.green1.colour.darken(0.4), lightColour: UIColor.Named.green1.colour.darken(0.4))
+        open var statusCardIconDefaultTint = UIColor(darkColour: UIColor.Named.grey1.colour, lightColour: UIColor.Named.grey1.colour)
+        
+        
+        open var switchTint = UIColor(darkColour: UIColor.Named.blue.colour, lightColour: UIColor.Named.blue.colour)
+        open var switchTintSelected = UIColor(darkColour: UIColor.Named.blue.colour.lighten(0.16), lightColour: UIColor.Named.blue.colour.lighten(0.16))
+        open var textInputBorder = UIColor(darkColour: UIColor.Named.grey1.colour, lightColour: UIColor.Named.grey1.colour)
+        open var textInputLeftViewTint = UIColor(darkColour: UIColor.Named.grey1.colour, lightColour: UIColor.Named.grey1.colour)
+        open var secondaryButtonText = UIColor(darkColour: UIColor.Named.blue.colour, lightColour: UIColor.Named.blue.colour)
+        open var secondaryButtonBackground = UIColor(darkColour: UIColor.clear, lightColour: UIColor.clear)
+        open var secondaryButtonHighlightedBackground = UIColor(darkColour: UIColor.Named.blue.colour.darken(0.84), lightColour: UIColor.Named.blue.colour.lighten(0.84))
+        open var whiteBackground = UIColor(darkColour: UIColor.Named.grey3.colour, lightColour: UIColor.Named.white.colour)
     }
 }

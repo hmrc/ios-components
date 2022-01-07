@@ -71,9 +71,9 @@ extension Components.Organisms {
                 warningCard.bodyLabel.textColor = UIColor.Semantic.lightText
                 warningCard.iconImageView.tintColor = UIColor.Semantic.lightText
             case .warning:
-                warningParentCard.backgroundColor = UIColor.Named.yellow.raw
-                warningCard.bodyLabel.textColor = UIColor.Named.black.rawInLightMode
-                warningCard.iconImageView.tintColor = UIColor.Named.black.rawInLightMode
+                warningParentCard.backgroundColor = UIColor.Named.yellow.colour
+                warningCard.bodyLabel.textColor = UIColor.black
+                warningCard.iconImageView.tintColor = UIColor.black
             case .notice:
                 warningParentCard.backgroundColor = UIColor.Semantic.darkText
                 warningCard.bodyLabel.textColor = UIColor.Semantic.lightText
@@ -97,15 +97,15 @@ extension Components.Organisms {
                     style: .primary(true, baseline: false),
                     string: ctaModel.message
                 )
+                
+                if let button = button as? HMRCButton {
+                    button.setBackgroundColor(.Semantic.whiteBackground, for: .normal)
+                    button.setBackgroundColor(.Semantic.secondaryButtonHighlightedBackground, for: .highlighted)
+                    
+                } else {
+                    fatalError("Something has gone wrong. Button should be HMRCButton type")
+                }
 
-                button.setBackgroundImage(
-                    UIImage.imageWithColor(color: UIColor.Semantic.whiteBackground),
-                    for: .normal
-                )
-                button.setBackgroundImage(
-                    UIImage.imageWithColor(color: UIColor.Semantic.secondaryButtonHighlightedBackground),
-                    for: .highlighted
-                )
                 button.setTitleColor(UIColor.Semantic.secondaryButtonText, for: .normal)
 
                 if let accessibilityIdentifier = ctaModel.accessibilityHint,
