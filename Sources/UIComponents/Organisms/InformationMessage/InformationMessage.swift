@@ -93,35 +93,123 @@ extension Components.Organisms {
             }
 
             let buttons = viewModel.headline.ctas?.map { ctaModel -> UIButton in
-                let button = UIButton.styled(
-                    style: .primary(true, baseline: false),
-                    string: ctaModel.message
-                )
-                
-                if let button = button as? HMRCButton {
-                    button.setBackgroundColor(.Semantic.whiteBackground, for: .normal)
-                    button.setBackgroundColor(.Semantic.secondaryButtonHighlightedBackground, for: .highlighted)
-                    
-                } else {
-                    fatalError("Something has gone wrong. Button should be HMRCButton type")
+                switch ctaModel.displayType {
+                case .primary:
+                    return primaryCTA(model: ctaModel)
+                case .secondary:
+                    return secondaryCTA(model: ctaModel, theme: viewModel.theme)
                 }
-
-                button.setTitleColor(UIColor.Semantic.secondaryButtonText, for: .normal)
-
-                if let accessibilityIdentifier = ctaModel.accessibilityHint,
-                    ctaModel.linkType != .inApp && ctaModel.linkType != .newScreen {
-                    button.accessibilityHint = accessibilityIdentifier
-                }
-
-                button.componentAction { [unowned self] (_) in
-                    self.action?(self.model, ctaModel)
-                }
-                return button
             } ?? []
 
             warningParentCard.addComponents(buttons)
 
             return warningParentCard
+        }
+
+        private func primaryCTA(
+            model: Components.Organisms.InformationMessageCard.CTA
+        ) -> UIButton {
+            let button = UIButton.styled(
+                style: .primary(true, baseline: false),
+                string: model.message
+            )
+
+            button.setBackgroundImage(
+                UIImage.imageWithColor(color: UIColor.Semantic.whiteBackground),
+                for: .normal
+            )
+            button.setBackgroundImage(
+                UIImage.imageWithColor(color: UIColor.Semantic.secondaryButtonHighlightedBackground),
+                for: .highlighted
+            )
+            button.setTitleColor(UIColor.Semantic.secondaryButtonText, for: .normal)
+
+            if let accessibilityIdentifier = model.accessibilityHint,
+               model.linkType != .inApp && model.linkType != .newScreen {
+                button.accessibilityHint = accessibilityIdentifier
+            }
+
+            button.componentAction { [unowned self] (_) in
+                self.action?(self.model, model)
+            }
+
+            return button
+        }
+
+        private func secondaryCTA(
+            model: Components.Organisms.InformationMessageCard.CTA,
+            theme: Components.Organisms.InformationMessageCard.MessageModel.Theme
+        ) -> UIButton {
+            let button = UIButton.styled(
+                style: .primary(true, baseline: false),
+                string: model.message
+            )
+
+            let backgroundColor: UIColor = {
+                switch theme {
+                case .urgent:
+                    return UIColor.Semantic.errorText
+                case .info:
+                    return UIColor.Semantic.linkText
+                case .warning:
+                    return UIColor.Named.yellow.raw
+                case .notice:
+                    return UIColor.Semantic.darkText
+                case let .custom(backgroundColor, _, _):
+                    return backgroundColor
+                }
+            }()
+            let highlightedBackgroundColor: UIColor = {
+                switch theme {
+                case .urgent:
+                    return UIColor.Semantic.errorText.lighten(0.08)
+                case .info:
+                    return UIColor.Semantic.linkText.lighten(0.08)
+                case .warning:
+                    return UIColor.Named.yellow.raw.lighten(0.08)
+                case .notice:
+                    return UIColor.Semantic.darkText.lighten(0.08)
+                case let .custom(backgroundColor, _, _):
+                    return backgroundColor.lighten(0.08)
+                }
+            }()
+            let titleColor: UIColor = {
+                switch theme {
+                case .urgent:
+                    return UIColor.Semantic.lightText
+                case .info:
+                    return UIColor.Semantic.lightText
+                case .warning:
+                    return UIColor.Named.black.rawInLightMode
+                case .notice:
+                    return UIColor.Semantic.lightText
+                case let .custom(_, bodyTextColor, _):
+                    return bodyTextColor
+                }
+            }()
+
+            button.setBackgroundImage(
+                UIImage.imageWithColor(color: backgroundColor),
+                for: .normal
+            )
+            button.setBackgroundImage(
+                UIImage.imageWithColor(color: highlightedBackgroundColor),
+                for: .highlighted
+            )
+            button.setTitleColor(titleColor, for: .normal)
+            button.layer.borderWidth = 1
+            button.layer.borderColor = UIColor.Semantic.whiteBackground.cgColor
+            button.layer.cornerRadius = 0
+
+            if let accessibilityIdentifier = model.accessibilityHint,
+               model.linkType != .inApp && model.linkType != .newScreen {
+                button.accessibilityHint = accessibilityIdentifier
+            }
+
+            button.componentAction { [unowned self] (_) in
+                self.action?(self.model, model)
+            }
+            return button
         }
 
         func makeBodyContent(viewModel: Components.Organisms.InformationMessageCard.BodyContent, id: String) -> UIView {
