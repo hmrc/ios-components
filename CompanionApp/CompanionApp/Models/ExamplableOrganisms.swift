@@ -433,13 +433,22 @@ extension Components.Organisms.InformationMessageCard: Examplable {
                     icon: UIImage(named: "warning")!,
                     headline: .init(
                         title: "Placeholder",
-                        ctas: [ .init(
-                            message: "CTA Message",
-                            link: "",
-                            accessibilityHint: "",
-                            linkType: .normal,
-                            displayType: .primary
-                        )]
+                        ctas: [
+                            .init(
+                                message: "CTA Primary Message",
+                                link: "",
+                                accessibilityHint: "",
+                                linkType: .normal,
+                                displayType: .primary
+                            ),
+                             .init(
+                                message: "CTA Secondary Message",
+                                link: "",
+                                accessibilityHint: "",
+                                linkType: .normal,
+                                displayType: .secondary
+                            )
+                        ]
                     ),
                     bodyContent: nil
                 )
@@ -455,12 +464,20 @@ extension Components.Organisms.InformationMessageCard: Examplable {
                     headline: .init(
                         title: "Info message",
                         body: "This is where we can have a short bit of copy about this thing.",
-                        ctas: [ .init(
-                            message: "Do something",
-                            link: "",
-                            linkType: .normal,
-                            displayType: .primary
-                        )]
+                        ctas: [
+                            .init(
+                                message: "Do something",
+                                link: "",
+                                linkType: .normal,
+                                displayType: .primary
+                            ),
+                            .init(
+                                message: "Do something else",
+                                link: "",
+                                linkType: .normal,
+                                displayType: .secondary
+                            )
+                        ]
                     ),
                     bodyContent: nil
             )
@@ -468,19 +485,21 @@ extension Components.Organisms.InformationMessageCard: Examplable {
 
         let example2 = Components.Organisms.InformationMessageCard(
             model: .init(
-                    id: "",
-                    theme: .warning,
-                    icon: UIImage(named: "warning")!,
-                    headline: .init(
-                        title: "Warning Message",
-                        ctas: [ .init(
+                id: "",
+                theme: .warning,
+                icon: UIImage(named: "warning")!,
+                headline: .init(
+                    title: "Warning Message",
+                    ctas: [
+                        .init(
                             message: "Do something with a long long message",
                             link: "",
                             linkType: .normal,
                             displayType: .primary
-                        )]
-                    ),
-                    bodyContent: nil
+                        )
+                    ]
+                ),
+                bodyContent: nil
             )
         )
 
