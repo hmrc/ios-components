@@ -113,26 +113,24 @@ extension Components.Organisms {
                 style: .primary(true, baseline: false),
                 string: model.message
             )
-
-            button.setBackgroundImage(
-                UIImage.imageWithColor(color: UIColor.Semantic.whiteBackground),
-                for: .normal
-            )
-            button.setBackgroundImage(
-                UIImage.imageWithColor(color: UIColor.Semantic.secondaryButtonHighlightedBackground),
-                for: .highlighted
-            )
+            
+            if let button = button as? HMRCButton {
+                button.setBackgroundColor(UIColor.Semantic.whiteBackground, for: .normal)
+                button.setBackgroundColor(UIColor.Semantic.secondaryButtonHighlightedBackground, for: .highlighted)
+            } else {
+                fatalError("Something has gone wrong. Button should be HMRCButton type")
+            }
             button.setTitleColor(UIColor.Semantic.secondaryButtonText, for: .normal)
-
+            
             if let accessibilityIdentifier = model.accessibilityHint,
                model.linkType != .inApp && model.linkType != .newScreen {
                 button.accessibilityHint = accessibilityIdentifier
             }
-
+            
             button.componentAction { [unowned self] (_) in
                 self.action?(self.model, model)
             }
-
+            
             return button
         }
 
@@ -152,7 +150,7 @@ extension Components.Organisms {
                 case .info:
                     return UIColor.Semantic.linkText
                 case .warning:
-                    return UIColor.Named.yellow.raw
+                    return UIColor.Named.yellow.colour
                 case .notice:
                     return UIColor.Semantic.darkText
                 case let .custom(backgroundColor, _, _):
@@ -166,7 +164,7 @@ extension Components.Organisms {
                 case .info:
                     return UIColor.Semantic.linkText.lighten(0.08)
                 case .warning:
-                    return UIColor.Named.yellow.raw.lighten(0.08)
+                    return UIColor.Named.yellow.colour.lighten(0.08)
                 case .notice:
                     return UIColor.Semantic.darkText.lighten(0.08)
                 case let .custom(backgroundColor, _, _):
@@ -180,22 +178,20 @@ extension Components.Organisms {
                 case .info:
                     return UIColor.Semantic.lightText
                 case .warning:
-                    return UIColor.Named.black.rawInLightMode
+                    return UIColor.black
                 case .notice:
                     return UIColor.Semantic.lightText
                 case let .custom(_, bodyTextColor, _):
                     return bodyTextColor
                 }
             }()
-
-            button.setBackgroundImage(
-                UIImage.imageWithColor(color: backgroundColor),
-                for: .normal
-            )
-            button.setBackgroundImage(
-                UIImage.imageWithColor(color: highlightedBackgroundColor),
-                for: .highlighted
-            )
+           
+            if let button = button as? HMRCButton {
+                button.setBackgroundColor(backgroundColor, for: .normal)
+                button.setBackgroundColor(highlightedBackgroundColor, for: .highlighted)
+            } else {
+                fatalError("Something has gone wrong. Button should be HMRCButton type")
+            }
             button.setTitleColor(titleColor, for: .normal)
             button.layer.borderWidth = 1
             button.layer.borderColor = UIColor.Semantic.whiteBackground.cgColor
