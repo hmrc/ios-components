@@ -32,6 +32,7 @@ extension Components.Molecules {
         public let actionButton: UIButton = TransparentButton()
 
         private var bottomConstraint: Constraint?
+        private var iconHeightConstraint: Constraint?
         private var boundsObservation: NSKeyValueObservation?
 
         public convenience init(title: String,
@@ -105,7 +106,7 @@ extension Components.Molecules {
                 make.left.equalTo(container.snp.left)
                 make.top.equalTo(container.snp.top)
                 bottomConstraint = make.bottom.equalTo(container.snp.bottom).constraint
-                make.height.equalTo(FontMetrics.scaledValue(for: 24))
+                iconHeightConstraint = make.height.equalTo(FontMetrics.scaledValue(for: 24)).constraint
                 make.width.equalTo(24)
             }
             titleLabel.snp.makeConstraints { (make) in
@@ -118,6 +119,7 @@ extension Components.Molecules {
             containerView.snp.makeConstraints { (make) in
                 make.edges.equalTo(self.snp.margins)
             }
+            iconHeightConstraint?.activate()
         }
 
         private func disableTranslatesAutoresizingMaskIntoConstraints() {
@@ -129,6 +131,10 @@ extension Components.Molecules {
         }
 
         private func setContentPriority() {
+            setContentCompressionResistancePriority(.required, for: .horizontal)
+            setContentHuggingPriority(.required, for: .vertical)
+            setContentHuggingPriority(.required, for: .vertical)
+            setContentCompressionResistancePriority(.required, for: .vertical)
             containerView.setContentHuggingPriority(.required, for: .horizontal)
             containerView.setContentCompressionResistancePriority(.required, for: .horizontal)
             containerView.setContentHuggingPriority(.required, for: .vertical)
@@ -151,6 +157,15 @@ extension Components.Molecules {
             } else {
                 boundsObservation?.invalidate()
             }
+        }
+
+        open override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+            super.traitCollectionDidChange(previousTraitCollection)
+            iconHeightConstraint?.deactivate()
+            iconImageView.snp.makeConstraints { (make) in
+                iconHeightConstraint = make.height.equalTo(FontMetrics.scaledValue(for: 24)).constraint
+            }
+            iconHeightConstraint?.activate()
         }
 
         public func updateUI(with title: String,
