@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [6.0.6] - 2022-04-13Z
 ### Changed
 - Minimize internal text view padding within `InsetView`
 
