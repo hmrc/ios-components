@@ -114,6 +114,9 @@ extension Components.Molecules {
         private func setupTextView() {
             addSubview(textView)
 
+            textView.textContainerInset = .zero
+            textView.textContainer.lineFragmentPadding = 0
+
             NSLayoutConstraint.activate([
                 textView.leftAnchor.constraint(equalTo: insetView.rightAnchor, constant: 18),
                 textView.rightAnchor.constraint(equalTo: rightAnchor),
@@ -123,7 +126,6 @@ extension Components.Molecules {
         }
 
         public func updateUI(views: [UIView]) {
-
             views.forEach { addSubview($0) }
             views.enumerated().forEach { index, view in
 
