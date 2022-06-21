@@ -373,10 +373,7 @@ extension Components.Molecules {
             if UIAccessibility.isVoiceOverRunning {
                 if textView.isFirstResponder {
                     guard let error = validationErrorLabel.text else { return }
-                    UIAccessibility.post(
-                        notification: UIAccessibility.Notification.announcement,
-                        argument: "Error: \(error)"
-                    )
+                    AccessibilityAnnouncementQueue.shared.post(announcement: "Error: \(error)")
                 } else {
                     UIAccessibility.post(
                         notification: .layoutChanged,
@@ -384,7 +381,6 @@ extension Components.Molecules {
                     )
                     textView.becomeFirstResponder()
                 }
-
             } else {
                 scrollView?.scrollRectToVisible(
                     validationErrorLabel.frame,
