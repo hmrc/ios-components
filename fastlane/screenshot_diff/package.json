@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "mz": "^2.7.0",
-    "resemblejs": "^3.0.0"
+    "resemblejs": "^4.0.0"
   }
 }
