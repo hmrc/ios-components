@@ -83,6 +83,28 @@ platform :ios do
 
   # GENERAL DEVELOPMENT LANES
   ####################################################################################
+  desc "Sync development profiles for companion app"
+  lane :dev_certs do
+    syncDebugCerts()
+  end
+
+  desc "Regenerate development profiles for companion app"
+  lane :regenerate_dev_certs do
+    match(
+      app_identifier: ["uk.gov.hmrc.ngc.UIComponentsTestApp"],
+      type: "development"
+    )
+  end
+
+  def syncDebugCerts(force_for_new_devices=false)
+    match(
+      app_identifier: ["uk.gov.hmrc.ngc.UIComponentsTestApp"],
+      type: "development",
+      readonly: !force_for_new_devices,
+      force_for_new_devices: force_for_new_devices
+    )
+  end
+
   desc "This will sync adhoc certificates to allow the companion app to build on CI"
   lane:sync_certificates do
     syncAdhocCerts()
@@ -115,6 +137,7 @@ platform :ios do
     device_hash = {}
     device_hash[device_name] = device_udid
     register_devices(devices: device_hash)
+    syncDebugCerts(true)
     syncAdhocCerts(true)
   end
 
