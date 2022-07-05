@@ -124,7 +124,7 @@ platform :ios do
     syncAdhocCerts()
     gym(
       project: options[:project_path],
-      configuration: "Debug",
+      configuration: "Release",
       export_method: "ad-hoc",
       output_directory: options[:output]
     )
