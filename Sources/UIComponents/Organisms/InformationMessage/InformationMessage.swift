@@ -97,7 +97,9 @@ extension Components.Organisms {
                 case .primary:
                     return primaryCTA(model: ctaModel)
                 case .secondary:
-                    return secondaryCTA(model: ctaModel, theme: viewModel.theme)
+                    return secondaryCTA(model: ctaModel)
+                case .tertiary:
+                    return tertiaryCTA(model: ctaModel, theme: viewModel.theme)
                 }
             } ?? []
 
@@ -107,6 +109,34 @@ extension Components.Organisms {
         }
 
         private func primaryCTA(
+            model: Components.Organisms.InformationMessageCard.CTA
+        ) -> UIButton {
+            let button = UIButton.styled(
+                style: .primary(true, baseline: false),
+                string: model.message
+            )
+
+            if let button = button as? HMRCButton {
+                button.setBackgroundColor(UIColor.Semantic.whiteBackground, for: .normal)
+                button.setBackgroundColor(UIColor.Semantic.secondaryButtonHighlightedBackground, for: .highlighted)
+            } else {
+                fatalError("Something has gone wrong. Button should be HMRCButton type")
+            }
+            button.setTitleColor(UIColor.Semantic.secondaryButtonText, for: .normal)
+
+            if let accessibilityIdentifier = model.accessibilityHint,
+               model.linkType != .inApp && model.linkType != .newScreen {
+                button.accessibilityHint = accessibilityIdentifier
+            }
+
+            button.componentAction { [unowned self] (_) in
+                self.action?(self.model, model)
+            }
+
+            return button
+        }
+
+        private func secondaryCTA(
             model: Components.Organisms.InformationMessageCard.CTA
         ) -> UIButton {
             let button = UIButton.styled(
@@ -134,7 +164,7 @@ extension Components.Organisms {
             return button
         }
 
-        private func secondaryCTA(
+        private func tertiaryCTA(
             model: Components.Organisms.InformationMessageCard.CTA,
             theme: Components.Organisms.InformationMessageCard.MessageModel.Theme
         ) -> UIButton {
@@ -185,7 +215,7 @@ extension Components.Organisms {
                     return bodyTextColor
                 }
             }()
-           
+
             if let button = button as? HMRCButton {
                 button.setBackgroundColor(backgroundColor, for: .normal)
                 button.setBackgroundColor(highlightedBackgroundColor, for: .highlighted)
@@ -223,6 +253,8 @@ extension Components.Organisms {
                 case .primary:
                     style = .primary(true)
                 case .secondary:
+                    style = .secondary
+                case .tertiary:
                     style = .secondary
                 }
 

@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+Added tertiary CTA type to `InformationMessageCard`
 
 ## [6.0.7] - 2022-06-22Z
 ### Changed
