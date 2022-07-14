@@ -447,7 +447,14 @@ extension Components.Organisms.InformationMessageCard: Examplable {
                                 accessibilityHint: "",
                                 linkType: .normal,
                                 displayType: .secondary
-                            )
+                            ),
+                            .init(
+                               message: "CTA Tertiary Message",
+                               link: "",
+                               accessibilityHint: "",
+                               linkType: .normal,
+                               displayType: .tertiary
+                           )
                         ]
                     ),
                     bodyContent: nil
@@ -469,13 +476,13 @@ extension Components.Organisms.InformationMessageCard: Examplable {
                                 message: "Do something",
                                 link: "",
                                 linkType: .normal,
-                                displayType: .primary
+                                displayType: .secondary
                             ),
                             .init(
                                 message: "Do something else",
                                 link: "",
                                 linkType: .normal,
-                                displayType: .secondary
+                                displayType: .tertiary
                             )
                         ]
                     ),
@@ -495,7 +502,7 @@ extension Components.Organisms.InformationMessageCard: Examplable {
                             message: "Do something with a long long message",
                             link: "",
                             linkType: .normal,
-                            displayType: .primary
+                            displayType: .secondary
                         )
                     ]
                 ),
