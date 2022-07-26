@@ -323,17 +323,17 @@
       };
       "OBJ_143" = {
          isa = "PBXFileReference";
-         path = "temp.xcworkspace";
+         path = "CompanionApp";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_144" = {
          isa = "PBXFileReference";
-         path = "CompanionApp";
+         path = "fastlane";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_145" = {
          isa = "PBXFileReference";
-         path = "fastlane";
+         path = "Untitled.xcworkspace";
          sourceTree = "SOURCE_ROOT";
       };
       "OBJ_146" = {
