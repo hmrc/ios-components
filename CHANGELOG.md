@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [7.0.0] - 2022-07-26Z
 ### Added
 Change to Action and Outline CTA types in `InformationMessageCard`
 
