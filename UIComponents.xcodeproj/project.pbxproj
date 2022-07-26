@@ -331,11 +331,6 @@
          path = "fastlane";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_145" = {
-         isa = "PBXFileReference";
-         path = "Untitled.xcworkspace";
-         sourceTree = "SOURCE_ROOT";
-      };
       "OBJ_146" = {
          isa = "PBXFileReference";
          path = "LICENSE";
@@ -1575,7 +1570,6 @@
             "OBJ_140",
             "OBJ_143",
             "OBJ_144",
-            "OBJ_145",
             "OBJ_146",
             "OBJ_147",
             "OBJ_148",
