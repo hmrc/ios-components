@@ -102,9 +102,8 @@ public extension Components.Organisms.InformationMessageCard {
         }
 
         public enum DisplayType {
-            case primary
-            case secondary
-            case tertiary
+            case action
+            case outline
         }
 
         public init(

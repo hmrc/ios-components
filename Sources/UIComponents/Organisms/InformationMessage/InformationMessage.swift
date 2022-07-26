@@ -94,12 +94,10 @@ extension Components.Organisms {
 
             let buttons = viewModel.headline.ctas?.map { ctaModel -> UIButton in
                 switch ctaModel.displayType {
-                case .primary:
-                    return primaryCTA(model: ctaModel)
-                case .secondary:
-                    return secondaryCTA(model: ctaModel)
-                case .tertiary:
-                    return tertiaryCTA(model: ctaModel, theme: viewModel.theme)
+                case .action:
+                    return actionCTA(model: ctaModel)
+                case .outline:
+                    return outlineCTA(model: ctaModel, theme: viewModel.theme)
                 }
             } ?? []
 
@@ -108,7 +106,7 @@ extension Components.Organisms {
             return warningParentCard
         }
 
-        private func primaryCTA(
+        private func actionCTA(
             model: Components.Organisms.InformationMessageCard.CTA
         ) -> UIButton {
             let button = UIButton.styled(
@@ -136,35 +134,7 @@ extension Components.Organisms {
             return button
         }
 
-        private func secondaryCTA(
-            model: Components.Organisms.InformationMessageCard.CTA
-        ) -> UIButton {
-            let button = UIButton.styled(
-                style: .primary(true, baseline: false),
-                string: model.message
-            )
-            
-            if let button = button as? HMRCButton {
-                button.setBackgroundColor(UIColor.Semantic.whiteBackground, for: .normal)
-                button.setBackgroundColor(UIColor.Semantic.secondaryButtonHighlightedBackground, for: .highlighted)
-            } else {
-                fatalError("Something has gone wrong. Button should be HMRCButton type")
-            }
-            button.setTitleColor(UIColor.Semantic.secondaryButtonText, for: .normal)
-            
-            if let accessibilityIdentifier = model.accessibilityHint,
-               model.linkType != .inApp && model.linkType != .newScreen {
-                button.accessibilityHint = accessibilityIdentifier
-            }
-            
-            button.componentAction { [unowned self] (_) in
-                self.action?(self.model, model)
-            }
-            
-            return button
-        }
-
-        private func tertiaryCTA(
+        private func outlineCTA(
             model: Components.Organisms.InformationMessageCard.CTA,
             theme: Components.Organisms.InformationMessageCard.MessageModel.Theme
         ) -> UIButton {
@@ -250,11 +220,9 @@ extension Components.Organisms {
             viewModel.ctas?.forEach { ctaModel in
                 let style: ButtonStyle
                 switch ctaModel.displayType {
-                case .primary:
+                case .action:
                     style = .primary(true)
-                case .secondary:
-                    style = .secondary
-                case .tertiary:
+                case .outline:
                     style = .secondary
                 }
 

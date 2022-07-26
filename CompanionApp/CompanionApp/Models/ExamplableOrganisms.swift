@@ -435,25 +435,18 @@ extension Components.Organisms.InformationMessageCard: Examplable {
                         title: "Placeholder",
                         ctas: [
                             .init(
-                                message: "CTA Primary Message",
+                                message: "CTA Action Message",
                                 link: "",
                                 accessibilityHint: "",
                                 linkType: .normal,
-                                displayType: .primary
-                            ),
-                             .init(
-                                message: "CTA Secondary Message",
-                                link: "",
-                                accessibilityHint: "",
-                                linkType: .normal,
-                                displayType: .secondary
+                                displayType: .action
                             ),
                             .init(
-                               message: "CTA Tertiary Message",
+                               message: "CTA Outline Message",
                                link: "",
                                accessibilityHint: "",
                                linkType: .normal,
-                               displayType: .tertiary
+                               displayType: .outline
                            )
                         ]
                     ),
@@ -476,13 +469,13 @@ extension Components.Organisms.InformationMessageCard: Examplable {
                                 message: "Do something",
                                 link: "",
                                 linkType: .normal,
-                                displayType: .secondary
+                                displayType: .action
                             ),
                             .init(
                                 message: "Do something else",
                                 link: "",
                                 linkType: .normal,
-                                displayType: .tertiary
+                                displayType: .outline
                             )
                         ]
                     ),
@@ -502,7 +495,7 @@ extension Components.Organisms.InformationMessageCard: Examplable {
                             message: "Do something with a long long message",
                             link: "",
                             linkType: .normal,
-                            displayType: .secondary
+                            displayType: .action
                         )
                     ]
                 ),
