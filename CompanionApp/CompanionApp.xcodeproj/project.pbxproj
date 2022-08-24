@@ -38,6 +38,9 @@
 		DA5F650B270604400032AE1C /* Files.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5F650A270604400032AE1C /* Files.swift */; };
 		DA99A77327045609000690D8 /* UITableView+Automation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99A77227045609000690D8 /* UITableView+Automation.swift */; };
 		DA99A776270456AC000690D8 /* UIView+Automation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA99A775270456AC000690D8 /* UIView+Automation.swift */; };
+		E99298BE28B4C4F000A3141C /* EditableValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99298BD28B4C4F000A3141C /* EditableValueView.swift */; };
+		E99298C028B4C5C300A3141C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99298BF28B4C5C200A3141C /* ViewController.swift */; };
+		E99298C328B4E70000A3141C /* EditableValueGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99298C228B4E70000A3141C /* EditableValueGroupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,9 @@
 		DA5F650A270604400032AE1C /* Files.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
 		DA99A77227045609000690D8 /* UITableView+Automation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Automation.swift"; sourceTree = "<group>"; };
 		DA99A775270456AC000690D8 /* UIView+Automation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Automation.swift"; sourceTree = "<group>"; };
+		E99298BD28B4C4F000A3141C /* EditableValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableValueView.swift; sourceTree = "<group>"; };
+		E99298BF28B4C5C200A3141C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E99298C228B4E70000A3141C /* EditableValueGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableValueGroupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +143,7 @@
 				6C9878EB255021E300C5F3DF /* Organisms */,
 				6C9878CE255021B900C5F3DF /* AppDelegate.swift */,
 				6C9878D0255021B900C5F3DF /* SceneDelegate.swift */,
+				E99298C128B4C5C900A3141C /* EditableValue */,
 				6C9878D4255021B900C5F3DF /* Main.storyboard */,
 				6C9878D7255021BA00C5F3DF /* Assets.xcassets */,
 				6C9878D9255021BA00C5F3DF /* LaunchScreen.storyboard */,
@@ -232,6 +239,16 @@
 				DA5F64FA2704ADFD0032AE1C /* ScreenCapture.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		E99298C128B4C5C900A3141C /* EditableValue */ = {
+			isa = PBXGroup;
+			children = (
+				E99298BF28B4C5C200A3141C /* ViewController.swift */,
+				E99298BD28B4C4F000A3141C /* EditableValueView.swift */,
+				E99298C228B4E70000A3141C /* EditableValueGroupView.swift */,
+			);
+			path = EditableValue;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,9 +367,12 @@
 				6C9878FD255021E300C5F3DF /* ColourView.swift in Sources */,
 				6C9878F7255021E300C5F3DF /* AtomsViewController.swift in Sources */,
 				6C9878CF255021B900C5F3DF /* AppDelegate.swift in Sources */,
+				E99298BE28B4C4F000A3141C /* EditableValueView.swift in Sources */,
 				6C9878F5255021E300C5F3DF /* ExamplableOrganisms.swift in Sources */,
+				E99298C328B4E70000A3141C /* EditableValueGroupView.swift in Sources */,
 				6C9878D1255021B900C5F3DF /* SceneDelegate.swift in Sources */,
 				6C9878FA255021E300C5F3DF /* OrganismsViewController.swift in Sources */,
+				E99298C028B4C5C300A3141C /* ViewController.swift in Sources */,
 				6C9878F6255021E300C5F3DF /* AtomGroupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,7 +667,7 @@
 			repositoryURL = "https://github.com/hmrc/ios-components.git";
 			requirement = {
 				kind = exactVersion;
-				version = 7.0.0;
+				version = 6.0.8;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

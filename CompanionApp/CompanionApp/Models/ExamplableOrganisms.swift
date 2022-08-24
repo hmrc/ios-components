@@ -439,14 +439,14 @@ extension Components.Organisms.InformationMessageCard: Examplable {
                                 link: "",
                                 accessibilityHint: "",
                                 linkType: .normal,
-                                displayType: .action
+                                displayType: .primary
                             ),
                             .init(
                                message: "CTA Outline Message",
                                link: "",
                                accessibilityHint: "",
                                linkType: .normal,
-                               displayType: .outline
+                               displayType: .secondary
                            )
                         ]
                     ),
@@ -469,13 +469,13 @@ extension Components.Organisms.InformationMessageCard: Examplable {
                                 message: "Do something",
                                 link: "",
                                 linkType: .normal,
-                                displayType: .action
+                                displayType: .primary
                             ),
                             .init(
                                 message: "Do something else",
                                 link: "",
                                 linkType: .normal,
-                                displayType: .outline
+                                displayType: .secondary
                             )
                         ]
                     ),
@@ -495,7 +495,7 @@ extension Components.Organisms.InformationMessageCard: Examplable {
                             message: "Do something with a long long message",
                             link: "",
                             linkType: .normal,
-                            displayType: .action
+                            displayType: .primary
                         )
                     ]
                 ),

@@ -31,7 +31,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard !isUnitTesting else { return }
         #endif
 
-        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()!
+        window?.rootViewController = ViewController(nibName: nil, bundle: nil)
+//        window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()!
         window?.makeKeyAndVisible()
     }
 
