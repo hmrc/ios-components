@@ -86,7 +86,7 @@ extension UIColor {
         open var textInputLeftViewTint = UIColor(darkColour: UIColor.Named.grey1.colour, lightColour: UIColor.Named.grey1.colour)
         open var secondaryButtonText = UIColor(darkColour: UIColor.Named.blue.colour, lightColour: UIColor.Named.blue.colour)
         open var secondaryButtonBackground = UIColor(darkColour: UIColor.clear, lightColour: UIColor.clear)
-        open var secondaryButtonHighlightedBackground = UIColor(darkColour: UIColor.Named.blue.colour.darken(0.84), lightColour: UIColor.Named.blue.colour.lighten(0.84))
+        open var secondaryButtonHighlightedBackground = UIColor(darkColour: UIColor.white.withAlphaComponent(0.4), lightColour: UIColor.Named.blue.colour.lighten(0.84))
         open var whiteBackground = UIColor(darkColour: UIColor.Named.grey3.colour, lightColour: UIColor.Named.white.colour)
     }
 }
