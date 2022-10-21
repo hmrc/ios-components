@@ -1,23 +1,16 @@
 {
-  "pins" : [
-    {
-      "identity" : "ios-components",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/hmrc/ios-components.git",
-      "state" : {
-        "revision" : "9d8108df0dea642a07103798a40f17cd03999396",
-        "version" : "6.0.8"
+  "object": {
+    "pins": [
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/SnapKit/SnapKit.git",
+        "state": {
+          "branch": null,
+          "revision": "f222cbdf325885926566172f6f5f06af95473158",
+          "version": "5.6.0"
+        }
       }
-    },
-    {
-      "identity" : "snapkit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/SnapKit/SnapKit.git",
-      "state" : {
-        "revision" : "f222cbdf325885926566172f6f5f06af95473158",
-        "version" : "5.6.0"
-      }
-    }
-  ],
-  "version" : 2
+    ]
+  },
+  "version": 1
 }

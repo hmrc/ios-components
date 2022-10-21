@@ -70,6 +70,7 @@
 		6C9878F1255021E300C5F3DF /* ColourView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColourView.swift; sourceTree = "<group>"; };
 		6C9878F2255021E300C5F3DF /* ExampleProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleProtocol.swift; sourceTree = "<group>"; };
 		6C9878F3255021E300C5F3DF /* ExampleText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleText.swift; sourceTree = "<group>"; };
+		CA78CB7629017FD60033EBE3 /* ios-components */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "ios-components"; path = ..; sourceTree = "<group>"; };
 		DA539D1B2703672A00D0A45E /* Screenshots.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Screenshots.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA539D1D2703672A00D0A45E /* AtomScreenshots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomScreenshots.swift; sourceTree = "<group>"; };
 		DA539D1F2703672A00D0A45E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -109,6 +110,7 @@
 		6C9878C2255021B900C5F3DF = {
 			isa = PBXGroup;
 			children = (
+				CA78CB7629017FD60033EBE3 /* ios-components */,
 				6C9878CD255021B900C5F3DF /* CompanionApp */,
 				DA539D1C2703672A00D0A45E /* Screenshots */,
 				6C9878CC255021B900C5F3DF /* Products */,

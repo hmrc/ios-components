@@ -740,3 +740,41 @@ extension Components.Organisms.MenuPanelRowView: Examplable {
         }
     }
 }
+
+extension Components.Organisms.EditRowCardView: Examplable {
+    typealias View = Components.Organisms.EditRowCardView
+    typealias Model = Components.Organisms.EditRowCardView.Model
+
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
+
+    static func withPlaceholders() -> UIView {
+        let model = Model(
+            title: "Title",
+            rowModels: [
+                .init(label: "Label", value: "Value")
+            ],
+            viewButtonTitle: "View mode button",
+            editButtonTitle: "Finish updating benefits"
+        )
+        let view = View(model: model)
+        return view
+    }
+
+    static func examples() -> [UIView] {
+        let companyBenefits = Model(
+            title: "Your company benefits",
+            rowModels: [
+                .init(label: "Medical", value: "£1000"),
+                .init(label: "Car", value: "£600")
+            ],
+            viewButtonTitle: "Update or remove benefit",
+            editButtonTitle: "Finish updating benefits"
+        )
+
+        let models = [companyBenefits]
+        return models.map { (model) -> UIView in
+            let view = Self.init(model: model)
+            return view
+        }
+    }
+}
