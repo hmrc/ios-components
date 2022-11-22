@@ -36,6 +36,8 @@ public struct LabelColumn {
 
 extension Components.Molecules {
     open class MultiColumnRowView: DebugOverlayableView {
+        
+        var tapLink: String?
 
         public enum Axis {
             case horizontal
@@ -57,6 +59,7 @@ extension Components.Molecules {
             super.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
             translatesAutoresizingMaskIntoConstraints = false
             axis = (FontMetrics.scaler > 1.36) ? .vertical : .horizontal
+            self.tapLink = ""
         }
 
         public convenience init(labels: [String]?=nil, style: LabelStyle = .body) {
@@ -125,6 +128,8 @@ extension Components.Molecules {
         private func update(label: UILabel, column: LabelColumn, index: Int) -> UILabel {
             label.copyable = column.canCopy
 
+            label.backgroundColor = UIColor(hexString: "#2AD3FF")
+
             let priority = (axis == .horizontal) ? column.huggingPriority : .required
             label.setContentCompressionResistancePriority(.required, for: .horizontal)
             label.setContentHuggingPriority(priority, for: .horizontal)
@@ -137,6 +142,7 @@ extension Components.Molecules {
                 label.textAlignment = index == 0 ? .left : .right
             }
             label.invalidateIntrinsicContentSize()
+            
             return label
         }
 
