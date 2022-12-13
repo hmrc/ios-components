@@ -316,7 +316,8 @@ extension Components.Molecules {
             if validationErrorLabel.frame.width > 0 {
                 validationErrorLabel.preferredMaxLayoutWidth = validationErrorLabel.frame.width
             }
-            validationErrorLabel.text = "Error: \(validationError ?? "")"
+            validationErrorLabel.text = validationError
+            validationErrorLabel.accessibilityLabel = "Error: \(validationError ?? "")"
 
             updateColours()
         }
