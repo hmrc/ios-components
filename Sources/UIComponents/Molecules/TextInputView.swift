@@ -155,7 +155,7 @@ extension Components.Molecules {
         }
 
         public lazy var validationErrorLabel = UILabel.buildBodyLabel {
-            $0.isAccessibilityElement = false
+            $0.isAccessibilityElement = true
             $0.adjustsFontForContentSizeCategory = true
             $0.setContentHuggingPriority(.required, for: .vertical)
             $0.setContentCompressionResistancePriority(.required, for: .vertical)
@@ -317,13 +317,7 @@ extension Components.Molecules {
                 validationErrorLabel.preferredMaxLayoutWidth = validationErrorLabel.frame.width
             }
             validationErrorLabel.text = validationError
-
-            if let validationError = validationError {
-                textView.accessibilityLabel =
-                    "Error: \(validationError) - \(model.title ?? "")"
-            } else {
-                textView.accessibilityLabel = model.title ?? ""
-            }
+            validationErrorLabel.accessibilityLabel = "Error: \(validationError ?? "")"
 
             updateColours()
         }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		57328A0B2948D6D800E3AF19 /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 57328A0A2948D6D800E3AF19 /* UIComponents */; };
 		6C9878CF255021B900C5F3DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9878CE255021B900C5F3DF /* AppDelegate.swift */; };
 		6C9878D1255021B900C5F3DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9878D0255021B900C5F3DF /* SceneDelegate.swift */; };
 		6C9878D6255021B900C5F3DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C9878D4255021B900C5F3DF /* Main.storyboard */; };
@@ -24,7 +25,6 @@
 		6C9878FD255021E300C5F3DF /* ColourView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9878F1255021E300C5F3DF /* ColourView.swift */; };
 		6C9878FE255021E300C5F3DF /* ExampleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9878F2255021E300C5F3DF /* ExampleProtocol.swift */; };
 		6C9878FF255021E300C5F3DF /* ExampleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9878F3255021E300C5F3DF /* ExampleText.swift */; };
-		6CB8E11B25681C83001780A3 /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 6CB8E11A25681C83001780A3 /* UIComponents */; };
 		DA539D1E2703672A00D0A45E /* AtomScreenshots.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA539D1D2703672A00D0A45E /* AtomScreenshots.swift */; };
 		DA539D26270367EF00D0A45E /* ViewControllerTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA539D25270367EF00D0A45E /* ViewControllerTestCase.swift */; };
 		DA539D282703683700D0A45E /* XCTestCase+Automation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA539D272703683700D0A45E /* XCTestCase+Automation.swift */; };
@@ -92,7 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CB8E11B25681C83001780A3 /* UIComponents in Frameworks */,
+				57328A0B2948D6D800E3AF19 /* UIComponents in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +251,7 @@
 			);
 			name = CompanionApp;
 			packageProductDependencies = (
-				6CB8E11A25681C83001780A3 /* UIComponents */,
+				57328A0A2948D6D800E3AF19 /* UIComponents */,
 			);
 			productName = CompanionApp;
 			productReference = 6C9878CB255021B900C5F3DF /* CompanionApp.app */;
@@ -303,7 +303,7 @@
 			);
 			mainGroup = 6C9878C2255021B900C5F3DF;
 			packageReferences = (
-				6CB8E11925681C83001780A3 /* XCRemoteSwiftPackageReference "ios-components" */,
+				57328A092948D6D800E3AF19 /* XCRemoteSwiftPackageReference "ios-components" */,
 			);
 			productRefGroup = 6C9878CC255021B900C5F3DF /* Products */;
 			projectDirPath = "";
@@ -642,7 +642,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6CB8E11925681C83001780A3 /* XCRemoteSwiftPackageReference "ios-components" */ = {
+		57328A092948D6D800E3AF19 /* XCRemoteSwiftPackageReference "ios-components" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmrc/ios-components.git";
 			requirement = {
@@ -653,9 +653,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6CB8E11A25681C83001780A3 /* UIComponents */ = {
+		57328A0A2948D6D800E3AF19 /* UIComponents */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 6CB8E11925681C83001780A3 /* XCRemoteSwiftPackageReference "ios-components" */;
+			package = 57328A092948D6D800E3AF19 /* XCRemoteSwiftPackageReference "ios-components" */;
 			productName = UIComponents;
 		};
 /* End XCSwiftPackageProductDependency section */
