@@ -644,7 +644,7 @@
 /* Begin XCRemoteSwiftPackageReference section */
 		6CB8E11925681C83001780A3 /* XCRemoteSwiftPackageReference "ios-components" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hmrc/ios-components.git";
+			repositoryURL = "file:///Users/ashleemuscroft/Apps/ios-components";
 			requirement = {
 				kind = exactVersion;
 				version = 7.0.1;

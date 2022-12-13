@@ -2,11 +2,11 @@
   "pins" : [
     {
       "identity" : "ios-components",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/hmrc/ios-components.git",
+      "kind" : "localSourceControl",
+      "location" : "/Users/ashleemuscroft/Apps/ios-components",
       "state" : {
-        "revision" : "9d8108df0dea642a07103798a40f17cd03999396",
-        "version" : "6.0.8"
+        "revision" : "987c4cd6a04adc60d2666df282d8c4b811613c8d",
+        "version" : "7.0.1"
       }
     },
     {
