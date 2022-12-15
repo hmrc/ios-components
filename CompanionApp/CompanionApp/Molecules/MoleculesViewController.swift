@@ -41,7 +41,8 @@ class MoleculesViewController: UIViewController {
         (named: "Warning View", vc: SingleComponentViewController<Components.Molecules.WarningView>()),
         (named: "Tab Bar View", vc: SingleComponentViewController<Components.Molecules.TabBarView>()),
         (named: "Select Row View", vc: SingleComponentViewController<Components.Molecules.SelectRowView>()),
-        (named: "Select Row Group View", vc: SingleComponentViewController<Components.Molecules.SelectRowGroupView>())
+        (named: "Select Row Group View", vc: SingleComponentViewController<Components.Molecules.SelectRowGroupView>()),
+        (named: "Donut Chart View", vc: SingleComponentViewController<Components.Molecules.DonutChartView>())
     ]
 
     private func showMolecule(at indexPath: IndexPath) {

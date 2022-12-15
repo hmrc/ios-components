@@ -578,3 +578,79 @@ extension Components.Molecules.SwitchRowView: Examplable {
         }
     }
 }
+
+extension Components.Molecules.DonutChartView: Examplable {
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
+
+    static func withPlaceholders() -> UIView {
+        let chart = Components.Molecules.DonutChartView(
+            model: .init(
+                primaryColor: .Named.teal.colour,
+                secondaryColor: .init(hexString: "#003078")
+            )
+        )
+        chart.setValues(ratio: 0.34, animated: false)
+        NSLayoutConstraint.activate([
+            chart.heightAnchor.constraint(equalToConstant: 200),
+            chart.widthAnchor.constraint(equalToConstant: 200)
+        ])
+        return chart
+    }
+
+    static func examples() -> [UIView] {
+        let chart1 = Components.Molecules.DonutChartView(
+            model: .init(
+                primaryColor: .Named.yellow.colour,
+                secondaryColor: .Named.pink.colour
+            )
+        )
+        let chart2 = Components.Molecules.DonutChartView(
+            model: .init(
+                primaryColor: .Named.teal.colour,
+                secondaryColor: .init(hexString: "#003078")
+            )
+        )
+        return [
+            ExampleDonutChartView(donut: chart1, ratio: 0.25),
+            ExampleDonutChartView(donut: chart2, ratio: 0.1),
+        ]
+    }
+
+    class ExampleDonutChartView: Components.Atoms.CardView {
+        let donut: Components.Molecules.DonutChartView
+        var ratio: CGFloat
+
+        let button = UIButton.styled(style: .primary(true), string: "Animate")
+        let slider = UISlider(frame: .zero)
+
+        init(donut: Components.Molecules.DonutChartView, ratio: CGFloat) {
+            NSLayoutConstraint.activate([
+                donut.heightAnchor.constraint(equalToConstant: 200),
+                donut.widthAnchor.constraint(equalToConstant: 200)
+            ])
+            self.donut = donut
+            self.ratio = ratio
+            slider.value = Float(ratio)
+            super.init(components: [
+                donut,
+                slider,
+                button
+            ])
+            button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+            slider.addTarget(self, action: #selector(valueChanged), for: .valueChanged)
+            donut.setValues(ratio: 0, animated: false)
+        }
+
+        @objc func didTapButton() {
+            donut.setValues(ratio: ratio, animated: true, fromCurrent: true)
+        }
+
+        @objc func valueChanged() {
+            ratio = CGFloat(slider.value)
+        }
+
+        required init?(coder aDecoder: NSCoder) {
+            fatalError("init(coder:) has not been implemented")
+        }
+    }
+}
