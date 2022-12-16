@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		58526577294B24E40045310A /* DonutChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58526576294B24E30045310A /* DonutChartView.swift */; };
+		58C4ED6E294CA63100DBF840 /* EditableListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C4ED6D294CA63100DBF840 /* EditableListView.swift */; };
 		OBJ_158 /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_104 /* Constraint.swift */; };
 		OBJ_159 /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_105 /* ConstraintAttributes.swift */; };
 		OBJ_160 /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_106 /* ConstraintConfig.swift */; };
@@ -136,6 +137,7 @@
 
 /* Begin PBXFileReference section */
 		58526576294B24E30045310A /* DonutChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonutChartView.swift; sourceTree = "<group>"; };
+		58C4ED6D294CA63100DBF840 /* EditableListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableListView.swift; sourceTree = "<group>"; };
 		OBJ_10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		OBJ_103 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/ashleemuscroft/Apps/ios-components/.build/checkouts/SnapKit/Package.swift"; sourceTree = "<group>"; };
 		OBJ_104 /* Constraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constraint.swift; sourceTree = "<group>"; };
@@ -439,7 +441,7 @@
 			path = Colors;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -458,7 +460,6 @@
 				OBJ_151 /* Gemfile.lock */,
 				OBJ_152 /* swiftlint_local.sh */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_62 /* Injection */ = {
@@ -536,6 +537,7 @@
 				OBJ_95 /* PrimaryCardView */,
 				OBJ_97 /* StatusCardView */,
 				OBJ_99 /* SummaryRowView.swift */,
+				58C4ED6D294CA63100DBF840 /* EditableListView.swift */,
 			);
 			path = Organisms;
 			sourceTree = "<group>";
@@ -661,7 +663,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_140 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -733,6 +735,7 @@
 				OBJ_206 /* BulletLabelView.swift in Sources */,
 				OBJ_207 /* FlexibleButton.swift in Sources */,
 				OBJ_208 /* NSAttributedString+HMRCStylable.swift in Sources */,
+				58C4ED6E294CA63100DBF840 /* EditableListView.swift in Sources */,
 				OBJ_209 /* SeparatorView.swift in Sources */,
 				OBJ_210 /* UIButton+ComponentBlock.swift in Sources */,
 				OBJ_211 /* UIButton+HMRCStylable.swift in Sources */,
