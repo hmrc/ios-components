@@ -65,5 +65,6 @@ extension UIColor {
         public static var secondaryButtonBackground = semanticColors.secondaryButtonBackground
         public static var secondaryButtonHighlightedBackground = semanticColors.secondaryButtonHighlightedBackground
         public static var whiteBackground = semanticColors.whiteBackground
+        public static var textInputClearButtonTint = semanticColors.textInputClearButtonTint
     }
 }
