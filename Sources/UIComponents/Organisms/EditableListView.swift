@@ -34,9 +34,9 @@ extension Components.Organisms {
                 title: String,
                 rows: [UIView],
                 startEditingButtonTitle: String,
-                startEditingButtonIcon: UIImage?,
+                startEditingButtonIcon: UIImage? = nil,
                 stopEditingButtonTitle: String,
-                stopEditingButtonIcon: UIImage?
+                stopEditingButtonIcon: UIImage? = nil
             ) {
                 self.title = title
                 self.rows = rows
@@ -75,6 +75,7 @@ extension Components.Organisms {
 
         public required init(model: Model?) {
             super.init(components: [titleLabel])
+            editButton.layoutMargins = UIEdgeInsets(top: .spacer16, left: 0, bottom: .spacer16, right: 0)
             editButton.didTapButton = { [unowned self] _ in
                 self.isEditing = !self.isEditing
             }

@@ -740,3 +740,34 @@ extension Components.Organisms.MenuPanelRowView: Examplable {
         }
     }
 }
+
+extension Components.Organisms.EditableListView: Examplable {
+    typealias View = Components.Organisms.EditableListView
+    typealias Model = View.Model
+
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
+//    static var exampleBackgroundColor: UIColor = UIColor.Semantic.menuPageBackground
+
+    static func withPlaceholders() -> UIView {
+        let model = Model(
+            title: "Editable List View",
+            rows: [
+                Components.Molecules.MultiColumnRowView(labels: ["Item 1", "£100"], style: .body),
+                Components.Molecules.MultiColumnRowView(labels: ["Item 2", "£200"], style: .body),
+                Components.Molecules.MultiColumnRowView(labels: ["Item 3", "£300"], style: .body),
+                Components.Molecules.MultiColumnRowView(labels: ["Item 4", "£400"], style: .body),
+            ],
+            startEditingButtonTitle: "Tap to edit",
+            startEditingButtonIcon: UIImage(named: "Edit"),
+            stopEditingButtonTitle: "Save changes",
+            stopEditingButtonIcon: UIImage(named: "Tick")
+        )
+        return View(model: model)
+    }
+
+    static func examples() -> [UIView] {
+        return [
+        ]
+    }
+
+}
