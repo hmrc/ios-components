@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- Set `TextInputView` clear button tint colour to `grey1` from `grey2`
 
 ## [7.0.2] - 2022-12-13Z
 ### Changed

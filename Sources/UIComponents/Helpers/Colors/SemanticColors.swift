@@ -46,6 +46,7 @@ public protocol SemanticColors {
     var secondaryButtonBackground: UIColor { get set }
     var secondaryButtonHighlightedBackground: UIColor { get set }
     var whiteBackground: UIColor { get set }
+    var textInputClearButtonTint: UIColor { get set }
 }
 
 extension UIColor {
@@ -88,5 +89,6 @@ extension UIColor {
         open var secondaryButtonBackground = UIColor(darkColour: UIColor.clear, lightColour: UIColor.clear)
         open var secondaryButtonHighlightedBackground = UIColor(darkColour: UIColor.white.withAlphaComponent(0.4), lightColour: UIColor.Named.blue.colour.lighten(0.84))
         open var whiteBackground = UIColor(darkColour: UIColor.Named.grey3.colour, lightColour: UIColor.Named.white.colour)
+        open var textInputClearButtonTint = UIColor(darkColour: UIColor.Named.grey1.colour, lightColour: UIColor.Named.grey1.colour)
     }
 }

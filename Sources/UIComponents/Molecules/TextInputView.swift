@@ -176,7 +176,7 @@ extension Components.Molecules {
                 in: Bundle.resource,
                 compatibleWith: nil
             ), for: .normal)
-            $0.tintColor = UIColor.Named.grey2.colour
+            $0.tintColor = UIColor.Semantic.textInputClearButtonTint
         }
 
         public let validationErrorAndCharCountStackView: UIStackView = .build {
