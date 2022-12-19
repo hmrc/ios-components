@@ -177,8 +177,8 @@ extension Components.Organisms {
                 contentView.leftAnchor.constraint(equalTo: leftAnchor),
                 contentView.topAnchor.constraint(equalTo: topAnchor),
                 contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-                cnsContentRight!,
-                cnsContentRight2!
+                cnsContentRight!
+//                cnsContentRight2!
             ])
         }
 
