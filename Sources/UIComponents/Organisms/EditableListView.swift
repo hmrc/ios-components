@@ -187,8 +187,9 @@ extension Components.Organisms {
         }
 
         public func setEditing(_ isEditing: Bool, animated: Bool) {
+            self.cnsContentRight?.constant = isEditing ? -100 : 0
             UIView.animate(withDuration: animated ? 0.3 : 0) {
-                self.cnsContentRight?.constant = isEditing ? -100 : 0
+                self.setNeedsLayout()
             }
         }
     }
