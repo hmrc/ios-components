@@ -122,7 +122,7 @@ extension Components.Organisms {
 
             addSubview(stackView)
             stackView.axis = .horizontal
-            stackView.distribution = .fill
+            stackView.distribution = .equalSpacing
             stackView.alignment = .center
             stackView.snp.makeConstraints { make in
                 make.edges.equalTo(self.snp.margins)
@@ -135,6 +135,11 @@ extension Components.Organisms {
             editButton.setContentCompressionResistancePriority(.required, for: .vertical)
             editButton.setContentHuggingPriority(.required, for: .horizontal)
             editButton.setContentHuggingPriority(.required, for: .vertical)
+
+            content.setContentCompressionResistancePriority(.required, for: .horizontal)
+            content.setContentCompressionResistancePriority(.required, for: .vertical)
+            content.setContentHuggingPriority(.defaultLow, for: .horizontal)
+            content.setContentHuggingPriority(.defaultHigh, for: .vertical)
 
             stackView.addArrangedSubviews([content, editButton])
         }
