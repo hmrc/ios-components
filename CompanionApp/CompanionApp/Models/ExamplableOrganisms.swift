@@ -760,7 +760,8 @@ extension Components.Organisms.EditableListView: Examplable {
             startEditingButtonTitle: "Tap to edit",
             startEditingButtonIcon: UIImage(named: "Edit"),
             stopEditingButtonTitle: "Save changes",
-            stopEditingButtonIcon: UIImage(named: "Tick")
+            stopEditingButtonIcon: UIImage(named: "Tick"),
+            rowEditButtonTitle: "Edit"
         )
         return View(model: model)
     }

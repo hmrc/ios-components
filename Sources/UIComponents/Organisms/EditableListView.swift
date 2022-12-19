@@ -122,6 +122,7 @@ extension Components.Organisms {
 
             addSubview(stackView)
             stackView.axis = .horizontal
+            stackView.distribution = .fillProportionally
             stackView.snp.makeConstraints { make in
                 make.edges.equalTo(self.snp.margins)
             }
@@ -129,6 +130,10 @@ extension Components.Organisms {
             self.onTapEdit = onTapEdit
             editButton = .styled(style: .secondary, string: buttonText)
             editButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
+            editButton.setContentCompressionResistancePriority(.required, for: .horizontal)
+            editButton.setContentCompressionResistancePriority(.required, for: .vertical)
+            editButton.setContentHuggingPriority(.required, for: .horizontal)
+            editButton.setContentHuggingPriority(.required, for: .vertical)
 
             stackView.addArrangedSubviews([content, editButton])
         }
