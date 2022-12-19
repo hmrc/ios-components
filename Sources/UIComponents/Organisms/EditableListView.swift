@@ -117,31 +117,53 @@ extension Components.Organisms {
         public private(set)var editButton: UIButton = .styled(style: .secondary)
         private var onTapEdit: VoidHandler?
 
+//        init(content: UIView, buttonText: String, onTapEdit: @escaping VoidHandler) {
+//            super.init(frame: CGRect.zero)
+//
+//            addSubview(stackView)
+//            stackView.axis = .horizontal
+//            stackView.distribution = .equalSpacing
+//            stackView.alignment = .center
+//            stackView.snp.makeConstraints { make in
+//                make.edges.equalTo(self.snp.margins)
+//            }
+//
+//            self.onTapEdit = onTapEdit
+//            editButton = .styled(style: .secondary, string: buttonText)
+//            editButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
+//            editButton.setContentCompressionResistancePriority(.required, for: .horizontal)
+//            editButton.setContentCompressionResistancePriority(.required, for: .vertical)
+//            editButton.setContentHuggingPriority(.required, for: .horizontal)
+//            editButton.setContentHuggingPriority(.required, for: .vertical)
+//
+//            content.setContentCompressionResistancePriority(.required, for: .horizontal)
+//            content.setContentCompressionResistancePriority(.required, for: .vertical)
+//            content.setContentHuggingPriority(.defaultLow, for: .horizontal)
+//            content.setContentHuggingPriority(.defaultHigh, for: .vertical)
+//
+//            stackView.addArrangedSubviews([content, editButton])
+//        }
+
+        private var cnsContentRight: NSLayoutConstraint?
+
         init(content: UIView, buttonText: String, onTapEdit: @escaping VoidHandler) {
             super.init(frame: CGRect.zero)
-
-            addSubview(stackView)
-            stackView.axis = .horizontal
-            stackView.distribution = .equalSpacing
-            stackView.alignment = .center
-            stackView.snp.makeConstraints { make in
-                make.edges.equalTo(self.snp.margins)
-            }
 
             self.onTapEdit = onTapEdit
             editButton = .styled(style: .secondary, string: buttonText)
             editButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
-            editButton.setContentCompressionResistancePriority(.required, for: .horizontal)
-            editButton.setContentCompressionResistancePriority(.required, for: .vertical)
-            editButton.setContentHuggingPriority(.required, for: .horizontal)
-            editButton.setContentHuggingPriority(.required, for: .vertical)
 
-            content.setContentCompressionResistancePriority(.required, for: .horizontal)
-            content.setContentCompressionResistancePriority(.required, for: .vertical)
-            content.setContentHuggingPriority(.defaultLow, for: .horizontal)
-            content.setContentHuggingPriority(.defaultHigh, for: .vertical)
-
-            stackView.addArrangedSubviews([content, editButton])
+            addSubview(editButton)
+            self.cnsContentRight = content.rightAnchor.constraint(equalTo: rightAnchor)
+            NSLayoutConstraint.activate([
+                editButton.rightAnchor.constraint(equalTo: rightAnchor),
+                editButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+                content.leftAnchor.constraint(equalTo: leftAnchor),
+                content.topAnchor.constraint(equalTo: topAnchor),
+                content.bottomAnchor.constraint(equalTo: bottomAnchor),
+                content.leftAnchor.constraint(equalTo: leftAnchor),
+                cnsContentRight!
+            ])
         }
 
         public required init?(coder aDecoder: NSCoder) {
@@ -150,6 +172,10 @@ extension Components.Organisms {
 
         @objc func didTapButton(_ sender: UIButton) {
             onTapEdit?()
+        }
+
+        public func setEditing(_ isEditing: Bool) {
+            cnsContentRight?.constant = isEditing ? 100 : 0
         }
     }
 }
