@@ -154,6 +154,7 @@ extension Components.Organisms {
             editButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
 
             addSubview(editButton)
+            addSubview(content)
             self.cnsContentRight = content.rightAnchor.constraint(equalTo: rightAnchor)
             NSLayoutConstraint.activate([
                 editButton.rightAnchor.constraint(equalTo: rightAnchor),
