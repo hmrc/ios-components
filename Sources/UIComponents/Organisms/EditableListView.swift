@@ -75,7 +75,8 @@ extension Components.Organisms {
 
         public required init(model: Model?) {
             super.init(components: [titleLabel])
-            editButton.layoutMargins = UIEdgeInsets(top: .spacer16, left: 0, bottom: .spacer16, right: 0)
+            removePadding()
+//            editButton.layoutMargins = UIEdgeInsets(top: .spacer16, left: 0, bottom: .spacer16, right: 0)
             editButton.didTapButton = { [unowned self] _ in
                 self.isEditing = !self.isEditing
             }
