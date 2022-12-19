@@ -166,10 +166,10 @@ extension Components.Organisms {
             self.cnsContentRight = contentView.rightAnchor.constraint(equalTo: rightAnchor, constant: inset(isEditing: isEditing))
             NSLayoutConstraint.activate([
                 content.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: .spacer16),
-                content.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: .spacer16),
+                content.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -.spacer16),
                 content.topAnchor.constraint(equalTo: contentView.topAnchor),
                 content.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-                editButton.rightAnchor.constraint(equalTo: rightAnchor, constant: .spacer16),
+                editButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -.spacer16),
                 editButton.centerYAnchor.constraint(equalTo: centerYAnchor),
                 contentView.leftAnchor.constraint(equalTo: leftAnchor),
                 contentView.topAnchor.constraint(equalTo: topAnchor),
