@@ -5,7 +5,7 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hmrc/ios-components.git",
       "state" : {
-        "revision" : "1dec0b42b6e2153d669e516987536001782fa0a7"
+        "revision" : "0a86511e8809711664ea6a75e108e0b8ce34a7e3"
       }
     },
     {
