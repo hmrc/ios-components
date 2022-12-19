@@ -122,7 +122,8 @@ extension Components.Organisms {
 
             addSubview(stackView)
             stackView.axis = .horizontal
-            stackView.distribution = .fillProportionally
+            stackView.distribution = .fill
+            stackView.alignment = .center
             stackView.snp.makeConstraints { make in
                 make.edges.equalTo(self.snp.margins)
             }
