@@ -163,13 +163,13 @@ extension Components.Organisms {
             addSubview(contentView)
             contentView.addSubview(content)
 
-            self.cnsContentRight = contentView.rightAnchor.constraint(equalTo: rightAnchor, constant: isEditing ? -100 : 0)
+            self.cnsContentRight = contentView.rightAnchor.constraint(equalTo: rightAnchor, constant: inset(isEditing: isEditing))
             NSLayoutConstraint.activate([
-                content.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-                content.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+                content.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: .spacer16),
+                content.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: .spacer16),
                 content.topAnchor.constraint(equalTo: contentView.topAnchor),
                 content.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-                editButton.rightAnchor.constraint(equalTo: rightAnchor),
+                editButton.rightAnchor.constraint(equalTo: rightAnchor, constant: .spacer16),
                 editButton.centerYAnchor.constraint(equalTo: centerYAnchor),
                 contentView.leftAnchor.constraint(equalTo: leftAnchor),
                 contentView.topAnchor.constraint(equalTo: topAnchor),
@@ -186,8 +186,12 @@ extension Components.Organisms {
             onTapEdit?()
         }
 
+        private func inset(isEditing: Bool) -> CGFloat {
+            return isEditing ? -(editButton.frame.width + .spacer16 + .spacer16) : 0
+        }
+
         public func setEditing(_ isEditing: Bool, animated: Bool) {
-            self.cnsContentRight?.constant = isEditing ? -100 : 0
+            self.cnsContentRight?.constant = inset(isEditing: isEditing)
             UIView.animate(withDuration: animated ? 0.3 : 0) {
                 self.layoutIfNeeded()
 //                self.contentView.layoutIfNeeded()
