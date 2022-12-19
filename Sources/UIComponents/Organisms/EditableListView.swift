@@ -193,8 +193,8 @@ extension Components.Organisms {
         public func setEditing(_ isEditing: Bool, animated: Bool) {
             self.cnsContentRight?.constant = inset(isEditing: isEditing)
             UIView.animate(withDuration: animated ? 0.3 : 0) {
-                self.layoutIfNeeded()
-//                self.contentView.layoutIfNeeded()
+//                self.layoutIfNeeded()
+                self.contentView.layoutIfNeeded()
             }
         }
     }
