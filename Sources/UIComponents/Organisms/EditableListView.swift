@@ -157,6 +157,7 @@ extension Components.Organisms {
             editButton = .styled(style: .secondary, string: buttonText)
             editButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
             addSubview(editButton)
+            editButton.setContentHuggingPriority(.required, for: .vertical)
 
             contentView.translatesAutoresizingMaskIntoConstraints = false
             contentView.backgroundColor = UIColor.Semantic.cardBackground
