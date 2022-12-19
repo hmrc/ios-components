@@ -106,6 +106,7 @@ extension Components.Organisms {
                 print("Edit row")
             } }
             setComponents([titleLabel] + rows + [editButton])
+            rows.forEach { $0.setEditing(self.isEditing) }
             if hasChanged {
                 // animate
             }
