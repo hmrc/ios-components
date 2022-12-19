@@ -69,10 +69,12 @@ extension Components.Organisms {
         private var isEditing: Bool = false {
             didSet {
                 if let model = model {
-                    updateUI(for: model)
+                    updateButton()
+                    rows.forEach { $0.setEditing(isEditing, animated: true) }
                 }
             }
         }
+        private var rows: [EditableRowView] = []
 
         // MARK: - Initialisation
 
@@ -98,23 +100,24 @@ extension Components.Organisms {
                 style: .H5,
                 string: model.title
             )
+            updateButton()
+            self.rows = model.rows.map { EditableRowView(content: $0, isEditing: isEditing, buttonText: "Edit") {
+                print("Edit row")
+            } }
+            setComponents([titleLabel] + rows + [editButton])
+        }
+
+        public func updateButton() {
+            guard let model = model else { return }
             editButton.updateUI(
                 with: isEditing ? model.stopEditingButtonTitle : model.startEditingButtonTitle,
                 icon: isEditing ? model.stopEditingButtonIcon : model.startEditingButtonIcon
             )
-            let rows = model.rows.map { EditableRowView(content: $0, isEditing: isEditing, buttonText: "Edit") {
-                print("Edit row")
-            } }
-            setComponents([titleLabel] + rows + [editButton])
-            rows.forEach { $0.setEditing(self.isEditing) }
-            if hasChanged {
-                // animate
-            }
         }
     }
 
     private class EditableRowView: UIView {
-        public private(set)var stackView = UIStackView()
+        public private(set)var contentView = UIView()
         public private(set)var editButton: UIButton = .styled(style: .secondary)
         private var onTapEdit: VoidHandler?
 
@@ -150,20 +153,27 @@ extension Components.Organisms {
         init(content: UIView, isEditing: Bool, buttonText: String, onTapEdit: @escaping VoidHandler) {
             super.init(frame: CGRect.zero)
 
+            contentView.backgroundColor = UIColor.Semantic.cardBackground
+            addSubview(contentView)
+            contentView.addSubview(content)
+
             self.onTapEdit = onTapEdit
             editButton = .styled(style: .secondary, string: buttonText)
             editButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
-
             addSubview(editButton)
-            addSubview(content)
-            self.cnsContentRight = content.rightAnchor.constraint(equalTo: rightAnchor, constant: isEditing ? -100 : 0)
+
+            self.cnsContentRight = contentView.rightAnchor.constraint(equalTo: rightAnchor, constant: isEditing ? -100 : 0)
             NSLayoutConstraint.activate([
+                content.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+                content.rightAnchor.constraint(equalTo: contentView.rightAnchor),
+                content.topAnchor.constraint(equalTo: contentView.topAnchor),
+                content.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
                 editButton.rightAnchor.constraint(equalTo: rightAnchor),
                 editButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-                content.leftAnchor.constraint(equalTo: leftAnchor),
-                content.topAnchor.constraint(equalTo: topAnchor),
-                content.bottomAnchor.constraint(equalTo: bottomAnchor),
-                content.leftAnchor.constraint(equalTo: leftAnchor),
+                contentView.leftAnchor.constraint(equalTo: leftAnchor),
+                contentView.topAnchor.constraint(equalTo: topAnchor),
+                contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
+                contentView.leftAnchor.constraint(equalTo: leftAnchor),
                 cnsContentRight!
             ])
         }
@@ -176,8 +186,10 @@ extension Components.Organisms {
             onTapEdit?()
         }
 
-        public func setEditing(_ isEditing: Bool) {
-            cnsContentRight?.constant = isEditing ? -100 : 0
+        public func setEditing(_ isEditing: Bool, animated: Bool) {
+            UIView.animate(withDuration: animated ? 0.3 : 0) {
+                self.cnsContentRight?.constant = isEditing ? -100 : 0
+            }
         }
     }
 }
