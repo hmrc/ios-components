@@ -190,7 +190,7 @@ extension Components.Organisms {
             self.cnsContentRight?.constant = isEditing ? -100 : 0
             UIView.animate(withDuration: animated ? 0.3 : 0) {
                 self.layoutIfNeeded()
-                self.contentView.layoutIfNeeded()
+//                self.contentView.layoutIfNeeded()
             }
         }
     }
