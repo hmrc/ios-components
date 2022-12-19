@@ -158,6 +158,7 @@ extension Components.Organisms {
             editButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
             addSubview(editButton)
 
+            contentView.translatesAutoresizingMaskIntoConstraints = false
             contentView.backgroundColor = UIColor.Semantic.cardBackground
             addSubview(contentView)
             contentView.addSubview(content)
