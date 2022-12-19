@@ -149,6 +149,7 @@ extension Components.Organisms {
 //        }
 
         private var cnsContentRight: NSLayoutConstraint?
+        private var cnsContentRight2: NSLayoutConstraint?
 
         init(content: UIView, isEditing: Bool, buttonText: String, onTapEdit: @escaping VoidHandler) {
             super.init(frame: CGRect.zero)
@@ -164,9 +165,11 @@ extension Components.Organisms {
             contentView.addSubview(content)
 
             self.cnsContentRight = contentView.rightAnchor.constraint(equalTo: rightAnchor, constant: inset(isEditing: isEditing))
+//            self.cnsContentRight2 = content.rightAnchor.constraint(equalTo: rightAnchor, constant: inset(isEditing: isEditing))
             NSLayoutConstraint.activate([
                 content.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: .spacer16),
-                content.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -.spacer16),
+                contentView.widthAnchor.constraint(equalTo: content.widthAnchor),
+//                content.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -.spacer16),
                 content.topAnchor.constraint(equalTo: contentView.topAnchor),
                 content.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
                 editButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -.spacer16),
@@ -174,7 +177,8 @@ extension Components.Organisms {
                 contentView.leftAnchor.constraint(equalTo: leftAnchor),
                 contentView.topAnchor.constraint(equalTo: topAnchor),
                 contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-                cnsContentRight!
+                cnsContentRight!,
+                cnsContentRight2!
             ])
         }
 
@@ -193,7 +197,7 @@ extension Components.Organisms {
         public func setEditing(_ isEditing: Bool, animated: Bool) {
             self.cnsContentRight?.constant = inset(isEditing: isEditing)
             UIView.animate(withDuration: animated ? 0.3 : 0) {
-//                self.layoutIfNeeded()
+                self.layoutIfNeeded()
                 self.contentView.layoutIfNeeded()
             }
         }
