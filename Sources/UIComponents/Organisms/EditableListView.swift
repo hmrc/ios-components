@@ -29,6 +29,7 @@ extension Components.Organisms {
             public let startEditingButtonIcon: UIImage?
             public let stopEditingButtonTitle: String
             public let stopEditingButtonIcon: UIImage?
+            public let rowEditButtonTitle: String
 
             public init(
                 title: String,
@@ -36,7 +37,8 @@ extension Components.Organisms {
                 startEditingButtonTitle: String,
                 startEditingButtonIcon: UIImage? = nil,
                 stopEditingButtonTitle: String,
-                stopEditingButtonIcon: UIImage? = nil
+                stopEditingButtonIcon: UIImage? = nil,
+                rowEditButtonTitle: String
             ) {
                 self.title = title
                 self.rows = rows
@@ -52,6 +54,7 @@ extension Components.Organisms {
                     in: Bundle.resource,
                     compatibleWith: nil
                 )?.withRenderingMode(.alwaysTemplate)
+                self.rowEditButtonTitle = rowEditButtonTitle
             }
         }
 
@@ -76,7 +79,6 @@ extension Components.Organisms {
         public required init(model: Model?) {
             super.init(components: [titleLabel])
             removePadding()
-//            editButton.layoutMargins = UIEdgeInsets(top: .spacer16, left: 0, bottom: .spacer16, right: 0)
             editButton.didTapButton = { [unowned self] _ in
                 self.isEditing = !self.isEditing
             }
@@ -100,10 +102,43 @@ extension Components.Organisms {
                 with: isEditing ? model.stopEditingButtonTitle : model.startEditingButtonTitle,
                 icon: isEditing ? model.stopEditingButtonIcon : model.startEditingButtonIcon
             )
-            setComponents([titleLabel] + model.rows + [editButton])
+            let rows = model.rows.map { EditableRowView(content: $0, buttonText: "Edit") {
+                print("Edit row")
+            } }
+            setComponents([titleLabel] + rows + [editButton])
             if hasChanged {
                 // animate
             }
+        }
+    }
+
+    private class EditableRowView: UIView {
+        public private(set)var stackView = UIStackView()
+        public private(set)var editButton: UIButton = .styled(style: .secondary)
+        private var onTapEdit: VoidHandler?
+
+        init(content: UIView, buttonText: String, onTapEdit: @escaping VoidHandler) {
+            super.init(frame: CGRect.zero)
+
+            addSubview(stackView)
+            stackView.axis = .horizontal
+            stackView.snp.makeConstraints { make in
+                make.edges.equalTo(self.snp.margins)
+            }
+
+            self.onTapEdit = onTapEdit
+            editButton = .styled(style: .secondary, string: buttonText)
+            editButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
+
+            stackView.addArrangedSubviews([content, editButton])
+        }
+
+        public required init?(coder aDecoder: NSCoder) {
+            fatalError("Init With Coder not implemented")
+        }
+
+        @objc func didTapButton(_ sender: UIButton) {
+            onTapEdit?()
         }
     }
 }
