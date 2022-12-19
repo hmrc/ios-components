@@ -102,7 +102,7 @@ extension Components.Organisms {
                 with: isEditing ? model.stopEditingButtonTitle : model.startEditingButtonTitle,
                 icon: isEditing ? model.stopEditingButtonIcon : model.startEditingButtonIcon
             )
-            let rows = model.rows.map { EditableRowView(content: $0, buttonText: "Edit") {
+            let rows = model.rows.map { EditableRowView(content: $0, isEditing: isEditing, buttonText: "Edit") {
                 print("Edit row")
             } }
             setComponents([titleLabel] + rows + [editButton])
@@ -147,7 +147,7 @@ extension Components.Organisms {
 
         private var cnsContentRight: NSLayoutConstraint?
 
-        init(content: UIView, buttonText: String, onTapEdit: @escaping VoidHandler) {
+        init(content: UIView, isEditing: Bool, buttonText: String, onTapEdit: @escaping VoidHandler) {
             super.init(frame: CGRect.zero)
 
             self.onTapEdit = onTapEdit
@@ -156,7 +156,7 @@ extension Components.Organisms {
 
             addSubview(editButton)
             addSubview(content)
-            self.cnsContentRight = content.rightAnchor.constraint(equalTo: rightAnchor)
+            self.cnsContentRight = content.rightAnchor.constraint(equalTo: rightAnchor, constant: isEditing ? -100 : 0)
             NSLayoutConstraint.activate([
                 editButton.rightAnchor.constraint(equalTo: rightAnchor),
                 editButton.centerYAnchor.constraint(equalTo: centerYAnchor),
@@ -177,7 +177,7 @@ extension Components.Organisms {
         }
 
         public func setEditing(_ isEditing: Bool) {
-            cnsContentRight?.constant = isEditing ? 100 : 0
+            cnsContentRight?.constant = isEditing ? -100 : 0
         }
     }
 }
