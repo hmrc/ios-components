@@ -153,14 +153,14 @@ extension Components.Organisms {
         init(content: UIView, isEditing: Bool, buttonText: String, onTapEdit: @escaping VoidHandler) {
             super.init(frame: CGRect.zero)
 
-            contentView.backgroundColor = UIColor.Semantic.cardBackground
-            addSubview(contentView)
-            contentView.addSubview(content)
-
             self.onTapEdit = onTapEdit
             editButton = .styled(style: .secondary, string: buttonText)
             editButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
             addSubview(editButton)
+
+            contentView.backgroundColor = UIColor.Semantic.cardBackground
+            addSubview(contentView)
+            contentView.addSubview(content)
 
             self.cnsContentRight = contentView.rightAnchor.constraint(equalTo: rightAnchor, constant: isEditing ? -100 : 0)
             NSLayoutConstraint.activate([
@@ -173,7 +173,6 @@ extension Components.Organisms {
                 contentView.leftAnchor.constraint(equalTo: leftAnchor),
                 contentView.topAnchor.constraint(equalTo: topAnchor),
                 contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-                contentView.leftAnchor.constraint(equalTo: leftAnchor),
                 cnsContentRight!
             ])
         }
