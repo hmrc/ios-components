@@ -127,13 +127,13 @@ extension Components.Organisms {
                 stack.addArrangedSubviews([row, button])
                 return stack
             }
-            setComponents([titleLabel] + davison + [editButton])
+//            setComponents([titleLabel] + davison + [editButton])
             editButtons[1...].forEach { but in
                 but.widthAnchor.constraint(equalTo: editButtons[0].widthAnchor).isActive = true
             }
 //            setComponents([titleLabel] + dave + [editButton])
 //            setComponents([titleLabel] + model.rows + [editButton])
-//            setComponents([titleLabel] + rows + [editButton])
+            setComponents([titleLabel] + rows + [editButton])
         }
 
         public func updateButton() {
