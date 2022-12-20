@@ -71,6 +71,7 @@ extension Components.Organisms {
                 if let model = model {
                     updateButton()
                     rows.forEach { $0.setEditing(isEditing, animated: true) }
+                    editButtons.forEach { $0.isHidden = !isEditing }
                 }
             }
         }
@@ -119,6 +120,7 @@ extension Components.Organisms {
                 let button = UIButton.styled(style: .secondary, string: "Edit")
                 button.setContentHuggingPriority(.required, for: .horizontal)
                 editButtons.append(button)
+                button.isHidden = isEditing
                 stack.addArrangedSubviews([row, button])
                 return stack
             }
