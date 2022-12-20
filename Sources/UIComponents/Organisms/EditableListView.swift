@@ -119,6 +119,7 @@ extension Components.Organisms {
                 stack.axis = .horizontal
                 stack.distribution = .fillProportionally
                 stack.alignment = .center
+                stack.layoutMargins = .init(top: .spacer16, left: .spacer16, bottom: .spacer16, right: .spacer16)
                 let button = UIButton.styled(style: .secondary, string: "Edit")
                 button.setContentHuggingPriority(.required, for: .horizontal)
                 editButtons.append(button)
