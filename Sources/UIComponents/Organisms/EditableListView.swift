@@ -184,6 +184,7 @@ extension Components.Organisms {
             setContentHuggingPriority(.required, for: .vertical)
 
             self.onTapEdit = onTapEdit
+            editButton = FlexibleButton()
             editButton = .styled(style: .secondary, string: buttonText)
             editButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
             addSubview(editButton)
