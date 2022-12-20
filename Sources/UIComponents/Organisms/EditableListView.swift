@@ -181,6 +181,7 @@ extension Components.Organisms {
 
         init(content: UIView, isEditing: Bool, buttonText: String, onTapEdit: @escaping VoidHandler) {
             super.init(frame: CGRect.zero)
+            setContentHuggingPriority(.required, for: .vertical)
 
             self.onTapEdit = onTapEdit
             editButton = .styled(style: .secondary, string: buttonText)
