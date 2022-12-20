@@ -137,7 +137,7 @@ extension Components.Organisms {
 //            }
 //            setComponents([titleLabel] + dave + [editButton])
 //            setComponents([titleLabel] + model.rows + [editButton])
-            setComponents([titleLabel] + rows + [editButton])
+            setComponents([titleView] + rows + [editButton])
         }
 
         public func updateButton() {
