@@ -117,10 +117,10 @@ extension Components.Organisms {
                 stack.addArrangedSubviews([row, button])
                 return stack
             }
+            setComponents([titleLabel] + davison + [editButton])
             butters[1...].forEach { but in
                 but.widthAnchor.constraint(equalTo: butters[0].widthAnchor).isActive = true
             }
-            setComponents([titleLabel] + davison + [editButton])
 //            setComponents([titleLabel] + dave + [editButton])
 //            setComponents([titleLabel] + model.rows + [editButton])
 //            setComponents([titleLabel] + rows + [editButton])
