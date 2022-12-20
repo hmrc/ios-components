@@ -104,8 +104,16 @@ extension Components.Organisms {
             self.rows = model.rows.map { EditableRowView(content: $0, isEditing: isEditing, buttonText: "Edit") {
                 print("Edit row")
             } }
-            let dave = model.rows.map { UIButton.styled(style: .secondary, string: "test") }
-            setComponents([titleLabel] + dave + [editButton])
+//            let dave = model.rows.map { UIButton.styled(style: .secondary, string: "test") }
+            let davison: [UIView] = model.rows.map { row in
+                let stack = UIStackView()
+                stack.axis = .horizontal
+                let button = UIButton.styled(style: .secondary, string: "test")
+                stack.addArrangedSubviews([row, button])
+                return stack
+            }
+            setComponents([titleLabel] + davison + [editButton])
+//            setComponents([titleLabel] + dave + [editButton])
 //            setComponents([titleLabel] + model.rows + [editButton])
 //            setComponents([titleLabel] + rows + [editButton])
         }
