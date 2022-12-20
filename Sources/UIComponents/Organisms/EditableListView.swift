@@ -194,9 +194,7 @@ extension Components.Organisms {
             editButton.setContentCompressionResistancePriority(.required, for: .vertical)
 
             contentView.translatesAutoresizingMaskIntoConstraints = false
-//            contentView.backgroundColor = UIColor.Semantic.cardBackground
-            contentView.backgroundColor = .blue
-            content.backgroundColor = .red
+            contentView.backgroundColor = UIColor.Semantic.cardBackground
             addSubview(contentView)
             contentView.addSubview(content)
 
