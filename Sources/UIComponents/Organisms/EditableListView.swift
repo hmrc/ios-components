@@ -104,7 +104,8 @@ extension Components.Organisms {
             self.rows = model.rows.map { EditableRowView(content: $0, isEditing: isEditing, buttonText: "Edit") {
                 print("Edit row")
             } }
-            setComponents([titleLabel] + rows + [editButton])
+            setComponents([titleLabel] + model.rows + [editButton])
+//            setComponents([titleLabel] + rows + [editButton])
         }
 
         public func updateButton() {
