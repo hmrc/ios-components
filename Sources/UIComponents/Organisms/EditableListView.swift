@@ -203,7 +203,7 @@ extension Components.Organisms {
                 content.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: .spacer16),
                 content.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -.spacer16),
                 content.topAnchor.constraint(equalTo: contentView.topAnchor, constant: .spacer16),
-                content.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: .spacer16),
+                content.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.spacer16),
                 editButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -.spacer16),
                 editButton.centerYAnchor.constraint(equalTo: centerYAnchor),
                 editButton.heightAnchor.constraint(equalToConstant: 50),
