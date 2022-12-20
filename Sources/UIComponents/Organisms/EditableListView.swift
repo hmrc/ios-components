@@ -108,7 +108,9 @@ extension Components.Organisms {
             let davison: [UIView] = model.rows.map { row in
                 let stack = UIStackView()
                 stack.axis = .horizontal
+                stack.distribution = .fillProportionally
                 let button = UIButton.styled(style: .secondary, string: "test")
+                button.setContentHuggingPriority(.required, for: .horizontal)
                 stack.addArrangedSubviews([row, button])
                 return stack
             }
