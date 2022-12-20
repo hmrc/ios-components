@@ -157,6 +157,7 @@ extension Components.Organisms {
             editButton = .styled(style: .secondary, string: buttonText)
             editButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
             addSubview(editButton)
+            editButton.contentEdgeInsets = .zero
             editButton.translatesAutoresizingMaskIntoConstraints = false
             editButton.setContentHuggingPriority(.required, for: .vertical)
 
