@@ -192,7 +192,8 @@ extension Components.Organisms {
             editButton.setContentHuggingPriority(.required, for: .vertical)
 
             contentView.translatesAutoresizingMaskIntoConstraints = false
-            contentView.backgroundColor = UIColor.Semantic.cardBackground
+//            contentView.backgroundColor = UIColor.Semantic.cardBackground
+            contentView.backgroundColor = .blue
             addSubview(contentView)
             contentView.addSubview(content)
 
