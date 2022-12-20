@@ -113,24 +113,24 @@ extension Components.Organisms {
 //            let dave = model.rows.map { UIButton.styled(style: .secondary, string: "test") }
 //            var butters: [UIButton] = []
             editButtons = []
-            let davison: [UIView] = model.rows.map { row in
-                let stack = UIStackView()
-                stack.spacing = .spacer16
-                stack.axis = .horizontal
-                stack.distribution = .fillProportionally
-                stack.alignment = .center
-                stack.layoutMargins = .init(top: .spacer16, left: .spacer16, bottom: .spacer16, right: .spacer16)
-                let button = UIButton.styled(style: .secondary, string: "Edit")
-                button.setContentHuggingPriority(.required, for: .horizontal)
-                editButtons.append(button)
-                button.isHidden = !isEditing
-                stack.addArrangedSubviews([row, button])
-                return stack
-            }
+//            let davison: [UIView] = model.rows.map { row in
+//                let stack = UIStackView()
+//                stack.spacing = .spacer16
+//                stack.axis = .horizontal
+//                stack.distribution = .fillProportionally
+//                stack.alignment = .center
+//                stack.layoutMargins = .init(top: .spacer16, left: .spacer16, bottom: .spacer16, right: .spacer16)
+//                let button = UIButton.styled(style: .secondary, string: "Edit")
+//                button.setContentHuggingPriority(.required, for: .horizontal)
+//                editButtons.append(button)
+//                button.isHidden = !isEditing
+//                stack.addArrangedSubviews([row, button])
+//                return stack
+//            }
 //            setComponents([titleLabel] + davison + [editButton])
-            editButtons[1...].forEach { but in
-                but.widthAnchor.constraint(equalTo: editButtons[0].widthAnchor).isActive = true
-            }
+//            editButtons[1...].forEach { but in
+//                but.widthAnchor.constraint(equalTo: editButtons[0].widthAnchor).isActive = true
+//            }
 //            setComponents([titleLabel] + dave + [editButton])
 //            setComponents([titleLabel] + model.rows + [editButton])
             setComponents([titleLabel] + rows + [editButton])
