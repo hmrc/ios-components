@@ -105,14 +105,20 @@ extension Components.Organisms {
                 print("Edit row")
             } }
 //            let dave = model.rows.map { UIButton.styled(style: .secondary, string: "test") }
+            var butters: [UIButton] = []
             let davison: [UIView] = model.rows.map { row in
                 let stack = UIStackView()
                 stack.axis = .horizontal
                 stack.distribution = .fillProportionally
+                stack.alignment = .center
                 let button = UIButton.styled(style: .secondary, string: "test")
                 button.setContentHuggingPriority(.required, for: .horizontal)
+                butters.append(button)
                 stack.addArrangedSubviews([row, button])
                 return stack
+            }
+            butters[1...].forEach { but in
+                but.widthAnchor.constraint(equalTo: butters[0].widthAnchor).isActive = true
             }
             setComponents([titleLabel] + davison + [editButton])
 //            setComponents([titleLabel] + dave + [editButton])
