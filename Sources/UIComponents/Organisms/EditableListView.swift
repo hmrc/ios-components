@@ -107,9 +107,12 @@ extension Components.Organisms {
             )
             let titleView = UIView()
             titleView.addSubview(titleLabel)
-            titleLabel.snp.remakeConstraints { make in
-                make.edges.equalTo(titleView.snp.edges).inset(10)
-            }
+            NSLayoutConstraint.activate([
+                titleLabel.leftAnchor.constraint(equalTo: titleView.leftAnchor, constant: .spacer16),
+                titleLabel.rightAnchor.constraint(equalTo: titleView.rightAnchor, constant: -.spacer16),
+                titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor, constant: .spacer16),
+                titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor, constant: -.spacer16),
+            ])
             updateButton()
             self.rows = model.rows.map { EditableRowView(content: $0, isEditing: isEditing, buttonText: "Edit") {
                 print("Edit row")
