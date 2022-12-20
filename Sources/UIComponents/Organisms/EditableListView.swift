@@ -100,6 +100,7 @@ extension Components.Organisms {
                 style: .H5,
                 string: model.title
             )
+            titleLabel.layoutMargins = .init(padding: .spacer16)
             updateButton()
             self.rows = model.rows.map { EditableRowView(content: $0, isEditing: isEditing, buttonText: "Edit") {
                 print("Edit row")
@@ -111,7 +112,7 @@ extension Components.Organisms {
                 stack.axis = .horizontal
                 stack.distribution = .fillProportionally
                 stack.alignment = .center
-                let button = UIButton.styled(style: .secondary, string: "test")
+                let button = UIButton.styled(style: .secondary, string: "Edit")
                 button.setContentHuggingPriority(.required, for: .horizontal)
                 butters.append(button)
                 stack.addArrangedSubviews([row, button])
