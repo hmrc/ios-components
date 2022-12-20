@@ -105,7 +105,11 @@ extension Components.Organisms {
                 style: .H5,
                 string: model.title
             )
-            titleLabel.layoutMargins = .init(padding: .spacer16)
+            let titleView = UIView()
+            titleView.addSubview(titleLabel)
+            titleLabel.snp.remakeConstraints { make in
+                make.edges.equalTo(titleView.snp.edges).inset(10)
+            }
             updateButton()
             self.rows = model.rows.map { EditableRowView(content: $0, isEditing: isEditing, buttonText: "Edit") {
                 print("Edit row")
@@ -133,7 +137,7 @@ extension Components.Organisms {
 //            }
 //            setComponents([titleLabel] + dave + [editButton])
 //            setComponents([titleLabel] + model.rows + [editButton])
-            setComponents([Components.Atoms.CardView(components: [titleLabel])] + rows + [editButton])
+            setComponents([titleLabel] + rows + [editButton])
         }
 
         public func updateButton() {
