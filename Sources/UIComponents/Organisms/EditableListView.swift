@@ -71,7 +71,9 @@ extension Components.Organisms {
                 if let model = model {
                     updateButton()
                     rows.forEach { $0.setEditing(isEditing, animated: true) }
-                    editButtons.forEach { $0.isHidden = !isEditing }
+                    UIView.animate(withDuration: 0.5) {
+                        self.editButtons.forEach { $0.isHidden = !self.isEditing }
+                    }
                 }
             }
         }
