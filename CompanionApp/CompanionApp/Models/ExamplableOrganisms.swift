@@ -752,7 +752,7 @@ extension Components.Organisms.EditableListView: Examplable {
         let model = Model(
             title: "Editable List View",
             rows: [
-                Components.Molecules.MultiColumnRowView(labels: ["Item 1", "£100"], style: .body),
+                Components.Molecules.MultiColumnRowView(labels: ["Item 1\nItem 1 line two", "£100"], style: .body),
                 Components.Molecules.MultiColumnRowView(labels: ["Item 1", "£100"], style: .body),
                 Components.Molecules.MultiColumnRowView(labels: ["Item 1", "£100"], style: .body),
                 Components.Molecules.MultiColumnRowView(labels: ["Item 1", "£100"], style: .body),

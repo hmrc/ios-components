@@ -133,7 +133,7 @@ extension Components.Organisms {
 //            }
 //            setComponents([titleLabel] + dave + [editButton])
 //            setComponents([titleLabel] + model.rows + [editButton])
-            setComponents([titleLabel] + rows + [editButton])
+            setComponents([Components.Atoms.CardView(components: [titleLabel])] + rows + [editButton])
         }
 
         public func updateButton() {
