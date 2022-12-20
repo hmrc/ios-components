@@ -190,6 +190,7 @@ extension Components.Organisms {
             editButton.contentEdgeInsets = .zero
             editButton.translatesAutoresizingMaskIntoConstraints = false
             editButton.setContentHuggingPriority(.required, for: .vertical)
+            editButton.setContentCompressionResistancePriority(.required, for: .vertical)
 
             contentView.translatesAutoresizingMaskIntoConstraints = false
 //            contentView.backgroundColor = UIColor.Semantic.cardBackground
@@ -206,6 +207,7 @@ extension Components.Organisms {
                 content.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.spacer16),
                 editButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -.spacer16),
                 editButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+                editButton.heightAnchor.constraint(lessThanOrEqualTo: content.heightAnchor),
                 //editButton.heightAnchor.constraint(equalToConstant: 50),
 //                editButton.topAnchor.constraint(equalTo: topAnchor),
 //                editButton.bottomAnchor.constraint(equalTo: bottomAnchor),
