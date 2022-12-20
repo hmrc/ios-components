@@ -83,7 +83,8 @@ extension Components.Organisms {
 
         public required init(model: Model?) {
             super.init(components: [titleLabel])
-            removePadding()
+//            removePadding()
+            adjust(insets: .init(top: .spacer16, left: 0, bottom: 0, right: 0))
             editButton.didTapButton = { [unowned self] _ in
                 self.isEditing = !self.isEditing
             }
