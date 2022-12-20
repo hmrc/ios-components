@@ -105,14 +105,7 @@ extension Components.Organisms {
                 style: .H5,
                 string: model.title
             )
-            let titleView = UIView()
-            titleView.addSubview(titleLabel)
-            NSLayoutConstraint.activate([
-                titleLabel.leftAnchor.constraint(equalTo: titleView.leftAnchor, constant: .spacer16),
-                titleLabel.rightAnchor.constraint(equalTo: titleView.rightAnchor, constant: -.spacer16),
-                titleLabel.topAnchor.constraint(equalTo: titleView.topAnchor, constant: .spacer16),
-                titleLabel.bottomAnchor.constraint(equalTo: titleView.bottomAnchor, constant: -.spacer16),
-            ])
+
             updateButton()
             self.rows = model.rows.map { EditableRowView(content: $0, isEditing: isEditing, buttonText: "Edit") {
                 print("Edit row")
@@ -140,7 +133,11 @@ extension Components.Organisms {
 //            }
 //            setComponents([titleLabel] + dave + [editButton])
 //            setComponents([titleLabel] + model.rows + [editButton])
-            setComponents([titleView] + rows + [editButton])
+            setComponents([titleLabel] + rows + [editButton])
+            NSLayoutConstraint.activate([
+                titleLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: .spacer16),
+                titleLabel.rightAnchor.constraint(equalTo: leftAnchor, constant: -.spacer16)
+            ])
         }
 
         public func updateButton() {
