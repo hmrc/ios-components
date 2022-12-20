@@ -206,7 +206,7 @@ extension Components.Organisms {
                 content.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -.spacer16),
                 editButton.rightAnchor.constraint(equalTo: rightAnchor, constant: -.spacer16),
                 editButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-                editButton.heightAnchor.constraint(equalToConstant: 50),
+                //editButton.heightAnchor.constraint(equalToConstant: 50),
 //                editButton.topAnchor.constraint(equalTo: topAnchor),
 //                editButton.bottomAnchor.constraint(equalTo: bottomAnchor),
                 contentView.leftAnchor.constraint(equalTo: leftAnchor),
