@@ -194,6 +194,7 @@ extension Components.Organisms {
             contentView.translatesAutoresizingMaskIntoConstraints = false
 //            contentView.backgroundColor = UIColor.Semantic.cardBackground
             contentView.backgroundColor = .blue
+            content.backgroundColor = .red
             addSubview(contentView)
             contentView.addSubview(content)
 
