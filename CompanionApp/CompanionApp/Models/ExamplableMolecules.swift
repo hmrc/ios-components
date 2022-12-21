@@ -406,7 +406,7 @@ extension Components.Molecules.MultiColumnRowView: Examplable {
             ],
             attributes: [
                 LabelColumn(style: .body, canCopy: false),
-                LabelColumn(style: .bold, canCopy: true)
+                LabelColumn(style: .bold, canCopy: true, accessibilityHint: "Your account number")
             ]
         )
         let twoLabelDifferingPriorityExample = Components.Molecules.MultiColumnRowView(
