@@ -85,7 +85,6 @@
 		DA5F650A270604400032AE1C /* Files.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Files.swift; sourceTree = "<group>"; };
 		DA99A77227045609000690D8 /* UITableView+Automation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Automation.swift"; sourceTree = "<group>"; };
 		DA99A775270456AC000690D8 /* UIView+Automation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Automation.swift"; sourceTree = "<group>"; };
-		FE0070702953478B008B1537 /* ios-components */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "ios-components"; path = ..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,7 +109,6 @@
 		6C9878C2255021B900C5F3DF = {
 			isa = PBXGroup;
 			children = (
-				FE0070702953478B008B1537 /* ios-components */,
 				6C9878CD255021B900C5F3DF /* CompanionApp */,
 				DA539D1C2703672A00D0A45E /* Screenshots */,
 				6C9878CC255021B900C5F3DF /* Products */,
