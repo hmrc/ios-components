@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [7.1.0] - 2022-12-23Z
 ### Added
 - Added `DonutChartView` molecule
 
