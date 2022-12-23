@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Added `DonutChartView` molecule
 
 ## [7.0.4] - 2022-12-21
 - Added `accessibilityHint` to LabelColumn
