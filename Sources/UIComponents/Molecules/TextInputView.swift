@@ -320,8 +320,9 @@ extension Components.Molecules {
                 validationErrorLabel.preferredMaxLayoutWidth = validationErrorLabel.frame.width
             }
             validationErrorLabel.text = validationError
-            validationErrorLabel.accessibilityLabel = "Editing, \(model.accessibilityLabel ?? ""), Error: \(validationError ?? ""), edit box"
-
+            if let accessibilityLabel = model.accessibilityLabel ?? model.title {
+                validationErrorLabel.accessibilityLabel = "Editing, \(accessibilityLabel), Error: \(validationError ?? ""), edit box"
+            }
             updateColours()
         }
 
@@ -340,7 +341,9 @@ extension Components.Molecules {
             validationErrorLabel.text = ""
             charCountLabel.isHidden = !shouldShowCharCountLabel()
             titleLabel.text = model.title
-            textView.accessibilityLabel = "\(model.accessibilityLabel ?? ""), edit box"
+            if let accessibilityLabel = model.accessibilityLabel ?? model.title {
+                textView.accessibilityLabel = "\(accessibilityLabel), edit box"
+            }
             textView.keyboardType = model.keyboardType
 
             updateCharCount()
