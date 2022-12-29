@@ -74,6 +74,7 @@ extension Components.Molecules {
             public let title: String?
             public let initialText: String?
             public let leftViewText: String?
+            public let accessibilityLabel: String?
             public let maxLength: Int?
             public let multiLine: Bool
             public let keyboardType: UIKeyboardType
@@ -84,7 +85,8 @@ extension Components.Molecules {
                 initialText: String? = nil,
                 maxLength: Int? = nil,
                 multiLine: Bool = false,
-                keyboardType: UIKeyboardType = .default
+                keyboardType: UIKeyboardType = .default,
+                accessibilityLabel: String? = nil
             ) {
                 self.title = title
                 self.leftViewText = leftViewText
@@ -92,6 +94,7 @@ extension Components.Molecules {
                 self.maxLength = maxLength
                 self.multiLine = multiLine
                 self.keyboardType = keyboardType
+                self.accessibilityLabel = accessibilityLabel
             }
         }
 
@@ -317,7 +320,7 @@ extension Components.Molecules {
                 validationErrorLabel.preferredMaxLayoutWidth = validationErrorLabel.frame.width
             }
             validationErrorLabel.text = validationError
-            validationErrorLabel.accessibilityLabel = "Error: \(validationError ?? "")"
+            validationErrorLabel.accessibilityLabel = "Editing, \(model.accessibilityLabel ?? ""), Error: \(validationError ?? ""), edit box"
 
             updateColours()
         }
@@ -337,7 +340,7 @@ extension Components.Molecules {
             validationErrorLabel.text = ""
             charCountLabel.isHidden = !shouldShowCharCountLabel()
             titleLabel.text = model.title
-            textView.accessibilityLabel = model.title ?? ""
+            textView.accessibilityLabel = "\(model.accessibilityLabel ?? ""), edit box"
             textView.keyboardType = model.keyboardType
 
             updateCharCount()
