@@ -5,7 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
-### Changed
+
+## [7.1.1] - 2023-01-03Z
 - `TextInputView` Model has new accessibilityLabel property
 - `TextInputView` accessibilityLabel suffixed with "edit box" following recommendations from DAC
 
