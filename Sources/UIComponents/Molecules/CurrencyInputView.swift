@@ -24,7 +24,8 @@ extension Components.Molecules {
             public init(
                 title: String? = nil,
                 initialText: String? = nil,
-                maxLength: Int? = nil) {
+                maxLength: Int? = nil,
+                accessibilityLabel: String? = nil) {
 
                 super.init(
                     title: title,
@@ -32,7 +33,8 @@ extension Components.Molecules {
                     initialText: initialText,
                     maxLength: maxLength,
                     multiLine: false,
-                    keyboardType: .decimalPad
+                    keyboardType: .decimalPad,
+                    accessibilityLabel: accessibilityLabel
                 )
             }
         }

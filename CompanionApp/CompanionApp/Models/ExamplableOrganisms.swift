@@ -674,7 +674,7 @@ extension Components.Organisms.MenuPanelRowView: Examplable {
         controller.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             controller.dismiss(animated: true, completion: nil)
         }))
-        UIApplication.shared.keyWindow?.rootViewController?
+        UIApplication.shared.windows.first?.rootViewController?
             .present(controller, animated: true, completion: nil)
     }
 
