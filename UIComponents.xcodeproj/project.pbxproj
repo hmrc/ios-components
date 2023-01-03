@@ -102,7 +102,7 @@
          isa = "PBXFileReference";
          explicitFileType = "sourcecode.swift";
          name = "Package.swift";
-         path = "/Users/paulbooth/dev/HMRC/ios-components/.build/checkouts/SnapKit/Package.swift";
+         path = "/Users/ashleemuscroft/Apps/ios-components/.build/checkouts/SnapKit/Package.swift";
          sourceTree = "<group>";
       };
       "OBJ_105" = {
@@ -705,7 +705,7 @@
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/ManifestAPI",
                "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk",
                "-package-description-version",
                "5.0.0"
             );
@@ -723,7 +723,7 @@
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/ManifestAPI",
                "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk",
                "-package-description-version",
                "5.0.0"
             );
@@ -1319,7 +1319,7 @@
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/ManifestAPI",
                "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk",
                "-package-description-version",
                "5.3.0"
             );
@@ -1337,7 +1337,7 @@
                "-I",
                "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/ManifestAPI",
                "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.0.sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.1.sdk",
                "-package-description-version",
                "5.3.0"
             );
