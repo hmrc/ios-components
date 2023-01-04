@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [7.1.2] - 2023-01-04Z
 ### Added
 - Added `validationErrorAccessibilityLabel` to `SelectRowGroupView`
 
