@@ -84,7 +84,7 @@ extension Components.Molecules {
             return selectableRowGroup
         }
 
-        public func set(validationError: String?, changeVisibilityIfNeeded: Bool = true) {
+        public func set(validationError: String?, validationErrorAccessibilityLabel: String? = nil, changeVisibilityIfNeeded: Bool = true) {
             if changeVisibilityIfNeeded {
                 if let error = validationError, !error.isEmpty {
                     set(validationErrorVisible: true, animate: true)
@@ -94,6 +94,7 @@ extension Components.Molecules {
             }
 
             validationErrorLabel.text = validationError
+            validationErrorLabel.accessibilityLabel = validationErrorAccessibilityLabel
 
             UIAccessibility.post(notification: .layoutChanged, argument: validationErrorLabel)
 
