@@ -201,7 +201,10 @@ platform :ios do
     ensure_git_branch(branch: "^release\/" + project_version)
 
     # take tag and push to remote
-    add_git_tag(tag: project_version)
+    add_git_tag(
+      tag: project_version,
+      sign: true
+    )
     push_git_tags
 
     # update releases on Github
