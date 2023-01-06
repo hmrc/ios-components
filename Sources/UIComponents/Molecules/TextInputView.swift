@@ -320,9 +320,8 @@ extension Components.Molecules {
                 validationErrorLabel.preferredMaxLayoutWidth = validationErrorLabel.frame.width
             }
             validationErrorLabel.text = validationError
-            if let accessibilityLabel = model.accessibilityLabel ?? model.title {
-                validationErrorLabel.accessibilityLabel = "Editing, \(accessibilityLabel), Error: \(validationError ?? ""), edit box"
-            }
+            validationErrorLabel.accessibilityLabel = "Error: \(validationError ?? "")"
+            textView.accessibilityLabel = modifyAccessibilityLabel(with: validationError)
             updateColours()
         }
 
@@ -424,6 +423,14 @@ extension Components.Molecules {
         open func textViewDidChange(_ textView: UITextView) {
             updateCharCount()
             didChangeInput?()
+        }
+        
+        private func modifyAccessibilityLabel(with validationError: String?) -> String {
+            guard let accessibilityLabel = model.accessibilityLabel ?? model.title else { return "" }
+            if let error = validationError, !error.isEmpty {
+                return "Editing, \(accessibilityLabel), Error: \(validationError ?? ""), edit box"
+            }
+            return "\(accessibilityLabel), edit box"
         }
     }
 }
