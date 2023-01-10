@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [7.1.3] - 2023-01-10Z
 - `SummaryRowView` suffixAccessibilityLabel suffixLabel parameter added following DAC report
 - `TextInputView` accessibilityLabel on error to read out validationErrorAccessibilityError to mirror Android following recommendations from DAC
 
