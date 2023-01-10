@@ -70,8 +70,8 @@ extension Components.Organisms {
         }
 
         private var accessibilityLabelSuffix = ""
-        public func suffixAccessibilityLabel(rowIndex: Int, rowCount: Int) {
-            accessibilityLabelSuffix = ", row \(rowIndex + 1) of \(rowCount)"
+        public func suffixAccessibilityLabel(rowIndex: Int, rowCount: Int, labelSuffix: String = "row") {
+            accessibilityLabelSuffix = ", \(labelSuffix) \(rowIndex + 1) of \(rowCount)"
             updateForReaderTrait()
         }
 
