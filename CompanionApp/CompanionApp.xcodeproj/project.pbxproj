@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		57328A0B2948D6D800E3AF19 /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 57328A0A2948D6D800E3AF19 /* UIComponents */; };
+		57E4B00D29951E1E001AF422 /* UIComponents in Resources */ = {isa = PBXBuildFile; fileRef = 57E4B00C29951E1E001AF422 /* UIComponents */; };
 		6C9878CF255021B900C5F3DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9878CE255021B900C5F3DF /* AppDelegate.swift */; };
 		6C9878D1255021B900C5F3DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9878D0255021B900C5F3DF /* SceneDelegate.swift */; };
 		6C9878D6255021B900C5F3DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C9878D4255021B900C5F3DF /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		57E4B00C29951E1E001AF422 /* UIComponents */ = {isa = PBXFileReference; lastKnownFileType = folder; name = UIComponents; path = ../Sources/UIComponents; sourceTree = "<group>"; };
 		6C9878CB255021B900C5F3DF /* CompanionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompanionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C9878CE255021B900C5F3DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C9878D0255021B900C5F3DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 		6C9878C2255021B900C5F3DF = {
 			isa = PBXGroup;
 			children = (
+				57E4B00C29951E1E001AF422 /* UIComponents */,
 				6C9878CD255021B900C5F3DF /* CompanionApp */,
 				DA539D1C2703672A00D0A45E /* Screenshots */,
 				6C9878CC255021B900C5F3DF /* Products */,
@@ -320,6 +323,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57E4B00D29951E1E001AF422 /* UIComponents in Resources */,
 				6C9878DB255021BA00C5F3DF /* LaunchScreen.storyboard in Resources */,
 				6C9878D8255021BA00C5F3DF /* Assets.xcassets in Resources */,
 				6C9878D6255021B900C5F3DF /* Main.storyboard in Resources */,
@@ -646,8 +650,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmrc/ios-components.git";
 			requirement = {
-				kind = revision;
-				revision = 70d086a9e76d8f076ba51dde98202db0c9fe491b;
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

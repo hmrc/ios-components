@@ -34,6 +34,7 @@ public extension Capture {
         case expandingRowView
         case statusCardView
         case iconButtonCardView
+        case miniAdvertCardView
         case summaryRowView
         case informationMessageCard
         case menuPanelRowView
@@ -48,6 +49,7 @@ public extension Capture {
         case multiColumnRowView
         case switchRowView
         case iconButtonView
+        case miniAdvertButtonView
         case statusView
         case warningView
         case tabBarView

@@ -422,6 +422,41 @@ extension Components.Organisms.IconButtonCardView: Examplable {
     }
 }
 
+extension Components.Organisms.MiniAdvertCardView : Examplable {
+    typealias Model = Components.Organisms.MiniAdvertCardView.Model
+    
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
+    
+    static func withPlaceholders() -> UIView {
+        let iconButtonModel = Model(
+            title: "Button",
+            icon: ExampleImages.info.image
+        )
+        let view = Components.Organisms.IconButtonCardView(model: iconButtonModel)
+        view.didTapButton = { (button) in
+            print(button)
+        }
+        return view
+    }
+    
+    static func examples() -> [UIView] {
+        let model = Model(
+            title: "Give Feed back to help us improve",
+            icon: ExampleImages.help.image
+        )
+        
+        let longModel = Model(
+            title: "Give Feed back to help us improve by filling in the form",
+            icon: ExampleImages.help.image
+        )
+        
+        return [
+            Components.Organisms.IconButtonCardView(model: model).removePadding(),
+            Components.Organisms.IconButtonCardView(model: longModel).removePadding()
+        ]
+    }
+}
+
 extension Components.Organisms.InformationMessageCard: Examplable {
     static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 
