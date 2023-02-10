@@ -51,7 +51,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		577A668329952B0500DFE0CD /* ios-components */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "ios-components"; path = ..; sourceTree = "<group>"; };
 		6C9878CB255021B900C5F3DF /* CompanionApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompanionApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C9878CE255021B900C5F3DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C9878D0255021B900C5F3DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,7 +109,6 @@
 		6C9878C2255021B900C5F3DF = {
 			isa = PBXGroup;
 			children = (
-				577A668329952B0500DFE0CD /* ios-components */,
 				6C9878CD255021B900C5F3DF /* CompanionApp */,
 				DA539D1C2703672A00D0A45E /* Screenshots */,
 				6C9878CC255021B900C5F3DF /* Products */,
