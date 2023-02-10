@@ -428,11 +428,12 @@ extension Components.Organisms.MiniAdvertCardView : Examplable {
     static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
     
     static func withPlaceholders() -> UIView {
-        let iconButtonModel = Model(
+        let advertModel = Model(
             title: "Button",
-            icon: ExampleImages.info.image
+            icon: ExampleImages.chevron.image,
+            theme: .info
         )
-        let view = Components.Organisms.IconButtonCardView(model: iconButtonModel)
+        let view = Components.Organisms.MiniAdvertCardView(model: advertModel)
         view.didTapButton = { (button) in
             print(button)
         }
@@ -442,17 +443,19 @@ extension Components.Organisms.MiniAdvertCardView : Examplable {
     static func examples() -> [UIView] {
         let model = Model(
             title: "Give Feed back to help us improve",
-            icon: ExampleImages.help.image
+            icon: ExampleImages.chevron.image,
+            theme: .info
         )
         
         let longModel = Model(
             title: "Give Feed back to help us improve by filling in the form",
-            icon: ExampleImages.help.image
+            icon: ExampleImages.chevron.image,
+            theme: .info
         )
         
         return [
-            Components.Organisms.IconButtonCardView(model: model).removePadding(),
-            Components.Organisms.IconButtonCardView(model: longModel).removePadding()
+            Components.Organisms.MiniAdvertCardView(model: model).removePadding(),
+            Components.Organisms.MiniAdvertCardView(model: longModel).removePadding()
         ]
     }
 }

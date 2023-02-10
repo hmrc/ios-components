@@ -25,15 +25,23 @@ extension Components.Organisms {
             public let accessibilityHint: String?
             public let accessibilityIdentifier: String?
             public let icon: UIImage?
+            public let theme: Theme?
             
             public init(title: String,
                         accessibilityHint: String? = nil,
                         accessibilityIdentifier: String? = nil,
-                        icon: UIImage? = UIImage(systemName: "chevron.right")) {
+                        icon: UIImage? = UIImage(systemName: "chevron.right"),
+                        theme: Theme? = Theme.info
+            ) {
                 self.title = title
                 self.accessibilityHint = accessibilityHint
                 self.accessibilityIdentifier = accessibilityIdentifier
                 self.icon = icon
+                self.theme = theme
+            }
+            
+            public enum Theme {
+                case info
             }
         }
         
@@ -67,7 +75,8 @@ extension Components.Organisms {
                 with: model.title,
                 accessibilityHint: model.accessibilityHint,
                 accessibilityIdentifier: model.accessibilityIdentifier,
-                icon: model.icon
+                icon: model.icon,
+                theme: model.theme
             )
         }
         

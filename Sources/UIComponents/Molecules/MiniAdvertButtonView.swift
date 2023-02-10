@@ -17,37 +17,41 @@
 import UIKit
 import SnapKit
 
+typealias MiniAdvertTheme = Components.Organisms.MiniAdvertCardView.Model.Theme
 extension Components.Molecules {
     open class MiniAdvertButtonView: DebugOverlayableView {
 
         public var didTapButton: ActionBlock?
 
         public struct Constants {
-            public static let edgeSpacing: CGFloat = .spacer16
-            public static let itemSpacing: CGFloat = .spacer8
-            public static let iconSize: CGFloat = .spacer8
+            public static let itemSpacing: CGFloat = .spacer48
+            public static let iconSize: CGFloat = .spacer16
         }
 
         let containerView = UIView()
         public let titleLabel = UILabel.styled(style: .link)
         public let iconImageView = UIImageView()
         public let actionButton: UIButton = TransparentButton()
-
+        public let theme: Components.Organisms.MiniAdvertCardView.Model.Theme = .info
         private var bottomConstraint: Constraint?
         private var iconHeightConstraint: Constraint?
         private var iconWidthConstraint: Constraint?
         private var boundsObservation: NSKeyValueObservation?
-
+        
         public convenience init(title: String,
                                 accessibilityHint: String? = nil,
                                 accessibilityIdentifier: String? = nil,
-                                icon: UIImage? = nil) {
+                                icon: UIImage? = nil,
+                                theme: Components.Organisms.MiniAdvertCardView.Model.Theme? = .info
+        ) {
             self.init(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
             updateUI(
                 with: title,
                 accessibilityHint: accessibilityHint,
                 accessibilityIdentifier: accessibilityIdentifier,
-                icon: icon)
+                icon: icon,
+                theme: theme
+            )
         }
 
         public override init(frame: CGRect) {
@@ -66,6 +70,7 @@ extension Components.Molecules {
         open func commonInit() {
             self.layoutMargins = .standardCard
             setupViews()
+            styleActionButton()
             setupStyle()
             setupAccessibility()
             setContraints()
@@ -76,9 +81,41 @@ extension Components.Molecules {
 
         private func setupStyle() {
             iconImageView.contentMode = .scaleAspectFit
-            iconImageView.tintColor = UIColor.Semantic.linkText
+            let titleColor: UIColor = {
+                switch theme {
+                case .info:
+                    return UIColor.Semantic.lightText
+                }
+            }()
+            
+            iconImageView.tintColor = titleColor
+            titleLabel.textColor = titleColor
         }
 
+        fileprivate func styleActionButton() {
+            let backgroundColor: UIColor = {
+                switch theme {
+                case .info:
+                    return UIColor.Semantic.linkText
+                }
+            }()
+            
+            let hightlightedBackgroundColor: UIColor = {
+                switch theme {
+                case .info:
+                    return UIColor.Semantic.linkText.lighten(0.08)
+                }
+            }()
+            
+            guard let actionButton = actionButton as? TransparentButton else { return }
+            actionButton.config = TransparentButton.StateConfig(
+                normalColour: backgroundColor,
+                highlightColour: hightlightedBackgroundColor,
+                disabledColour: .clear
+            )
+            actionButton.layer.cornerRadius = 0
+        }
+        
         private func setupViews() {
             addSubview(actionButton)
             containerView.backgroundColor = .clear
@@ -106,20 +143,19 @@ extension Components.Molecules {
                 make.edges.equalTo(self)
             }
             titleLabel.snp.makeConstraints { (make) in
-                make.left.equalTo(container.snp.left).offset(Constants.edgeSpacing)
-                make.top.equalTo(iconImageView.snp.top).offset(Constants.edgeSpacing)
+                make.left.equalTo(container.snp.left)
+                make.top.equalTo(container.snp.top)
                 make.right.equalTo(iconImageView.snp.left).offset(-Constants.itemSpacing)
                 make.bottom.greaterThanOrEqualTo(iconImageView.snp.bottom)
                 make.bottom.equalTo(container.snp.bottom)
             }
             iconImageView.snp.makeConstraints { (make) in
-                make.right.equalTo(container.snp.right).offset(CGFloat.spacer16)
-                make.top.equalTo(container.snp.top)
+                make.right.equalTo(container.snp.right)
+                make.centerY.equalTo(titleLabel.snp.centerY)
                 bottomConstraint = make.bottom.equalTo(container.snp.bottom).constraint
                 iconHeightConstraint = make.height.equalTo(FontMetrics.scaledValue(for: Constants.iconSize)).constraint
-//                iconWidthConstraint = make.width.equalTo(FontMetrics.scaledValue(for: Constants.iconSize)).constraint
+                make.width.equalTo(Constants.iconSize)
             }
-            
             containerView.snp.makeConstraints { (make) in
                 make.edges.equalTo(self.snp.margins)
             }
@@ -147,6 +183,10 @@ extension Components.Molecules {
             titleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
             titleLabel.setContentHuggingPriority(.required, for: .horizontal)
             titleLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
+            iconImageView.setContentHuggingPriority(.required, for: .vertical)
+            iconImageView.setContentHuggingPriority(.required, for: .horizontal)
+            iconImageView.setContentCompressionResistancePriority(.required, for: .horizontal)
+            iconImageView.setContentCompressionResistancePriority(.required, for: .vertical)
         }
 
         private func setObserveLabelBoundsChange(_ observe: Bool) {
@@ -167,17 +207,16 @@ extension Components.Molecules {
             super.traitCollectionDidChange(previousTraitCollection)
             iconHeightConstraint?.deactivate()
             iconImageView.snp.makeConstraints { (make) in
-                iconHeightConstraint = make.height.equalTo(FontMetrics.scaledValue(for: 24)).constraint
-//                iconWidthConstraint = make.height.equalTo(FontMetrics.scaledValue(for: 24)).constraint
+                iconHeightConstraint = make.height.equalTo(FontMetrics.scaledValue(for: Constants.iconSize)).constraint
             }
             iconHeightConstraint?.activate()
-//            iconWidthConstraint?.activate()
         }
 
         public func updateUI(with title: String,
                              accessibilityHint: String? = nil,
                              accessibilityIdentifier: String? = nil,
-                             icon: UIImage? = nil) {
+                             icon: UIImage? = nil,
+                             theme: Components.Organisms.MiniAdvertCardView.Model.Theme? = .info) {
             titleLabel.text = title
 
             self.accessibilityLabel = title
@@ -187,11 +226,11 @@ extension Components.Molecules {
             if let icon = icon {
                 iconImageView.image = icon.withRenderingMode(.alwaysTemplate)
                 iconImageView.isHidden = false
-//                iconImageView.snp.updateConstraints { (make) in
-//                    make.width.equalTo(Constants.iconSize)
-//                }
+                iconImageView.snp.updateConstraints { (make) in
+                    make.width.equalTo(Constants.iconSize)
+                }
                 titleLabel.snp.updateConstraints { (make) in
-                    make.right.equalTo(iconImageView.snp.left).offset(Constants.itemSpacing)
+                    make.right.equalTo(iconImageView.snp.left).offset(-Constants.itemSpacing)
                 }
             }
 
