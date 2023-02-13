@@ -17,7 +17,6 @@
 import UIKit
 import SnapKit
 
-typealias MiniAdvertTheme = Components.Organisms.MiniAdvertCardView.Model.Theme
 extension Components.Molecules {
     open class MiniAdvertButtonView: DebugOverlayableView {
 

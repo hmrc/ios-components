@@ -55,7 +55,7 @@ extension Capture {
                     .multiColumnRowView,
                     .switchRowView,
                     .iconButtonView,
-                    .miniAdvertButtonView
+                    .miniAdvertButtonView,
                     .statusView,
                     .warningView,
                     .tabBarView,
