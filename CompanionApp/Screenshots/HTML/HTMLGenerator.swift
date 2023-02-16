@@ -36,6 +36,7 @@ extension Capture {
                     .expandingRowView,
                     .statusCardView,
                     .iconButtonCardView,
+                    .miniAdvertCardView,
                     .summaryRowView,
                     .informationMessageCard,
                     .menuPanelRowView
@@ -54,6 +55,7 @@ extension Capture {
                     .multiColumnRowView,
                     .switchRowView,
                     .iconButtonView,
+                    .miniAdvertButtonView,
                     .statusView,
                     .warningView,
                     .tabBarView,

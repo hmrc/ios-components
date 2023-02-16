@@ -33,6 +33,7 @@ class OrganismsViewController: UIViewController {
         (named: "Expanding Row View", vc: SingleComponentViewController<Components.Organisms.ExpandingRowView>()),
         (named: "Status Card View", vc: SingleComponentViewController<Components.StatusCardView>()),
         (named: "Icon Button Card View", vc: SingleComponentViewController<Components.Organisms.IconButtonCardView>()),
+        (named: "Mini Advert Card View", vc: SingleComponentViewController<Components.Organisms.MiniAdvertCardView>()),
         (named: "Summary Row View", vc: SingleComponentViewController<Components.Organisms.SummaryRowView>()),
         (named: "Information Message Card", vc: SingleComponentViewController<Components.Organisms.InformationMessageCard>()),
         (named: "Menu Panel Row View", vc: SingleComponentViewController<Components.Organisms.MenuPanelRowView>())

@@ -474,6 +474,39 @@ extension Components.Molecules.IconButtonView: Examplable {
     }
 }
 
+extension Components.Molecules.MiniAdvertButtonView: Examplable {
+    static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
+    
+    static func withPlaceholders() -> UIView {
+        let view = Components.Molecules.MiniAdvertButtonView(
+            title: "Title",
+            icon: ExampleImages.chevron.image,
+            theme: .info
+        )
+        view.didTapButton = { (button) in
+            print(button)
+        }
+        return view
+    }
+    
+    static func examples() -> [UIView] {
+        let view = Components.Molecules.MiniAdvertButtonView(
+            title: "About the calculator",
+            icon: ExampleImages.chevron.image,
+            theme: .info
+        )
+        let longView = Components.Molecules.MiniAdvertButtonView(
+            title: ExampleText.LoremIpsum.longer.rawValue,
+            icon: ExampleImages.chevron.image,
+            theme: .info
+        )
+        return [
+            Components.Atoms.CardView(components: [view]).removePadding(),
+            Components.Atoms.CardView(components: [longView]).removePadding()
+        ]
+    }
+}
+
 extension Components.Molecules.StatusView: Examplable {
     static var exampleBackgroundColor: UIColor = UIColor.Semantic.pageBackground
 

@@ -25,6 +25,7 @@ enum ExampleImages {
     case help
     case previewBackground
     case warning
+    case chevron
 
     var image: UIImage {
         switch self {
@@ -42,6 +43,8 @@ enum ExampleImages {
             return UIImage(named: "preview_background")!
         case .warning:
             return UIImage(named: "warning")!
+        case .chevron:
+            return UIImage(systemName: "chevron.right")!
         }
     }
 }

@@ -63,6 +63,10 @@ class MoleculeScreenshots: ViewControllerTestCase {
     func test_screenshot_IconButtonView() {
         grabScreenshot(menuItem: "Icon Button View", screen: .iconButtonView)
     }
+    
+    func test_screenshot_MiniAdvertButtonView() {
+        grabScreenshot(menuItem: "Mini Advert Button View", screen: .miniAdvertButtonView)
+    }
 
     func test_screenshot_StatusView() {
         grabScreenshot(menuItem: "Status View", screen: .statusView)

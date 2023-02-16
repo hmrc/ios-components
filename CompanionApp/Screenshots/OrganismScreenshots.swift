@@ -48,6 +48,10 @@ class OrganismScreenshots: ViewControllerTestCase {
     func test_IconButtonCardView() {
         grabScreenshot(menuItem: "Icon Button Card View", screen: .iconButtonCardView)
     }
+    
+    func test_MiniAdvertButtonCardView() {
+        grabScreenshot(menuItem: "Mini Advert Card View", screen: .miniAdvertCardView )
+    }
 
     func test_SummaryRowView() {
         grabScreenshot(menuItem: "Summary Row View", screen: .summaryRowView)

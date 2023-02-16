@@ -37,6 +37,7 @@ class MoleculesViewController: UIViewController {
         (named: "Multi Column Row View", vc: SingleComponentViewController<Components.Molecules.MultiColumnRowView>()),
         (named: "Switch Row View", vc: SingleComponentViewController<Components.Molecules.SwitchRowView>()),
         (named: "Icon Button View", vc: SingleComponentViewController<Components.Molecules.IconButtonView>()),
+        (named: "Mini Advert Button View", vc: SingleComponentViewController<Components.Molecules.MiniAdvertButtonView>()),
         (named: "Status View", vc: SingleComponentViewController<Components.Molecules.StatusView>()),
         (named: "Warning View", vc: SingleComponentViewController<Components.Molecules.WarningView>()),
         (named: "Tab Bar View", vc: SingleComponentViewController<Components.Molecules.TabBarView>()),
