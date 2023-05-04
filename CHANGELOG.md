@@ -5,9 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Fixed custom config for `TransparentButton`
 
 ## [7.2.0] - 2023-02-16Z
-- `MiniAdvvertCardView` added new component, info colored button with Right chevron icon
+- `MiniAdvertCardView` added new component, info colored button with Right chevron icon
 
 ## [7.1.3] - 2023-01-10Z
 - `SummaryRowView` suffixAccessibilityLabel suffixLabel parameter added following DAC report
