@@ -48,8 +48,7 @@ open class TransparentButton: UIButton {
 
     public init(config: StateConfig) {
         super.init(frame: CGRect(x: 0, y: 0, width: 1, height: 1))
-        commonInit()
-        self.config = config
+        commonInit(config: config)
     }
 
     public init() {
@@ -67,8 +66,8 @@ open class TransparentButton: UIButton {
         fatalError("Dont call this")
     }
 
-    open func commonInit() {
-        config = defaultConfig
+    open func commonInit(config: StateConfig? = nil) {
+        self.config = config ?? defaultConfig
         self.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
 
