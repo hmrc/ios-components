@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "canvas": "^2.11.2",
     "mz": "^2.7.0",
     "resemblejs": "^4.0.0"
   }
