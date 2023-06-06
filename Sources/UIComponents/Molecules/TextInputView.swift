@@ -369,23 +369,10 @@ extension Components.Molecules {
         // MARK: - DisplaysValidationError
 
         public func focusValidationError(within scrollView: UIScrollView? = nil) {
-            if UIAccessibility.isVoiceOverRunning {
-                if textView.isFirstResponder {
-                    guard let error = validationErrorLabel.text else { return }
-                    AccessibilityAnnouncementQueue.shared.post(announcement: "Error: \(error)")
-                } else {
-                    UIAccessibility.post(
-                        notification: .layoutChanged,
-                        argument: textView
-                    )
-                    textView.becomeFirstResponder()
-                }
-            } else {
-                scrollView?.scrollRectToVisible(
-                    validationErrorLabel.frame,
-                    animated: true
-                )
+            if let error = validationErrorLabel.text {
+                AccessibilityAnnouncementQueue.shared.post(announcement: "Error: \(error)")
             }
+            textView.becomeFirstResponder()
         }
 
         // MARK: - TextViewDelegate
