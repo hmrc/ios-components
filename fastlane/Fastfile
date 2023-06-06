@@ -180,7 +180,7 @@ platform :ios do
     end
     project_version = version.to_string
 
-    sh('swift package generate-xcodeproj')
+    # sh('swift package generate-xcodeproj')
     branch_name = "release/" + project_version
     sh('git checkout -b ' + branch_name)
 
