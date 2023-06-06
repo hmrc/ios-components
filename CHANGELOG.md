@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [7.2.2] - 2023-06-06Z
+
 - Changed how accessibility focuses on a validation error on tax calculator view.
 
 ## [7.2.1] - 2023-05-04Z
