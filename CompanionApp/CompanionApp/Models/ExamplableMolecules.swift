@@ -394,6 +394,13 @@ extension Components.Molecules.MultiColumnRowView: Examplable {
                 LabelColumn(proportionalWidth: 0.4)
             ]
         )
+        let twoLabelExampleWithAccessibilityLabel = Components.Molecules.MultiColumnRowView(
+            labels: ["Payroll number", "AB12345XYZA12"],
+            attributes: [
+                LabelColumn(proportionalWidth: 0.6),
+                LabelColumn(proportionalWidth: 0.4, accessibilityLabel: "A,B,1,2,3,4,5,X,Y,Z,A,1,2")
+            ]
+        )
         let twoLabelBoldExample = Components.Molecules.MultiColumnRowView(
             labels: [ExampleText.LoremIpsum.longer.rawValue,
                      ExampleText.LoremIpsum.long.rawValue],

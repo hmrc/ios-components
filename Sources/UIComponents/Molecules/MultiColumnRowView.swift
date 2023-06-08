@@ -22,18 +22,21 @@ public struct LabelColumn {
     let huggingPriority: UILayoutPriority
     let proportionalWidth: CGFloat?
     let accessibilityHint: String?
+    let accessibilityLabel: String?
 
     public init(style: LabelStyle = .body,
                 canCopy: Bool = false,
                 huggingPriority: UILayoutPriority = .required,
                 proportionalWidth: CGFloat? = nil,
-                accessibilityHint: String? = nil
+                accessibilityHint: String? = nil,
+                accessibilityLabel: String? = nil
     ) {
         self.style = style
         self.canCopy = canCopy
         self.huggingPriority = huggingPriority
         self.proportionalWidth = proportionalWidth
         self.accessibilityHint = accessibilityHint
+        self.accessibilityLabel = accessibilityLabel
     }
 }
 
@@ -108,6 +111,10 @@ extension Components.Molecules {
                 
                 label.accessibilityHint = column.accessibilityHint
                 
+                if let accessibilityLabel = column.accessibilityLabel {
+                    label.accessibilityLabel = accessibilityLabel
+                }
+                
                 return self.update(label: label, column: column, index: index)
             })
             setupLabelsAndConstraints(attributes: attributes)
@@ -125,6 +132,10 @@ extension Components.Molecules {
                 )
                 
                 label.accessibilityHint = column.accessibilityHint
+                
+                if let accessibilityLabel = column.accessibilityLabel {
+                    label.accessibilityLabel = accessibilityLabel
+                }
                 
                 return self.update(label: label, column: column, index: index)
             })
