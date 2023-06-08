@@ -647,7 +647,7 @@
 			repositoryURL = "https://github.com/hmrc/ios-components.git";
 			requirement = {
 				kind = revision;
-				revision = c5db8d76b7b8dcc10abe8e1b70d67ad21fbc1323;
+				revision = 9ca63084ae33c144be59ef00d02cfc38285c3199;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
