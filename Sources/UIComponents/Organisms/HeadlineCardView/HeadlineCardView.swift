@@ -26,15 +26,21 @@ extension Components.Organisms {
             open class Model {
                 public let title: String
                 public let headline: NSAttributedString
+                public let headlineAccessibilityLabel: String?
+                public let headlineAccessibilityHint: String?
 
-                public init(title: String, headline: String) {
+                public init(title: String, headline: String, headlineAccessibilityLabel: String? = nil, headlineAccessibilityHint: String? = nil) {
                     self.title = title
                     self.headline = NSMutableAttributedString.styled(style: .H3, string: headline)
+                    self.headlineAccessibilityLabel = headlineAccessibilityLabel
+                    self.headlineAccessibilityHint = headlineAccessibilityHint
                 }
 
-                public init(title: String, headline: NSAttributedString) {
+                public init(title: String, headline: NSAttributedString, headlineAccessibilityLabel: String? = nil, headlineAccessibilityHint: String? = nil) {
                     self.title = title
                     self.headline = headline
+                    self.headlineAccessibilityLabel = headlineAccessibilityLabel
+                    self.headlineAccessibilityHint = headlineAccessibilityHint
                 }
             }
 
@@ -107,6 +113,13 @@ extension Components.Organisms {
             public func updateUI(for model: Model) {
                 titleLabel.text = model.title
                 headlineLabel.attributedText = model.headline
+                if let headlineAccessibilityLabel = model.headlineAccessibilityLabel {
+                    headlineLabel.accessibilityLabel = headlineAccessibilityLabel
+                }
+                
+                if let headlineAccessibilityHint = model.headlineAccessibilityHint {
+                    headlineLabel.accessibilityHint = headlineAccessibilityHint
+                }
             }
         }
 
@@ -115,18 +128,28 @@ extension Components.Organisms {
             public let buttonAccessibilityLabel: String?
             public let buttonAccessibilityHint: String?
 
-            public init(title: String, headline: String, views: [UIView] = [], buttonAccessibilityLabel: String? = nil, buttonAccessibilityHint: String? = nil) {
+            public init(title: String, headline: String, views: [UIView] = [], buttonAccessibilityLabel: String? = nil, buttonAccessibilityHint: String? = nil, headlineAccessibilityLabel: String? = nil, headlineAccessibilityHint: String? = nil) {
                 self.views = views
                 self.buttonAccessibilityLabel = buttonAccessibilityLabel
                 self.buttonAccessibilityHint = buttonAccessibilityHint
-                super.init(title: title, headline: headline)
+                super.init(
+                    title: title,
+                    headline: headline,
+                    headlineAccessibilityLabel: headlineAccessibilityLabel,
+                    headlineAccessibilityHint: headlineAccessibilityHint
+                )
             }
 
-            public init(title: String, headline: NSAttributedString, views: [UIView] = [], buttonAccessibilityLabel: String? = nil, buttonAccessibilityHint: String? = nil) {
+            public init(title: String, headline: NSAttributedString, views: [UIView] = [], buttonAccessibilityLabel: String? = nil, buttonAccessibilityHint: String? = nil, headlineAccessibilityLabel: String? = nil, headlineAccessibilityHint: String? = nil) {
                 self.views = views
                 self.buttonAccessibilityLabel = buttonAccessibilityLabel
                 self.buttonAccessibilityHint = buttonAccessibilityHint
-                super.init(title: title, headline: headline)
+                super.init(
+                    title: title,
+                    headline: headline,
+                    headlineAccessibilityLabel: headlineAccessibilityLabel,
+                    headlineAccessibilityHint: headlineAccessibilityHint
+                )
             }
         }
 

@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- Added optional accessibilityHint and Label to HeadlineCardView's `headline`
 
 ## [7.3.0] - 2023-06-08Z
 - Added optional accessibilityLabel to MultiColumnRowView
