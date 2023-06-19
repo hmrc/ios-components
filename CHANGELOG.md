@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [7.4.0] - 2023-06-19Z
 - Added optional accessibilityHint and Label to HeadlineCardView's `headline`
 
 ## [7.3.0] - 2023-06-08Z
