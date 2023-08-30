@@ -299,7 +299,15 @@ extension Components.Molecules {
 
         private func setupAccessibility() {
             accessibilityElements = [backgroundButton]
-            backgroundButton.accessibilityTraits = .none
+            backgroundButton.accessibilityTraits = [.button]
+
+            if let button = backgroundButton as? HMRCButton {
+                button.onAccessibilityActivate = { [weak self] in
+                    guard let self else { return }
+                    self.isSelected.toggle()
+                    self.delegate?.didTap(row: self)
+                }
+            }
         }
 
         private func updateImage(isSelected: Bool) {
