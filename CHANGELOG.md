@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [7.4.1] - 2023-08-30Z
 - Fixed VoiceOver selection on `SelectRowView`
 - Added optional accessibilityHint and Label to HeadlineCardView's `headline`
 
