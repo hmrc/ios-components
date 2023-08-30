@@ -278,17 +278,24 @@ internal class HMRCButton: FlexibleButton {
     }
 
     override func updateConstraints() {
-           super.updateConstraints()
+        super.updateConstraints()
 
-           DispatchQueue.main.async { [weak self] in
-               guard let self = self else { return }
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
 
-               self.baselineView.snp.remakeConstraints { make in
-                   make.left.equalTo(self.snp.left)
-                   make.right.equalTo(self.snp.right)
-                   make.bottom.equalTo(self.snp.bottom)
-                   make.height.equalTo(3)
-               }
-           }
-       }
+            self.baselineView.snp.remakeConstraints { make in
+                make.left.equalTo(self.snp.left)
+                make.right.equalTo(self.snp.right)
+                make.bottom.equalTo(self.snp.bottom)
+                make.height.equalTo(3)
+            }
+        }
+    }
+
+    public var onAccessibilityActivate: VoidHandler?
+
+    override func accessibilityActivate() -> Bool {
+        onAccessibilityActivate?()
+        return true
+    }
 }
