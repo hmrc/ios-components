@@ -295,7 +295,11 @@ internal class HMRCButton: FlexibleButton {
     public var onAccessibilityActivate: VoidHandler?
 
     override func accessibilityActivate() -> Bool {
-        onAccessibilityActivate?()
-        return true
+        if let onAccessibilityActivate {
+            onAccessibilityActivate()
+            return true
+        } else {
+            return super.accessibilityActivate()
+        }
     }
 }
