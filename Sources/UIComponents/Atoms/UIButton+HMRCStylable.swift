@@ -235,21 +235,21 @@ extension UIButton: Stylable {
 
 // MARK: - Subclass
 
-internal class HMRCButton: FlexibleButton {
+public class HMRCButton: FlexibleButton {
     private var baselineView = UIView()
     private var baselineColors: [UInt: UIColor] = [:]
     private var backgroundColours: [UInt: UIColor] = [:]
 
     var style: ButtonStyle?
 
-    override var isEnabled: Bool {
+    public override var isEnabled: Bool {
         didSet {
             updateBaselineColor()
             updateBackgroundColor()
         }
     }
 
-    override var isHighlighted: Bool {
+    public override var isHighlighted: Bool {
         didSet {
             updateBaselineColor()
             updateBackgroundColor()
@@ -277,7 +277,7 @@ internal class HMRCButton: FlexibleButton {
         backgroundColor = backgroundColours[state.rawValue] ?? backgroundColours[UIControl.State.normal.rawValue]
     }
 
-    override func updateConstraints() {
+    public override func updateConstraints() {
         super.updateConstraints()
 
         DispatchQueue.main.async { [weak self] in
@@ -294,7 +294,7 @@ internal class HMRCButton: FlexibleButton {
 
     public var onAccessibilityActivate: VoidHandler?
 
-    override func accessibilityActivate() -> Bool {
+    public override func accessibilityActivate() -> Bool {
         if let onAccessibilityActivate {
             onAccessibilityActivate()
             return true
