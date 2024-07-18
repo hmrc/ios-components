@@ -20,7 +20,7 @@ import UIKit
  * FlexibleButton resizes correctly when using large dynamic text which spans more than one line
  */
 
-public class FlexibleButton: UIButton {
+open class FlexibleButton: UIButton {
 
     var heightConstraint: NSLayoutConstraint?
 
@@ -36,7 +36,7 @@ public class FlexibleButton: UIButton {
         commonInit()
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }

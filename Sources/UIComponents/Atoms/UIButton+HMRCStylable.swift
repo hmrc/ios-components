@@ -235,7 +235,7 @@ extension UIButton: Stylable {
 
 // MARK: - Subclass
 
-public class HMRCButton: FlexibleButton {
+open class HMRCButton: FlexibleButton {
     private var baselineView = UIView()
     private var baselineColors: [UInt: UIColor] = [:]
     private var backgroundColours: [UInt: UIColor] = [:]
