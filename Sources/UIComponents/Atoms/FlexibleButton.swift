@@ -31,7 +31,7 @@ open class FlexibleButton: UIButton {
         }
     }
 
-    init() {
+    public init() {
         super.init(frame: .zero)
         commonInit()
     }
@@ -39,6 +39,10 @@ open class FlexibleButton: UIButton {
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
+    }
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
     }
 
     open func commonInit() {
