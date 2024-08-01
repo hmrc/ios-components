@@ -43,7 +43,7 @@ GEM
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
     fastimage (2.1.7)
-    fastlane (2.148.1)
+    fastlane (2.213.0)
       CFPropertyList (>= 2.3, < 4.0.0)
       addressable (>= 2.3, < 3.0.0)
       aws-sdk-s3 (~> 1.0)
@@ -180,4 +180,4 @@ DEPENDENCIES
   semantic
 
 BUNDLED WITH
-   2.0.2
+   2.4.15

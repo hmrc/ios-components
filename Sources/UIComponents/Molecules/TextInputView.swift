@@ -152,6 +152,7 @@ extension Components.Molecules {
             $0.isScrollEnabled = false
             $0.translatesAutoresizingMaskIntoConstraints = false
             $0.setContentHuggingPriority(.defaultLow, for: .horizontal)
+            $0.textAlignment = .left
             $0.isAccessibilityElement = true
             $0.adjustsFontForContentSizeCategory = true
             $0.textContainer.heightTracksTextView = true
