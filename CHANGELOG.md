@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- updated dependencies
+- change minimum iOS version to ios 15
+- added a textAlignment left to the `textView` view in `TextInputView` molecule.
 
 ## [7.4.2] - 2023-08-31Z
 - Fixed bug with accessibilityActivate
