@@ -531,6 +531,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development: NGCMobile Cert (Y5Y97FT8YY)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 4LL5YKZZU7;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 4LL5YKZZU7;
 				INFOPLIST_FILE = CompanionApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -540,6 +541,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = uk.gov.hmrc.ngc.UIComponentsTestApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development uk.gov.hmrc.ngc.UIComponentsTestApp";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "match AdHoc uk.gov.hmrc.ngc.UIComponentsTestApp";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
