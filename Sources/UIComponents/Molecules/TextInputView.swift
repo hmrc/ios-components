@@ -416,7 +416,6 @@ extension Components.Molecules {
         private func modifyAccessibilityLabel(with validationError: String?) -> String {
             guard let accessibilityLabel = model.accessibilityLabel ?? model.title else { return "" }
             if let error = validationError, !error.isEmpty {
-                
                 return "Editing, \(accessibilityLabel), edit box"
             }
             return "\(accessibilityLabel), edit box"
