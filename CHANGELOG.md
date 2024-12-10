@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [7.5.1] - 2024-12-10Z
+- Fixed textfield accessibility voiceover repeated error issue in `TextInputView` molecule.
+
 ## [7.5.0] - 2024-08-05Z
 - updated dependencies
 - change minimum iOS version to ios 15
