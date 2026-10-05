@@ -38,11 +38,12 @@ public extension UIColor {
              pink,
              yellow
 
+        @available(*, deprecated, message: "Use UIColor.Semantic.allColors")
         public static var allColors: [(String, UIColor)] {
             return allCases.map { ($0.rawValue, $0.colour) }
         }
-        
-     
+
+        @available(*, deprecated, message: "Use a UIColor.Semantic token, or UIColor.Palette.Primary / UIColor.Palette.DarkMode")
         public var colour: UIColor {
             let colorContainer: NamedColors = colorService.colors
 

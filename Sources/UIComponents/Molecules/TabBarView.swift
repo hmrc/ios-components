@@ -157,7 +157,7 @@ extension Components.Molecules {
                 $0.delegate = self
                 self.stackView.addArrangedSubview($0)
             }
-            scrollView.backgroundColor = model.theme == .dark ? UIColor.Named.black.colour : UIColor.Named.white.colour
+            scrollView.backgroundColor = model.theme == .dark ? UIColor.Semantic.darkText : UIColor.Semantic.lightText
         }
 
         public override init(frame: CGRect) {
@@ -244,16 +244,16 @@ extension Components.Molecules {
 
             switch theme {
             case .dark:
-                setTitleColor(UIColor.Named.white.colour, for: .selected)
-                setTitleColor(UIColor.Named.grey2.colour, for: .normal)
-                backgroundColor = UIColor.Named.black.colour
-                highlightView.backgroundColor = UIColor.Named.white.colour
+                setTitleColor(UIColor.Semantic.lightText, for: .selected)
+                setTitleColor(UIColor.Palette.Primary.midGrey.uiColour, for: .normal)
+                backgroundColor = UIColor.Semantic.darkText
+                highlightView.backgroundColor = UIColor.Semantic.lightText
 
             case .light:
-                setTitleColor(UIColor.Named.blue.colour, for: .selected)
-                setTitleColor(UIColor.Named.grey1.colour, for: .normal)
-                backgroundColor = UIColor.Named.white.colour
-                highlightView.backgroundColor = UIColor.Named.blue.colour
+                setTitleColor(UIColor.Semantic.linkText, for: .selected)
+                setTitleColor(UIColor.Semantic.infoText, for: .normal)
+                backgroundColor = UIColor.Semantic.lightText
+                highlightView.backgroundColor = UIColor.Semantic.linkText
             }
         }
 

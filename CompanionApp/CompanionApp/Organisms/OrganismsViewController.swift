@@ -41,7 +41,7 @@ class OrganismsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBarController?.tabBar.tintColor = UIColor.Named.blue.colour
+        tabBarController?.tabBar.tintColor = UIColor.Semantic.linkText
         print(tabBarController ?? "Nope")
         navigationItem.title = "App: \(appVersion) - Lib: \(Components.Info.libraryVersion)"
     }

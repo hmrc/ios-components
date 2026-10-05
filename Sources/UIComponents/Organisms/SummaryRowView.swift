@@ -247,7 +247,7 @@ extension Components.Organisms {
         private lazy var iconImageView: UIImageView = {
             let imageView = UIImageView(frame: .zero)
             imageView.contentMode = .scaleAspectFit
-            imageView.tintColor = UIColor.Named.blue.colour
+            imageView.tintColor = UIColor.Semantic.linkText
             imageView.translatesAutoresizingMaskIntoConstraints = false
             return imageView
         }()
