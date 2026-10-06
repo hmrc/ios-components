@@ -71,7 +71,7 @@ extension Components.Organisms {
                 warningCard.bodyLabel.textColor = UIColor.Semantic.lightText
                 warningCard.iconImageView.tintColor = UIColor.Semantic.lightText
             case .warning:
-                warningParentCard.backgroundColor = UIColor.Named.yellow.colour
+                warningParentCard.backgroundColor = UIColor.Semantic.infoMessageWarningBackground
                 warningCard.bodyLabel.textColor = UIColor.black
                 warningCard.iconImageView.tintColor = UIColor.black
             case .notice:
@@ -150,7 +150,7 @@ extension Components.Organisms {
                 case .info:
                     return UIColor.Semantic.linkText
                 case .warning:
-                    return UIColor.Named.yellow.colour
+                    return UIColor.Semantic.infoMessageWarningBackground
                 case .notice:
                     return UIColor.Semantic.darkText
                 case let .custom(backgroundColor, _, _):
@@ -164,7 +164,7 @@ extension Components.Organisms {
                 case .info:
                     return UIColor.Semantic.linkText.lighten(0.08)
                 case .warning:
-                    return UIColor.Named.yellow.colour.lighten(0.08)
+                    return UIColor.Semantic.infoMessageWarningBackground.lighten(0.08)
                 case .notice:
                     return UIColor.Semantic.darkText.lighten(0.08)
                 case let .custom(backgroundColor, _, _):

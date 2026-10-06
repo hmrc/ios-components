@@ -366,7 +366,7 @@ extension Components.StatusCardView: Examplable {
                 style: .body,
                 string: ExampleText.LoremIpsum.longest.rawValue
                 ).withAlignment(.center),
-            iconTintColor: UIColor.Named.green1.colour,
+            iconTintColor: UIColor(dark: UIColor.Palette.DarkMode.primaryGreen, light: UIColor.Palette.Primary.green),
             views: [
                 button
             ]

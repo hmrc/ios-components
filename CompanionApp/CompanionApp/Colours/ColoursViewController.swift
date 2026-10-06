@@ -19,7 +19,8 @@ import UIKit
 
 class ColoursViewController: UIViewController {
     var semanticColors = UIColor.Semantic.allColors
-    var namedColors: [(String, UIColor)] = UIColor.Named.allColors
+    var primaryPalette = UIColor.Palette.Primary.allCases.map { ("\($0.rawValue) (\($0.hex))", $0.uiColour) }
+    var darkModePalette = UIColor.Palette.DarkMode.allCases.map { ("\($0.rawValue) (\($0.hex))", $0.uiColour) }
 
     private lazy var scrollView: UIScrollView = .build()
     private lazy var stackView: UIStackView = .build {
@@ -51,11 +52,17 @@ class ColoursViewController: UIViewController {
     }
 
     private func setupColourViews() {
-        let namedColourViews = namedColors.map { title, colour -> ColourView in
+        let primaryColourViews = primaryPalette.map { title, colour -> ColourView in
             ColourView(title: title, colour: colour)
         }
-        stackView.addArrangedSubview(UILabel.styled(style: .H4, string: "Named Colours"))
-        namedColourViews.forEach { stackView.addArrangedSubview($0) }
+        stackView.addArrangedSubview(UILabel.styled(style: .H4, string: "Primary Palette"))
+        primaryColourViews.forEach { stackView.addArrangedSubview($0) }
+
+        let darkModeColourViews = darkModePalette.map { title, colour -> ColourView in
+            ColourView(title: title, colour: colour)
+        }
+        stackView.addArrangedSubview(UILabel.styled(style: .H4, string: "Dark Mode Palette"))
+        darkModeColourViews.forEach { stackView.addArrangedSubview($0) }
 
         let semanticColourViews = semanticColors.map { title, colour -> ColourView in
             ColourView(title: title, colour: colour)

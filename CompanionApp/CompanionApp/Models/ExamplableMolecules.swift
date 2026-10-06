@@ -74,7 +74,7 @@ extension Components.Molecules.SelectRowView: Examplable {
 
     static func withPlaceholders() -> UIView {
         return self.init(
-            model: .init(imageTintColor: UIColor.Named.black.colour, rows: [
+            model: .init(imageTintColor: UIColor.Semantic.darkText, rows: [
                 .init(body: "Option 1")
             ])
         )
@@ -546,7 +546,7 @@ extension Components.Molecules.StatusView: Examplable {
                 style: .body,
                 string: ExampleText.LoremIpsum.longest.rawValue
             ).withAlignment(.left),
-            iconTintColor: UIColor.Named.green1.colour
+            iconTintColor: UIColor(dark: UIColor.Palette.DarkMode.primaryGreen, light: UIColor.Palette.Primary.green)
         )
 
         return [model, modelWithoutBody, longModel].map {
@@ -625,7 +625,7 @@ extension Components.Molecules.DonutChartView: Examplable {
     static func withPlaceholders() -> UIView {
         let chart = Components.Molecules.DonutChartView(
             model: .init(
-                primaryColor: .Named.teal.colour,
+                primaryColor: UIColor.Palette.Primary.turquoise.uiColour,
                 secondaryColor: .init(hexString: "#003078")
             )
         )
@@ -640,13 +640,13 @@ extension Components.Molecules.DonutChartView: Examplable {
     static func examples() -> [UIView] {
         let chart1 = Components.Molecules.DonutChartView(
             model: .init(
-                primaryColor: .Named.yellow.colour,
-                secondaryColor: .Named.pink.colour
+                primaryColor: UIColor(dark: UIColor.Palette.DarkMode.yellowDark, light: UIColor.Palette.Primary.yellowLight),
+                secondaryColor: UIColor(dark: UIColor.Palette.DarkMode.pinkDark, light: UIColor.Palette.Primary.pink)
             )
         )
         let chart2 = Components.Molecules.DonutChartView(
             model: .init(
-                primaryColor: .Named.teal.colour,
+                primaryColor: UIColor.Palette.Primary.turquoise.uiColour,
                 secondaryColor: .init(hexString: "#003078")
             )
         )

@@ -59,6 +59,7 @@ extension UIColor {
         public static var statusCardIconDefaultTint = semanticColors.statusCardIconDefaultTint
         public static var switchTint = semanticColors.switchTint
         public static var switchTintSelected = semanticColors.switchTintSelected
+        public static var switchBorder = semanticColors.switchBorder
         public static var textInputBorder = semanticColors.textInputBorder
         public static var textInputLeftViewTint = semanticColors.textInputLeftViewTint
         public static var secondaryButtonText = semanticColors.secondaryButtonText
@@ -66,5 +67,6 @@ extension UIColor {
         public static var secondaryButtonHighlightedBackground = semanticColors.secondaryButtonHighlightedBackground
         public static var whiteBackground = semanticColors.whiteBackground
         public static var textInputClearButtonTint = semanticColors.textInputClearButtonTint
+        public static var infoMessageWarningBackground = semanticColors.infoMessageWarningBackground
     }
 }
