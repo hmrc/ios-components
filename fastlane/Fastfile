@@ -42,7 +42,6 @@ platform :ios do
 
     last_local_tag = last_git_tag
     dev_tag = Time.now.to_i.to_s + ".0.0" # .0.0 is required for Xcode to solve the versioning
-    sh('swift package generate-xcodeproj') # Make sure changes to the manifest file are carried through to the dev package
     sh("[[ -z $(git status -s) ]] || git commit -a -m 'development commit for " + dev_tag + "'")
     sh("git tag " + dev_tag)
 
