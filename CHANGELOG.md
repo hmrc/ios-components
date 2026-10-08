@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- **Breaking (toolchain):** updated SnapKit 5.7.1 -> 6.0.0. SnapKit 6 requires Swift tools 6.0, so consumers now need **Xcode 16 or later**. SnapKit's public API is unchanged (`#file` -> `#fileID` in constraint default parameters) and UIComponents' API is unchanged.
+- Raised the package manifest's swift-tools-version from 5.6 to 5.10 (matches ios-core-library) and regenerated `Package.resolved`, which still pinned SnapKit 5.0.1 in the old v1 format.
+- Removed the `swift package generate-xcodeproj` call from the `update_dependent_projects` fastlane lane; that subcommand no longer exists in the Swift toolchain.
 
 ## [7.5.1] - 2024-12-10Z
 - Fixed textfield accessibility voiceover repeated error issue in `TextInputView` molecule.
