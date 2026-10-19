@@ -52,9 +52,15 @@ public protocol SemanticColors {
     var whiteBackground: UIColor { get set }
     var textInputClearButtonTint: UIColor { get set }
     var infoMessageWarningBackground: UIColor { get set }
+    var cardTitleText: UIColor { get set }
 }
 
 public extension SemanticColors {
+    var cardTitleText: UIColor {
+        get { UIColor(dark: Primary.white, light: Primary.blue) }
+        set {} // swiftlint:disable:this unused_setter_value
+    }
+
     var switchBorder: UIColor {
         get { Primary.midGrey.uiColour }
         set {} // swiftlint:disable:this unused_setter_value
@@ -118,5 +124,6 @@ extension UIColor {
         open var whiteBackground = UIColor(dark: Primary.black, light: Primary.white)
         open var textInputClearButtonTint = UIColor(dark: Primary.midGrey, light: Primary.darkGrey)
         open var infoMessageWarningBackground = UIColor(dark: DarkMode.yellowDark, light: Primary.yellowLight)
+        open var cardTitleText = UIColor(dark: Primary.white, light: Primary.blue)
     }
 }

@@ -46,7 +46,7 @@ extension Components.Organisms {
 
             // MARK: - Views & Outlets 
 
-            public let titleLabel = UILabel.buildH5Label()
+            public let titleLabel = UILabel.buildH5Label { $0.textColor = UIColor.Semantic.cardTitleText }
             public let headlineLabel = UILabel.buildH3Label()
 
             // MARK: - Initialisation
