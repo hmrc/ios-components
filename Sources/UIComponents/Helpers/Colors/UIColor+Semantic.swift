@@ -68,5 +68,6 @@ extension UIColor {
         public static var whiteBackground = semanticColors.whiteBackground
         public static var textInputClearButtonTint = semanticColors.textInputClearButtonTint
         public static var infoMessageWarningBackground = semanticColors.infoMessageWarningBackground
+        public static var cardTitleText = semanticColors.cardTitleText
     }
 }

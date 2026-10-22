@@ -55,7 +55,13 @@ extension Components.Organisms {
         }
 
         public func updateUI(for model: Model) {
-            titleLabel.attributedText = NSMutableAttributedString.styled(style: .H5, string: model.title)
+            let title = NSMutableAttributedString.styled(style: .H5, string: model.title)
+            title.addAttribute(
+                .foregroundColor,
+                value: UIColor.Semantic.cardTitleText,
+                range: NSRange(location: 0, length: title.length)
+            )
+            titleLabel.attributedText = title
             setComponents([titleLabel] + model.views)
         }
 
