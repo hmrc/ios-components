@@ -115,7 +115,7 @@ extension UIColor {
         open var switchBorder = Primary.midGrey.uiColour
         open var textInputBorder = UIColor(dark: Primary.white, light: Primary.darkGrey)
         open var textInputLeftViewTint = UIColor(dark: Primary.white, light: Primary.darkGrey)
-        open var secondaryButtonText = UIColor(dark: Primary.white, light: Primary.blue)
+        open var secondaryButtonText = UIColor(dark: Primary.teal, light: Primary.blue)
         open var secondaryButtonBackground = UIColor.clear
         open var secondaryButtonHighlightedBackground = UIColor(
             darkColour: Primary.midGrey.uiColour.darken(0.4),
