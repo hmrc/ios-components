@@ -45,6 +45,7 @@ extension UIColor {
         public static var cardBackground = semanticColors.cardBackground
         public static var cardShadow = semanticColors.cardShadow
         public static var pageBackground = semanticColors.pageBackground
+        public static var pageBackgroundAlternative = semanticColors.pageBackgroundAlternative
         public static var menuCardBackground = semanticColors.menuCardBackground
         public static var menuPageBackground = semanticColors.menuPageBackground
         public static var divider = semanticColors.divider

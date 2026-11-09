@@ -29,6 +29,7 @@ public protocol SemanticColors {
     var cardBackground: UIColor { get set }
     var cardShadow: UIColor { get set }
     var pageBackground: UIColor { get set }
+    var pageBackgroundAlternative: UIColor { get set }
     var menuCardBackground: UIColor { get set }
     var menuPageBackground: UIColor { get set }
     var divider: UIColor { get set }
@@ -86,6 +87,7 @@ extension UIColor {
         open var cardBackground = UIColor(dark: DarkMode.darkNavy3, light: Primary.white)
         open var cardShadow = UIColor(darkColour: .clear, lightColour: Primary.lightGrey.uiColour.darken(0.08))
         open var pageBackground = UIColor(dark: DarkMode.darkNavy2, light: Primary.lightGrey)
+        open var pageBackgroundAlternative = UIColor(dark: DarkMode.darkNavy3, light: Primary.white)
         open var menuCardBackground = UIColor(dark: Primary.black, light: Primary.lightGrey)
         open var menuPageBackground = UIColor(dark: DarkMode.whiteDark, light: Primary.white)
         open var divider = Primary.midGrey.uiColour
