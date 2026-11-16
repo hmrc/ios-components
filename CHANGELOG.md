@@ -5,6 +5,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- Add new semantic tokens for dark mode, deprecate old ones, and apply new semantic tokens
 
 ## [7.5.1] - 2024-12-10Z
 - Fixed textfield accessibility voiceover repeated error issue in `TextInputView` molecule.
