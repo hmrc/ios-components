@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [7.5.2] - 2026-11-17Z
 - Add new semantic tokens for dark mode, deprecate old ones, and apply new semantic tokens
 
 ## [7.5.1] - 2024-12-10Z
