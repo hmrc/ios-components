@@ -120,8 +120,8 @@ extension UIColor {
         open var secondaryButtonText = UIColor(dark: Primary.teal, light: Primary.blue)
         open var secondaryButtonBackground = UIColor.clear
         open var secondaryButtonHighlightedBackground = UIColor(
-            darkColour: Primary.midGrey.uiColour.darken(0.4),
-            lightColour: Primary.blue.uiColour.lighten(0.84)
+            darkColour: DarkMode.darkNavy5.uiColour,
+            lightColour: Primary.lightBlue.uiColour
         )
         open var whiteBackground = UIColor(dark: Primary.black, light: Primary.white)
         open var textInputClearButtonTint = UIColor(dark: Primary.midGrey, light: Primary.darkGrey)
