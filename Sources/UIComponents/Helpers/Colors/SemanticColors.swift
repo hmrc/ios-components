@@ -58,7 +58,7 @@ public protocol SemanticColors {
 
 public extension SemanticColors {
     var cardTitleText: UIColor {
-        get { UIColor(dark: Primary.white, light: Primary.blue) }
+        get { UIColor(dark: Primary.white, light: Primary.black) }
         set {} // swiftlint:disable:this unused_setter_value
     }
 
@@ -126,6 +126,6 @@ extension UIColor {
         open var whiteBackground = UIColor(dark: Primary.black, light: Primary.white)
         open var textInputClearButtonTint = UIColor(dark: Primary.midGrey, light: Primary.darkGrey)
         open var infoMessageWarningBackground = UIColor(dark: DarkMode.yellowDark, light: Primary.yellowLight)
-        open var cardTitleText = UIColor(dark: Primary.white, light: Primary.blue)
+        open var cardTitleText = UIColor(dark: Primary.white, light: Primary.black)
     }
 }
